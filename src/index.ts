@@ -15,14 +15,44 @@
 // `startIntroTour`, and all public types).
 import "./index.css";
 
-import App from "./App";
+import App, { exportPdf as exportOdontogramPdf } from "./App";
+import { setPdfHostReportData } from "./perioPdf";
+import type { PdfExportOptions, PdfHostReportData } from "./perioPdf";
 
 // The main component, exported both as a default and under an explicit,
 // self-documenting name.
 export default App;
 export { App as OdontogramShell };
 
+/**
+ * Host-aware PDF export. Existing callers can keep using `exportPdf(opts)`
+ * unchanged. Embedding clinical applications may pass a second, presentation-
+ * only object containing patient rows and additional report sections; that data
+ * is handed to the existing PDF assembler for this export only and is never
+ * written into odontogram status/plan/FHIR state.
+ */
+let hostPdfExportInProgress = false;
+export async function exportPdf(
+  opts: PdfExportOptions,
+  hostReportData?: PdfHostReportData,
+): Promise<void> {
+  // Match the engine's existing one-export-at-a-time behavior while protecting
+  // the scoped host-data handoff from a concurrent wrapper call.
+  if(hostPdfExportInProgress) return;
+  hostPdfExportInProgress = true;
+  setPdfHostReportData(hostReportData ?? null);
+  try {
+    await exportOdontogramPdf(opts);
+  } finally {
+    setPdfHostReportData(null);
+    hostPdfExportInProgress = false;
+  }
+}
+
+export type { PdfExportOptions, PdfHostReportData, PdfHostReportSection, PdfRow } from "./perioPdf";
+
 // Everything else already surfaced by App.tsx (state functions, PerioChart,
-// startIntroTour, and the public types). `export *` does not re-export a
-// default, so it never clashes with the `App` default above.
+// startIntroTour, and the public types). The explicit `exportPdf` above takes
+// precedence over the same name from this star export, preserving the old API
+// while adding the optional host-report argument at the package root.
 export * from "./App";
