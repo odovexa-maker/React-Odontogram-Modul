@@ -176,6 +176,62 @@ function ArchDiagram({
   );
 }
 
+function DiagramLegend() {
+  const itemStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    whiteSpace: "nowrap",
+  } as const;
+  const lineStyle = (color: string) => ({
+    display: "inline-block",
+    width: 18,
+    height: 0,
+    borderTop: `2px solid ${color}`,
+    borderRadius: 999,
+    flex: "0 0 auto",
+  }) as const;
+
+  return (
+    <div
+      aria-label="Periodontal diagram legend"
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        gap: "8px 16px",
+        padding: "2px 2px 0",
+        color: "var(--text-muted, #64748b)",
+        fontSize: 11,
+        lineHeight: 1.4,
+      }}
+    >
+      <span style={itemStyle}>
+        <span aria-hidden="true" style={lineStyle("#2563eb")} />
+        <span><strong>PD</strong> · Probing depth</span>
+      </span>
+      <span style={itemStyle}>
+        <span aria-hidden="true" style={lineStyle("#e85d8a")} />
+        <span><strong>GM</strong> · Gingival margin</span>
+      </span>
+      <span style={itemStyle}>
+        <span
+          aria-hidden="true"
+          style={{
+            display: "inline-block",
+            width: 7,
+            height: 7,
+            borderRadius: 999,
+            background: "#ef4444",
+            flex: "0 0 auto",
+          }}
+        />
+        <span><strong>BOP</strong> · Bleeding on probing</span>
+      </span>
+    </div>
+  );
+}
+
 /**
  * Read-only periodontal diagram for reports.
  *
@@ -228,9 +284,7 @@ export default function PeriodontalDiagramSurface() {
         palatalLabel="Lingual"
         containerRef={lowerRef}
       />
-      <div style={{ fontSize: 11, lineHeight: 1.5, opacity: 0.62 }}>
-        Read-only periodontal diagram · pocket/gingival-margin curves with BOP markers
-      </div>
+      <DiagramLegend />
     </div>
   );
 }
