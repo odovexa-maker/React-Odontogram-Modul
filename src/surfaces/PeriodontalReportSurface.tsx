@@ -12,6 +12,7 @@ import {
   onStateChange,
 } from "../odontogram";
 import { indexName } from "../perioIndexNames";
+import PeriodontalDiagramSurface from "./PeriodontalDiagramSurface";
 
 type PerioSummaryData = ReturnType<typeof getPerioSummary>;
 type ClassificationData = ReturnType<typeof getPerioClassification>;
@@ -75,9 +76,10 @@ function extentLabel(v: string): string {
  * Read-only periodontal report surface.
  *
  * Reuses the exact getPerioSummary()/getPerioClassification() outputs used by
- * PerioSidebar, but intentionally omits the 32-tooth data-entry grid and the
- * editable Patient Data / override controls. It is therefore suitable for a
- * clinical report while preserving one periodontal calculation authority.
+ * PerioSidebar, plus the same perioGraphic tooth/curve/BOP renderer used by
+ * PerioChart. It intentionally omits the 32-tooth data-entry grid and the
+ * editable Patient Data / override controls, so the report remains read-only
+ * while preserving one periodontal calculation and rendering authority.
  */
 export default function PeriodontalReportSurface() {
   const [summary, setSummary] = useState<PerioSummaryData>(EMPTY_SUMMARY);
@@ -146,6 +148,11 @@ export default function PeriodontalReportSurface() {
             </span>
           ))}
         </div>
+      </div>
+
+      <div className="perio-summary-card" aria-label="Periodontal diagram">
+        <div className="perio-summary-card-title">Periodontal diagram</div>
+        <PeriodontalDiagramSurface />
       </div>
     </div>
   );
