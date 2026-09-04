@@ -60,6 +60,50 @@ export interface PdfRow {
   value: string;
 }
 
+/**
+ * Host-application report section. This is intentionally presentation-only:
+ * the host retains ownership of the underlying clinical data and supplies
+ * already-formatted rows at export time. Nothing here is persisted into the
+ * odontogram tooth/status/plan data model.
+ */
+export interface PdfHostReportSection {
+  title: string;
+  rows: PdfRow[];
+}
+
+/**
+ * Optional report data supplied by an embedding clinical application. It can
+ * brand the document title, replace the PDF's patient-identity rows, and insert
+ * additional tabular clinical sections before the odontogram section. The
+ * odontogram remains the report/render engine; this object is never serialized
+ * into odontogram JSON/FHIR state.
+ */
+export interface PdfHostReportData {
+  reportTitle?: string;
+  patient?: PdfRow[];
+  sections?: PdfHostReportSection[];
+}
+
+// `odontogram.ts` owns the existing browser PDF export flow and calls
+// `assemblePdf()` internally. Package consumers that need host sections use the
+// root export wrapper (src/index.ts), which scopes this module-level handoff to a
+// single awaited export and clears it in `finally`. Clone the input so a host
+// cannot mutate report content while rasterization is still in progress.
+let activeHostReportData: PdfHostReportData | null = null;
+
+export function setPdfHostReportData(data: PdfHostReportData | null): void {
+  activeHostReportData = data
+    ? {
+        reportTitle: data.reportTitle,
+        patient: data.patient?.map((row) => ({ ...row })),
+        sections: data.sections?.map((section) => ({
+          title: section.title,
+          rows: section.rows.map((row) => ({ ...row })),
+        })),
+      }
+    : null;
+}
+
 /** One abbreviation-glossary entry (bold term + description). */
 export interface PdfAbbrev {
   term: string;
@@ -168,7 +212,7 @@ export interface PdfDocLike {
 const MARGIN_MM = 15;
 const LINE_HEIGHT_MM = 6;
 /** Rough default aspect ratio (height/width) for a chart image when the
- *  caller didn't supply real pixel dimensions (e.g. the unit test's minimal
+ *  caller didn't supply real pixel dimensions (e.g. in the unit test's minimal
  *  fixture) — the odontogram/perio charts are both wider than tall. */
 const DEFAULT_IMAGE_ASPECT = 0.55;
 
@@ -231,19 +275,16 @@ export const DEFAULT_PDF_THEME: PdfColorTheme = "blue";
 const C_PROBLEM: RGB = [190, 40, 40];
 
 /**
- * Assemble the PDF report from pre-rendered `data`, gated by `opts`. PURE —
- * no I/O, no rasterization; `docFactory` defaults to a real `new jsPDF()`
- * but tests always inject a fake (see the jsdom note above).
+ * Assemble the PDF report from pre-rendered `data`, gated by `opts`. PURE with
+ * respect to odontogram state and document I/O; the optional host-report handoff
+ * is presentation-only and scoped by the package export wrapper.
  *
  * Medical, tabular layout — each section opens with a colored heading bar;
  * identity/findings/metrics/abbreviations render as colored key/value tables.
- * Section order: (1) Patient data (name, DOB + age, exam date) when
- * `opts.patientData`; (2) Dental chart — image (`opts.odontogramChart`) and/or
- * caption + findings table (`opts.odontogramDescription`); (3) Individual notes
- * when `opts.individualNotes` AND at least one note exists; (4) Periodontal
- * status chart on its OWN page when `data.hasPerio && opts.perioStatus`;
- * (5) Periodontal description (metrics + classification table) + the
- * abbreviation glossary when `data.hasPerio && opts.perioDescription`.
+ * Section order: (1) Patient data (host override when supplied); (2) optional
+ * host clinical sections; (3) Dental chart — image and/or description;
+ * (4) Individual notes; (5) Periodontal status chart on its own page;
+ * (6) Periodontal description + abbreviation glossary.
  */
 export function assemblePdf(
   opts: PdfExportOptions,
@@ -253,6 +294,7 @@ export function assemblePdf(
   },
 ): PdfDocLike {
   const doc = docFactory();
+  const hostReport = activeHostReportData;
   // The bundled Unicode font is registered by the caller's docFactory (see
   // exportPdf → loadPdfFont) so Hungarian ő/ű, Cyrillic, Arabic and CJK render.
   // `data.fontFamily` names it; `shape` applies Arabic joining/bidi to every
@@ -520,13 +562,26 @@ export function assemblePdf(
     ink(C_TEXT);
   };
 
-  documentTitle(data.reportTitle);
+  documentTitle(hostReport?.reportTitle?.trim() || data.reportTitle);
 
   if(opts.patientData){
     sectionBar(t("pdf.section.patientData"));
-    // Rows are pre-built by exportPdf per the PDF settings (default name/DOB
-    // fallbacks, age toggle, date format).
-    table(data.patient, { labelWidth: 45, fontSize: 10 });
+    // Host patient rows override the engine's case-meta rows only for this
+    // report render; no odontogram case state is mutated.
+    const patientRows = hostReport?.patient?.length ? hostReport.patient : data.patient;
+    table(patientRows, { labelWidth: 45, fontSize: 10 });
+  }
+
+  // Host sections deliberately sit between identity and the dental chart. They
+  // use the SAME section bar/table renderer as native report content so an
+  // embedding clinical record gets one coherent report, not a second report
+  // engine stitched alongside it. Empty titles/rows are ignored safely.
+  for(const section of hostReport?.sections ?? []){
+    const title = section.title.trim();
+    const rows = section.rows.filter((row) => row.label.trim() !== "" || row.value.trim() !== "");
+    if(!title || rows.length === 0) continue;
+    sectionBar(title);
+    table(rows, { labelWidth: 48, fontSize: 9 });
   }
 
   if(opts.odontogramChart || opts.odontogramDescription){
