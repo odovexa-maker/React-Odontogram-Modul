@@ -76,7 +76,7 @@ export async function exportPdf(
 ): Promise<void> {
   // Match the engine's existing one-export-at-a-time behavior while protecting
   // the scoped host-data handoff from a concurrent wrapper call.
-  if (hostPdfExportInProgress) return;
+  if(hostPdfExportInProgress) return;
   hostPdfExportInProgress = true;
 
   const isOrallixClinicalReport =
@@ -100,19 +100,16 @@ export async function exportPdf(
       scopedHostReportData = {
         ...hostReportData,
         stationery: hostReportData.stationery ?? {
-          brandName: "ORALLIX",
+          logoPng,
           documentLabel: "Clinical Record Report",
-          metaLabel: "Record number",
-          metaValue:
+          recordLabel: "Record number",
+          recordValue:
             hostReportData.patient?.find(
               (row) => row.label.trim().toLowerCase() === "record number",
             )?.value ?? "",
-          website: "orallix.com",
-          footerText:
+          footerLabel:
             "Confidential clinical record · Authorized clinical use only",
-          logoPng,
-          headerColor: [0, 29, 60],
-          accentColor: [2, 114, 234],
+          footerRight: "orallix.com",
         },
       };
     }
