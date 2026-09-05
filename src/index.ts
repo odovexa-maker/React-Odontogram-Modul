@@ -15,7 +15,11 @@
 // `startIntroTour`, and all public types).
 import "./index.css";
 
-import App, { exportPdf as exportOdontogramPdf } from "./App";
+import App, {
+  exportPdf as exportOdontogramPdf,
+  getPdfSettings,
+  setPdfSettings,
+} from "./App";
 import { setPdfHostReportData } from "./perioPdf";
 import type { PdfExportOptions, PdfHostReportData } from "./perioPdf";
 
@@ -24,12 +28,46 @@ import type { PdfExportOptions, PdfHostReportData } from "./perioPdf";
 export default App;
 export { App as OdontogramShell };
 
+const ORALLIX_CLINICAL_REPORT_TITLE = "ORALLIX Clinical Record Report";
+
+async function loadOrallixLogoDataUrl(): Promise<string | undefined> {
+  if (typeof window === "undefined" || typeof FileReader === "undefined") {
+    return undefined;
+  }
+
+  try {
+    const response = await fetch("/brand/orallix-logo-footer-v13.png", {
+      cache: "force-cache",
+    });
+    if (!response.ok) return undefined;
+    const blob = await response.blob();
+
+    return await new Promise<string | undefined>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () =>
+        resolve(typeof reader.result === "string" ? reader.result : undefined);
+      reader.onerror = () =>
+        reject(reader.error ?? new Error("ORALLIX logo could not be loaded."));
+      reader.readAsDataURL(blob);
+    });
+  } catch {
+    // The stationery renderer falls back to the ORALLIX wordmark text, so a
+    // transient asset failure must never block a clinical PDF export.
+    return undefined;
+  }
+}
+
 /**
  * Host-aware PDF export. Existing callers can keep using `exportPdf(opts)`
  * unchanged. Embedding clinical applications may pass a second, presentation-
  * only object containing patient rows and additional report sections; that data
  * is handed to the existing PDF assembler for this export only and is never
  * written into odontogram status/plan/FHIR state.
+ *
+ * The ORALLIX clinical-record host report is additionally branded here so the
+ * application does not need a second PDF engine. The scope is deliberately
+ * exact-title gated: all other consumers retain their existing PDF settings and
+ * native footer behavior unchanged.
  */
 let hostPdfExportInProgress = false;
 export async function exportPdf(
@@ -38,13 +76,52 @@ export async function exportPdf(
 ): Promise<void> {
   // Match the engine's existing one-export-at-a-time behavior while protecting
   // the scoped host-data handoff from a concurrent wrapper call.
-  if(hostPdfExportInProgress) return;
+  if (hostPdfExportInProgress) return;
   hostPdfExportInProgress = true;
-  setPdfHostReportData(hostReportData ?? null);
+
+  const isOrallixClinicalReport =
+    hostReportData?.reportTitle?.trim() === ORALLIX_CLINICAL_REPORT_TITLE;
+  const previousPdfSettings = isOrallixClinicalReport
+    ? getPdfSettings()
+    : null;
+
   try {
+    let scopedHostReportData = hostReportData;
+
+    if (isOrallixClinicalReport && hostReportData) {
+      // Report-only override. Restore the caller's session settings in finally.
+      setPdfSettings({
+        toothNumberSize: "small",
+        showDisclaimer: false,
+        showGenerator: false,
+      });
+
+      const logoPng = await loadOrallixLogoDataUrl();
+      scopedHostReportData = {
+        ...hostReportData,
+        stationery: hostReportData.stationery ?? {
+          brandName: "ORALLIX",
+          documentLabel: "Clinical Record Report",
+          metaLabel: "Record number",
+          metaValue:
+            hostReportData.patient?.find(
+              (row) => row.label.trim().toLowerCase() === "record number",
+            )?.value ?? "",
+          website: "orallix.com",
+          footerText:
+            "Confidential clinical record · Authorized clinical use only",
+          logoPng,
+          headerColor: [0, 29, 60],
+          accentColor: [2, 114, 234],
+        },
+      };
+    }
+
+    setPdfHostReportData(scopedHostReportData ?? null);
     await exportOdontogramPdf(opts);
   } finally {
     setPdfHostReportData(null);
+    if (previousPdfSettings) setPdfSettings(previousPdfSettings);
     hostPdfExportInProgress = false;
   }
 }
