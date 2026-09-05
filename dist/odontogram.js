@@ -11359,12 +11359,12 @@ function Ec(e) {
   const t = Math.floor(e / 10);
   return t === 1 ? 1 : t === 2 ? 2 : t === 3 ? 3 : 4;
 }
-const Q2 = {
+const X2 = {
   base: 0,
   restoration: 3,
   overlay: 6
 };
-function X2(e, t) {
+function Q2(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var a = 0, i = Array(t); a < t; a++) i[a] = e[a];
   return i;
@@ -11399,17 +11399,17 @@ function Nc(e, t) {
 }
 function Rc(e, t) {
   if (e) {
-    if (typeof e == "string") return X2(e, t);
+    if (typeof e == "string") return Q2(e, t);
     var a = {}.toString.call(e).slice(8, -1);
-    return a === "Object" && e.constructor && (a = e.constructor.name), a === "Map" || a === "Set" ? Array.from(e) : a === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a) ? X2(e, t) : void 0;
+    return a === "Object" && e.constructor && (a = e.constructor.name), a === "Map" || a === "Set" ? Array.from(e) : a === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a) ? Q2(e, t) : void 0;
   }
 }
 const Yr = Object.entries, _2 = Object.setPrototypeOf, jc = Object.isFrozen, Fc = Object.getPrototypeOf, Uc = Object.getOwnPropertyDescriptor;
-let Qe = Object.freeze, Xe = Object.seal, Ca = Object.create, Wr = typeof Reflect < "u" && Reflect, qn = Wr.apply, Yn = Wr.construct;
-Qe || (Qe = function(t) {
+let Xe = Object.freeze, Qe = Object.seal, Ca = Object.create, Wr = typeof Reflect < "u" && Reflect, qn = Wr.apply, Yn = Wr.construct;
+Xe || (Xe = function(t) {
   return t;
 });
-Xe || (Xe = function(t) {
+Qe || (Qe = function(t) {
   return t;
 });
 qn || (qn = function(t, a) {
@@ -11512,20 +11512,20 @@ function Kt(e, t) {
   }
   return a;
 }
-function Qc(e) {
+function Xc(e) {
   try {
     return Ue(e, ""), !0;
   } catch {
     return !1;
   }
 }
-const os = Qe(["a", "abbr", "acronym", "address", "area", "article", "aside", "audio", "b", "bdi", "bdo", "big", "blink", "blockquote", "body", "br", "button", "canvas", "caption", "center", "cite", "code", "col", "colgroup", "content", "data", "datalist", "dd", "decorator", "del", "details", "dfn", "dialog", "dir", "div", "dl", "dt", "element", "em", "fieldset", "figcaption", "figure", "font", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "i", "img", "input", "ins", "kbd", "label", "legend", "li", "main", "map", "mark", "marquee", "menu", "menuitem", "meter", "nav", "nobr", "ol", "optgroup", "option", "output", "p", "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "search", "section", "select", "shadow", "slot", "small", "source", "spacer", "span", "strike", "strong", "style", "sub", "summary", "sup", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "tt", "u", "ul", "var", "video", "wbr"]), zn = Qe(["svg", "a", "altglyph", "altglyphdef", "altglyphitem", "animatecolor", "animatemotion", "animatetransform", "circle", "clippath", "defs", "desc", "ellipse", "enterkeyhint", "exportparts", "filter", "font", "g", "glyph", "glyphref", "hkern", "image", "inputmode", "line", "lineargradient", "marker", "mask", "metadata", "mpath", "part", "path", "pattern", "polygon", "polyline", "radialgradient", "rect", "stop", "style", "switch", "symbol", "text", "textpath", "title", "tref", "tspan", "view", "vkern"]), In = Qe(["feBlend", "feColorMatrix", "feComponentTransfer", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feDropShadow", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMerge", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence"]), Xc = Qe(["animate", "color-profile", "cursor", "discard", "font-face", "font-face-format", "font-face-name", "font-face-src", "font-face-uri", "foreignobject", "hatch", "hatchpath", "mesh", "meshgradient", "meshpatch", "meshrow", "missing-glyph", "script", "set", "solidcolor", "unknown", "use"]), Cn = Qe(["math", "menclose", "merror", "mfenced", "mfrac", "mglyph", "mi", "mlabeledtr", "mmultiscripts", "mn", "mo", "mover", "mpadded", "mphantom", "mroot", "mrow", "ms", "mspace", "msqrt", "mstyle", "msub", "msup", "msubsup", "mtable", "mtd", "mtext", "mtr", "munder", "munderover", "mprescripts"]), _c = Qe(["maction", "maligngroup", "malignmark", "mlongdiv", "mscarries", "mscarry", "msgroup", "mstack", "msline", "msrow", "semantics", "annotation", "annotation-xml", "mprescripts", "none"]), ns = Qe(["#text"]), ss = Qe(["accept", "action", "align", "alt", "autocapitalize", "autocomplete", "autopictureinpicture", "autoplay", "background", "bgcolor", "border", "capture", "cellpadding", "cellspacing", "checked", "cite", "class", "clear", "color", "cols", "colspan", "command", "commandfor", "controls", "controlslist", "coords", "crossorigin", "datetime", "decoding", "default", "dir", "disabled", "disablepictureinpicture", "disableremoteplayback", "download", "draggable", "enctype", "enterkeyhint", "exportparts", "face", "for", "headers", "height", "hidden", "high", "href", "hreflang", "id", "inert", "inputmode", "integrity", "ismap", "kind", "label", "lang", "list", "loading", "loop", "low", "max", "maxlength", "media", "method", "min", "minlength", "multiple", "muted", "name", "nonce", "noshade", "novalidate", "nowrap", "open", "optimum", "part", "pattern", "placeholder", "playsinline", "popover", "popovertarget", "popovertargetaction", "poster", "preload", "pubdate", "radiogroup", "readonly", "rel", "required", "rev", "reversed", "role", "rows", "rowspan", "spellcheck", "scope", "selected", "shape", "size", "sizes", "slot", "span", "srclang", "start", "src", "srcset", "step", "style", "summary", "tabindex", "title", "translate", "type", "usemap", "valign", "value", "width", "wrap", "xmlns"]), Pn = Qe(["accent-height", "accumulate", "additive", "alignment-baseline", "amplitude", "ascent", "attributename", "attributetype", "azimuth", "basefrequency", "baseline-shift", "begin", "bias", "by", "class", "clip", "clippathunits", "clip-path", "clip-rule", "color", "color-interpolation", "color-interpolation-filters", "color-profile", "color-rendering", "cx", "cy", "d", "dx", "dy", "diffuseconstant", "direction", "display", "divisor", "dominant-baseline", "dur", "edgemode", "elevation", "end", "exponent", "fill", "fill-opacity", "fill-rule", "filter", "filterunits", "flood-color", "flood-opacity", "font-family", "font-size", "font-size-adjust", "font-stretch", "font-style", "font-variant", "font-weight", "fx", "fy", "g1", "g2", "glyph-name", "glyphref", "gradientunits", "gradienttransform", "height", "href", "id", "image-rendering", "in", "in2", "intercept", "k", "k1", "k2", "k3", "k4", "kerning", "keypoints", "keysplines", "keytimes", "lang", "lengthadjust", "letter-spacing", "kernelmatrix", "kernelunitlength", "lighting-color", "local", "marker-end", "marker-mid", "marker-start", "markerheight", "markerunits", "markerwidth", "maskcontentunits", "maskunits", "max", "mask", "mask-type", "media", "method", "mode", "min", "name", "numoctaves", "offset", "operator", "opacity", "order", "orient", "orientation", "origin", "overflow", "paint-order", "path", "pathlength", "patterncontentunits", "patterntransform", "patternunits", "points", "preservealpha", "preserveaspectratio", "primitiveunits", "r", "rx", "ry", "radius", "refx", "refy", "repeatcount", "repeatdur", "restart", "result", "rotate", "scale", "seed", "shape-rendering", "slope", "specularconstant", "specularexponent", "spreadmethod", "startoffset", "stddeviation", "stitchtiles", "stop-color", "stop-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap", "stroke-linejoin", "stroke-miterlimit", "stroke-opacity", "stroke", "stroke-width", "style", "surfacescale", "systemlanguage", "tabindex", "tablevalues", "targetx", "targety", "transform", "transform-origin", "text-anchor", "text-decoration", "text-orientation", "text-rendering", "textlength", "type", "u1", "u2", "unicode", "values", "viewbox", "visibility", "version", "vert-adv-y", "vert-origin-x", "vert-origin-y", "width", "word-spacing", "wrap", "writing-mode", "xchannelselector", "ychannelselector", "x", "x1", "x2", "xmlns", "y", "y1", "y2", "z", "zoomandpan"]), rs = Qe(["accent", "accentunder", "align", "bevelled", "close", "columnalign", "columnlines", "columnspacing", "columnspan", "denomalign", "depth", "dir", "display", "displaystyle", "encoding", "fence", "frame", "height", "href", "id", "largeop", "length", "linethickness", "lquote", "lspace", "mathbackground", "mathcolor", "mathsize", "mathvariant", "maxsize", "minsize", "movablelimits", "notation", "numalign", "open", "rowalign", "rowlines", "rowspacing", "rowspan", "rspace", "rquote", "scriptlevel", "scriptminsize", "scriptsizemultiplier", "selection", "separator", "separators", "stretchy", "subscriptshift", "supscriptshift", "symmetric", "voffset", "width", "xmlns"]), bo = Qe(["xlink:href", "xml:id", "xlink:title", "xml:space", "xmlns:xlink"]), $c = Xe(/{{[\w\W]*|^[\w\W]*}}/g), ed = Xe(/<%[\w\W]*|^[\w\W]*%>/g), td = Xe(/\${[\w\W]*/g), ad = Xe(/^data-[\-\w.\u00B7-\uFFFF]+$/), id = Xe(/^aria-[\-\w]+$/), ls = Xe(
+const os = Xe(["a", "abbr", "acronym", "address", "area", "article", "aside", "audio", "b", "bdi", "bdo", "big", "blink", "blockquote", "body", "br", "button", "canvas", "caption", "center", "cite", "code", "col", "colgroup", "content", "data", "datalist", "dd", "decorator", "del", "details", "dfn", "dialog", "dir", "div", "dl", "dt", "element", "em", "fieldset", "figcaption", "figure", "font", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "i", "img", "input", "ins", "kbd", "label", "legend", "li", "main", "map", "mark", "marquee", "menu", "menuitem", "meter", "nav", "nobr", "ol", "optgroup", "option", "output", "p", "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "search", "section", "select", "shadow", "slot", "small", "source", "spacer", "span", "strike", "strong", "style", "sub", "summary", "sup", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "tt", "u", "ul", "var", "video", "wbr"]), zn = Xe(["svg", "a", "altglyph", "altglyphdef", "altglyphitem", "animatecolor", "animatemotion", "animatetransform", "circle", "clippath", "defs", "desc", "ellipse", "enterkeyhint", "exportparts", "filter", "font", "g", "glyph", "glyphref", "hkern", "image", "inputmode", "line", "lineargradient", "marker", "mask", "metadata", "mpath", "part", "path", "pattern", "polygon", "polyline", "radialgradient", "rect", "stop", "style", "switch", "symbol", "text", "textpath", "title", "tref", "tspan", "view", "vkern"]), In = Xe(["feBlend", "feColorMatrix", "feComponentTransfer", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feDropShadow", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMerge", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence"]), Qc = Xe(["animate", "color-profile", "cursor", "discard", "font-face", "font-face-format", "font-face-name", "font-face-src", "font-face-uri", "foreignobject", "hatch", "hatchpath", "mesh", "meshgradient", "meshpatch", "meshrow", "missing-glyph", "script", "set", "solidcolor", "unknown", "use"]), Cn = Xe(["math", "menclose", "merror", "mfenced", "mfrac", "mglyph", "mi", "mlabeledtr", "mmultiscripts", "mn", "mo", "mover", "mpadded", "mphantom", "mroot", "mrow", "ms", "mspace", "msqrt", "mstyle", "msub", "msup", "msubsup", "mtable", "mtd", "mtext", "mtr", "munder", "munderover", "mprescripts"]), _c = Xe(["maction", "maligngroup", "malignmark", "mlongdiv", "mscarries", "mscarry", "msgroup", "mstack", "msline", "msrow", "semantics", "annotation", "annotation-xml", "mprescripts", "none"]), ns = Xe(["#text"]), ss = Xe(["accept", "action", "align", "alt", "autocapitalize", "autocomplete", "autopictureinpicture", "autoplay", "background", "bgcolor", "border", "capture", "cellpadding", "cellspacing", "checked", "cite", "class", "clear", "color", "cols", "colspan", "command", "commandfor", "controls", "controlslist", "coords", "crossorigin", "datetime", "decoding", "default", "dir", "disabled", "disablepictureinpicture", "disableremoteplayback", "download", "draggable", "enctype", "enterkeyhint", "exportparts", "face", "for", "headers", "height", "hidden", "high", "href", "hreflang", "id", "inert", "inputmode", "integrity", "ismap", "kind", "label", "lang", "list", "loading", "loop", "low", "max", "maxlength", "media", "method", "min", "minlength", "multiple", "muted", "name", "nonce", "noshade", "novalidate", "nowrap", "open", "optimum", "part", "pattern", "placeholder", "playsinline", "popover", "popovertarget", "popovertargetaction", "poster", "preload", "pubdate", "radiogroup", "readonly", "rel", "required", "rev", "reversed", "role", "rows", "rowspan", "spellcheck", "scope", "selected", "shape", "size", "sizes", "slot", "span", "srclang", "start", "src", "srcset", "step", "style", "summary", "tabindex", "title", "translate", "type", "usemap", "valign", "value", "width", "wrap", "xmlns"]), Pn = Xe(["accent-height", "accumulate", "additive", "alignment-baseline", "amplitude", "ascent", "attributename", "attributetype", "azimuth", "basefrequency", "baseline-shift", "begin", "bias", "by", "class", "clip", "clippathunits", "clip-path", "clip-rule", "color", "color-interpolation", "color-interpolation-filters", "color-profile", "color-rendering", "cx", "cy", "d", "dx", "dy", "diffuseconstant", "direction", "display", "divisor", "dominant-baseline", "dur", "edgemode", "elevation", "end", "exponent", "fill", "fill-opacity", "fill-rule", "filter", "filterunits", "flood-color", "flood-opacity", "font-family", "font-size", "font-size-adjust", "font-stretch", "font-style", "font-variant", "font-weight", "fx", "fy", "g1", "g2", "glyph-name", "glyphref", "gradientunits", "gradienttransform", "height", "href", "id", "image-rendering", "in", "in2", "intercept", "k", "k1", "k2", "k3", "k4", "kerning", "keypoints", "keysplines", "keytimes", "lang", "lengthadjust", "letter-spacing", "kernelmatrix", "kernelunitlength", "lighting-color", "local", "marker-end", "marker-mid", "marker-start", "markerheight", "markerunits", "markerwidth", "maskcontentunits", "maskunits", "max", "mask", "mask-type", "media", "method", "mode", "min", "name", "numoctaves", "offset", "operator", "opacity", "order", "orient", "orientation", "origin", "overflow", "paint-order", "path", "pathlength", "patterncontentunits", "patterntransform", "patternunits", "points", "preservealpha", "preserveaspectratio", "primitiveunits", "r", "rx", "ry", "radius", "refx", "refy", "repeatcount", "repeatdur", "restart", "result", "rotate", "scale", "seed", "shape-rendering", "slope", "specularconstant", "specularexponent", "spreadmethod", "startoffset", "stddeviation", "stitchtiles", "stop-color", "stop-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap", "stroke-linejoin", "stroke-miterlimit", "stroke-opacity", "stroke", "stroke-width", "style", "surfacescale", "systemlanguage", "tabindex", "tablevalues", "targetx", "targety", "transform", "transform-origin", "text-anchor", "text-decoration", "text-orientation", "text-rendering", "textlength", "type", "u1", "u2", "unicode", "values", "viewbox", "visibility", "version", "vert-adv-y", "vert-origin-x", "vert-origin-y", "width", "word-spacing", "wrap", "writing-mode", "xchannelselector", "ychannelselector", "x", "x1", "x2", "xmlns", "y", "y1", "y2", "z", "zoomandpan"]), rs = Xe(["accent", "accentunder", "align", "bevelled", "close", "columnalign", "columnlines", "columnspacing", "columnspan", "denomalign", "depth", "dir", "display", "displaystyle", "encoding", "fence", "frame", "height", "href", "id", "largeop", "length", "linethickness", "lquote", "lspace", "mathbackground", "mathcolor", "mathsize", "mathvariant", "maxsize", "minsize", "movablelimits", "notation", "numalign", "open", "rowalign", "rowlines", "rowspacing", "rowspan", "rspace", "rquote", "scriptlevel", "scriptminsize", "scriptsizemultiplier", "selection", "separator", "separators", "stretchy", "subscriptshift", "supscriptshift", "symmetric", "voffset", "width", "xmlns"]), bo = Xe(["xlink:href", "xml:id", "xlink:title", "xml:space", "xmlns:xlink"]), $c = Qe(/{{[\w\W]*|^[\w\W]*}}/g), ed = Qe(/<%[\w\W]*|^[\w\W]*%>/g), td = Qe(/\${[\w\W]*/g), ad = Qe(/^data-[\-\w.\u00B7-\uFFFF]+$/), id = Qe(/^aria-[\-\w]+$/), ls = Qe(
   /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|matrix):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i
   // eslint-disable-line no-useless-escape
-), od = Xe(/^(?:\w+script|data):/i), nd = Xe(
+), od = Qe(/^(?:\w+script|data):/i), nd = Qe(
   /[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/g
   // eslint-disable-line no-control-regex
-), sd = Xe(/^html$/i), rd = Xe(/^[a-z][.\w]*(-[.\w]+)+$/i), cs = Xe(/<[/\w!]/g), ds = Xe(/<[/\w]/g), ld = Xe(/<\/no(script|embed|frames)/i), cd = Xe(/\/>/i), xt = {
+), sd = Qe(/^html$/i), rd = Qe(/^[a-z][.\w]*(-[.\w]+)+$/i), cs = Qe(/<[/\w!]/g), ds = Qe(/<[/\w]/g), ld = Qe(/<\/no(script|embed|frames)/i), cd = Qe(/\/>/i), xt = {
   element: 1,
   attribute: 2,
   text: 3,
@@ -11699,9 +11699,9 @@ function Jr() {
   let ii = null;
   const oi = ye({}, ["alt", "class", "for", "id", "label", "name", "pattern", "placeholder", "role", "summary", "title", "value", "style", "xmlns"]), ha = "http://www.w3.org/1998/Math/MathML", R1 = "http://www.w3.org/2000/svg", Pt = "http://www.w3.org/1999/xhtml";
   let v1 = Pt, ua = !1, ni = null;
-  const so = ye({}, [ha, R1, Pt], Zn), ro = Qe(["mi", "mo", "mn", "ms", "mtext"]);
+  const so = ye({}, [ha, R1, Pt], Zn), ro = Xe(["mi", "mo", "mn", "ms", "mtext"]);
   let ga = ye({}, ro);
-  const lo = Qe(["annotation-xml"]);
+  const lo = Xe(["annotation-xml"]);
   let va = ye({}, lo);
   const co = ye({}, ["title", "style", "font", "a", "script"]);
   let y1 = null;
@@ -11732,9 +11732,9 @@ function Jr() {
       transform: Te
     }), nt = M1(h, "FORBID_ATTR", et({}), {
       transform: Te
-    }), l1 = Be(h, "USE_PROFILES") ? h.USE_PROFILES && typeof h.USE_PROFILES == "object" ? et(h.USE_PROFILES) : h.USE_PROFILES : !1, Ge = h.ALLOW_ARIA_ATTR !== !1, ht = h.ALLOW_DATA_ATTR !== !1, s1 = h.ALLOW_UNKNOWN_PROTOCOLS || !1, Ft = h.ALLOW_SELF_CLOSE_IN_ATTR !== !1, It = h.SAFE_FOR_TEMPLATES || !1, ut = h.SAFE_FOR_XML !== !1, Ut = h.WHOLE_DOCUMENT || !1, r1 = h.RETURN_DOM || !1, da = h.RETURN_DOM_FRAGMENT || !1, N1 = h.RETURN_TRUSTED_TYPE || !1, ei = h.FORCE_BODY || !1, io = h.SANITIZE_DOM !== !1, ti = h.SANITIZE_NAMED_PROPS || !1, pa = h.KEEP_CONTENT !== !1, fa = h.IN_PLACE || !1, g1 = Qc(h.ALLOWED_URI_REGEXP) ? h.ALLOWED_URI_REGEXP : ls, v1 = typeof h.NAMESPACE == "string" ? h.NAMESPACE : Pt, ga = Be(h, "MATHML_TEXT_INTEGRATION_POINTS") && h.MATHML_TEXT_INTEGRATION_POINTS && typeof h.MATHML_TEXT_INTEGRATION_POINTS == "object" ? et(h.MATHML_TEXT_INTEGRATION_POINTS) : ye({}, ro), va = Be(h, "HTML_INTEGRATION_POINTS") && h.HTML_INTEGRATION_POINTS && typeof h.HTML_INTEGRATION_POINTS == "object" ? et(h.HTML_INTEGRATION_POINTS) : ye({}, lo);
+    }), l1 = Be(h, "USE_PROFILES") ? h.USE_PROFILES && typeof h.USE_PROFILES == "object" ? et(h.USE_PROFILES) : h.USE_PROFILES : !1, Ge = h.ALLOW_ARIA_ATTR !== !1, ht = h.ALLOW_DATA_ATTR !== !1, s1 = h.ALLOW_UNKNOWN_PROTOCOLS || !1, Ft = h.ALLOW_SELF_CLOSE_IN_ATTR !== !1, It = h.SAFE_FOR_TEMPLATES || !1, ut = h.SAFE_FOR_XML !== !1, Ut = h.WHOLE_DOCUMENT || !1, r1 = h.RETURN_DOM || !1, da = h.RETURN_DOM_FRAGMENT || !1, N1 = h.RETURN_TRUSTED_TYPE || !1, ei = h.FORCE_BODY || !1, io = h.SANITIZE_DOM !== !1, ti = h.SANITIZE_NAMED_PROPS || !1, pa = h.KEEP_CONTENT !== !1, fa = h.IN_PLACE || !1, g1 = Xc(h.ALLOWED_URI_REGEXP) ? h.ALLOWED_URI_REGEXP : ls, v1 = typeof h.NAMESPACE == "string" ? h.NAMESPACE : Pt, ga = Be(h, "MATHML_TEXT_INTEGRATION_POINTS") && h.MATHML_TEXT_INTEGRATION_POINTS && typeof h.MATHML_TEXT_INTEGRATION_POINTS == "object" ? et(h.MATHML_TEXT_INTEGRATION_POINTS) : ye({}, ro), va = Be(h, "HTML_INTEGRATION_POINTS") && h.HTML_INTEGRATION_POINTS && typeof h.HTML_INTEGRATION_POINTS == "object" ? et(h.HTML_INTEGRATION_POINTS) : ye({}, lo);
     const A = Be(h, "CUSTOM_ELEMENT_HANDLING") && h.CUSTOM_ELEMENT_HANDLING && typeof h.CUSTOM_ELEMENT_HANDLING == "object" ? et(h.CUSTOM_ELEMENT_HANDLING) : Ca(null);
-    if (ge = Ca(null), Be(A, "tagNameCheck") && mo(A.tagNameCheck) && (ge.tagNameCheck = A.tagNameCheck), Be(A, "attributeNameCheck") && mo(A.attributeNameCheck) && (ge.attributeNameCheck = A.attributeNameCheck), Be(A, "allowCustomizedBuiltInElements") && typeof A.allowCustomizedBuiltInElements == "boolean" && (ge.allowCustomizedBuiltInElements = A.allowCustomizedBuiltInElements), Xe(ge), It && (ht = !1), da && (r1 = !0), l1 && (be = ye({}, ns), me = Ca(null), l1.html === !0 && (ye(be, os), ye(me, ss)), l1.svg === !0 && (ye(be, zn), ye(me, Pn), ye(me, bo)), l1.svgFilters === !0 && (ye(be, In), ye(me, Pn), ye(me, bo)), l1.mathMl === !0 && (ye(be, Cn), ye(me, rs), ye(me, bo))), Ce.tagCheck = null, Ce.attributeCheck = null, Be(h, "ADD_TAGS") && (typeof h.ADD_TAGS == "function" ? Ce.tagCheck = h.ADD_TAGS : I1(h.ADD_TAGS) && (be === zt && (be = et(be)), ye(be, h.ADD_TAGS, Te))), Be(h, "ADD_ATTR") && (typeof h.ADD_ATTR == "function" ? Ce.attributeCheck = h.ADD_ATTR : I1(h.ADD_ATTR) && (me === ft && (me = et(me)), ye(me, h.ADD_ATTR, Te))), Be(h, "ADD_URI_SAFE_ATTR") && I1(h.ADD_URI_SAFE_ATTR) && ye(ii, h.ADD_URI_SAFE_ATTR, Te), Be(h, "FORBID_CONTENTS") && I1(h.FORBID_CONTENTS) && (Ct === ma && (Ct = et(Ct)), ye(Ct, h.FORBID_CONTENTS, Te)), Be(h, "ADD_FORBID_CONTENTS") && I1(h.ADD_FORBID_CONTENTS) && (Ct === ma && (Ct = et(Ct)), ye(Ct, h.ADD_FORBID_CONTENTS, Te)), pa && (be["#text"] = !0), Ut && ye(be, ["html", "head", "body"]), be.table && (ye(be, ["tbody"]), delete mt.tbody), h.TRUSTED_TYPES_POLICY) {
+    if (ge = Ca(null), Be(A, "tagNameCheck") && mo(A.tagNameCheck) && (ge.tagNameCheck = A.tagNameCheck), Be(A, "attributeNameCheck") && mo(A.attributeNameCheck) && (ge.attributeNameCheck = A.attributeNameCheck), Be(A, "allowCustomizedBuiltInElements") && typeof A.allowCustomizedBuiltInElements == "boolean" && (ge.allowCustomizedBuiltInElements = A.allowCustomizedBuiltInElements), Qe(ge), It && (ht = !1), da && (r1 = !0), l1 && (be = ye({}, ns), me = Ca(null), l1.html === !0 && (ye(be, os), ye(me, ss)), l1.svg === !0 && (ye(be, zn), ye(me, Pn), ye(me, bo)), l1.svgFilters === !0 && (ye(be, In), ye(me, Pn), ye(me, bo)), l1.mathMl === !0 && (ye(be, Cn), ye(me, rs), ye(me, bo))), Ce.tagCheck = null, Ce.attributeCheck = null, Be(h, "ADD_TAGS") && (typeof h.ADD_TAGS == "function" ? Ce.tagCheck = h.ADD_TAGS : I1(h.ADD_TAGS) && (be === zt && (be = et(be)), ye(be, h.ADD_TAGS, Te))), Be(h, "ADD_ATTR") && (typeof h.ADD_ATTR == "function" ? Ce.attributeCheck = h.ADD_ATTR : I1(h.ADD_ATTR) && (me === ft && (me = et(me)), ye(me, h.ADD_ATTR, Te))), Be(h, "ADD_URI_SAFE_ATTR") && I1(h.ADD_URI_SAFE_ATTR) && ye(ii, h.ADD_URI_SAFE_ATTR, Te), Be(h, "FORBID_CONTENTS") && I1(h.FORBID_CONTENTS) && (Ct === ma && (Ct = et(Ct)), ye(Ct, h.FORBID_CONTENTS, Te)), Be(h, "ADD_FORBID_CONTENTS") && I1(h.ADD_FORBID_CONTENTS) && (Ct === ma && (Ct = et(Ct)), ye(Ct, h.ADD_FORBID_CONTENTS, Te)), pa && (be["#text"] = !0), Ut && ye(be, ["html", "head", "body"]), be.table && (ye(be, ["tbody"]), delete mt.tbody), h.TRUSTED_TYPES_POLICY) {
       if (typeof h.TRUSTED_TYPES_POLICY.createHTML != "function")
         throw B1('TRUSTED_TYPES_POLICY configuration option must provide a "createHTML" hook.');
       if (typeof h.TRUSTED_TYPES_POLICY.createScriptURL != "function")
@@ -11747,8 +11747,8 @@ function Jr() {
         throw F = U, ae;
       }
     } else h.TRUSTED_TYPES_POLICY === null ? (F = void 0, L = "") : (F === void 0 && (F = $()), F && typeof L == "string" && (L = I("")));
-    Qe && Qe(h), b1 = h;
-  }, ho = ye({}, [...zn, ...In, ...Xc]), uo = ye({}, [...Cn, ..._c]), un = function(h, A, U) {
+    Xe && Xe(h), b1 = h;
+  }, ho = ye({}, [...zn, ...In, ...Qc]), uo = ye({}, [...Cn, ..._c]), un = function(h, A, U) {
     return A.namespaceURI === Pt ? h === "svg" : A.namespaceURI === ha ? h === "svg" && (U === "annotation-xml" || ga[U]) : !!ho[h];
   }, gn = function(h, A, U) {
     return A.namespaceURI === Pt ? h === "math" : A.namespaceURI === R1 ? h === "math" && va[U] : !!uo[h];
@@ -11796,7 +11796,7 @@ function Jr() {
           } catch {
           }
       }
-  }, Qt = function(h, A) {
+  }, Xt = function(h, A) {
     try {
       wa(t.removed, {
         attribute: A.getAttributeNode(h),
@@ -12052,7 +12052,7 @@ function Jr() {
     try {
       U ? h.setAttributeNS(U, A, ae) : h.setAttribute(A, ae), ba(h) ? Jt(h) : $2(t.removed);
     } catch {
-      Qt(A, h);
+      Xt(A, h);
     }
   }, O = function(h) {
     Dt(S.beforeSanitizeAttributes, h, null);
@@ -12072,25 +12072,25 @@ function Jr() {
     for (; ae--; ) {
       const pe = A[ae], Ze = pe.name, Ne = pe.namespaceURI, gt = pe.value, vt = Te(Ze), wn = gt;
       let st = Ze === "value" ? wn : Kc(wn);
-      if (U.attrName = vt, U.attrValue = st, U.keepAttr = !0, U.forceKeepAttr = void 0, Dt(S.uponSanitizeAttribute, h, U), st = U.attrValue, ti && (vt === "id" || vt === "name") && ts(st, oo) !== 0 && (Qt(Ze, h), st = oo + st), ut && Ue(/((--!?|])>)|<\/(style|script|title|xmp|textarea|noscript|iframe|noembed|noframes)/i, st)) {
-        Qt(Ze, h);
+      if (U.attrName = vt, U.attrValue = st, U.keepAttr = !0, U.forceKeepAttr = void 0, Dt(S.uponSanitizeAttribute, h, U), st = U.attrValue, ti && (vt === "id" || vt === "name") && ts(st, oo) !== 0 && (Xt(Ze, h), st = oo + st), ut && Ue(/((--!?|])>)|<\/(style|script|title|xmp|textarea|noscript|iframe|noembed|noframes)/i, st)) {
+        Xt(Ze, h);
         continue;
       }
       if (vt === "attributename" && es(st, "href")) {
-        Qt(Ze, h);
+        Xt(Ze, h);
         continue;
       }
       if (!U.forceKeepAttr) {
         if (!U.keepAttr) {
-          Qt(Ze, h);
+          Xt(Ze, h);
           continue;
         }
         if (!Ft && Ue(cd, st)) {
-          Qt(Ze, h);
+          Xt(Ze, h);
           continue;
         }
         if (It && (st = ya(st)), !di(oe, vt, st)) {
-          Qt(Ze, h);
+          Xt(Ze, h);
           continue;
         }
         st = W2(oe, vt, Ne, st), st !== wn && xn(h, Ze, Ne, st);
@@ -12246,7 +12246,7 @@ function hd(e) {
     n += o.serializeToString(s);
   return n;
 }
-const qt = "https://github.com/ZoliQua/React-Odontogram-Modul/fhir/CodeSystem/odontogram", Qr = "urn:iso:std:iso:3950", ud = "http://snomed.info/sct", gd = "http://hl7.org/fhir/sid/icd-10", vd = "https://www.icdas.org", yd = {
+const qt = "https://github.com/ZoliQua/React-Odontogram-Modul/fhir/CodeSystem/odontogram", Xr = "urn:iso:std:iso:3950", ud = "http://snomed.info/sct", gd = "http://hl7.org/fhir/sid/icd-10", vd = "https://www.icdas.org", yd = {
   0: "ICDAS 0 — Sound tooth surface",
   1: "ICDAS 1 — First visual change in enamel",
   2: "ICDAS 2 — Distinct visual change in enamel",
@@ -12474,19 +12474,19 @@ const qt = "https://github.com/ZoliQua/React-Odontogram-Modul/fhir/CodeSystem/od
     wear: { code: "wear", display: "Worn / deficient filling material" }
   }
 }, bd = {}, kd = "odontogram-subject", Eo = "urn:uuid:odontogram-subject";
-function Xr(e, t, a) {
+function Qr(e, t, a) {
   const i = [{ system: e, code: t.code, display: t.display }], o = t.snomed ?? (a ? bd[a] : void 0);
   return o && i.push({ system: ud, code: o, display: t.display }), { coding: i, text: t.display };
 }
 function P1(e, t) {
   const a = h2[e]?.[t] ?? { code: t, display: t };
-  return Xr(qt, a, `${e}:${t}`);
+  return Qr(qt, a, `${e}:${t}`);
 }
 function Io(e, t) {
-  return Xr(qt, { code: e, display: t }, `finding:${e}`);
+  return Qr(qt, { code: e, display: t }, `finding:${e}`);
 }
 function xd(e) {
-  return { coding: [{ system: Qr, code: e }], text: `Tooth ${e}` };
+  return { coding: [{ system: Xr, code: e }], text: `Tooth ${e}` };
 }
 const _r = [
   {
@@ -13225,7 +13225,7 @@ const Ud = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.co
 function Bd(e, t, a) {
   return {
     coding: [
-      { system: Qr, code: e },
+      { system: Xr, code: e },
       { system: qt, code: t, display: a }
     ],
     text: `Tooth ${e} – ${a}`
@@ -13377,7 +13377,7 @@ const qd = [
   36,
   37,
   38
-], Yd = ["MB", "DB", "ML", "DL"], Wd = ["B", "L"], nl = /* @__PURE__ */ new Set(["unknown", "never", "former", "current"]), Jd = /* @__PURE__ */ new Set(["unknown", "none", "present"]), Qd = /* @__PURE__ */ new Set(["health", "gingivitis", "periodontitis"]), Xd = /* @__PURE__ */ new Set(["I", "II", "III", "IV"]), _d = /* @__PURE__ */ new Set(["A", "B", "C"]), $d = /* @__PURE__ */ new Set(["localized", "generalized", "molar-incisor"]);
+], Yd = ["MB", "DB", "ML", "DL"], Wd = ["B", "L"], nl = /* @__PURE__ */ new Set(["unknown", "never", "former", "current"]), Jd = /* @__PURE__ */ new Set(["unknown", "none", "present"]), Xd = /* @__PURE__ */ new Set(["health", "gingivitis", "periodontitis"]), Qd = /* @__PURE__ */ new Set(["I", "II", "III", "IV"]), _d = /* @__PURE__ */ new Set(["A", "B", "C"]), $d = /* @__PURE__ */ new Set(["localized", "generalized", "molar-incisor"]);
 function e4(e) {
   const t = typeof e == "string" && e ? e : "tooth-base";
   return t !== "none" && t !== "implant";
@@ -13415,8 +13415,8 @@ function t4(e) {
 function a4(e) {
   const t = il(t4(e)), a = e && typeof e == "object" ? e.case : void 0;
   return {
-    diagnosis: Qd.has(a?.diagnosisOverride) ? a.diagnosisOverride : t.diagnosis,
-    stage: Xd.has(a?.stageOverride) ? a.stageOverride : t.stage,
+    diagnosis: Xd.has(a?.diagnosisOverride) ? a.diagnosisOverride : t.diagnosis,
+    stage: Qd.has(a?.stageOverride) ? a.stageOverride : t.stage,
     grade: _d.has(a?.gradeOverride) ? a.gradeOverride : t.grade,
     extent: $d.has(a?.extentOverride) ? a.extentOverride : t.extent
   };
@@ -14177,10 +14177,10 @@ function Lo(e, t, a) {
   }
   return n;
 }
-function Q4(e) {
+function X4(e) {
   return e >= 6 ? "deep" : e >= 4 ? "moderate" : "shallow";
 }
-function X4(e) {
+function Q4(e) {
   return e >= 4 ? "deep" : e >= 2 ? "moderate" : "shallow";
 }
 function zs(e, t, a) {
@@ -14190,11 +14190,11 @@ function zs(e, t, a) {
     const c = s.pd, p = s.gm ?? 0;
     if (e === "gr") {
       if (p <= 0) continue;
-      n.push({ x: s.x, y: i + p * o, kind: `heat-${X4(p)}` });
+      n.push({ x: s.x, y: i + p * o, kind: `heat-${Q4(p)}` });
       continue;
     }
     const f = e === "cal" ? s.cal ?? c + p : c, u = i + (p + c) * o;
-    n.push({ x: s.x, y: u, kind: `heat-${Q4(f)}` });
+    n.push({ x: s.x, y: u, kind: `heat-${X4(f)}` });
   }
   return n;
 }
@@ -14456,10 +14456,10 @@ async function g0(e = {}) {
       const I = Ji(T, M);
       return I > 0 ? xo[I] ?? String(I) : null;
     }) && (c += Se), f.gi && vi(n, c, ne("gi"), m, (T, M) => {
-      const I = Qi(T, M);
+      const I = Xi(T, M);
       return I > 0 ? xo[I] ?? String(I) : null;
     }) && (c += Se), i === "center" && (n.appendChild(Gt(R, c, `▼ ${L} ▼`, "middle")), c += Se), f.mpi && x && vi(n, c, ne("mpi"), m, (T, M) => {
-      const I = Xi(T, M);
+      const I = Qi(T, M);
       return I > 0 ? xo[I] ?? String(I) : null;
     }) && (c += Se), f.mbi && x && vi(n, c, ne("mbi"), m, (T, M) => {
       const I = _i(T, M);
@@ -14486,7 +14486,7 @@ async function g0(e = {}) {
       const M = eo(T);
       return M === "none" ? null : d0[M] ?? M;
     }) && (c += Se), f.kg && Ma(n, c, ne("kg"), m, (T) => {
-      const M = Xa(T);
+      const M = Qa(T);
       return M === null ? null : String(M);
     }) && (c += Se), f.gt && Ma(n, c, ne("gt"), m, (T) => {
       const M = dn(T);
@@ -14656,7 +14656,7 @@ function w0(e, t, a = () => {
     const j = S.title.trim(), ie = S.rows.filter((ue) => ue.label.trim() !== "" || ue.value.trim() !== "");
     !j || ie.length === 0 || ($(j), W(ie, { labelWidth: 48, fontSize: 9 }));
   }
-  return (e.odontogramChart || e.odontogramDescription) && ($(l("pdf.section.odontogram")), e.odontogramChart && ke(t.odontogramPng, t.odontogramImageSize, t.odontogramBorder), e.odontogramDescription && (le(t.odontogramCaption), t.toothTable && te(t.toothTable))), e.odontogramDescription && t.odontogramFindings.length && ($(l("pdf.section.findings")), W(t.odontogramFindings, { labelWidth: 48, fontSize: 9 })), e.individualNotes && t.individualNotes.length && ($(l("toothInfo.notes")), W(t.individualNotes, { labelWidth: 24, fontSize: 9 })), t.hasPerio && e.perioStatus && (T > R && I(), $(l("pdf.section.perioStatus")), ke(t.perioPng, t.perioImageSize)), t.hasPerio && e.perioDescription && (t.perioMetrics.length && ($(l("pdf.section.perioDescription")), W(t.perioMetrics, { labelWidth: 55, fontSize: 9.5 })), t.abbreviations.length && ($(l("pdf.footer.title")), W(t.abbreviations.map((S) => ({ label: S.term, value: S.desc })), { labelWidth: 22, fontSize: 7.5 }))), Y(t.footer), i.save(`odontogram-report-${b0()}.pdf`), i;
+  return (e.odontogramChart || e.odontogramDescription) && ($(l("pdf.section.odontogram")), e.odontogramChart && ke(t.odontogramPng, t.odontogramImageSize, t.odontogramBorder), e.odontogramDescription && (le(t.odontogramCaption), t.toothTable && te(t.toothTable))), e.odontogramDescription && t.odontogramFindings.length && ($(l("pdf.section.findings")), W(t.odontogramFindings, { labelWidth: 48, fontSize: 9 })), e.individualNotes && t.individualNotes.length && ($(l("toothInfo.notes")), W(t.individualNotes, { labelWidth: 24, fontSize: 9 })), t.hasPerio && e.perioStatus && (T > R && I(), $(l("pdf.section.perioStatus")), ke(t.perioPng, t.perioImageSize)), t.hasPerio && e.perioDescription && (t.perioMetrics.length && ($(l("pdf.section.perioDescription")), W(t.perioMetrics, { labelWidth: 55, fontSize: 9.5 })), t.abbreviations.length && ($(l("pdf.footer.title")), W(t.abbreviations.map((S) => ({ label: S.term, value: S.desc })), { labelWidth: 22, fontSize: 7.5 }))), Y(t.footer), i.save(`ORALLIX-Clinical-Report-${b0().slice(0, 10)}.pdf`), i;
 }
 const M0 = `<?xml version='1.0' encoding='utf-8'?>
 <!-- Created by Zoltan Dul in 2026 - free to use with MIT license. Part of React Odontogram Modul - https://github.com/ZoliQua/React-Odontogram-Modul - SVG Version: 2.5.0 -->
@@ -24345,7 +24345,7 @@ const M0 = `<?xml version='1.0' encoding='utf-8'?>
   [46, { tpl: 46, rot: 180, mirror: !0 }],
   [47, { tpl: 46, rot: 180, mirror: !0 }],
   [48, { tpl: 46, rot: 180, mirror: !0 }]
-]), Q0 = /* @__PURE__ */ new Map([
+]), X0 = /* @__PURE__ */ new Map([
   [14, { tpl: 14, rot: 0, mirror: !1 }],
   [15, { tpl: 14, rot: 0, mirror: !1 }],
   [16, { tpl: 16, rot: 0, mirror: !1 }],
@@ -24376,7 +24376,7 @@ const M0 = `<?xml version='1.0' encoding='utf-8'?>
   17: 38.3,
   31: 35.6,
   46: 32.9
-}, X0 = {
+}, Q0 = {
   11: 35,
   12: 32.5,
   13: 35.2,
@@ -24390,12 +24390,12 @@ const M0 = `<?xml version='1.0' encoding='utf-8'?>
   templates: Y0,
   templatesOccl: W0,
   toothTemplate: J0,
-  occlusalTemplate: Q0,
+  occlusalTemplate: X0,
   tplNos: [11, 12, 13, 14, 15, 16, 17, 31, 46],
   occlNos: [14, 16, 34, 46],
   layout: "twoArch",
   cejY: Cl,
-  implantCejY: X0,
+  implantCejY: Q0,
   milktoothCejY: _0
 }, e5 = {
   classic: Il,
@@ -24406,7 +24406,7 @@ function Ts() {
   return Go;
 }
 function t5(e) {
-  e !== Go && (Go = e, R4(), Q());
+  e !== Go && (Go = e, R4(), X());
 }
 function qa() {
   return e5[Go] ?? Il;
@@ -24640,7 +24640,7 @@ function fe() {
   };
 }
 const q = (e, t = document) => t.querySelector(e), Ya = (e, t = document) => Array.from(t.querySelectorAll(e));
-function X(e, t = {}, a = []) {
+function Q(e, t = {}, a = []) {
   const i = document.createElement(e);
   for (const [o, n] of Object.entries(t))
     o === "class" ? i.className = n : o === "text" ? i.textContent = n : o.startsWith("on") && typeof n == "function" ? i.addEventListener(o.slice(2), n) : i.setAttribute(o, n);
@@ -24718,7 +24718,7 @@ function Zi(e, t, a) {
   const i = Number(e);
   return Number.isFinite(i) ? Math.max(t, Math.min(a, Math.round(i))) : null;
 }
-function Qo(e, t, a, i) {
+function Xo(e, t, a, i) {
   if (t === null) return null;
   const o = Zi(t, a, i);
   return o === null ? e : o;
@@ -24727,95 +24727,95 @@ function e1() {
   return { ...H };
 }
 function m5(e) {
-  const t = Qo(H.age, e, 0, 120);
-  t !== H.age && (H.age = t, Q());
+  const t = Xo(H.age, e, 0, 120);
+  t !== H.age && (H.age = t, X());
 }
 function h5(e) {
-  const t = Qo(H.cigarettesPerDay, e, 0, 99);
-  t !== H.cigarettesPerDay && (H.cigarettesPerDay = t, Q());
+  const t = Xo(H.cigarettesPerDay, e, 0, 99);
+  t !== H.cigarettesPerDay && (H.cigarettesPerDay = t, X());
 }
 function u5(e) {
-  const t = Qo(H.toothLossPerio, e, 0, 32);
-  t !== H.toothLossPerio && (H.toothLossPerio = t, Q());
+  const t = Xo(H.toothLossPerio, e, 0, 32);
+  t !== H.toothLossPerio && (H.toothLossPerio = t, X());
 }
 function g5(e) {
-  const t = Qo(H.maxRblPercent, e, 0, 100);
-  t !== H.maxRblPercent && (H.maxRblPercent = t, Q());
+  const t = Xo(H.maxRblPercent, e, 0, 100);
+  t !== H.maxRblPercent && (H.maxRblPercent = t, X());
 }
 function v5(e) {
   if (e === null) {
-    H.hba1c !== null && (H.hba1c = null, Q());
+    H.hba1c !== null && (H.hba1c = null, X());
     return;
   }
   const t = Number(e);
   if (!Number.isFinite(t)) return;
   const a = Math.max(3, Math.min(20, Math.round(t * 10) / 10));
-  a !== H.hba1c && (H.hba1c = a, Q());
+  a !== H.hba1c && (H.hba1c = a, X());
 }
 function y5(e) {
-  El.has(e) && e !== H.smokingStatus && (H.smokingStatus = e, Q());
+  El.has(e) && e !== H.smokingStatus && (H.smokingStatus = e, X());
 }
 function b5(e) {
-  Ol.has(e) && e !== H.diabetesStatus && (H.diabetesStatus = e, Q());
+  Ol.has(e) && e !== H.diabetesStatus && (H.diabetesStatus = e, X());
 }
 function k5(e) {
   if (e === null) {
-    H.diagnosisOverride !== null && (H.diagnosisOverride = null, Q());
+    H.diagnosisOverride !== null && (H.diagnosisOverride = null, X());
     return;
   }
-  Ll.has(e) && e !== H.diagnosisOverride && (H.diagnosisOverride = e, Q());
+  Ll.has(e) && e !== H.diagnosisOverride && (H.diagnosisOverride = e, X());
 }
 function x5(e) {
   if (e === null) {
-    H.stageOverride !== null && (H.stageOverride = null, Q());
+    H.stageOverride !== null && (H.stageOverride = null, X());
     return;
   }
-  Gl.has(e) && e !== H.stageOverride && (H.stageOverride = e, Q());
+  Gl.has(e) && e !== H.stageOverride && (H.stageOverride = e, X());
 }
 function w5(e) {
   if (e === null) {
-    H.gradeOverride !== null && (H.gradeOverride = null, Q());
+    H.gradeOverride !== null && (H.gradeOverride = null, X());
     return;
   }
-  Nl.has(e) && e !== H.gradeOverride && (H.gradeOverride = e, Q());
+  Nl.has(e) && e !== H.gradeOverride && (H.gradeOverride = e, X());
 }
 function M5(e) {
   if (e === null) {
-    H.extentOverride !== null && (H.extentOverride = null, Q());
+    H.extentOverride !== null && (H.extentOverride = null, X());
     return;
   }
-  Rl.has(e) && e !== H.extentOverride && (H.extentOverride = e, Q());
+  Rl.has(e) && e !== H.extentOverride && (H.extentOverride = e, X());
 }
-function Qn(e) {
+function Xn(e) {
   const t = e === null || e.trim() === "" ? null : e.trim();
-  t !== H.patientName && (H.patientName = t, Q());
+  t !== H.patientName && (H.patientName = t, X());
 }
 const No = /^\d{4}-\d{2}-\d{2}$/;
-function Xn(e) {
+function Qn(e) {
   if (e === null) {
-    H.examDate !== null && (H.examDate = null, Q());
+    H.examDate !== null && (H.examDate = null, X());
     return;
   }
   if (e.trim() === "") {
-    H.examDate !== null && (H.examDate = null, Q());
+    H.examDate !== null && (H.examDate = null, X());
     return;
   }
   if (!No.test(e.trim())) return;
   const t = e.trim();
-  t !== H.examDate && (H.examDate = t, Q());
+  t !== H.examDate && (H.examDate = t, X());
 }
 function S5(e) {
   if (e === null) {
-    H.patientDob !== null && (H.patientDob = null, Q());
+    H.patientDob !== null && (H.patientDob = null, X());
     return;
   }
   if (e.trim() === "") {
-    H.patientDob !== null && (H.patientDob = null, Q());
+    H.patientDob !== null && (H.patientDob = null, X());
     return;
   }
   if (!No.test(e.trim())) return;
   const t = e.trim();
-  t !== H.patientDob && (H.patientDob = t, Q());
+  t !== H.patientDob && (H.patientDob = t, X());
 }
 function jl() {
   H = b2();
@@ -24900,15 +24900,15 @@ function C5() {
   return a1 !== null;
 }
 function Bl(e, t) {
-  a1 || (a1 = { apply: e, revert: t }, Q());
+  a1 || (a1 = { apply: e, revert: t }, X());
 }
 function P5() {
   const e = a1;
-  a1 = null, e && e.apply(), Q();
+  a1 = null, e && e.apply(), X();
 }
 function D5() {
   const e = a1;
-  a1 = null, e && e.revert(), Q();
+  a1 = null, e && e.revert(), X();
 }
 function Vl() {
   G != null && we(N.get(G));
@@ -24922,7 +24922,7 @@ function _n(e) {
     e === "plan" && !jt && (I5(Re.status, Re.plan), jt = !0, d1.clear()), p1 = e, N = Re[e];
     for (const t of ce)
       it(t), kt(t), oa(t);
-    G && we(N.get(G)), Q(), x2();
+    G && we(N.get(G)), X(), x2();
   }
 }
 const A1 = /* @__PURE__ */ new Map(), St = /* @__PURE__ */ new Map(), On = /* @__PURE__ */ new WeakMap(), ja = /* @__PURE__ */ new Map(), Fa = /* @__PURE__ */ new Map();
@@ -24937,7 +24937,7 @@ let Ua = "aae";
 function Ls(e) {
   const t = e === "simple" || e === "latin" ? e : "aae";
   if (t !== Ua) {
-    Ua = t, G && we(N.get(G)), Q();
+    Ua = t, G && we(N.get(G)), X();
     for (const a of ce)
       ia(a);
   }
@@ -24963,7 +24963,7 @@ let Gi = "full";
 function Rs(e) {
   const t = e === "simple" ? "simple" : "full";
   if (t !== Gi) {
-    Gi = t, G && we(N.get(G)), Q();
+    Gi = t, G && we(N.get(G)), X();
     for (const a of ce)
       ia(a);
   }
@@ -24978,12 +24978,12 @@ function js(e) {
 function Bf() {
   return w2;
 }
-let Xo = "simple";
+let Qo = "simple";
 function Fs(e) {
-  Xo = e === "severity" ? e : "simple", G && we(N.get(G));
+  Qo = e === "severity" ? e : "simple", G && we(N.get(G));
 }
 function Vf() {
-  return Xo;
+  return Qo;
 }
 let _o = "off";
 function Us(e) {
@@ -25006,7 +25006,7 @@ function tt(e) {
     $n.delete(e);
   };
 }
-function Q() {
+function X() {
   for (const e of $n)
     try {
       e();
@@ -25108,7 +25108,7 @@ const j5 = {
   btnToggleFillingCard: "filling",
   btnToggleRootPeriodontiumCard: "rootPeriodontium"
 };
-function Ql(e) {
+function Xl(e) {
   const a = e.target?.closest?.(".icon-btn");
   if (!a) return;
   const i = a.querySelector(".toggle-icon"), o = F5[a.id];
@@ -25117,7 +25117,7 @@ function Ql(e) {
     const c = document.querySelector("#controlsActions");
     if (!c) return;
     const p = c.classList.toggle("hidden");
-    E1(a, "panel.controls", p), i && (i.textContent = p ? "+" : "−"), Es.controls = p, Q();
+    E1(a, "panel.controls", p), i && (i.textContent = p ? "+" : "−"), Es.controls = p, X();
     return;
   }
   const n = j5[a.id];
@@ -25125,9 +25125,9 @@ function Ql(e) {
   const s = a.closest(".card");
   if (!s) return;
   const d = s.classList.toggle("collapsed");
-  E1(a, n, d), i && (i.textContent = d ? "+" : "−"), Es[o] = d, Q();
+  E1(a, n, d), i && (i.textContent = d ? "+" : "−"), Es[o] = d, X();
 }
-function Xl(e) {
+function Ql(e) {
   const t = e.target?.closest?.("button");
   if (t)
     switch (t.id) {
@@ -25179,13 +25179,13 @@ function B5(e, t, a) {
   if (e) {
     e.innerHTML = "";
     for (const i of t) {
-      const o = X("option", { value: i.value, text: i.label });
+      const o = Q("option", { value: i.value, text: i.label });
       i.title && (o.title = i.title), e.appendChild(o);
     }
     t.some((i) => i.value === a) ? e.value = a : e.value = t[0]?.value ?? "";
   }
 }
-function Qs(e) {
+function Xs(e) {
   return la("endo", { isMilktooth: !!e }).map((t) => ({ value: t.value, label: l(t.labelKey) }));
 }
 let ji = !0, Ro = "complex", jo = !0;
@@ -25193,23 +25193,23 @@ const V5 = ["amalgam", "composite", "gic", "temporary"], Ci = { amalgam: !0, com
 function _l() {
   return ji;
 }
-function Xs(e) {
+function Qs(e) {
   const t = !!e;
-  t !== ji && (ji = t, G && we(N.get(G)), Q());
+  t !== ji && (ji = t, G && we(N.get(G)), X());
 }
 function K5() {
   return Ro;
 }
 function _s(e) {
   const t = e === "simple" ? "simple" : "complex";
-  t !== Ro && (Ro = t, G && we(N.get(G)), Q());
+  t !== Ro && (Ro = t, G && we(N.get(G)), X());
 }
 function H5() {
   return jo;
 }
 function $s(e) {
   const t = !!e;
-  t !== jo && (jo = t, G && we(N.get(G)), Q());
+  t !== jo && (jo = t, G && we(N.get(G)), X());
 }
 function q5() {
   return { ...Ci };
@@ -25217,7 +25217,7 @@ function q5() {
 function er(e, t) {
   if (!Object.prototype.hasOwnProperty.call(Ci, e)) return;
   const a = !!t;
-  Ci[e] !== a && (Ci[e] = a, G && we(N.get(G)), Q());
+  Ci[e] !== a && (Ci[e] = a, G && we(N.get(G)), X());
 }
 function Y5() {
   return V5.filter((e) => Ci[e]);
@@ -25237,9 +25237,9 @@ function J5(e) {
     ...a.map((i) => ({ value: i, label: t[i] }))
   ];
 }
-const Q5 = /* @__PURE__ */ new Set([14, 15, 24, 25, 34, 35, 44, 45, 16, 17, 18, 26, 27, 28, 36, 37, 38, 46, 47, 48]);
-function X5(e) {
-  return typeof e == "number" && Q5.has(e) ? "occlusal" : "front";
+const X5 = /* @__PURE__ */ new Set([14, 15, 24, 25, 34, 35, 44, 45, 16, 17, 18, 26, 27, 28, 36, 37, 38, 46, 47, 48]);
+function Q5(e) {
+  return typeof e == "number" && X5.has(e) ? "occlusal" : "front";
 }
 function _5() {
   return [
@@ -25316,16 +25316,16 @@ function o3(e) {
   return tn(e, Ji, "perio.pi.row");
 }
 function n3(e) {
-  return tn(e, Qi, "perio.gi.row");
+  return tn(e, Xi, "perio.gi.row");
 }
 function s3(e) {
-  return tn(e, Xi, "perio.mpi.row");
+  return tn(e, Qi, "perio.mpi.row");
 }
 function r3(e) {
   return tn(e, _i, "perio.mbi.row");
 }
 function l3(e) {
-  const t = Xa(e);
+  const t = Qa(e);
   return t === null ? null : `${l("perio.kg.row")}: ${t} mm`;
 }
 function c3(e) {
@@ -25417,7 +25417,7 @@ const l6 = {
 function c6(e = w2) {
   return (e === "simple" ? [0, 3] : e === "full" ? [0, 1, 2, 3, 4, 5, 6] : [0, 1, 3, 6]).map((a) => ({ value: a, label: l(l6[a]) }));
 }
-function d6(e = Xo) {
+function d6(e = Qo) {
   return e === "severity" ? Array.from(W3).map((t) => ({ value: t, label: l("rootCaries." + at(t)) })) : [
     { value: "none", label: l("rootCaries.none") },
     { value: "active-cavitated", label: l("rootCaries.present") }
@@ -25614,7 +25614,7 @@ function L6() {
     subcrownDisabled: !i,
     subcrownLabel: l("surface.subcrown"),
     cariesActiveDepth: e.cariesActiveDepth,
-    rootCariesDisplay: p6(Xo, e.rootCaries),
+    rootCariesDisplay: p6(Qo, e.rootCaries),
     cariesDepthVisible: Wi && !t,
     rootCariesVisible: ct(e.toothSelection) && !t,
     cariesSectionVisible: G6(e, t)
@@ -25750,10 +25750,10 @@ function W6() {
   if (!t)
     y = [
       { label: l("pulpEndo.groupVital"), options: k6() },
-      { label: l("pulpEndo.groupTreated"), options: Qs(a).filter((F) => F.value !== "none") }
+      { label: l("pulpEndo.groupTreated"), options: Xs(a).filter((F) => F.value !== "none") }
     ], v = b;
   else {
-    const F = Qs(a);
+    const F = Xs(a);
     w = F.find((R) => R.value === "none") ?? null, y = [
       { label: l("pulpEndo.groupTreated"), options: F.filter((R) => R.value !== "none") }
     ], v = b3(b) ? b : "none";
@@ -25822,12 +25822,12 @@ function J6(e) {
     w6(t, e);
   });
 }
-function Q6(e) {
+function X6(e) {
   re((t) => {
     t.apicalDx = e, e !== "symptomatic-apical-periodontitis" && e !== "asymptomatic-apical-periodontitis" && (t.periapicalType = "none");
   });
 }
-function X6(e) {
+function Q6(e) {
   re((t) => {
     t.periapicalType = e;
   });
@@ -25872,7 +25872,7 @@ function np() {
   return i6().map((a) => a.value === "milktooth" ? { ...a, disabled: t } : a);
 }
 function sp() {
-  const e = Wa() === "plan", t = np(), a = _5(), i = Z6(), o = z6(), n = I6(), s = X5(G);
+  const e = Wa() === "plan", t = np(), a = _5(), i = Z6(), o = z6(), n = I6(), s = Q5(G);
   if (!(G != null)) {
     const W = fe(), te = tr(s, { isImplant: !1, toothSelection: W.toothSelection });
     return {
@@ -26010,18 +26010,18 @@ function rp(e) {
       return;
     const i = fe();
     i.toothSelection = e, ["tooth-base", "milktooth", "implant", "tooth-under-gum"].includes(e) || (i.extractionPlan = !1), e !== "none" && (i.extractionWound = !1), (e === "implant" || e === "none") && (i.caries.clear(), i.endo = "none", i.pulpDx = "normal", i.fillingMaterial = "none", i.fillingSurfaces.clear()), N.set(a, i);
-  }), e !== "none" && Qa(!1);
+  }), e !== "none" && Xa(!1);
 }
 function lp(e) {
   re((t) => {
     t.toothSubstrate = e, e !== "broken" && (t.brokenMesial = !1, t.brokenIncisal = !1, t.brokenDistal = !1), (!["natural", "broken", "crownprep"].includes(e) || t.restorationType !== "none") && (t.crownNeeded = !1);
-  }), Qa(!1);
+  }), Xa(!1);
 }
 function cp(e) {
   const t = String(e);
   re((a) => {
     $5(a, t);
-  }), Qa(!1);
+  }), Xa(!1);
 }
 function dp(e) {
   re((t) => {
@@ -26303,11 +26303,11 @@ function S3(e) {
   }
 }
 function Op(e, t, a) {
-  const i = Q2[a] ?? 6, o = e.querySelectorAll("g[data-plugin]");
+  const i = X2[a] ?? 6, o = e.querySelectorAll("g[data-plugin]");
   let n = !1;
   for (const s of o) {
     const d = s.getAttribute("data-layer") || "overlay";
-    if ((Q2[d] ?? 6) > i) {
+    if ((X2[d] ?? 6) > i) {
       s.parentElement?.insertBefore(t, s), n = !0;
       break;
     }
@@ -26430,7 +26430,7 @@ function oa(e) {
     const o = i.get(e);
     if (!o) continue;
     let n = o.querySelector(".tooth-note-icon");
-    a ? n || (n = X("span", { class: "tooth-note-icon", "aria-hidden": "true" }), n.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>', o.appendChild(n)) : n && n.remove();
+    a ? n || (n = Q("span", { class: "tooth-note-icon", "aria-hidden": "true" }), n.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>', o.appendChild(n)) : n && n.remove();
   }
 }
 function Lp(e) {
@@ -26443,7 +26443,7 @@ function Gp(e) {
   const a = Lp(e);
   t.innerHTML = "";
   for (const i of a) {
-    const o = X("div", { class: "warning-item", text: "⚠ " + i });
+    const o = Q("div", { class: "warning-item", text: "⚠ " + i });
     t.appendChild(o);
   }
 }
@@ -26508,18 +26508,18 @@ function Up(e) {
   if (!e || e.childElementCount > 0) return;
   e.innerHTML = "";
   const t = (a, i) => {
-    const o = X("div", { class: `perio-site-row ${i}` });
+    const o = Q("div", { class: `perio-site-row ${i}` });
     for (const n of a) {
-      const s = X("div", { class: "perio-site-cell", "data-site": n }, [
-        X("div", { class: "perio-site-label", title: l(`perio.site.${n}`), text: n })
-      ]), d = X("input", { type: "number", id: `perio-pd-${n}`, "data-site": n, "data-field": "pd", min: "1", max: "15", step: "1" });
-      s.appendChild(X("label", { class: "perio-field" }, [X("span", { text: l("perio.pd") }), d]));
-      const c = X("input", { type: "number", id: `perio-gm-${n}`, "data-site": n, "data-field": "gm", min: "-10", max: "20", step: "1" });
-      s.appendChild(X("label", { class: "perio-field" }, [X("span", { text: l("perio.gm") }), c]));
-      const p = X("input", { type: "checkbox", id: `perio-bop-${n}`, "data-site": n, "data-field": "bop" });
-      s.appendChild(X("label", { class: "perio-check" }, [p, X("span", { text: l("perio.bop") })]));
-      const f = X("input", { type: "checkbox", id: `perio-sup-${n}`, "data-site": n, "data-field": "sup" });
-      s.appendChild(X("label", { class: "perio-check" }, [f, X("span", { text: l("perio.sup") })]));
+      const s = Q("div", { class: "perio-site-cell", "data-site": n }, [
+        Q("div", { class: "perio-site-label", title: l(`perio.site.${n}`), text: n })
+      ]), d = Q("input", { type: "number", id: `perio-pd-${n}`, "data-site": n, "data-field": "pd", min: "1", max: "15", step: "1" });
+      s.appendChild(Q("label", { class: "perio-field" }, [Q("span", { text: l("perio.pd") }), d]));
+      const c = Q("input", { type: "number", id: `perio-gm-${n}`, "data-site": n, "data-field": "gm", min: "-10", max: "20", step: "1" });
+      s.appendChild(Q("label", { class: "perio-field" }, [Q("span", { text: l("perio.gm") }), c]));
+      const p = Q("input", { type: "checkbox", id: `perio-bop-${n}`, "data-site": n, "data-field": "bop" });
+      s.appendChild(Q("label", { class: "perio-check" }, [p, Q("span", { text: l("perio.bop") })]));
+      const f = Q("input", { type: "checkbox", id: `perio-sup-${n}`, "data-site": n, "data-field": "sup" });
+      s.appendChild(Q("label", { class: "perio-check" }, [f, Q("span", { text: l("perio.sup") })]));
       const u = () => {
         G != null && z3(N.get(G), G);
       };
@@ -26552,7 +26552,7 @@ function re(e) {
       const i = N.get(a);
       i && (e(i, a), it(a), kt(a));
     }
-    G && ee.has(G) && we(N.get(G)), i1 && !aa && Qa(!1), nn(), Q();
+    G && ee.has(G) && we(N.get(G)), i1 && !aa && Xa(!1), nn(), X();
   });
 }
 function I3(e) {
@@ -26565,14 +26565,14 @@ function Bp(e) {
     i1 && (i1 = !1);
     for (const t of e)
       N.set(t, fe()), it(t), kt(t);
-    G && (Fo(!0), we(N.get(G))), Q();
+    G && (Fo(!0), we(N.get(G))), X();
   });
 }
 function Vp() {
-  Qa(!1), jl();
+  Xa(!1), jl();
   for (const e of ce)
     N.set(e, fe()), it(e), kt(e);
-  G && (Fo(!0), we(N.get(G))), Q();
+  G && (Fo(!0), we(N.get(G))), X();
 }
 function Kp() {
   const e = (a) => {
@@ -26583,7 +26583,7 @@ function Kp() {
     i1 = !1, aa = !0;
     for (const a of ce)
       N.set(a, e(a)), it(a), kt(a);
-    aa = !1, G && we(N.get(G)), Q();
+    aa = !1, G && we(N.get(G)), X();
   });
 }
 function Hp() {
@@ -26595,7 +26595,7 @@ function Hp() {
     i1 = !1, aa = !0;
     for (const a of ce)
       N.set(a, e(a)), it(a), kt(a);
-    aa = !1, G && we(N.get(G)), Q();
+    aa = !1, G && we(N.get(G)), X();
   });
 }
 function C2() {
@@ -26661,36 +26661,36 @@ function Zt() {
   Ya(".tooth-tile").forEach((e) => {
     const t = Number(e.dataset.tooth), a = ee.has(t);
     e.classList.toggle("active", a), e.hasAttribute("role") && e.setAttribute("aria-selected", String(a));
-  }), nn(), C2(), G && ee.has(G) ? (Fo(!0), we(N.get(G))) : (we(fe()), Fo(!1)), Q();
+  }), nn(), C2(), G && ee.has(G) ? (Fo(!0), we(N.get(G))) : (we(fe()), Fo(!1)), X();
 }
 function Jp(e) {
   _t(), z1();
   const t = A1.get(e), a = t?.find((D, Z) => St.get(e)?.[Z]?.classList.contains("side-view")) || t?.[0];
   if (!a) return;
-  const i = X("div", { class: "odon-zoom-overlay" }), o = X("div", { class: "odon-zoom-popover" }), n = ea(e, f1), s = X("div", { class: "odon-zoom-header" }), d = X("span", { class: "odon-zoom-title", text: l("touch.zoom.title", { tooth: n }) }), c = X("button", { class: "odon-zoom-close", text: "✕" });
+  const i = Q("div", { class: "odon-zoom-overlay" }), o = Q("div", { class: "odon-zoom-popover" }), n = ea(e, f1), s = Q("div", { class: "odon-zoom-header" }), d = Q("span", { class: "odon-zoom-title", text: l("touch.zoom.title", { tooth: n }) }), c = Q("button", { class: "odon-zoom-close", text: "✕" });
   c.addEventListener("click", _t), s.appendChild(d), s.appendChild(c);
-  const p = X("div", { class: "odon-zoom-svg" }), f = a.cloneNode(!0);
+  const p = Q("div", { class: "odon-zoom-svg" }), f = a.cloneNode(!0);
   p.appendChild(f);
-  const u = X("div", { class: "odon-zoom-actions" }), b = ee.has(e), w = X("button", {
+  const u = Q("div", { class: "odon-zoom-actions" }), b = ee.has(e), w = Q("button", {
     class: b ? "odon-zoom-btn active" : "odon-zoom-btn",
     text: l(b ? "touch.zoom.deselect" : "touch.zoom.select")
   });
   w.addEventListener("click", () => {
     ee.has(e) ? (ee.delete(e), G === e && (G = ee.values().next().value ?? null)) : (ee.add(e), G = e), Zt(), _t();
   });
-  const y = X("button", { class: "odon-zoom-btn", text: l("touch.zoom.info") });
+  const y = Q("button", { class: "odon-zoom-btn", text: l("touch.zoom.info") });
   y.addEventListener("click", () => {
     ee = /* @__PURE__ */ new Set([e]), G = e, Zt(), _t();
     const D = q("#controlsActions");
     D && D.scrollIntoView({ behavior: "smooth", block: "start" });
   });
-  const v = X("button", { class: "odon-zoom-btn danger", text: l("touch.ctx.reset") });
+  const v = Q("button", { class: "odon-zoom-btn danger", text: l("touch.ctx.reset") });
   v.addEventListener("click", () => {
     I3(e), _t();
   });
-  const m = X("button", { class: "odon-zoom-btn", text: l("touch.zoom.close") });
+  const m = Q("button", { class: "odon-zoom-btn", text: l("touch.zoom.close") });
   if (m.addEventListener("click", _t), u.appendChild(w), u.appendChild(y), n1 && !We) {
-    const D = X("button", { class: "odon-zoom-btn", text: l("note.title") });
+    const D = Q("button", { class: "odon-zoom-btn", text: l("note.title") });
     D.addEventListener("click", () => {
       _t(), P3(e);
     }), u.appendChild(D);
@@ -26703,27 +26703,27 @@ function _t() {
   const e = document.querySelector(".odon-zoom-overlay");
   e && e.remove();
 }
-function Qp(e, t) {
+function Xp(e, t) {
   z1(), _t();
-  const a = X("div", { class: "odon-ctx-menu" });
+  const a = Q("div", { class: "odon-ctx-menu" });
   if (ee.has(e)) {
-    const c = X("button", { class: "odon-ctx-item", text: l("touch.ctx.deselect") });
+    const c = Q("button", { class: "odon-ctx-item", text: l("touch.ctx.deselect") });
     c.addEventListener("click", () => {
       ee.delete(e), G === e && (G = ee.values().next().value ?? null), Zt(), z1();
     }), a.appendChild(c);
   } else {
-    const c = X("button", { class: "odon-ctx-item", text: l("touch.ctx.select") });
+    const c = Q("button", { class: "odon-ctx-item", text: l("touch.ctx.select") });
     if (c.addEventListener("click", () => {
       ee = /* @__PURE__ */ new Set([e]), G = e, Zt(), z1();
     }), a.appendChild(c), ee.size > 0) {
-      const p = X("button", { class: "odon-ctx-item", text: l("touch.ctx.multiSelect") });
+      const p = Q("button", { class: "odon-ctx-item", text: l("touch.ctx.multiSelect") });
       p.addEventListener("click", () => {
         ee.add(e), G = e, Zt(), z1();
       }), a.appendChild(p);
     }
   }
-  a.appendChild(X("div", { class: "odon-ctx-divider" }));
-  const o = X("button", { class: "odon-ctx-item danger", text: l("touch.ctx.reset") });
+  a.appendChild(Q("div", { class: "odon-ctx-divider" }));
+  const o = Q("button", { class: "odon-ctx-item danger", text: l("touch.ctx.reset") });
   o.addEventListener("click", () => {
     I3(e), z1();
   }), a.appendChild(o);
@@ -26744,19 +26744,19 @@ function P3(e) {
   if (Da(), !n1 || We) return;
   const t = N.get(e);
   if (!t) return;
-  const a = St.get(e), i = a?.find((y) => y.classList.contains("side-view")) || a?.[0], o = ea(e, f1), n = X("div", { class: "odon-note-popover" }), s = X("div", { class: "odon-note-header" }), d = X("span", { class: "odon-note-title", text: l("note.title") + " — " + o }), c = X("button", { class: "odon-zoom-close", text: "✕" });
+  const a = St.get(e), i = a?.find((y) => y.classList.contains("side-view")) || a?.[0], o = ea(e, f1), n = Q("div", { class: "odon-note-popover" }), s = Q("div", { class: "odon-note-header" }), d = Q("span", { class: "odon-note-title", text: l("note.title") + " — " + o }), c = Q("button", { class: "odon-zoom-close", text: "✕" });
   c.addEventListener("click", Da), s.appendChild(d), s.appendChild(c);
   const p = document.createElement("textarea");
   p.className = "odon-note-textarea", p.value = t.note || "", p.placeholder = l("note.placeholder"), p.rows = 3;
-  const f = X("div", { class: "odon-note-actions" }), u = X("button", { class: "odon-zoom-btn", text: l("note.save") });
+  const f = Q("div", { class: "odon-note-actions" }), u = Q("button", { class: "odon-zoom-btn", text: l("note.save") });
   u.addEventListener("click", () => {
     t.note = p.value.trim(), ia(e), oa(e), Da();
   });
-  const b = X("button", { class: "odon-zoom-btn danger", text: l("note.delete") });
+  const b = Q("button", { class: "odon-zoom-btn danger", text: l("note.delete") });
   b.addEventListener("click", () => {
     t.note = "", ia(e), oa(e), Da();
   }), f.appendChild(u), f.appendChild(b), n.appendChild(s), n.appendChild(p), n.appendChild(f);
-  const w = X("div", { class: "odon-note-backdrop" });
+  const w = Q("div", { class: "odon-note-backdrop" });
   if (w.addEventListener("click", Da), w.appendChild(n), document.body.appendChild(w), n.addEventListener("click", (y) => y.stopPropagation()), i) {
     const y = i.getBoundingClientRect(), v = 320;
     let m = y.left + y.width / 2 - v / 2, D = y.bottom + 8;
@@ -26794,15 +26794,15 @@ function sn(e, t) {
     occlusal: "surface.occlusal"
   }[e] || e;
 }
-function Xp(e, t, a) {
+function Qp(e, t, a) {
   La();
-  const i = t.getBoundingClientRect(), o = X("div", { class: "odon-depth-popup" }), n = G != null ? N.get(G) : null, s = !!n?.fillingSurfaceMaterials?.has(e), d = s ? "caries.recurrentTitle" : "caries.primaryTitle";
-  o.appendChild(X("div", { class: "odon-depth-title", text: `${l(d)} – ${l(sn(e, a))}` }));
+  const i = t.getBoundingClientRect(), o = Q("div", { class: "odon-depth-popup" }), n = G != null ? N.get(G) : null, s = !!n?.fillingSurfaceMaterials?.has(e), d = s ? "caries.recurrentTitle" : "caries.primaryTitle";
+  o.appendChild(Q("div", { class: "odon-depth-title", text: `${l(d)} – ${l(sn(e, a))}` }));
   const c = (v, m, D, Z) => {
     if (!(!m || m.length === 0)) {
-      o.appendChild(X("div", { class: "odon-depth-group-label", text: l(v) }));
+      o.appendChild(Q("div", { class: "odon-depth-group-label", text: l(v) }));
       for (const g of m) {
-        const x = X("button", { class: "odon-depth-option", text: g.label });
+        const x = Q("button", { class: "odon-depth-option", text: g.label });
         x.title = g.title || "", D != null && String(g.value) === String(D) && x.classList.add("is-active"), x.addEventListener("click", (C) => {
           C.stopPropagation(), Z(g.value), La();
         }), o.appendChild(x);
@@ -26837,7 +26837,7 @@ function Xp(e, t, a) {
   }, 0);
 }
 function D3(e, t) {
-  Xp(e, t, G);
+  Qp(e, t, G);
 }
 function _p(e, t) {
   $p(e, t, G);
@@ -26846,11 +26846,11 @@ function $p(e, t, a) {
   La();
   const i = G != null ? N.get(G) : null;
   if (!i?.fillingSurfaceMaterials?.has(e)) return;
-  const o = t.getBoundingClientRect(), n = X("div", { class: "odon-depth-popup" });
-  n.appendChild(X("div", { class: "odon-depth-title", text: `${l("fillingDefect.label")} – ${l(sn(e, a))}` }));
-  const s = i?.fillingDefect?.get(e) ?? "none", d = X("div", { class: "odon-depth-group" });
+  const o = t.getBoundingClientRect(), n = Q("div", { class: "odon-depth-popup" });
+  n.appendChild(Q("div", { class: "odon-depth-title", text: `${l("fillingDefect.label")} – ${l(sn(e, a))}` }));
+  const s = i?.fillingDefect?.get(e) ?? "none", d = Q("div", { class: "odon-depth-group" });
   for (const y of ["none", "marginal", "fracture", "wear"]) {
-    const v = X("button", { class: "odon-depth-option" + (y === s ? " is-active" : ""), text: l("fillingDefect." + y) });
+    const v = Q("button", { class: "odon-depth-option" + (y === s ? " is-active" : ""), text: l("fillingDefect." + y) });
     v.addEventListener("click", (m) => {
       m.stopPropagation(), re((D) => {
         v3(D.fillingDefect, e, y);
@@ -26902,8 +26902,8 @@ function O3(e) {
 function e8() {
   const e = q("#toothGrid");
   if (!e) return;
-  Et && Et.remove(), Et = X("div", { class: "odon-arch-toggle" });
-  const t = X("button", { class: "odon-arch-btn", text: l("touch.arch.upper") }), a = X("button", { class: "odon-arch-btn", text: l("touch.arch.lower") }), i = X("button", { class: "odon-arch-btn active", text: l("touch.arch.both") });
+  Et && Et.remove(), Et = Q("div", { class: "odon-arch-toggle" });
+  const t = Q("button", { class: "odon-arch-btn", text: l("touch.arch.upper") }), a = Q("button", { class: "odon-arch-btn", text: l("touch.arch.lower") }), i = Q("button", { class: "odon-arch-btn active", text: l("touch.arch.both") });
   function o(n) {
     Co = n, t.classList.toggle("active", n === "upper"), a.classList.toggle("active", n === "lower"), i.classList.toggle("active", n === "both"), e.classList.toggle("odon-arch-upper", n === "upper"), e.classList.toggle("odon-arch-lower", n === "lower");
   }
@@ -26920,7 +26920,7 @@ function a8(e, t) {
     Ks = Date.now(), Hs = a.touches[0].clientX, qs = a.touches[0].clientY, wo = !1;
     const i = a.touches[0];
     $t = setTimeout(() => {
-      wo || Qp(t, i);
+      wo || Xp(t, i);
     }, Ys);
   }, { passive: !0 }), e.addEventListener("touchmove", (a) => {
     if (a.touches.length !== 1) return;
@@ -27030,7 +27030,7 @@ function yt() {
     return !a || a.length === 0 ? !0 : !a.every((i) => i.classList.contains("wisdom-hidden"));
   })), G && !ee.has(G) && (G = ee.values().next().value ?? null), Zt();
 }
-function Qa(e) {
+function Xa(e) {
   if (e) {
     const t = JSON.stringify(Rt((() => {
       const i = fe();
@@ -27042,11 +27042,11 @@ function Qa(e) {
         const o = fe();
         o.toothSelection = "none", N.set(i, o), it(i), kt(i);
       }
-      aa = !1, G && we(N.get(G)), Q();
+      aa = !1, G && we(N.get(G)), X();
     });
     return;
   }
-  i1 = !1, Q();
+  i1 = !1, X();
 }
 function n8() {
   return i1;
@@ -27161,7 +27161,7 @@ function Rt(e) {
     ...e.note ? { note: e.note } : {}
   };
 }
-const s8 = De("toothSelection"), G3 = De("endo"), lr = De("fillingMaterial"), r8 = De("prosthesis"), N3 = De("mobility"), l8 = De("toothSubstrate"), c8 = De("restorationType"), d8 = De("restorationMaterial"), p8 = De("mods"), f8 = De("periapicalType"), m8 = De("caries"), R3 = De("pulpDx"), j3 = De("pulpLatin"), F3 = De("apicalDx"), U3 = De("resorptionType"), B3 = De("wearEdge"), V3 = De("wearCervical"), K3 = De("discoloration"), H3 = De("orthoAppliance"), q3 = De("orthoDrift"), Y3 = De("orthoVertical"), V1 = Z4(), W3 = De("rootCaries"), J3 = De("periImplant"), Q3 = De("cejVisibility"), X3 = De("rootConcavity"), _3 = De("gingivalThickness"), $3 = De("millerClass"), h8 = /* @__PURE__ */ new Set([0, 1, 2, 3, 4, 5, 6]), u8 = /* @__PURE__ */ new Set([0, 1, 2, 3, 4, 5, 6]), g8 = /* @__PURE__ */ new Set(["none", "E1", "E2", "D1", "D2", "D3"]), v8 = /* @__PURE__ */ new Set(["marginal", "fracture", "wear"]), y8 = /* @__PURE__ */ new Set(["mesial", "distal", "buccal", "lingual"]), ec = /* @__PURE__ */ new Set([1, 2, 3, 4]), C1 = /* @__PURE__ */ new Set(["mesial", "distal", "buccal", "lingual"]);
+const s8 = De("toothSelection"), G3 = De("endo"), lr = De("fillingMaterial"), r8 = De("prosthesis"), N3 = De("mobility"), l8 = De("toothSubstrate"), c8 = De("restorationType"), d8 = De("restorationMaterial"), p8 = De("mods"), f8 = De("periapicalType"), m8 = De("caries"), R3 = De("pulpDx"), j3 = De("pulpLatin"), F3 = De("apicalDx"), U3 = De("resorptionType"), B3 = De("wearEdge"), V3 = De("wearCervical"), K3 = De("discoloration"), H3 = De("orthoAppliance"), q3 = De("orthoDrift"), Y3 = De("orthoVertical"), V1 = Z4(), W3 = De("rootCaries"), J3 = De("periImplant"), X3 = De("cejVisibility"), Q3 = De("rootConcavity"), _3 = De("gingivalThickness"), $3 = De("millerClass"), h8 = /* @__PURE__ */ new Set([0, 1, 2, 3, 4, 5, 6]), u8 = /* @__PURE__ */ new Set([0, 1, 2, 3, 4, 5, 6]), g8 = /* @__PURE__ */ new Set(["none", "E1", "E2", "D1", "D2", "D3"]), v8 = /* @__PURE__ */ new Set(["marginal", "fracture", "wear"]), y8 = /* @__PURE__ */ new Set(["mesial", "distal", "buccal", "lingual"]), ec = /* @__PURE__ */ new Set([1, 2, 3, 4]), C1 = /* @__PURE__ */ new Set(["mesial", "distal", "buccal", "lingual"]);
 function Ln(e, t) {
   return Array.isArray(e) ? new Set(e.filter((a) => typeof a == "string" && t.has(a))) : /* @__PURE__ */ new Set();
 }
@@ -27244,7 +27244,7 @@ function Ba(e, t = !0) {
       const C = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN;
       V1.has(g) && h8.has(C) && u.set(g, C);
     }
-  if (a.rootCaries = Ee(e.rootCaries, W3, "none"), a.periImplant = Ee(e.periImplant, J3, "none"), a.toothSelection === "implant" && a.periImplant === "none" && (a.mods.has("inflammation") && (a.periImplant = "mucositis", a.mods.delete("inflammation")), a.mods.has("parodontal") && (a.periImplant = "mucositis", a.mods.delete("parodontal"))), a.cejVisibility = Ee(e.cejVisibility, Q3, "none"), a.rootConcavity = Ee(e.rootConcavity, X3, "none"), a.gingivalThickness = Ee(e.gingivalThickness, _3, "unknown"), a.millerClass = Ee(e.millerClass, $3, "none"), a.radiographicDepth = /* @__PURE__ */ new Map(), e.radiographicDepth && typeof e.radiographicDepth == "object")
+  if (a.rootCaries = Ee(e.rootCaries, W3, "none"), a.periImplant = Ee(e.periImplant, J3, "none"), a.toothSelection === "implant" && a.periImplant === "none" && (a.mods.has("inflammation") && (a.periImplant = "mucositis", a.mods.delete("inflammation")), a.mods.has("parodontal") && (a.periImplant = "mucositis", a.mods.delete("parodontal"))), a.cejVisibility = Ee(e.cejVisibility, X3, "none"), a.rootConcavity = Ee(e.rootConcavity, Q3, "none"), a.gingivalThickness = Ee(e.gingivalThickness, _3, "unknown"), a.millerClass = Ee(e.millerClass, $3, "none"), a.radiographicDepth = /* @__PURE__ */ new Map(), e.radiographicDepth && typeof e.radiographicDepth == "object")
     for (const [g, x] of Object.entries(e.radiographicDepth))
       V1.has(g) && typeof x == "string" && g8.has(x) && a.radiographicDepth.set(g, x);
   if (a.fillingDefect = /* @__PURE__ */ new Map(), e.fillingDefect && typeof e.fillingDefect == "object")
@@ -27383,7 +27383,7 @@ function Yf(e) {
   if (jt = !0, d1.clear(), a1 = null, Wa() === "plan") {
     for (const i of ce)
       it(i), kt(i), oa(i);
-    G && we(N.get(G)), Q();
+    G && we(N.get(G)), X();
   }
 }
 const x8 = Object.fromEntries(
@@ -27515,18 +27515,18 @@ function Tt(e, t, a) {
     if ("pd" in a) {
       const s = a.pd;
       if (s == null || typeof s == "number" && s < 1)
-        return (o.pd.has(t) || o.gm.has(t) || o.bop.has(t) || o.sup.has(t)) && (o.pd.delete(t), o.gm.delete(t), o.bop.delete(t), o.sup.delete(t), n = !0), n && Q(), n;
+        return (o.pd.has(t) || o.gm.has(t) || o.bop.has(t) || o.sup.has(t)) && (o.pd.delete(t), o.gm.delete(t), o.bop.delete(t), o.sup.delete(t), n = !0), n && X(), n;
       const d = Bo("pd", s);
       if (d === null) return !1;
       o.pd.get(t) !== d && (o.pd.set(t, d), n = !0);
     }
     if (!o.pd.has(t))
-      return n && Q(), n;
+      return n && X(), n;
     if (a.gm !== void 0) {
       const s = Bo("gm", a.gm);
       s !== null && o.gm.get(t) !== s && (o.gm.set(t, s), n = !0);
     }
-    return a.bop !== void 0 && (a.bop ? o.bop.has(t) || (o.bop.add(t), n = !0) : o.bop.has(t) && (o.bop.delete(t), n = !0)), a.sup !== void 0 && (a.sup ? o.sup.has(t) || (o.sup.add(t), n = !0) : o.sup.has(t) && (o.sup.delete(t), n = !0)), n && Q(), n;
+    return a.bop !== void 0 && (a.bop ? o.bop.has(t) || (o.bop.add(t), n = !0) : o.bop.has(t) && (o.bop.delete(t), n = !0)), a.sup !== void 0 && (a.sup ? o.sup.has(t) || (o.sup.add(t), n = !0) : o.sup.has(t) && (o.sup.delete(t), n = !0)), n && X(), n;
   });
 }
 function bt(e) {
@@ -27543,7 +27543,7 @@ function I8(e, t, a) {
   let i = N.get(e);
   i || (i = fe(), N.set(e, i)), Yt(e, () => {
     const o = i.furcation;
-    return a == null ? o.has(t) ? (o.delete(t), Q(), !0) : !1 : !Number.isInteger(a) || !ec.has(a) ? !1 : o.get(t) !== a ? (o.set(t, a), Q(), !0) : !1;
+    return a == null ? o.has(t) ? (o.delete(t), X(), !0) : !1 : !Number.isInteger(a) || !ec.has(a) ? !1 : o.get(t) !== a ? (o.set(t, a), X(), !0) : !1;
   });
 }
 function T2(e) {
@@ -27557,9 +27557,9 @@ function C8(e, t, a) {
     const o = i.plaque;
     if (a) {
       if (!o.has(t))
-        return o.add(t), Q(), !0;
+        return o.add(t), X(), !0;
     } else if (o.has(t))
-      return o.delete(t), Q(), !0;
+      return o.delete(t), X(), !0;
     return !1;
   });
 }
@@ -27576,7 +27576,7 @@ function cn(e, t, a, i) {
   let o = N.get(e);
   o || (o = fe(), N.set(e, o)), !((t === "mpi" || t === "mbi") && o.toothSelection !== "implant") && Yt(e, () => {
     const n = o[t];
-    return i === 0 ? n.has(a) ? (n.delete(a), Q(), !0) : !1 : (i === 1 || i === 2 || i === 3) && n.get(a) !== i ? (n.set(a, i), Q(), !0) : !1;
+    return i === 0 ? n.has(a) ? (n.delete(a), X(), !0) : !1 : (i === 1 || i === 2 || i === 3) && n.get(a) !== i ? (n.set(a, i), X(), !0) : !1;
   });
 }
 function Ji(e, t) {
@@ -27585,13 +27585,13 @@ function Ji(e, t) {
 function P8(e, t, a) {
   cn(e, "pi", t, a);
 }
-function Qi(e, t) {
+function Xi(e, t) {
   return ln(N.get(e)?.gi ?? /* @__PURE__ */ new Map(), t);
 }
 function D8(e, t, a) {
   cn(e, "gi", t, a);
 }
-function Xi(e, t) {
+function Qi(e, t) {
   return ln(N.get(e)?.mpi ?? /* @__PURE__ */ new Map(), t);
 }
 function A8(e, t, a) {
@@ -27608,7 +27608,7 @@ function ic(e) {
   const t = Number(e);
   return Number.isFinite(t) ? Math.max(0, Math.min(15, Math.round(t))) : null;
 }
-function Xa(e) {
+function Qa(e) {
   const t = N.get(e)?.kg;
   return typeof t == "number" ? t : null;
 }
@@ -27616,20 +27616,20 @@ function E8(e, t) {
   let a = N.get(e);
   a || (a = fe(), N.set(e, a));
   const i = t === null ? null : ic(t);
-  t !== null && i === null || Yt(e, () => a.kg === i ? !1 : (a.kg = i, Q(), !0));
+  t !== null && i === null || Yt(e, () => a.kg === i ? !1 : (a.kg = i, X(), !0));
 }
 function O8(e, t) {
-  if (!Q3.has(t)) return;
+  if (!X3.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), Yt(e, () => a.cejVisibility === t ? !1 : (a.cejVisibility = t, Q(), !0));
+  a || (a = fe(), N.set(e, a)), Yt(e, () => a.cejVisibility === t ? !1 : (a.cejVisibility = t, X(), !0));
 }
 function $i(e) {
   return N.get(e)?.cejVisibility ?? "none";
 }
 function L8(e, t) {
-  if (!X3.has(t)) return;
+  if (!Q3.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), Yt(e, () => a.rootConcavity === t ? !1 : (a.rootConcavity = t, Q(), !0));
+  a || (a = fe(), N.set(e, a)), Yt(e, () => a.rootConcavity === t ? !1 : (a.rootConcavity = t, X(), !0));
 }
 function eo(e) {
   return N.get(e)?.rootConcavity ?? "none";
@@ -27637,7 +27637,7 @@ function eo(e) {
 function G8(e, t) {
   if (!_3.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), Yt(e, () => a.gingivalThickness === t ? !1 : (a.gingivalThickness = t, Q(), !0));
+  a || (a = fe(), N.set(e, a)), Yt(e, () => a.gingivalThickness === t ? !1 : (a.gingivalThickness = t, X(), !0));
 }
 function dn(e) {
   return N.get(e)?.gingivalThickness ?? "unknown";
@@ -27645,7 +27645,7 @@ function dn(e) {
 function N8(e, t) {
   if (!$3.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), Yt(e, () => a.millerClass === t ? !1 : (a.millerClass = t, Q(), !0));
+  a || (a = fe(), N.set(e, a)), Yt(e, () => a.millerClass === t ? !1 : (a.millerClass = t, X(), !0));
 }
 function pn(e) {
   return N.get(e)?.millerClass ?? "none";
@@ -27740,7 +27740,7 @@ function Vo() {
   const e = h1();
   if (e.chartedSites > 0 || e.maxFurcation !== null || e.plaquePercent > 0 || e.piScore !== null || e.giScore !== null || e.kgDeficientTeeth > 0 || e.gtDistribution.thin > 0 || e.gtDistribution.medium > 0 || e.gtDistribution.thick > 0 || e.millerDistribution.i > 0 || e.millerDistribution.ii > 0 || e.millerDistribution.iii > 0 || e.millerDistribution.iv > 0 || e.mpiScore !== null || e.mbiScore !== null) return !0;
   for (const t of ce)
-    if (Xa(t) !== null || $i(t) !== "none" || eo(t) !== "none") return !0;
+    if (Qa(t) !== null || $i(t) !== "none" || eo(t) !== "none") return !0;
   return !1;
 }
 function cr() {
@@ -27864,15 +27864,15 @@ function q8(e, t) {
   if (!N3.has(t)) return;
   let a = N.get(e);
   a || (a = fe(), N.set(e, a)), a.mobility !== t && Yt(e, () => {
-    a.mobility = t, it(e), kt(e), e === G && we(N.get(e)), Q();
+    a.mobility = t, it(e), kt(e), e === G && we(N.get(e)), X();
   });
 }
 let R2 = !1;
 function Y8() {
-  R2 = !0, Q();
+  R2 = !0, X();
 }
 function nc() {
-  R2 = !1, Q();
+  R2 = !1, X();
 }
 function W8() {
   return R2;
@@ -27882,9 +27882,9 @@ function dr() {
   return o2;
 }
 function J8(e) {
-  e !== o2 && (o2 = e, Q());
+  e !== o2 && (o2 = e, X());
 }
-const Q8 = [
+const X8 = [
   "plaque",
   "bop",
   "cal",
@@ -27902,31 +27902,31 @@ const Q8 = [
   "gt",
   "miller"
 ];
-function X8() {
+function Q8() {
   const e = {};
-  for (const t of Q8) e[t] = !0;
+  for (const t of X8) e[t] = !0;
   return e;
 }
-let Do = X8();
+let Do = Q8();
 function Bi() {
   return Do;
 }
 function _8(e, t) {
-  Do[e] !== t && (Do = { ...Do, [e]: t }, Q());
+  Do[e] !== t && (Do = { ...Do, [e]: t }, X());
 }
 let n2 = "translated";
 function na() {
   return n2;
 }
 function $8(e) {
-  e !== n2 && (n2 = e, Q());
+  e !== n2 && (n2 = e, X());
 }
 let s2 = "none";
 function bi() {
   return s2;
 }
 function e7(e) {
-  e !== s2 && (s2 = e, Q());
+  e !== s2 && (s2 = e, X());
 }
 function sc(e, t) {
   const a = new Blob([JSON.stringify(e, null, 2)], { type: "application/json" }), i = URL.createObjectURL(a), o = document.createElement("a"), n = (/* @__PURE__ */ new Date()).toISOString().slice(0, 19).replace(/[:T]/g, "-");
@@ -27939,12 +27939,12 @@ function Ko(e, t) {
 let O1 = null, pt = !1;
 function to() {
   if (O1) return;
-  const e = X("div", { class: "odon-export-card" }, [
-    X("div", { class: "odon-export-title", text: l("export.progress.title") }),
-    X("div", { class: "odon-export-pct", id: "odonExportPct", text: "0%" }),
-    X("div", { class: "odon-export-phase", id: "odonExportPhase", text: l("export.progress.preparing") })
+  const e = Q("div", { class: "odon-export-card" }, [
+    Q("div", { class: "odon-export-title", text: l("export.progress.title") }),
+    Q("div", { class: "odon-export-pct", id: "odonExportPct", text: "0%" }),
+    Q("div", { class: "odon-export-phase", id: "odonExportPhase", text: l("export.progress.preparing") })
   ]);
-  O1 = X("div", { class: "odon-export-overlay", role: "status", "aria-live": "polite" }, [e]), document.body.appendChild(O1);
+  O1 = Q("div", { class: "odon-export-overlay", role: "status", "aria-live": "polite" }, [e]), document.body.appendChild(O1);
 }
 function Ve(e, t) {
   const a = Math.max(0, Math.min(100, Math.round(e))), i = O1?.querySelector("#odonExportPct"), o = O1?.querySelector("#odonExportPhase");
@@ -28173,7 +28173,7 @@ function r2(e) {
   }, i = (o) => {
     typeof e[o] == "boolean" && e[o] !== Le[o] && (Le[o] = e[o], t = !0);
   };
-  a("defaultName"), a("defaultDob"), a("disclaimerText"), i("showAge"), i("showBone"), i("showHealthyPulp"), i("border"), i("includeOdontogramText"), i("includeOdontogramTable"), i("perioShowEmptyRows"), i("includePerioTable"), i("includePerioAbbrev"), i("showDisclaimer"), i("showGenerator"), e.dateFormat && r7.has(e.dateFormat) && e.dateFormat !== Le.dateFormat && (Le.dateFormat = e.dateFormat, t = !0), e.colorTheme && e.colorTheme in v2 && e.colorTheme !== Le.colorTheme && (Le.colorTheme = e.colorTheme, t = !0), e.toothSpacing && hr.has(e.toothSpacing) && e.toothSpacing !== Le.toothSpacing && (Le.toothSpacing = e.toothSpacing, t = !0), e.borderThickness && l7.has(e.borderThickness) && e.borderThickness !== Le.borderThickness && (Le.borderThickness = e.borderThickness, t = !0), e.toothNumberSize && c7.has(e.toothNumberSize) && e.toothNumberSize !== Le.toothNumberSize && (Le.toothNumberSize = e.toothNumberSize, t = !0), typeof e.borderColor == "string" && m7.test(e.borderColor) && e.borderColor !== Le.borderColor && (Le.borderColor = e.borderColor, t = !0), e.perioToothSpacing && hr.has(e.perioToothSpacing) && e.perioToothSpacing !== Le.perioToothSpacing && (Le.perioToothSpacing = e.perioToothSpacing, t = !0), e.perioLabelPlacement && d7.has(e.perioLabelPlacement) && e.perioLabelPlacement !== Le.perioLabelPlacement && (Le.perioLabelPlacement = e.perioLabelPlacement, t = !0), e.perioFontSize && p7.has(e.perioFontSize) && e.perioFontSize !== Le.perioFontSize && (Le.perioFontSize = e.perioFontSize, t = !0), e.summaryGrouping && f7.has(e.summaryGrouping) && e.summaryGrouping !== Le.summaryGrouping && (Le.summaryGrouping = e.summaryGrouping, t = !0), t && Q();
+  a("defaultName"), a("defaultDob"), a("disclaimerText"), i("showAge"), i("showBone"), i("showHealthyPulp"), i("border"), i("includeOdontogramText"), i("includeOdontogramTable"), i("perioShowEmptyRows"), i("includePerioTable"), i("includePerioAbbrev"), i("showDisclaimer"), i("showGenerator"), e.dateFormat && r7.has(e.dateFormat) && e.dateFormat !== Le.dateFormat && (Le.dateFormat = e.dateFormat, t = !0), e.colorTheme && e.colorTheme in v2 && e.colorTheme !== Le.colorTheme && (Le.colorTheme = e.colorTheme, t = !0), e.toothSpacing && hr.has(e.toothSpacing) && e.toothSpacing !== Le.toothSpacing && (Le.toothSpacing = e.toothSpacing, t = !0), e.borderThickness && l7.has(e.borderThickness) && e.borderThickness !== Le.borderThickness && (Le.borderThickness = e.borderThickness, t = !0), e.toothNumberSize && c7.has(e.toothNumberSize) && e.toothNumberSize !== Le.toothNumberSize && (Le.toothNumberSize = e.toothNumberSize, t = !0), typeof e.borderColor == "string" && m7.test(e.borderColor) && e.borderColor !== Le.borderColor && (Le.borderColor = e.borderColor, t = !0), e.perioToothSpacing && hr.has(e.perioToothSpacing) && e.perioToothSpacing !== Le.perioToothSpacing && (Le.perioToothSpacing = e.perioToothSpacing, t = !0), e.perioLabelPlacement && d7.has(e.perioLabelPlacement) && e.perioLabelPlacement !== Le.perioLabelPlacement && (Le.perioLabelPlacement = e.perioLabelPlacement, t = !0), e.perioFontSize && p7.has(e.perioFontSize) && e.perioFontSize !== Le.perioFontSize && (Le.perioFontSize = e.perioFontSize, t = !0), e.summaryGrouping && f7.has(e.summaryGrouping) && e.summaryGrouping !== Le.summaryGrouping && (Le.summaryGrouping = e.summaryGrouping, t = !0), t && X();
 }
 function Nn(e, t) {
   const a = /^(\d{4})-(\d{2})-(\d{2})$/.exec(e);
@@ -28194,7 +28194,7 @@ const u7 = { wide: 0.85, medium: 0.72, close: 0.6 }, g7 = { small: 1.275, normal
 }, b7 = { wide: 8, medium: 2, close: -2 };
 function k7() {
   const e = h1(), t = (n) => ce.some(n), a = [], i = e.gtDistribution, o = e.millerDistribution;
-  return e.plaquePercent > 0 && a.push({ term: "Plaque", desc: l("perio.info.plaque") }), e.piScore !== null && a.push({ term: "PI", desc: l("perio.info.pi") }), e.giScore !== null && a.push({ term: "GI", desc: l("perio.info.gi") }), e.mpiScore !== null && a.push({ term: "mPI", desc: l("perio.info.mpi") }), e.mbiScore !== null && a.push({ term: "mBI", desc: l("perio.info.mbi") }), t((n) => Xa(n) !== null) && a.push({ term: "KG", desc: l("perio.info.kg") }), i.thin + i.medium + i.thick > 0 && a.push({ term: "GT (Tn/Md/Tk)", desc: `${l("perio.info.gt")} — Tn: ${l("perio.gt.thin")}, Md: ${l("perio.gt.medium")}, Tk: ${l("perio.gt.thick")}` }), t((n) => $i(n) !== "none") && a.push({ term: "CEJ (D/ND)", desc: `${l("perio.info.cej")} — D: ${l("perio.cej.detectable")}, ND: ${l("perio.cej.notDetectable")}` }), t((n) => eo(n) !== "none") && a.push({ term: "Mi / Dp", desc: `${l("perio.info.rootConcavity")} — Mi: ${l("perio.rootConcavity.mild")}, Dp: ${l("perio.rootConcavity.deep")}` }), e.maxFurcation !== null && a.push({ term: "Furcation (I–IV)", desc: l("perio.info.furcation") }), o.i + o.ii + o.iii + o.iv > 0 && a.push({ term: "Miller (I–IV)", desc: l("perio.info.miller") }), t((n) => N2(n) !== "none") && a.push({ term: "Mobility (1–3)", desc: l("perio.info.mobility") }), a;
+  return e.plaquePercent > 0 && a.push({ term: "Plaque", desc: l("perio.info.plaque") }), e.piScore !== null && a.push({ term: "PI", desc: l("perio.info.pi") }), e.giScore !== null && a.push({ term: "GI", desc: l("perio.info.gi") }), e.mpiScore !== null && a.push({ term: "mPI", desc: l("perio.info.mpi") }), e.mbiScore !== null && a.push({ term: "mBI", desc: l("perio.info.mbi") }), t((n) => Qa(n) !== null) && a.push({ term: "KG", desc: l("perio.info.kg") }), i.thin + i.medium + i.thick > 0 && a.push({ term: "GT (Tn/Md/Tk)", desc: `${l("perio.info.gt")} — Tn: ${l("perio.gt.thin")}, Md: ${l("perio.gt.medium")}, Tk: ${l("perio.gt.thick")}` }), t((n) => $i(n) !== "none") && a.push({ term: "CEJ (D/ND)", desc: `${l("perio.info.cej")} — D: ${l("perio.cej.detectable")}, ND: ${l("perio.cej.notDetectable")}` }), t((n) => eo(n) !== "none") && a.push({ term: "Mi / Dp", desc: `${l("perio.info.rootConcavity")} — Mi: ${l("perio.rootConcavity.mild")}, Dp: ${l("perio.rootConcavity.deep")}` }), e.maxFurcation !== null && a.push({ term: "Furcation (I–IV)", desc: l("perio.info.furcation") }), o.i + o.ii + o.iii + o.iv > 0 && a.push({ term: "Miller (I–IV)", desc: l("perio.info.miller") }), t((n) => N2(n) !== "none") && a.push({ term: "Mobility (1–3)", desc: l("perio.info.mobility") }), a;
 }
 async function lc(e) {
   if (!pt) {
@@ -28309,7 +28309,7 @@ function B2(e) {
     M7(e), S7();
     for (const t of ce)
       it(t), kt(t), oa(t);
-    e.globals && (typeof e.globals.wisdomVisible == "boolean" && L3(e.globals.wisdomVisible), typeof e.globals.showBase == "boolean" && Uo(e.globals.showBase), typeof e.globals.occlusalVisible == "boolean" && D2(e.globals.occlusalVisible), typeof e.globals.showHealthyPulp == "boolean" && Fi(e.globals.showHealthyPulp), typeof e.globals.edentulous == "boolean" && (i1 = e.globals.edentulous)), nn(), Zt(), Q(), x2();
+    e.globals && (typeof e.globals.wisdomVisible == "boolean" && L3(e.globals.wisdomVisible), typeof e.globals.showBase == "boolean" && Uo(e.globals.showBase), typeof e.globals.occlusalVisible == "boolean" && D2(e.globals.occlusalVisible), typeof e.globals.showHealthyPulp == "boolean" && Fi(e.globals.showHealthyPulp), typeof e.globals.edentulous == "boolean" && (i1 = e.globals.edentulous)), nn(), Zt(), X(), x2();
   }
 }
 function Z7(e) {
@@ -28336,7 +28336,7 @@ function z7(e) {
     Ja(u, () => {
       for (const [b, w] of f)
         N.set(b, w), it(b), kt(b);
-      G && we(N.get(G)), nn(), Q();
+      G && we(N.get(G)), nn(), X();
     });
   }, d = (f) => f === "metal" ? "metal-ceramic" : f, c = (f, u) => {
     f.toothSubstrate = "crownprep", f.restorationType = "crown", f.restorationMaterial = d(u), f.bridgePillar = !0, f.brokenMesial = !1, f.brokenIncisal = !1, f.brokenDistal = !1;
@@ -28424,8 +28424,8 @@ async function cc(e) {
       `tpl-${g}`,
       Z >= 31 ? "lower-row" : "upper-row",
       z === "occl" ? "occl-view" : "side-view"
-    ], T = X("div", { class: J.join(" "), "data-tooth": String(Z) }, [
-      X("div", { class: "tooth-svg" })
+    ], T = Q("div", { class: J.join(" "), "data-tooth": String(Z) }, [
+      Q("div", { class: "tooth-svg" })
     ]);
     q(".tooth-svg", T).appendChild(R), T.addEventListener("click", (M) => a2(Z, M)), T.addEventListener("dblclick", () => {
       !n1 || We || P3(Z);
@@ -28441,8 +28441,8 @@ async function cc(e) {
     return [14, 15, 24, 25, 34, 35, 44, 45].includes(Z) ? 14 : [16, 17, 18, 26, 27, 28, 36, 37, 38, 46, 47, 48].includes(Z) ? 16 : null;
   }
   function u() {
-    const Z = X("div", { class: "tooth-tile occl-view placeholder" }, [
-      X("div", { class: "tooth-svg" })
+    const Z = Q("div", { class: "tooth-tile occl-view placeholder" }, [
+      Q("div", { class: "tooth-svg" })
     ]);
     i.appendChild(Z);
   }
@@ -28466,9 +28466,9 @@ async function cc(e) {
     }
   }
   function w(Z, g) {
-    const x = X("div", { class: "tooth-label-row", "aria-hidden": "true" });
+    const x = Q("div", { class: "tooth-label-row", "aria-hidden": "true" });
     for (const C of Z) {
-      const z = X("div", { class: "tooth-label-cell", text: ea(C, f1), tabindex: "-1" });
+      const z = Q("div", { class: "tooth-label-cell", text: ea(C, f1), tabindex: "-1" });
       z.addEventListener("click", (F) => a2(C, F)), x.appendChild(z), g.set(C, z);
     }
     i.appendChild(x);
@@ -28476,7 +28476,7 @@ async function cc(e) {
   const y = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], v = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], m = /* @__PURE__ */ new Set([13, 12, 11, 21, 22, 23]), D = /* @__PURE__ */ new Set([43, 42, 41, 31, 32, 33]);
   if (!(!Nt || e !== c1)) {
     if (a.layout === "twoArch") {
-      const Z = X("div", { class: "tooth-arch upper-arch", role: "presentation" }), g = X("div", { class: "tooth-arch lower-arch", role: "presentation" });
+      const Z = Q("div", { class: "tooth-arch upper-arch", role: "presentation" }), g = Q("div", { class: "tooth-arch lower-arch", role: "presentation" });
       t.appendChild(Z), t.appendChild(g), i = Z, w(y, ja), p(y), b(y, m), i = g, b(v, D), p(v), w(v, Fa), i = t;
     } else
       w(y, ja), p(y), b(y, m), b(v, D), p(v), w(v, Fa);
@@ -28488,7 +28488,7 @@ function gr(e) {
   l2 = e === "fhir" ? "fhir" : "status";
 }
 function dc() {
-  document.addEventListener("click", Ql), document.addEventListener("click", Xl), ["btnOcclView", "btnWisdomVisible", "btnBoneVisible", "btnPulpVisible"].forEach((v) => {
+  document.addEventListener("click", Xl), document.addEventListener("click", Ql), ["btnOcclView", "btnWisdomVisible", "btnBoneVisible", "btnPulpVisible"].forEach((v) => {
     const m = q(`#${v}`);
     m && O5(m).then(() => Jl(m));
   }), Up(q("#perioGrid")), $e(q("#btnSelectAll"), "click", () => {
@@ -28585,12 +28585,12 @@ async function C7() {
       const t = N.get(G);
       t && we(t);
     }
-    ql(), Q(), x2();
+    ql(), X(), x2();
   }
 }
 function P7() {
   if (!Nt) return;
-  Nt = !1, c1++, Yl(), document.removeEventListener("click", Ql), document.removeEventListener("click", Xl), zi && (zi(), zi = null);
+  Nt = !1, c1++, Yl(), document.removeEventListener("click", Xl), document.removeEventListener("click", Ql), zi && (zi(), zi = null);
   const e = q("#toothGrid");
   e && (e.removeEventListener("touchstart", T3), e.removeEventListener("touchmove", E3), e.removeEventListener("touchend", O3), e.style.transform = "", e.classList.remove("odon-pinch-active", "odon-arch-upper", "odon-arch-lower"), e.innerHTML = ""), Et && (Et.remove(), Et = null), _t(), z1(), Da(), $t && (clearTimeout($t), $t = null), Ea = 1, Ri = !1, Co = "both", We = !1, n1 = !1, t2.clear(), Re.status.clear(), Re.plan.clear(), jt = !1, d1.clear(), a1 = null, p1 = "status", N = Re.status, jl(), A1.clear(), St.clear(), ja.clear(), Fa.clear(), ee = /* @__PURE__ */ new Set(), G = null;
 }
@@ -28625,7 +28625,7 @@ function Wf(e, t, a) {
 function Jf(e, t) {
   return N.get(e)?.customStates?.[t];
 }
-function Qf(e) {
+function Xf(e) {
   return Z3(e);
 }
 const Y1 = ["buccal", "mesial", "occlusal", "distal", "lingual", "subcrown"];
@@ -28855,7 +28855,7 @@ function vr(e) {
   for (const t of ce)
     ia(t), oa(t);
 }
-function Xf() {
+function Qf() {
   return n1;
 }
 const U7 = {
@@ -28980,7 +28980,7 @@ function hc() {
               type: "text",
               disabled: s,
               value: a.patientName ?? "",
-              onChange: (Z) => Qn(Z.target.value === "" ? null : Z.target.value)
+              onChange: (Z) => Xn(Z.target.value === "" ? null : Z.target.value)
             }
           )
         ] }),
@@ -28994,7 +28994,7 @@ function hc() {
               type: "date",
               disabled: s,
               value: a.examDate ?? "",
-              onChange: (Z) => Xn(Z.target.value === "" ? null : Z.target.value)
+              onChange: (Z) => Qn(Z.target.value === "" ? null : Z.target.value)
             }
           )
         ] }),
@@ -29228,7 +29228,7 @@ function vc(e, t) {
   const a = q7(t);
   return e === "mesial" ? a ? "mes" : "dis" : a ? "dis" : "mes";
 }
-const Y7 = ["–", "I", "II", "III", "IV"], Rn = ["none", "detectable", "not-detectable"], W7 = { none: "–", detectable: "D", "not-detectable": "ND" }, jn = ["none", "mild", "deep"], J7 = { none: "–", mild: "Mi", deep: "Dp" }, Fn = ["unknown", "thin", "medium", "thick"], Q7 = { unknown: "–", thin: "Tn", medium: "Md", thick: "Tk" }, Un = ["none", "i", "ii", "iii", "iv"], X7 = { none: "–", i: "I", ii: "II", iii: "III", iv: "IV" }, Mo = ["–", "1", "2", "3"], _7 = { pd: {}, gm: {}, bop: [] }, $7 = {
+const Y7 = ["–", "I", "II", "III", "IV"], Rn = ["none", "detectable", "not-detectable"], W7 = { none: "–", detectable: "D", "not-detectable": "ND" }, jn = ["none", "mild", "deep"], J7 = { none: "–", mild: "Mi", deep: "Dp" }, Fn = ["unknown", "thin", "medium", "thick"], X7 = { unknown: "–", thin: "Tn", medium: "Md", thick: "Tk" }, Un = ["none", "i", "ii", "iii", "iv"], Q7 = { none: "–", i: "I", ii: "II", iii: "III", iv: "IV" }, Mo = ["–", "1", "2", "3"], _7 = { pd: {}, gm: {}, bop: [] }, $7 = {
   chartedSites: 0,
   bleedingSites: 0,
   bopPercent: 0,
@@ -29370,7 +29370,7 @@ function Ia(e, t, a, i) {
     const y = c.teeth.map((v) => ({
       x: v.x,
       width: v.width,
-      kg: Xa(v.toothNo)
+      kg: Qa(v.toothNo)
     }));
     s?.appendChild(
       At(t0(y, p), { width: c.totalWidth, className: f })
@@ -29378,7 +29378,7 @@ function Ia(e, t, a, i) {
     return;
   }
   if (i === "pi" || i === "gi" || i === "mpi" || i === "mbi") {
-    const y = i === "pi" ? Ji : i === "gi" ? Qi : i === "mpi" ? Xi : _i, v = c.teeth.map((m) => ({
+    const y = i === "pi" ? Ji : i === "gi" ? Xi : i === "mpi" ? Qi : _i, v = c.teeth.map((m) => ({
       x: m.x,
       width: m.width,
       grades: {
@@ -29497,14 +29497,14 @@ function zr(e, t, a, i, o) {
   for (const p of Object.keys(e.gi)) {
     const f = e.gi[p];
     if (!f) continue;
-    const u = Qi(t, p);
+    const u = Xi(t, p);
     f.textContent = Mo[u] ?? "–", f.dataset.grade = String(u), f.setAttribute("aria-pressed", u > 0 ? "true" : "false"), f.disabled = o || n;
   }
   const c = He(t);
   for (const p of Object.keys(e.mpi)) {
     const f = e.mpi[p];
     if (!f) continue;
-    const u = Xi(t, p);
+    const u = Qi(t, p);
     f.textContent = Mo[u] ?? "–", f.dataset.grade = String(u), f.setAttribute("aria-pressed", u > 0 ? "true" : "false"), f.disabled = o || !c;
   }
   for (const p of Object.keys(e.mbi)) {
@@ -29514,16 +29514,16 @@ function zr(e, t, a, i, o) {
     f.textContent = Mo[u] ?? "–", f.dataset.grade = String(u), f.setAttribute("aria-pressed", u > 0 ? "true" : "false"), f.disabled = o || !c;
   }
   if (e.kg) {
-    const p = Xa(t);
+    const p = Qa(t);
     e.kg.value = p === null ? "" : String(p), e.kg.disabled = o || n;
   }
   if (e.gingivalThickness) {
     const p = dn(t), f = e.gingivalThickness;
-    f.textContent = Q7[p] ?? "–", f.dataset.value = p, f.setAttribute("aria-pressed", p !== "unknown" ? "true" : "false"), f.disabled = o || n;
+    f.textContent = X7[p] ?? "–", f.dataset.value = p, f.setAttribute("aria-pressed", p !== "unknown" ? "true" : "false"), f.disabled = o || n;
   }
   if (e.millerClass) {
     const p = pn(t), f = e.millerClass;
-    f.textContent = X7[p] ?? "–", f.dataset.value = p, f.setAttribute("aria-pressed", p !== "none" ? "true" : "false"), f.disabled = o || n;
+    f.textContent = Q7[p] ?? "–", f.dataset.value = p, f.setAttribute("aria-pressed", p !== "none" ? "true" : "false"), f.disabled = o || n;
   }
 }
 function o9(e, t, a, i, o, n) {
@@ -29884,7 +29884,7 @@ function Cr({
         m.current = !0, P8(P, Y, S), m.current = !1, z(P);
       },
       onGiSurface: (P, Y) => {
-        const S = (Qi(P, Y) + 1) % 4;
+        const S = (Xi(P, Y) + 1) % 4;
         m.current = !0, D8(P, Y, S), m.current = !1, z(P);
       },
       // Cycle one surface's mPI/mBI grade 0->1->2->3->0, mirroring
@@ -29894,7 +29894,7 @@ function Cr({
       // the data layer (no-op on a non-implant tooth), so this stays a no-op
       // even if invoked directly.
       onMpiSurface: (P, Y) => {
-        const S = (Xi(P, Y) + 1) % 4;
+        const S = (Qi(P, Y) + 1) % 4;
         m.current = !0, A8(P, Y, S), m.current = !1, z(P);
       },
       onMbiSurface: (P, Y) => {
@@ -30107,13 +30107,13 @@ const Vi = [
 ], m9 = typeof requestAnimationFrame == "function" ? (e) => requestAnimationFrame(e) : (e) => {
   setTimeout(e, 16);
 };
-let Ki = [], Mt = 0, Q1 = null, K2 = 0;
+let Ki = [], Mt = 0, X1 = null, K2 = 0;
 function yc() {
   for (const e of Ki) e.remove();
   Ki = [];
 }
 function p2() {
-  K2++, yc(), Q1 && (document.removeEventListener("keydown", Q1), Q1 = null);
+  K2++, yc(), X1 && (document.removeEventListener("keydown", X1), X1 = null);
 }
 function H2(e) {
   const t = Vi[e];
@@ -30129,7 +30129,7 @@ function h9() {
   for (let t = 0; t < Vi.length; t++) H2(t) && e.push(t);
   return e;
 }
-function Xt(e, t, a) {
+function Qt(e, t, a) {
   const i = document.createElement(e);
   return i.className = t, a !== void 0 && (i.textContent = a), i;
 }
@@ -30143,7 +30143,7 @@ function bc(e, t, a, i) {
   const o = e.selector ? document.querySelector(e.selector) : null;
   if (o) {
     o.scrollIntoView({ block: "center", inline: "center" });
-    const n = o.getBoundingClientRect(), s = Xt("div", "odon-tour-highlight");
+    const n = o.getBoundingClientRect(), s = Qt("div", "odon-tour-highlight");
     s.style.left = `${n.left - 6}px`, s.style.top = `${n.top - 6}px`, s.style.width = `${n.width + 12}px`, s.style.height = `${n.height + 12}px`, document.body.appendChild(s), Ki.push(s);
     const d = Math.min(n.bottom + 12, window.innerHeight - 220), c = Math.min(Math.max(8, n.left), window.innerWidth - 320);
     t.style.top = `${Math.max(8, d)}px`, t.style.left = `${c}px`, t.classList.remove("odon-tour-card-center");
@@ -30153,9 +30153,9 @@ function Ai() {
   yc();
   const e = ++K2, t = Vi[Mt];
   u9(t.view);
-  const a = Xt("div", "odon-tour-backdrop");
+  const a = Qt("div", "odon-tour-backdrop");
   document.body.appendChild(a), Ki.push(a);
-  const i = h9(), o = Math.max(0, i.indexOf(Mt)) + 1, n = i.length > 0 && Mt === i[i.length - 1], s = i.length > 0 && Mt === i[0], d = Xt("div", "odon-tour-card"), c = Xt("div", "odon-tour-counter", `${o} / ${i.length}`), p = Xt("div", "odon-tour-title", l(t.titleKey)), f = Xt("div", "odon-tour-text", l(t.textKey)), u = Xt("div", "odon-tour-actions"), b = Xt("button", "odon-tour-btn odon-tour-skip", l("intro.skip")), w = Xt("button", "odon-tour-btn", l("intro.back")), y = Xt("button", "odon-tour-btn odon-tour-next", l(n ? "intro.finish" : "intro.next"));
+  const i = h9(), o = Math.max(0, i.indexOf(Mt)) + 1, n = i.length > 0 && Mt === i[i.length - 1], s = i.length > 0 && Mt === i[0], d = Qt("div", "odon-tour-card"), c = Qt("div", "odon-tour-counter", `${o} / ${i.length}`), p = Qt("div", "odon-tour-title", l(t.titleKey)), f = Qt("div", "odon-tour-text", l(t.textKey)), u = Qt("div", "odon-tour-actions"), b = Qt("button", "odon-tour-btn odon-tour-skip", l("intro.skip")), w = Qt("button", "odon-tour-btn", l("intro.back")), y = Qt("button", "odon-tour-btn odon-tour-next", l(n ? "intro.finish" : "intro.next"));
   b.onclick = p2, w.onclick = () => {
     Mt = Di(Mt, -1), Ai();
   }, y.onclick = () => {
@@ -30163,12 +30163,12 @@ function Ai() {
   }, w.disabled = s, u.append(b, w, y), d.append(c, p, f, u), document.body.appendChild(d), Ki.push(d), d.classList.add("odon-tour-card-center"), bc(t, d, e, 0);
 }
 function g9() {
-  Mt = H2(0) ? 0 : Di(0, 1), Q1 && document.removeEventListener("keydown", Q1), Q1 = (e) => {
+  Mt = H2(0) ? 0 : Di(0, 1), X1 && document.removeEventListener("keydown", X1), X1 = (e) => {
     e.key === "Escape" ? p2() : e.key === "ArrowRight" ? (e.preventDefault(), Mt = Di(Mt, 1), Ai()) : e.key === "ArrowLeft" && (e.preventDefault(), Mt = Di(Mt, -1), Ai());
-  }, document.addEventListener("keydown", Q1), Ai();
+  }, document.addEventListener("keydown", X1), Ai();
 }
 const kc = "react-advanced-odontogram", Dr = 4 * 1024 * 1024, xc = 1, v9 = 400;
-let Ti = null, fn = kc, q2 = {}, X1 = null;
+let Ti = null, fn = kc, q2 = {}, Q1 = null;
 function $1(e) {
   const t = e instanceof Error ? e : new Error(String(e)), a = q2.onError;
   if (a)
@@ -30187,12 +30187,12 @@ function Y2() {
   }
 }
 function y9() {
-  X1 !== null && clearTimeout(X1), X1 = setTimeout(() => {
-    X1 = null, wc();
+  Q1 !== null && clearTimeout(Q1), Q1 = setTimeout(() => {
+    Q1 = null, wc();
   }, v9);
 }
 function b9(e) {
-  X1 !== null && (clearTimeout(X1), X1 = null, wc());
+  Q1 !== null && (clearTimeout(Q1), Q1 = null, wc());
 }
 function wc() {
   const e = Y2();
@@ -31373,7 +31373,7 @@ function J9({
   const i = xe(null), o = xe(null), n = Va(), [s, d] = _(!0), [c, p] = _(!0), [f, u] = _(!0), [b, w] = _(!0), [y, v] = _(!0), [m, D] = _(!0), [Z, g] = _(!1), [x, C] = _(!1), [z, F] = _(e1()), [L, R] = _(e1().patientName ?? "");
   se(() => {
     if (!e) return;
-    o.current = document.activeElement ?? null, g(Vo()), C(cr()), e1().examDate === null && Xn((/* @__PURE__ */ new Date()).toISOString().slice(0, 10)), F(e1()), R(e1().patientName ?? "");
+    o.current = document.activeElement ?? null, g(Vo()), C(cr()), e1().examDate === null && Qn((/* @__PURE__ */ new Date()).toISOString().slice(0, 10)), F(e1()), R(e1().patientName ?? "");
     const M = i.current;
     return (M?.querySelector(Lr) ?? M)?.focus(), () => {
       o.current?.focus?.();
@@ -31404,7 +31404,7 @@ function J9({
   );
   if (!e) return null;
   const T = () => {
-    Qn(L.trim() === "" ? null : L), lc({
+    Xn(L.trim() === "" ? null : L), lc({
       patientData: s,
       odontogramChart: c,
       odontogramDescription: f,
@@ -31443,7 +31443,7 @@ function J9({
                   type: "text",
                   value: L,
                   onChange: (M) => R(M.target.value),
-                  onBlur: () => Qn(L.trim() === "" ? null : L)
+                  onBlur: () => Xn(L.trim() === "" ? null : L)
                 }
               )
             ] }),
@@ -31469,7 +31469,7 @@ function J9({
                   className: "case-meta-input",
                   type: "date",
                   value: z.examDate ?? "",
-                  onChange: (M) => Xn(M.target.value === "" ? null : M.target.value)
+                  onChange: (M) => Qn(M.target.value === "" ? null : M.target.value)
                 }
               )
             ] }),
@@ -31569,7 +31569,7 @@ function J9({
     }
   );
 }
-const Gr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', Q9 = "https://github.com/ZoliQua/React-Odontogram-Modul", Vn = { handle: "ZoliQua", descKey: "credits.contrib.zoliqua" }, X9 = [
+const Gr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', X9 = "https://github.com/ZoliQua/React-Odontogram-Modul", Vn = { handle: "ZoliQua", descKey: "credits.contrib.zoliqua" }, Q9 = [
   { handle: "odontodev", descKey: "credits.contrib.odontodev" },
   { handle: "JulianoBazzi", descKey: "credits.contrib.julianobazzi" },
   { handle: "yassine-bhn", descKey: "credits.contrib.yassine" },
@@ -31658,7 +31658,7 @@ function $9({
               ] }),
               /* @__PURE__ */ k("section", { className: "odon-credits-section", children: [
                 /* @__PURE__ */ r("h3", { className: "odon-credits-heading", children: t("credits.contributorsTitle") }),
-                /* @__PURE__ */ r("ul", { className: "odon-credits-list", children: X9.map((d) => /* @__PURE__ */ k("li", { children: [
+                /* @__PURE__ */ r("ul", { className: "odon-credits-list", children: Q9.map((d) => /* @__PURE__ */ k("li", { children: [
                   /* @__PURE__ */ k(
                     "a",
                     {
@@ -31681,7 +31681,7 @@ function $9({
               ] }),
               /* @__PURE__ */ r("p", { className: "odon-credits-welcome", children: t("credits.welcome") })
             ] }),
-            /* @__PURE__ */ k("a", { className: "odon-credits-star", href: Q9, target: "_blank", rel: "noopener noreferrer", children: [
+            /* @__PURE__ */ k("a", { className: "odon-credits-star", href: X9, target: "_blank", rel: "noopener noreferrer", children: [
               /* @__PURE__ */ r("svg", { "aria-hidden": "true", width: "16", height: "16", viewBox: "0 0 24 24", fill: "currentColor", children: /* @__PURE__ */ r("path", { d: "M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" }) }),
               /* @__PURE__ */ r("span", { children: t("credits.star") })
             ] })
@@ -31755,7 +31755,7 @@ function of({
   fissureSealingEnabled: M,
   onFissureSealingEnabledChange: I
 }) {
-  const { lang: E, setLang: $, t: le } = Dc({ language: t, onLanguageChange: a }), [W, te] = _(i ?? "FDI"), ke = xe(null), P = i ?? W, [Y, S] = _(!1), [j, ie] = _(f ?? !1), [ue, de] = _(u ?? !1), [Ie, Ae] = _(b ?? "aae"), [ot, Wt] = _(w ?? "standard"), [g1, be] = _(y ?? "simple"), [zt, me] = _(v ?? "off"), [ft, ge] = _(m ?? !0), [mt, nt] = _(D ?? "complex"), [Ce, Ge] = _(Z ?? "complex"), [ht, s1] = _(g ?? "full"), [Ft, It] = _(!0), [ut, Ut] = _(!0), [Bt, ca] = _(!0), [G1, ei] = _(!0), [r1, da] = _(!0), [N1, io] = _(!0), [ti, oo] = _(!0), [pa, fa] = _(!0), [l1, Ct] = _(!0), [ma, no] = _("normal"), [ai, ii] = _("normal"), [oi, ha] = _("#3b7bff"), [R1, Pt] = _("dashed"), [v1, ua] = _(() => L ?? _l()), [ni, so] = _(() => z ?? K5()), [ro, ga] = _(() => M ?? H5()), [lo, va] = _(() => J ?? q5()), [co, y1] = _(x ?? !0), [po, fo] = _(C ?? !0), [Te, b1] = _(null), [hn, mo] = _(!1), [si, ho] = _(!1), [uo, un] = _(!1), [gn, vn] = _(!1), [ri, Jt] = _(() => dr()), [j1, Qt] = _("odontogram"), [go, k1] = _(() => Ts()), [yn, vo] = _(
+  const { lang: E, setLang: $, t: le } = Dc({ language: t, onLanguageChange: a }), [W, te] = _(i ?? "FDI"), ke = xe(null), P = i ?? W, [Y, S] = _(!1), [j, ie] = _(f ?? !1), [ue, de] = _(u ?? !1), [Ie, Ae] = _(b ?? "aae"), [ot, Wt] = _(w ?? "standard"), [g1, be] = _(y ?? "simple"), [zt, me] = _(v ?? "off"), [ft, ge] = _(m ?? !0), [mt, nt] = _(D ?? "complex"), [Ce, Ge] = _(Z ?? "complex"), [ht, s1] = _(g ?? "full"), [Ft, It] = _(!0), [ut, Ut] = _(!0), [Bt, ca] = _(!0), [G1, ei] = _(!0), [r1, da] = _(!0), [N1, io] = _(!0), [ti, oo] = _(!0), [pa, fa] = _(!0), [l1, Ct] = _(!0), [ma, no] = _("normal"), [ai, ii] = _("normal"), [oi, ha] = _("#3b7bff"), [R1, Pt] = _("dashed"), [v1, ua] = _(() => L ?? _l()), [ni, so] = _(() => z ?? K5()), [ro, ga] = _(() => M ?? H5()), [lo, va] = _(() => J ?? q5()), [co, y1] = _(x ?? !0), [po, fo] = _(C ?? !0), [Te, b1] = _(null), [hn, mo] = _(!1), [si, ho] = _(!1), [uo, un] = _(!1), [gn, vn] = _(!1), [ri, Jt] = _(() => dr()), [j1, Xt] = _("odontogram"), [go, k1] = _(() => Ts()), [yn, vo] = _(
     () => Bi()
   ), [yo, ya] = _(
     () => na()
@@ -31817,7 +31817,7 @@ function of({
   }, [C]), se(() => {
     z !== void 0 && (_s(z), so(z));
   }, [z]), se(() => {
-    L !== void 0 && (Xs(L), ua(L));
+    L !== void 0 && (Qs(L), ua(L));
   }, [L]), se(() => {
     M !== void 0 && ($s(M), ga(M));
   }, [M]);
@@ -31869,7 +31869,7 @@ function of({
     setNumbering: di,
     viewMode: ri,
     activeView: j1,
-    setActiveView: Qt,
+    setActiveView: Xt,
     isPerioView: x1,
     perioChartAvailable: l1,
     perioOpen: gn,
@@ -31970,7 +31970,7 @@ function of({
       onSelectionBorderStyle: (O) => Pt(O),
       perioChartAvailable: l1,
       onPerioChartAvailable: (O) => {
-        Ct(O), O || (Qt("odontogram"), nc());
+        Ct(O), O || (Xt("odontogram"), nc());
       },
       showStatusCard: co,
       onShowStatusCard: (O) => y1(O),
@@ -31984,7 +31984,7 @@ function of({
       onPerioIndexNameMode: (O) => $8(O),
       fillingDefectEnabled: v1,
       onFillingDefectEnabled: (O) => {
-        ua(O), Xs(O), R?.(O);
+        ua(O), Qs(O), R?.(O);
       },
       fillingComplexity: ni,
       onFillingComplexity: (O) => {
@@ -32452,7 +32452,7 @@ function gf() {
           id: "btnEdentulous",
           className: "btn btn-toggle btn-sm",
           "aria-pressed": e,
-          onClick: () => Qa(!e),
+          onClick: () => Xa(!e),
           children: l("status.edentulous")
         }
       )
@@ -33000,7 +33000,7 @@ function kf() {
             id: "apicalDxSelect",
             value: e.apicalDxValue,
             disabled: e.apicalDxDisabled,
-            onChange: (a) => Q6(a.target.value),
+            onChange: (a) => X6(a.target.value),
             children: e.apicalDxOptions.map((a) => /* @__PURE__ */ r("option", { value: a.value, children: a.label }, a.value))
           }
         )
@@ -33012,7 +33012,7 @@ function kf() {
           {
             id: "periapicalTypeSelect",
             value: e.periapicalTypeValue,
-            onChange: (a) => X6(a.target.value),
+            onChange: (a) => Q6(a.target.value),
             children: e.periapicalTypeOptions.map((a) => /* @__PURE__ */ r("option", { value: a.value, children: a.label }, a.value))
           }
         )
@@ -33749,7 +33749,7 @@ export {
   q5 as getFillingMaterialAvailability,
   H5 as getFissureSealingEnabled,
   Ff as getIcdasEnabled,
-  Xf as getNotesEnabled,
+  Qf as getNotesEnabled,
   mc as getOdontogramSummary,
   sa as getPdfSettings,
   na as getPerioIndexNameMode,
@@ -33767,7 +33767,7 @@ export {
   m3 as getStatusExtras,
   Uf as getSurfaceNotation,
   Ts as getToothAnatomy,
-  Qf as getToothStateSummary,
+  Xf as getToothStateSummary,
   T5 as getWearDetailLevel,
   Vo as hasAnyPerioData,
   B2 as importStatus,
@@ -33785,7 +33785,7 @@ export {
   Cp as resetTooth,
   pc as rewireControls,
   d6 as rootCariesOptions,
-  Q6 as setApicalDxForSelection,
+  X6 as setApicalDxForSelection,
   yp as setBridgePillarForSelection,
   xp as setBrokenDistalForSelection,
   kp as setBrokenIncisalForSelection,
@@ -33803,12 +33803,12 @@ export {
   Ns as setDiscolorationDetailLevel,
   Sp as setDiscolorationForSelection,
   Ip as setDiscolorationToggleForSelection,
-  Qa as setEdentulous,
+  Xa as setEdentulous,
   $6 as setEndoResectionForSelection,
   pp as setExtractionPlanForSelection,
   dp as setExtractionWoundForSelection,
   _s as setFillingComplexity,
-  Xs as setFillingDefectEnabled,
+  Qs as setFillingDefectEnabled,
   er as setFillingMaterialAvailability,
   U6 as setFillingMaterialForSelection,
   K6 as setFillingSimpleDefectForSelection,
@@ -33832,7 +33832,7 @@ export {
   ep as setParapulpalPinForSelection,
   r2 as setPdfSettings,
   op as setPeriImplantForSelection,
-  X6 as setPeriapicalTypeForSelection,
+  Q6 as setPeriapicalTypeForSelection,
   $8 as setPerioIndexNameMode,
   _8 as setPerioRowVisibility,
   J8 as setPerioViewMode,

@@ -729,6 +729,6 @@ export function assemblePdf(
 
   footerBlock(data.footer);
 
-  doc.save(`odontogram-report-${pdfStamp()}.pdf`);
+  doc.save(`ORALLIX-Clinical-Report-${pdfStamp().slice(0, 10)}.pdf`);
   return doc;
 }
