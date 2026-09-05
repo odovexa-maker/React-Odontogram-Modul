@@ -1,5 +1,5 @@
-import { jsxs as k, jsx as r, Fragment as dt } from "react/jsx-runtime";
-import { useState as _, useEffect as se, useCallback as Ot, useMemo as qr, useRef as xe, useId as Va, useContext as zc, createContext as Ic, useLayoutEffect as f2 } from "react";
+import { jsxs as k, jsx as r, Fragment as mt } from "react/jsx-runtime";
+import { useState as _, useEffect as se, useCallback as Gt, useMemo as Yr, useRef as xe, useId as Va, useContext as Ic, createContext as Cc, useLayoutEffect as f2 } from "react";
 const zo = {
   arches: {
     upper: [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28],
@@ -11282,47 +11282,47 @@ function l(e, t, a) {
 function m2() {
   return To;
 }
-function Cc(e) {
+function Pc(e) {
   if (e !== To) {
     To = e;
     for (const t of Hn)
       t(e);
   }
 }
-function Pc(e) {
+function Dc(e) {
   return Hn.add(e), () => Hn.delete(e);
 }
-function Dc(e = {}) {
+function Ac(e = {}) {
   const { language: t, onLanguageChange: a } = e, [i, o] = _(t ?? m2()), n = t ?? i;
   se(() => {
-    Cc(n);
+    Pc(n);
   }, [n]);
-  const s = Ot((c) => {
+  const s = Gt((c) => {
     if (t) {
       a?.(c);
       return;
     }
     o(c), a?.(c);
-  }, [t, a]), d = qr(() => (c, p) => l(c, n, p), [n]);
+  }, [t, a]), d = Yr(() => (c, p) => l(c, n, p), [n]);
   return { lang: n, setLang: s, t: d };
 }
-function Ac(e) {
+function Tc(e) {
   const t = typeof e == "number" ? e : Number(e);
   return Number.isFinite(t) ? Math.trunc(t) : null;
 }
-function Tc(e) {
+function Ec(e) {
   return e >= 11 && e <= 18 || e >= 21 && e <= 28 || e >= 31 && e <= 38 || e >= 41 && e <= 48;
 }
 function Sn(e) {
   return e >= 51 && e <= 55 || e >= 61 && e <= 65 || e >= 71 && e <= 75 || e >= 81 && e <= 85;
 }
-function ea(e, t) {
-  const a = Ac(e);
+function ta(e, t) {
+  const a = Tc(e);
   if (a === null) return String(e);
   if (t === "FDI")
     return String(a);
   const i = Math.floor(a / 10), o = a % 10;
-  if (!Tc(a) && !Sn(a))
+  if (!Ec(a) && !Sn(a))
     return String(a);
   if (t === "UNIVERSAL") {
     if (Sn(a)) {
@@ -11355,7 +11355,7 @@ function ea(e, t) {
   }
   return String(a);
 }
-function Ec(e) {
+function Oc(e) {
   const t = Math.floor(e / 10);
   return t === 1 ? 1 : t === 2 ? 2 : t === 3 ? 3 : 4;
 }
@@ -11369,10 +11369,10 @@ function Q2(e, t) {
   for (var a = 0, i = Array(t); a < t; a++) i[a] = e[a];
   return i;
 }
-function Oc(e) {
+function Lc(e) {
   if (Array.isArray(e)) return e;
 }
-function Lc(e, t) {
+function Gc(e, t) {
   var a = e == null ? null : typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (a != null) {
     var i, o, n, s, d = [], c = !0, p = !1;
@@ -11390,26 +11390,26 @@ function Lc(e, t) {
     return d;
   }
 }
-function Gc() {
+function Nc() {
   throw new TypeError(`Invalid attempt to destructure non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Nc(e, t) {
-  return Oc(e) || Lc(e, t) || Rc(e, t) || Gc();
-}
 function Rc(e, t) {
+  return Lc(e) || Gc(e, t) || jc(e, t) || Nc();
+}
+function jc(e, t) {
   if (e) {
     if (typeof e == "string") return Q2(e, t);
     var a = {}.toString.call(e).slice(8, -1);
     return a === "Object" && e.constructor && (a = e.constructor.name), a === "Map" || a === "Set" ? Array.from(e) : a === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a) ? Q2(e, t) : void 0;
   }
 }
-const Yr = Object.entries, _2 = Object.setPrototypeOf, jc = Object.isFrozen, Fc = Object.getPrototypeOf, Uc = Object.getOwnPropertyDescriptor;
-let Xe = Object.freeze, Qe = Object.seal, Ca = Object.create, Wr = typeof Reflect < "u" && Reflect, qn = Wr.apply, Yn = Wr.construct;
-Xe || (Xe = function(t) {
+const Wr = Object.entries, _2 = Object.setPrototypeOf, Fc = Object.isFrozen, Uc = Object.getPrototypeOf, Bc = Object.getOwnPropertyDescriptor;
+let tt = Object.freeze, at = Object.seal, Ca = Object.create, Jr = typeof Reflect < "u" && Reflect, qn = Jr.apply, Yn = Jr.construct;
+tt || (tt = function(t) {
   return t;
 });
-Qe || (Qe = function(t) {
+at || (at = function(t) {
   return t;
 });
 qn || (qn = function(t, a) {
@@ -11422,8 +11422,8 @@ Yn || (Yn = function(t) {
     i[o - 1] = arguments[o];
   return new t(...i);
 });
-const xa = je(Array.prototype.forEach), Bc = je(Array.prototype.lastIndexOf), $2 = je(Array.prototype.pop), wa = je(Array.prototype.push), Vc = je(Array.prototype.splice), I1 = Array.isArray, xi = je(String.prototype.toLowerCase), Zn = je(String.prototype.toString), es = je(String.prototype.match), fi = je(String.prototype.replace), ts = je(String.prototype.indexOf), Kc = je(String.prototype.trim), Hc = je(Number.prototype.toString), qc = je(Boolean.prototype.toString), as = typeof BigInt > "u" ? null : je(BigInt.prototype.toString), is = typeof Symbol > "u" ? null : je(Symbol.prototype.toString), Be = je(Object.prototype.hasOwnProperty), mi = je(Object.prototype.toString), Ue = je(RegExp.prototype.test), B1 = Yc(TypeError);
-function je(e) {
+const xa = Be(Array.prototype.forEach), Vc = Be(Array.prototype.lastIndexOf), $2 = Be(Array.prototype.pop), wa = Be(Array.prototype.push), Kc = Be(Array.prototype.splice), C1 = Array.isArray, xi = Be(String.prototype.toLowerCase), Zn = Be(String.prototype.toString), es = Be(String.prototype.match), fi = Be(String.prototype.replace), ts = Be(String.prototype.indexOf), Hc = Be(String.prototype.trim), qc = Be(Number.prototype.toString), Yc = Be(Boolean.prototype.toString), as = typeof BigInt > "u" ? null : Be(BigInt.prototype.toString), is = typeof Symbol > "u" ? null : Be(Symbol.prototype.toString), qe = Be(Object.prototype.hasOwnProperty), mi = Be(Object.prototype.toString), He = Be(RegExp.prototype.test), V1 = Wc(TypeError);
+function Be(e) {
   return function(t) {
     t instanceof RegExp && (t.lastIndex = 0);
     for (var a = arguments.length, i = new Array(a > 1 ? a - 1 : 0), o = 1; o < a; o++)
@@ -11431,50 +11431,50 @@ function je(e) {
     return qn(e, t, i);
   };
 }
-function Yc(e) {
+function Wc(e) {
   return function() {
     for (var t = arguments.length, a = new Array(t), i = 0; i < t; i++)
       a[i] = arguments[i];
     return Yn(e, a);
   };
 }
-function ye(e, t) {
+function be(e, t) {
   let a = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : xi;
-  if (_2 && _2(e, null), !I1(t))
+  if (_2 && _2(e, null), !C1(t))
     return e;
   let i = t.length;
   for (; i--; ) {
     let o = t[i];
     if (typeof o == "string") {
       const n = a(o);
-      n !== o && (jc(t) || (t[i] = n), o = n);
+      n !== o && (Fc(t) || (t[i] = n), o = n);
     }
     e[o] = !0;
   }
   return e;
 }
-function Wc(e) {
+function Jc(e) {
   for (let t = 0; t < e.length; t++)
-    Be(e, t) || (e[t] = null);
+    qe(e, t) || (e[t] = null);
   return e;
 }
-function et(e) {
+function nt(e) {
   const t = Ca(null);
-  for (const i of Yr(e)) {
-    var a = Nc(i, 2);
+  for (const i of Wr(e)) {
+    var a = Rc(i, 2);
     const o = a[0], n = a[1];
-    Be(e, o) && (I1(n) ? t[o] = Wc(n) : n && typeof n == "object" && n.constructor === Object ? t[o] = et(n) : t[o] = n);
+    qe(e, o) && (C1(n) ? t[o] = Jc(n) : n && typeof n == "object" && n.constructor === Object ? t[o] = nt(n) : t[o] = n);
   }
   return t;
 }
-function Jc(e) {
+function Xc(e) {
   switch (typeof e) {
     case "string":
       return e;
     case "number":
-      return Hc(e);
-    case "boolean":
       return qc(e);
+    case "boolean":
+      return Yc(e);
     case "bigint":
       return as ? as(e) : "0";
     case "symbol":
@@ -11485,7 +11485,7 @@ function Jc(e) {
     case "object": {
       if (e === null)
         return mi(e);
-      const t = e, a = Kt(t, "toString");
+      const t = e, a = qt(t, "toString");
       if (typeof a == "function") {
         const i = a(t);
         return typeof i == "string" ? i : mi(i);
@@ -11496,36 +11496,36 @@ function Jc(e) {
       return mi(e);
   }
 }
-function Kt(e, t) {
+function qt(e, t) {
   for (; e !== null; ) {
-    const i = Uc(e, t);
+    const i = Bc(e, t);
     if (i) {
       if (i.get)
-        return je(i.get);
+        return Be(i.get);
       if (typeof i.value == "function")
-        return je(i.value);
+        return Be(i.value);
     }
-    e = Fc(e);
+    e = Uc(e);
   }
   function a() {
     return null;
   }
   return a;
 }
-function Xc(e) {
+function Qc(e) {
   try {
-    return Ue(e, ""), !0;
+    return He(e, ""), !0;
   } catch {
     return !1;
   }
 }
-const os = Xe(["a", "abbr", "acronym", "address", "area", "article", "aside", "audio", "b", "bdi", "bdo", "big", "blink", "blockquote", "body", "br", "button", "canvas", "caption", "center", "cite", "code", "col", "colgroup", "content", "data", "datalist", "dd", "decorator", "del", "details", "dfn", "dialog", "dir", "div", "dl", "dt", "element", "em", "fieldset", "figcaption", "figure", "font", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "i", "img", "input", "ins", "kbd", "label", "legend", "li", "main", "map", "mark", "marquee", "menu", "menuitem", "meter", "nav", "nobr", "ol", "optgroup", "option", "output", "p", "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "search", "section", "select", "shadow", "slot", "small", "source", "spacer", "span", "strike", "strong", "style", "sub", "summary", "sup", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "tt", "u", "ul", "var", "video", "wbr"]), zn = Xe(["svg", "a", "altglyph", "altglyphdef", "altglyphitem", "animatecolor", "animatemotion", "animatetransform", "circle", "clippath", "defs", "desc", "ellipse", "enterkeyhint", "exportparts", "filter", "font", "g", "glyph", "glyphref", "hkern", "image", "inputmode", "line", "lineargradient", "marker", "mask", "metadata", "mpath", "part", "path", "pattern", "polygon", "polyline", "radialgradient", "rect", "stop", "style", "switch", "symbol", "text", "textpath", "title", "tref", "tspan", "view", "vkern"]), In = Xe(["feBlend", "feColorMatrix", "feComponentTransfer", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feDropShadow", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMerge", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence"]), Qc = Xe(["animate", "color-profile", "cursor", "discard", "font-face", "font-face-format", "font-face-name", "font-face-src", "font-face-uri", "foreignobject", "hatch", "hatchpath", "mesh", "meshgradient", "meshpatch", "meshrow", "missing-glyph", "script", "set", "solidcolor", "unknown", "use"]), Cn = Xe(["math", "menclose", "merror", "mfenced", "mfrac", "mglyph", "mi", "mlabeledtr", "mmultiscripts", "mn", "mo", "mover", "mpadded", "mphantom", "mroot", "mrow", "ms", "mspace", "msqrt", "mstyle", "msub", "msup", "msubsup", "mtable", "mtd", "mtext", "mtr", "munder", "munderover", "mprescripts"]), _c = Xe(["maction", "maligngroup", "malignmark", "mlongdiv", "mscarries", "mscarry", "msgroup", "mstack", "msline", "msrow", "semantics", "annotation", "annotation-xml", "mprescripts", "none"]), ns = Xe(["#text"]), ss = Xe(["accept", "action", "align", "alt", "autocapitalize", "autocomplete", "autopictureinpicture", "autoplay", "background", "bgcolor", "border", "capture", "cellpadding", "cellspacing", "checked", "cite", "class", "clear", "color", "cols", "colspan", "command", "commandfor", "controls", "controlslist", "coords", "crossorigin", "datetime", "decoding", "default", "dir", "disabled", "disablepictureinpicture", "disableremoteplayback", "download", "draggable", "enctype", "enterkeyhint", "exportparts", "face", "for", "headers", "height", "hidden", "high", "href", "hreflang", "id", "inert", "inputmode", "integrity", "ismap", "kind", "label", "lang", "list", "loading", "loop", "low", "max", "maxlength", "media", "method", "min", "minlength", "multiple", "muted", "name", "nonce", "noshade", "novalidate", "nowrap", "open", "optimum", "part", "pattern", "placeholder", "playsinline", "popover", "popovertarget", "popovertargetaction", "poster", "preload", "pubdate", "radiogroup", "readonly", "rel", "required", "rev", "reversed", "role", "rows", "rowspan", "spellcheck", "scope", "selected", "shape", "size", "sizes", "slot", "span", "srclang", "start", "src", "srcset", "step", "style", "summary", "tabindex", "title", "translate", "type", "usemap", "valign", "value", "width", "wrap", "xmlns"]), Pn = Xe(["accent-height", "accumulate", "additive", "alignment-baseline", "amplitude", "ascent", "attributename", "attributetype", "azimuth", "basefrequency", "baseline-shift", "begin", "bias", "by", "class", "clip", "clippathunits", "clip-path", "clip-rule", "color", "color-interpolation", "color-interpolation-filters", "color-profile", "color-rendering", "cx", "cy", "d", "dx", "dy", "diffuseconstant", "direction", "display", "divisor", "dominant-baseline", "dur", "edgemode", "elevation", "end", "exponent", "fill", "fill-opacity", "fill-rule", "filter", "filterunits", "flood-color", "flood-opacity", "font-family", "font-size", "font-size-adjust", "font-stretch", "font-style", "font-variant", "font-weight", "fx", "fy", "g1", "g2", "glyph-name", "glyphref", "gradientunits", "gradienttransform", "height", "href", "id", "image-rendering", "in", "in2", "intercept", "k", "k1", "k2", "k3", "k4", "kerning", "keypoints", "keysplines", "keytimes", "lang", "lengthadjust", "letter-spacing", "kernelmatrix", "kernelunitlength", "lighting-color", "local", "marker-end", "marker-mid", "marker-start", "markerheight", "markerunits", "markerwidth", "maskcontentunits", "maskunits", "max", "mask", "mask-type", "media", "method", "mode", "min", "name", "numoctaves", "offset", "operator", "opacity", "order", "orient", "orientation", "origin", "overflow", "paint-order", "path", "pathlength", "patterncontentunits", "patterntransform", "patternunits", "points", "preservealpha", "preserveaspectratio", "primitiveunits", "r", "rx", "ry", "radius", "refx", "refy", "repeatcount", "repeatdur", "restart", "result", "rotate", "scale", "seed", "shape-rendering", "slope", "specularconstant", "specularexponent", "spreadmethod", "startoffset", "stddeviation", "stitchtiles", "stop-color", "stop-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap", "stroke-linejoin", "stroke-miterlimit", "stroke-opacity", "stroke", "stroke-width", "style", "surfacescale", "systemlanguage", "tabindex", "tablevalues", "targetx", "targety", "transform", "transform-origin", "text-anchor", "text-decoration", "text-orientation", "text-rendering", "textlength", "type", "u1", "u2", "unicode", "values", "viewbox", "visibility", "version", "vert-adv-y", "vert-origin-x", "vert-origin-y", "width", "word-spacing", "wrap", "writing-mode", "xchannelselector", "ychannelselector", "x", "x1", "x2", "xmlns", "y", "y1", "y2", "z", "zoomandpan"]), rs = Xe(["accent", "accentunder", "align", "bevelled", "close", "columnalign", "columnlines", "columnspacing", "columnspan", "denomalign", "depth", "dir", "display", "displaystyle", "encoding", "fence", "frame", "height", "href", "id", "largeop", "length", "linethickness", "lquote", "lspace", "mathbackground", "mathcolor", "mathsize", "mathvariant", "maxsize", "minsize", "movablelimits", "notation", "numalign", "open", "rowalign", "rowlines", "rowspacing", "rowspan", "rspace", "rquote", "scriptlevel", "scriptminsize", "scriptsizemultiplier", "selection", "separator", "separators", "stretchy", "subscriptshift", "supscriptshift", "symmetric", "voffset", "width", "xmlns"]), bo = Xe(["xlink:href", "xml:id", "xlink:title", "xml:space", "xmlns:xlink"]), $c = Qe(/{{[\w\W]*|^[\w\W]*}}/g), ed = Qe(/<%[\w\W]*|^[\w\W]*%>/g), td = Qe(/\${[\w\W]*/g), ad = Qe(/^data-[\-\w.\u00B7-\uFFFF]+$/), id = Qe(/^aria-[\-\w]+$/), ls = Qe(
+const os = tt(["a", "abbr", "acronym", "address", "area", "article", "aside", "audio", "b", "bdi", "bdo", "big", "blink", "blockquote", "body", "br", "button", "canvas", "caption", "center", "cite", "code", "col", "colgroup", "content", "data", "datalist", "dd", "decorator", "del", "details", "dfn", "dialog", "dir", "div", "dl", "dt", "element", "em", "fieldset", "figcaption", "figure", "font", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "i", "img", "input", "ins", "kbd", "label", "legend", "li", "main", "map", "mark", "marquee", "menu", "menuitem", "meter", "nav", "nobr", "ol", "optgroup", "option", "output", "p", "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "search", "section", "select", "shadow", "slot", "small", "source", "spacer", "span", "strike", "strong", "style", "sub", "summary", "sup", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "tt", "u", "ul", "var", "video", "wbr"]), zn = tt(["svg", "a", "altglyph", "altglyphdef", "altglyphitem", "animatecolor", "animatemotion", "animatetransform", "circle", "clippath", "defs", "desc", "ellipse", "enterkeyhint", "exportparts", "filter", "font", "g", "glyph", "glyphref", "hkern", "image", "inputmode", "line", "lineargradient", "marker", "mask", "metadata", "mpath", "part", "path", "pattern", "polygon", "polyline", "radialgradient", "rect", "stop", "style", "switch", "symbol", "text", "textpath", "title", "tref", "tspan", "view", "vkern"]), In = tt(["feBlend", "feColorMatrix", "feComponentTransfer", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feDropShadow", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMerge", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence"]), _c = tt(["animate", "color-profile", "cursor", "discard", "font-face", "font-face-format", "font-face-name", "font-face-src", "font-face-uri", "foreignobject", "hatch", "hatchpath", "mesh", "meshgradient", "meshpatch", "meshrow", "missing-glyph", "script", "set", "solidcolor", "unknown", "use"]), Cn = tt(["math", "menclose", "merror", "mfenced", "mfrac", "mglyph", "mi", "mlabeledtr", "mmultiscripts", "mn", "mo", "mover", "mpadded", "mphantom", "mroot", "mrow", "ms", "mspace", "msqrt", "mstyle", "msub", "msup", "msubsup", "mtable", "mtd", "mtext", "mtr", "munder", "munderover", "mprescripts"]), $c = tt(["maction", "maligngroup", "malignmark", "mlongdiv", "mscarries", "mscarry", "msgroup", "mstack", "msline", "msrow", "semantics", "annotation", "annotation-xml", "mprescripts", "none"]), ns = tt(["#text"]), ss = tt(["accept", "action", "align", "alt", "autocapitalize", "autocomplete", "autopictureinpicture", "autoplay", "background", "bgcolor", "border", "capture", "cellpadding", "cellspacing", "checked", "cite", "class", "clear", "color", "cols", "colspan", "command", "commandfor", "controls", "controlslist", "coords", "crossorigin", "datetime", "decoding", "default", "dir", "disabled", "disablepictureinpicture", "disableremoteplayback", "download", "draggable", "enctype", "enterkeyhint", "exportparts", "face", "for", "headers", "height", "hidden", "high", "href", "hreflang", "id", "inert", "inputmode", "integrity", "ismap", "kind", "label", "lang", "list", "loading", "loop", "low", "max", "maxlength", "media", "method", "min", "minlength", "multiple", "muted", "name", "nonce", "noshade", "novalidate", "nowrap", "open", "optimum", "part", "pattern", "placeholder", "playsinline", "popover", "popovertarget", "popovertargetaction", "poster", "preload", "pubdate", "radiogroup", "readonly", "rel", "required", "rev", "reversed", "role", "rows", "rowspan", "spellcheck", "scope", "selected", "shape", "size", "sizes", "slot", "span", "srclang", "start", "src", "srcset", "step", "style", "summary", "tabindex", "title", "translate", "type", "usemap", "valign", "value", "width", "wrap", "xmlns"]), Pn = tt(["accent-height", "accumulate", "additive", "alignment-baseline", "amplitude", "ascent", "attributename", "attributetype", "azimuth", "basefrequency", "baseline-shift", "begin", "bias", "by", "class", "clip", "clippathunits", "clip-path", "clip-rule", "color", "color-interpolation", "color-interpolation-filters", "color-profile", "color-rendering", "cx", "cy", "d", "dx", "dy", "diffuseconstant", "direction", "display", "divisor", "dominant-baseline", "dur", "edgemode", "elevation", "end", "exponent", "fill", "fill-opacity", "fill-rule", "filter", "filterunits", "flood-color", "flood-opacity", "font-family", "font-size", "font-size-adjust", "font-stretch", "font-style", "font-variant", "font-weight", "fx", "fy", "g1", "g2", "glyph-name", "glyphref", "gradientunits", "gradienttransform", "height", "href", "id", "image-rendering", "in", "in2", "intercept", "k", "k1", "k2", "k3", "k4", "kerning", "keypoints", "keysplines", "keytimes", "lang", "lengthadjust", "letter-spacing", "kernelmatrix", "kernelunitlength", "lighting-color", "local", "marker-end", "marker-mid", "marker-start", "markerheight", "markerunits", "markerwidth", "maskcontentunits", "maskunits", "max", "mask", "mask-type", "media", "method", "mode", "min", "name", "numoctaves", "offset", "operator", "opacity", "order", "orient", "orientation", "origin", "overflow", "paint-order", "path", "pathlength", "patterncontentunits", "patterntransform", "patternunits", "points", "preservealpha", "preserveaspectratio", "primitiveunits", "r", "rx", "ry", "radius", "refx", "refy", "repeatcount", "repeatdur", "restart", "result", "rotate", "scale", "seed", "shape-rendering", "slope", "specularconstant", "specularexponent", "spreadmethod", "startoffset", "stddeviation", "stitchtiles", "stop-color", "stop-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap", "stroke-linejoin", "stroke-miterlimit", "stroke-opacity", "stroke", "stroke-width", "style", "surfacescale", "systemlanguage", "tabindex", "tablevalues", "targetx", "targety", "transform", "transform-origin", "text-anchor", "text-decoration", "text-orientation", "text-rendering", "textlength", "type", "u1", "u2", "unicode", "values", "viewbox", "visibility", "version", "vert-adv-y", "vert-origin-x", "vert-origin-y", "width", "word-spacing", "wrap", "writing-mode", "xchannelselector", "ychannelselector", "x", "x1", "x2", "xmlns", "y", "y1", "y2", "z", "zoomandpan"]), rs = tt(["accent", "accentunder", "align", "bevelled", "close", "columnalign", "columnlines", "columnspacing", "columnspan", "denomalign", "depth", "dir", "display", "displaystyle", "encoding", "fence", "frame", "height", "href", "id", "largeop", "length", "linethickness", "lquote", "lspace", "mathbackground", "mathcolor", "mathsize", "mathvariant", "maxsize", "minsize", "movablelimits", "notation", "numalign", "open", "rowalign", "rowlines", "rowspacing", "rowspan", "rspace", "rquote", "scriptlevel", "scriptminsize", "scriptsizemultiplier", "selection", "separator", "separators", "stretchy", "subscriptshift", "supscriptshift", "symmetric", "voffset", "width", "xmlns"]), bo = tt(["xlink:href", "xml:id", "xlink:title", "xml:space", "xmlns:xlink"]), ed = at(/{{[\w\W]*|^[\w\W]*}}/g), td = at(/<%[\w\W]*|^[\w\W]*%>/g), ad = at(/\${[\w\W]*/g), id = at(/^data-[\-\w.\u00B7-\uFFFF]+$/), od = at(/^aria-[\-\w]+$/), ls = at(
   /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|matrix):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i
   // eslint-disable-line no-useless-escape
-), od = Qe(/^(?:\w+script|data):/i), nd = Qe(
+), nd = at(/^(?:\w+script|data):/i), sd = at(
   /[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/g
   // eslint-disable-line no-control-regex
-), sd = Qe(/^html$/i), rd = Qe(/^[a-z][.\w]*(-[.\w]+)+$/i), cs = Qe(/<[/\w!]/g), ds = Qe(/<[/\w]/g), ld = Qe(/<\/no(script|embed|frames)/i), cd = Qe(/\/>/i), xt = {
+), rd = at(/^html$/i), ld = at(/^[a-z][.\w]*(-[.\w]+)+$/i), cs = at(/<[/\w!]/g), ds = at(/<[/\w]/g), cd = at(/<\/no(script|embed|frames)/i), dd = at(/\/>/i), Mt = {
   element: 1,
   attribute: 2,
   text: 3,
@@ -11541,9 +11541,9 @@ const os = Xe(["a", "abbr", "acronym", "address", "area", "article", "aside", "a
   documentFragment: 11,
   notation: 12
   // Deprecated
-}, dd = function() {
+}, pd = function() {
   return typeof window > "u" ? null : window;
-}, pd = function(t, a) {
+}, fd = function(t, a) {
   if (typeof t != "object" || typeof t.createPolicy != "function")
     return null;
   let i = null;
@@ -11574,53 +11574,53 @@ const os = Xe(["a", "abbr", "acronym", "address", "area", "article", "aside", "a
     uponSanitizeElement: [],
     uponSanitizeShadowNode: []
   };
-}, M1 = function(t, a, i, o) {
-  return Be(t, a) && I1(t[a]) ? ye(o.base ? et(o.base) : {}, t[a], o.transform) : i;
+}, S1 = function(t, a, i, o) {
+  return qe(t, a) && C1(t[a]) ? be(o.base ? nt(o.base) : {}, t[a], o.transform) : i;
 };
-function Jr() {
-  let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : dd();
-  const t = (V) => Jr(V);
-  if (t.version = "3.4.13", t.removed = [], !e || !e.document || e.document.nodeType !== xt.document || !e.Element)
+function Xr() {
+  let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : pd();
+  const t = (V) => Xr(V);
+  if (t.version = "3.4.13", t.removed = [], !e || !e.document || e.document.nodeType !== Mt.document || !e.Element)
     return t.isSupported = !1, t;
   let a = e.document;
   const i = a, o = i.currentScript;
   e.DocumentFragment;
   const n = e.HTMLTemplateElement, s = e.Node, d = e.Element, c = e.NodeFilter, p = e.NamedNodeMap;
   p === void 0 && (e.NamedNodeMap || e.MozNamedAttrMap), e.HTMLFormElement;
-  const f = e.DOMParser, u = e.trustedTypes, b = d.prototype, w = Kt(b, "cloneNode"), y = Kt(b, "remove"), v = Kt(b, "nextSibling"), m = Kt(b, "childNodes"), D = Kt(b, "parentNode"), Z = Kt(b, "shadowRoot"), g = Kt(b, "attributes"), x = s && s.prototype ? Kt(s.prototype, "nodeType") : null, C = s && s.prototype ? Kt(s.prototype, "nodeName") : null, z = s && s.prototype ? Kt(s.prototype, "ownerDocument") : null;
+  const f = e.DOMParser, h = e.trustedTypes, b = d.prototype, w = qt(b, "cloneNode"), y = qt(b, "remove"), v = qt(b, "nextSibling"), m = qt(b, "childNodes"), P = qt(b, "parentNode"), S = qt(b, "shadowRoot"), g = qt(b, "attributes"), x = s && s.prototype ? qt(s.prototype, "nodeType") : null, I = s && s.prototype ? qt(s.prototype, "nodeName") : null, Z = s && s.prototype ? qt(s.prototype, "ownerDocument") : null;
   if (typeof n == "function") {
     const V = a.createElement("template");
     V.content && V.content.ownerDocument && (a = V.content.ownerDocument);
   }
-  let F, L = "", R, J = !1, T = 0;
+  let F, L = "", j, W = !1, A = 0;
   const M = function() {
-    if (T > 0)
-      throw B1('A configured TRUSTED_TYPES_POLICY callback (createHTML or createScriptURL) must not call DOMPurify.sanitize, as that causes infinite recursion. Do not pass a policy whose callbacks wrap DOMPurify as TRUSTED_TYPES_POLICY; see the "DOMPurify and Trusted Types" section of the README.');
-  }, I = function(h) {
-    M(), T++;
+    if (A > 0)
+      throw V1('A configured TRUSTED_TYPES_POLICY callback (createHTML or createScriptURL) must not call DOMPurify.sanitize, as that causes infinite recursion. Do not pass a policy whose callbacks wrap DOMPurify as TRUSTED_TYPES_POLICY; see the "DOMPurify and Trusted Types" section of the README.');
+  }, z = function(u) {
+    M(), A++;
     try {
-      return F.createHTML(h);
+      return F.createHTML(u);
     } finally {
-      T--;
+      A--;
     }
-  }, E = function(h) {
-    M(), T++;
+  }, T = function(u) {
+    M(), A++;
     try {
-      return F.createScriptURL(h);
+      return F.createScriptURL(u);
     } finally {
-      T--;
+      A--;
     }
   }, $ = function() {
-    return J || (R = pd(u, o), J = !0), R;
-  }, le = a, W = le.implementation, te = le.createNodeIterator, ke = le.createDocumentFragment, P = le.getElementsByTagName, Y = i.importNode;
-  let S = ps();
-  t.isSupported = typeof Yr == "function" && typeof D == "function" && W && W.createHTMLDocument !== void 0;
-  const j = $c, ie = ed, ue = td, de = ad, Ie = id, Ae = od, ot = nd, Wt = rd;
-  let g1 = ls, be = null;
-  const zt = ye({}, [...os, ...zn, ...In, ...Cn, ...ns]);
-  let me = null;
-  const ft = ye({}, [...ss, ...Pn, ...rs, ...bo]);
-  let ge = Object.seal(Ca(null, {
+    return W || (j = fd(h, o), W = !0), j;
+  }, le = a, J = le.implementation, ae = le.createNodeIterator, Me = le.createDocumentFragment, C = le.getElementsByTagName, Y = i.importNode;
+  let R = ps();
+  t.isSupported = typeof Wr == "function" && typeof P == "function" && J && J.createHTMLDocument !== void 0;
+  const E = ed, ee = td, ue = ad, de = id, me = od, Se = nd, Ie = sd, We = ld;
+  let Xt = ls, ke = null;
+  const Bt = be({}, [...os, ...zn, ...In, ...Cn, ...ns]);
+  let ve = null;
+  const Ve = be({}, [...ss, ...Pn, ...rs, ...bo]);
+  let ye = Object.seal(Ca(null, {
     tagNameCheck: {
       writable: !0,
       configurable: !1,
@@ -11639,8 +11639,8 @@ function Jr() {
       enumerable: !0,
       value: !1
     }
-  })), mt = null, nt = null;
-  const Ce = Object.seal(Ca(null, {
+  })), je = null, Ct = null;
+  const Fe = Object.seal(Ca(null, {
     tagCheck: {
       writable: !0,
       configurable: !1,
@@ -11654,10 +11654,10 @@ function Jr() {
       value: null
     }
   }));
-  let Ge = !0, ht = !0, s1 = !1, Ft = !0, It = !1, ut = !0, Ut = !1, Bt = !1, ca = null, G1 = null, ei = !1, r1 = !1, da = !1, N1 = !1, io = !0, ti = !1;
+  let Re = !0, Ge = !0, ut = !1, Vt = !0, gt = !1, wt = !0, Pt = !1, v1 = !1, Kt = null, N1 = null, ei = !1, l1 = !1, da = !1, R1 = !1, io = !0, ti = !1;
   const oo = "user-content-";
-  let pa = !0, fa = !1, l1 = {}, Ct = null;
-  const ma = ye({}, [
+  let pa = !0, fa = !1, c1 = {}, Dt = null;
+  const ma = be({}, [
     "annotation-xml",
     "audio",
     "colgroup",
@@ -11695,243 +11695,243 @@ function Jr() {
     "xmp"
   ]);
   let no = null;
-  const ai = ye({}, ["audio", "video", "img", "source", "image", "track"]);
+  const ai = be({}, ["audio", "video", "img", "source", "image", "track"]);
   let ii = null;
-  const oi = ye({}, ["alt", "class", "for", "id", "label", "name", "pattern", "placeholder", "role", "summary", "title", "value", "style", "xmlns"]), ha = "http://www.w3.org/1998/Math/MathML", R1 = "http://www.w3.org/2000/svg", Pt = "http://www.w3.org/1999/xhtml";
-  let v1 = Pt, ua = !1, ni = null;
-  const so = ye({}, [ha, R1, Pt], Zn), ro = Xe(["mi", "mo", "mn", "ms", "mtext"]);
-  let ga = ye({}, ro);
-  const lo = Xe(["annotation-xml"]);
-  let va = ye({}, lo);
-  const co = ye({}, ["title", "style", "font", "a", "script"]);
-  let y1 = null;
+  const oi = be({}, ["alt", "class", "for", "id", "label", "name", "pattern", "placeholder", "role", "summary", "title", "value", "style", "xmlns"]), ha = "http://www.w3.org/1998/Math/MathML", j1 = "http://www.w3.org/2000/svg", At = "http://www.w3.org/1999/xhtml";
+  let y1 = At, ua = !1, ni = null;
+  const so = be({}, [ha, j1, At], Zn), ro = tt(["mi", "mo", "mn", "ms", "mtext"]);
+  let ga = be({}, ro);
+  const lo = tt(["annotation-xml"]);
+  let va = be({}, lo);
+  const co = be({}, ["title", "style", "font", "a", "script"]);
+  let b1 = null;
   const po = ["application/xhtml+xml", "text/html"], fo = "text/html";
-  let Te = null, b1 = null;
-  const hn = a.createElement("form"), mo = function(h) {
-    return h instanceof RegExp || h instanceof Function;
+  let Te = null, k1 = null;
+  const hn = a.createElement("form"), mo = function(u) {
+    return u instanceof RegExp || u instanceof Function;
   }, si = function() {
-    let h = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    if (b1 && b1 === h)
+    let u = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    if (k1 && k1 === u)
       return;
-    (!h || typeof h != "object") && (h = {}), h = et(h), y1 = // eslint-disable-next-line unicorn/prefer-includes
-    po.indexOf(h.PARSER_MEDIA_TYPE) === -1 ? fo : h.PARSER_MEDIA_TYPE, Te = y1 === "application/xhtml+xml" ? Zn : xi, be = M1(h, "ALLOWED_TAGS", zt, {
+    (!u || typeof u != "object") && (u = {}), u = nt(u), b1 = // eslint-disable-next-line unicorn/prefer-includes
+    po.indexOf(u.PARSER_MEDIA_TYPE) === -1 ? fo : u.PARSER_MEDIA_TYPE, Te = b1 === "application/xhtml+xml" ? Zn : xi, ke = S1(u, "ALLOWED_TAGS", Bt, {
       transform: Te
-    }), me = M1(h, "ALLOWED_ATTR", ft, {
+    }), ve = S1(u, "ALLOWED_ATTR", Ve, {
       transform: Te
-    }), ni = M1(h, "ALLOWED_NAMESPACES", so, {
+    }), ni = S1(u, "ALLOWED_NAMESPACES", so, {
       transform: Zn
-    }), ii = M1(h, "ADD_URI_SAFE_ATTR", oi, {
+    }), ii = S1(u, "ADD_URI_SAFE_ATTR", oi, {
       transform: Te,
       base: oi
-    }), no = M1(h, "ADD_DATA_URI_TAGS", ai, {
+    }), no = S1(u, "ADD_DATA_URI_TAGS", ai, {
       transform: Te,
       base: ai
-    }), Ct = M1(h, "FORBID_CONTENTS", ma, {
+    }), Dt = S1(u, "FORBID_CONTENTS", ma, {
       transform: Te
-    }), mt = M1(h, "FORBID_TAGS", et({}), {
+    }), je = S1(u, "FORBID_TAGS", nt({}), {
       transform: Te
-    }), nt = M1(h, "FORBID_ATTR", et({}), {
+    }), Ct = S1(u, "FORBID_ATTR", nt({}), {
       transform: Te
-    }), l1 = Be(h, "USE_PROFILES") ? h.USE_PROFILES && typeof h.USE_PROFILES == "object" ? et(h.USE_PROFILES) : h.USE_PROFILES : !1, Ge = h.ALLOW_ARIA_ATTR !== !1, ht = h.ALLOW_DATA_ATTR !== !1, s1 = h.ALLOW_UNKNOWN_PROTOCOLS || !1, Ft = h.ALLOW_SELF_CLOSE_IN_ATTR !== !1, It = h.SAFE_FOR_TEMPLATES || !1, ut = h.SAFE_FOR_XML !== !1, Ut = h.WHOLE_DOCUMENT || !1, r1 = h.RETURN_DOM || !1, da = h.RETURN_DOM_FRAGMENT || !1, N1 = h.RETURN_TRUSTED_TYPE || !1, ei = h.FORCE_BODY || !1, io = h.SANITIZE_DOM !== !1, ti = h.SANITIZE_NAMED_PROPS || !1, pa = h.KEEP_CONTENT !== !1, fa = h.IN_PLACE || !1, g1 = Xc(h.ALLOWED_URI_REGEXP) ? h.ALLOWED_URI_REGEXP : ls, v1 = typeof h.NAMESPACE == "string" ? h.NAMESPACE : Pt, ga = Be(h, "MATHML_TEXT_INTEGRATION_POINTS") && h.MATHML_TEXT_INTEGRATION_POINTS && typeof h.MATHML_TEXT_INTEGRATION_POINTS == "object" ? et(h.MATHML_TEXT_INTEGRATION_POINTS) : ye({}, ro), va = Be(h, "HTML_INTEGRATION_POINTS") && h.HTML_INTEGRATION_POINTS && typeof h.HTML_INTEGRATION_POINTS == "object" ? et(h.HTML_INTEGRATION_POINTS) : ye({}, lo);
-    const A = Be(h, "CUSTOM_ELEMENT_HANDLING") && h.CUSTOM_ELEMENT_HANDLING && typeof h.CUSTOM_ELEMENT_HANDLING == "object" ? et(h.CUSTOM_ELEMENT_HANDLING) : Ca(null);
-    if (ge = Ca(null), Be(A, "tagNameCheck") && mo(A.tagNameCheck) && (ge.tagNameCheck = A.tagNameCheck), Be(A, "attributeNameCheck") && mo(A.attributeNameCheck) && (ge.attributeNameCheck = A.attributeNameCheck), Be(A, "allowCustomizedBuiltInElements") && typeof A.allowCustomizedBuiltInElements == "boolean" && (ge.allowCustomizedBuiltInElements = A.allowCustomizedBuiltInElements), Qe(ge), It && (ht = !1), da && (r1 = !0), l1 && (be = ye({}, ns), me = Ca(null), l1.html === !0 && (ye(be, os), ye(me, ss)), l1.svg === !0 && (ye(be, zn), ye(me, Pn), ye(me, bo)), l1.svgFilters === !0 && (ye(be, In), ye(me, Pn), ye(me, bo)), l1.mathMl === !0 && (ye(be, Cn), ye(me, rs), ye(me, bo))), Ce.tagCheck = null, Ce.attributeCheck = null, Be(h, "ADD_TAGS") && (typeof h.ADD_TAGS == "function" ? Ce.tagCheck = h.ADD_TAGS : I1(h.ADD_TAGS) && (be === zt && (be = et(be)), ye(be, h.ADD_TAGS, Te))), Be(h, "ADD_ATTR") && (typeof h.ADD_ATTR == "function" ? Ce.attributeCheck = h.ADD_ATTR : I1(h.ADD_ATTR) && (me === ft && (me = et(me)), ye(me, h.ADD_ATTR, Te))), Be(h, "ADD_URI_SAFE_ATTR") && I1(h.ADD_URI_SAFE_ATTR) && ye(ii, h.ADD_URI_SAFE_ATTR, Te), Be(h, "FORBID_CONTENTS") && I1(h.FORBID_CONTENTS) && (Ct === ma && (Ct = et(Ct)), ye(Ct, h.FORBID_CONTENTS, Te)), Be(h, "ADD_FORBID_CONTENTS") && I1(h.ADD_FORBID_CONTENTS) && (Ct === ma && (Ct = et(Ct)), ye(Ct, h.ADD_FORBID_CONTENTS, Te)), pa && (be["#text"] = !0), Ut && ye(be, ["html", "head", "body"]), be.table && (ye(be, ["tbody"]), delete mt.tbody), h.TRUSTED_TYPES_POLICY) {
-      if (typeof h.TRUSTED_TYPES_POLICY.createHTML != "function")
-        throw B1('TRUSTED_TYPES_POLICY configuration option must provide a "createHTML" hook.');
-      if (typeof h.TRUSTED_TYPES_POLICY.createScriptURL != "function")
-        throw B1('TRUSTED_TYPES_POLICY configuration option must provide a "createScriptURL" hook.');
+    }), c1 = qe(u, "USE_PROFILES") ? u.USE_PROFILES && typeof u.USE_PROFILES == "object" ? nt(u.USE_PROFILES) : u.USE_PROFILES : !1, Re = u.ALLOW_ARIA_ATTR !== !1, Ge = u.ALLOW_DATA_ATTR !== !1, ut = u.ALLOW_UNKNOWN_PROTOCOLS || !1, Vt = u.ALLOW_SELF_CLOSE_IN_ATTR !== !1, gt = u.SAFE_FOR_TEMPLATES || !1, wt = u.SAFE_FOR_XML !== !1, Pt = u.WHOLE_DOCUMENT || !1, l1 = u.RETURN_DOM || !1, da = u.RETURN_DOM_FRAGMENT || !1, R1 = u.RETURN_TRUSTED_TYPE || !1, ei = u.FORCE_BODY || !1, io = u.SANITIZE_DOM !== !1, ti = u.SANITIZE_NAMED_PROPS || !1, pa = u.KEEP_CONTENT !== !1, fa = u.IN_PLACE || !1, Xt = Qc(u.ALLOWED_URI_REGEXP) ? u.ALLOWED_URI_REGEXP : ls, y1 = typeof u.NAMESPACE == "string" ? u.NAMESPACE : At, ga = qe(u, "MATHML_TEXT_INTEGRATION_POINTS") && u.MATHML_TEXT_INTEGRATION_POINTS && typeof u.MATHML_TEXT_INTEGRATION_POINTS == "object" ? nt(u.MATHML_TEXT_INTEGRATION_POINTS) : be({}, ro), va = qe(u, "HTML_INTEGRATION_POINTS") && u.HTML_INTEGRATION_POINTS && typeof u.HTML_INTEGRATION_POINTS == "object" ? nt(u.HTML_INTEGRATION_POINTS) : be({}, lo);
+    const D = qe(u, "CUSTOM_ELEMENT_HANDLING") && u.CUSTOM_ELEMENT_HANDLING && typeof u.CUSTOM_ELEMENT_HANDLING == "object" ? nt(u.CUSTOM_ELEMENT_HANDLING) : Ca(null);
+    if (ye = Ca(null), qe(D, "tagNameCheck") && mo(D.tagNameCheck) && (ye.tagNameCheck = D.tagNameCheck), qe(D, "attributeNameCheck") && mo(D.attributeNameCheck) && (ye.attributeNameCheck = D.attributeNameCheck), qe(D, "allowCustomizedBuiltInElements") && typeof D.allowCustomizedBuiltInElements == "boolean" && (ye.allowCustomizedBuiltInElements = D.allowCustomizedBuiltInElements), at(ye), gt && (Ge = !1), da && (l1 = !0), c1 && (ke = be({}, ns), ve = Ca(null), c1.html === !0 && (be(ke, os), be(ve, ss)), c1.svg === !0 && (be(ke, zn), be(ve, Pn), be(ve, bo)), c1.svgFilters === !0 && (be(ke, In), be(ve, Pn), be(ve, bo)), c1.mathMl === !0 && (be(ke, Cn), be(ve, rs), be(ve, bo))), Fe.tagCheck = null, Fe.attributeCheck = null, qe(u, "ADD_TAGS") && (typeof u.ADD_TAGS == "function" ? Fe.tagCheck = u.ADD_TAGS : C1(u.ADD_TAGS) && (ke === Bt && (ke = nt(ke)), be(ke, u.ADD_TAGS, Te))), qe(u, "ADD_ATTR") && (typeof u.ADD_ATTR == "function" ? Fe.attributeCheck = u.ADD_ATTR : C1(u.ADD_ATTR) && (ve === Ve && (ve = nt(ve)), be(ve, u.ADD_ATTR, Te))), qe(u, "ADD_URI_SAFE_ATTR") && C1(u.ADD_URI_SAFE_ATTR) && be(ii, u.ADD_URI_SAFE_ATTR, Te), qe(u, "FORBID_CONTENTS") && C1(u.FORBID_CONTENTS) && (Dt === ma && (Dt = nt(Dt)), be(Dt, u.FORBID_CONTENTS, Te)), qe(u, "ADD_FORBID_CONTENTS") && C1(u.ADD_FORBID_CONTENTS) && (Dt === ma && (Dt = nt(Dt)), be(Dt, u.ADD_FORBID_CONTENTS, Te)), pa && (ke["#text"] = !0), Pt && be(ke, ["html", "head", "body"]), ke.table && (be(ke, ["tbody"]), delete je.tbody), u.TRUSTED_TYPES_POLICY) {
+      if (typeof u.TRUSTED_TYPES_POLICY.createHTML != "function")
+        throw V1('TRUSTED_TYPES_POLICY configuration option must provide a "createHTML" hook.');
+      if (typeof u.TRUSTED_TYPES_POLICY.createScriptURL != "function")
+        throw V1('TRUSTED_TYPES_POLICY configuration option must provide a "createScriptURL" hook.');
       const U = F;
-      F = h.TRUSTED_TYPES_POLICY;
+      F = u.TRUSTED_TYPES_POLICY;
       try {
-        L = I("");
-      } catch (ae) {
-        throw F = U, ae;
+        L = z("");
+      } catch (ie) {
+        throw F = U, ie;
       }
-    } else h.TRUSTED_TYPES_POLICY === null ? (F = void 0, L = "") : (F === void 0 && (F = $()), F && typeof L == "string" && (L = I("")));
-    Xe && Xe(h), b1 = h;
-  }, ho = ye({}, [...zn, ...In, ...Qc]), uo = ye({}, [...Cn, ..._c]), un = function(h, A, U) {
-    return A.namespaceURI === Pt ? h === "svg" : A.namespaceURI === ha ? h === "svg" && (U === "annotation-xml" || ga[U]) : !!ho[h];
-  }, gn = function(h, A, U) {
-    return A.namespaceURI === Pt ? h === "math" : A.namespaceURI === R1 ? h === "math" && va[U] : !!uo[h];
-  }, vn = function(h, A, U) {
-    return A.namespaceURI === R1 && !va[U] || A.namespaceURI === ha && !ga[U] ? !1 : !uo[h] && (co[h] || !ho[h]);
-  }, ri = function(h) {
-    let A = D(h);
-    (!A || !A.tagName) && (A = {
-      namespaceURI: v1,
+    } else u.TRUSTED_TYPES_POLICY === null ? (F = void 0, L = "") : (F === void 0 && (F = $()), F && typeof L == "string" && (L = z("")));
+    tt && tt(u), k1 = u;
+  }, ho = be({}, [...zn, ...In, ..._c]), uo = be({}, [...Cn, ...$c]), un = function(u, D, U) {
+    return D.namespaceURI === At ? u === "svg" : D.namespaceURI === ha ? u === "svg" && (U === "annotation-xml" || ga[U]) : !!ho[u];
+  }, gn = function(u, D, U) {
+    return D.namespaceURI === At ? u === "math" : D.namespaceURI === j1 ? u === "math" && va[U] : !!uo[u];
+  }, vn = function(u, D, U) {
+    return D.namespaceURI === j1 && !va[U] || D.namespaceURI === ha && !ga[U] ? !1 : !uo[u] && (co[u] || !ho[u]);
+  }, ri = function(u) {
+    let D = P(u);
+    (!D || !D.tagName) && (D = {
+      namespaceURI: y1,
       tagName: "template"
     });
-    const U = xi(h.tagName), ae = xi(A.tagName);
-    return ni[h.namespaceURI] ? h.namespaceURI === R1 ? un(U, A, ae) : h.namespaceURI === ha ? gn(U, A, ae) : h.namespaceURI === Pt ? vn(U, A, ae) : !!(y1 === "application/xhtml+xml" && ni[h.namespaceURI]) : !1;
-  }, Jt = function(h) {
+    const U = xi(u.tagName), ie = xi(D.tagName);
+    return ni[u.namespaceURI] ? u.namespaceURI === j1 ? un(U, D, ie) : u.namespaceURI === ha ? gn(U, D, ie) : u.namespaceURI === At ? vn(U, D, ie) : !!(b1 === "application/xhtml+xml" && ni[u.namespaceURI]) : !1;
+  }, Qt = function(u) {
     wa(t.removed, {
-      element: h
+      element: u
     });
     try {
-      D(h).removeChild(h);
+      P(u).removeChild(u);
     } catch {
-      if (y(h), !D(h))
-        throw B1("a node selected for removal could not be detached from its tree and cannot be safely returned; refusing to sanitize in place");
+      if (y(u), !P(u))
+        throw V1("a node selected for removal could not be detached from its tree and cannot be safely returned; refusing to sanitize in place");
     }
-  }, j1 = function(h) {
-    k1(h);
-    const A = m(h);
-    if (A) {
-      const ae = [];
-      xa(A, (oe) => {
-        wa(ae, oe);
-      }), xa(ae, (oe) => {
+  }, F1 = function(u) {
+    x1(u);
+    const D = m(u);
+    if (D) {
+      const ie = [];
+      xa(D, (oe) => {
+        wa(ie, oe);
+      }), xa(ie, (oe) => {
         try {
           y(oe);
         } catch {
         }
       });
     }
-    const U = g(h);
+    const U = g(u);
     if (U)
-      for (let ae = U.length - 1; ae >= 0; --ae) {
-        const oe = U[ae], pe = oe && oe.name;
+      for (let ie = U.length - 1; ie >= 0; --ie) {
+        const oe = U[ie], pe = oe && oe.name;
         if (typeof pe == "string")
           try {
-            h.removeAttribute(pe);
+            u.removeAttribute(pe);
           } catch {
           }
       }
-  }, Xt = function(h, A) {
+  }, _t = function(u, D) {
     try {
       wa(t.removed, {
-        attribute: A.getAttributeNode(h),
-        from: A
+        attribute: D.getAttributeNode(u),
+        from: D
       });
     } catch {
       wa(t.removed, {
         attribute: null,
-        from: A
+        from: D
       });
     }
-    if (A.removeAttribute(h), h === "is")
-      if (r1 || da)
+    if (D.removeAttribute(u), u === "is")
+      if (l1 || da)
         try {
-          Jt(A);
+          Qt(D);
         } catch {
         }
       else
         try {
-          A.setAttribute(h, "");
+          D.setAttribute(u, "");
         } catch {
         }
-  }, go = function(h) {
-    const A = g(h);
-    if (A)
-      for (let U = A.length - 1; U >= 0; --U) {
-        const ae = A[U], oe = ae && ae.name;
-        if (!(typeof oe != "string" || me[Te(oe)]))
+  }, go = function(u) {
+    const D = g(u);
+    if (D)
+      for (let U = D.length - 1; U >= 0; --U) {
+        const ie = D[U], oe = ie && ie.name;
+        if (!(typeof oe != "string" || ve[Te(oe)]))
           try {
-            h.removeAttribute(oe);
+            u.removeAttribute(oe);
           } catch {
           }
       }
-  }, k1 = function(h) {
-    const A = [h];
-    for (; A.length > 0; ) {
-      const U = A.pop();
-      (x ? x(U) : U.nodeType) === xt.element && go(U);
+  }, x1 = function(u) {
+    const D = [u];
+    for (; D.length > 0; ) {
+      const U = D.pop();
+      (x ? x(U) : U.nodeType) === Mt.element && go(U);
       const oe = m(U);
       if (oe)
         for (let pe = oe.length - 1; pe >= 0; --pe)
-          A.push(oe[pe]);
+          D.push(oe[pe]);
     }
-  }, yn = function(h) {
-    if (!ut)
+  }, yn = function(u) {
+    if (!wt)
       return;
-    const A = [h];
-    for (; A.length > 0; ) {
-      const U = A.pop(), ae = x ? x(U) : U.nodeType;
-      if (ae === xt.processingInstruction || ae === xt.comment && Ue(ds, U.data)) {
+    const D = [u];
+    for (; D.length > 0; ) {
+      const U = D.pop(), ie = x ? x(U) : U.nodeType;
+      if (ie === Mt.processingInstruction || ie === Mt.comment && He(ds, U.data)) {
         try {
           y(U);
         } catch {
         }
         continue;
       }
-      if (ae === xt.element) {
-        const pe = U, Ze = Te(C ? C(U) : U.nodeName);
+      if (ie === Mt.element) {
+        const pe = U, Ce = Te(I ? I(U) : U.nodeName);
         try {
-          pe.hasAttribute && pe.hasAttribute("patchsrc") && pe.removeAttribute("patchsrc"), pe.hasAttribute && pe.hasAttribute("for") && Ze !== "label" && Ze !== "output" && pe.removeAttribute("for");
+          pe.hasAttribute && pe.hasAttribute("patchsrc") && pe.removeAttribute("patchsrc"), pe.hasAttribute && pe.hasAttribute("for") && Ce !== "label" && Ce !== "output" && pe.removeAttribute("for");
         } catch {
         }
       }
       const oe = m(U);
       if (oe)
         for (let pe = oe.length - 1; pe >= 0; --pe)
-          A.push(oe[pe]);
+          D.push(oe[pe]);
     }
-  }, vo = function(h) {
-    let A = null, U = null;
+  }, vo = function(u) {
+    let D = null, U = null;
     if (ei)
-      h = "<remove></remove>" + h;
+      u = "<remove></remove>" + u;
     else {
-      const pe = es(h, /^[\r\n\t ]+/);
+      const pe = es(u, /^[\r\n\t ]+/);
       U = pe && pe[0];
     }
-    y1 === "application/xhtml+xml" && v1 === Pt && (h = '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' + h + "</body></html>");
-    const ae = F ? I(h) : h;
-    if (v1 === Pt)
+    b1 === "application/xhtml+xml" && y1 === At && (u = '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' + u + "</body></html>");
+    const ie = F ? z(u) : u;
+    if (y1 === At)
       try {
-        A = new f().parseFromString(ae, y1);
+        D = new f().parseFromString(ie, b1);
       } catch {
       }
-    if (!A || !A.documentElement) {
-      A = W.createDocument(v1, "template", null);
+    if (!D || !D.documentElement) {
+      D = J.createDocument(y1, "template", null);
       try {
-        A.documentElement.innerHTML = ua ? L : ae;
+        D.documentElement.innerHTML = ua ? L : ie;
       } catch {
       }
     }
-    const oe = A.body || A.documentElement;
-    return h && U && oe.insertBefore(a.createTextNode(U), oe.childNodes[0] || null), v1 === Pt ? P.call(A, Ut ? "html" : "body")[0] : Ut ? A.documentElement : oe;
-  }, yo = function(h) {
-    const A = z ? z(h) : h.ownerDocument;
-    return te.call(
-      A || h,
-      h,
+    const oe = D.body || D.documentElement;
+    return u && U && oe.insertBefore(a.createTextNode(U), oe.childNodes[0] || null), y1 === At ? C.call(D, Pt ? "html" : "body")[0] : Pt ? D.documentElement : oe;
+  }, yo = function(u) {
+    const D = Z ? Z(u) : u.ownerDocument;
+    return ae.call(
+      D || u,
+      u,
       // eslint-disable-next-line no-bitwise
       c.SHOW_ELEMENT | c.SHOW_COMMENT | c.SHOW_TEXT | c.SHOW_PROCESSING_INSTRUCTION | c.SHOW_CDATA_SECTION,
       null
     );
-  }, ya = function(h) {
-    return h = fi(h, j, " "), h = fi(h, ie, " "), h = fi(h, ue, " "), h;
-  }, li = function(h) {
-    var A;
-    h.normalize();
-    const U = z ? z(h) : h.ownerDocument, ae = te.call(
-      U || h,
-      h,
+  }, ya = function(u) {
+    return u = fi(u, E, " "), u = fi(u, ee, " "), u = fi(u, ue, " "), u;
+  }, li = function(u) {
+    var D;
+    u.normalize();
+    const U = Z ? Z(u) : u.ownerDocument, ie = ae.call(
+      U || u,
+      u,
       // eslint-disable-next-line no-bitwise
       c.SHOW_TEXT | c.SHOW_COMMENT | c.SHOW_CDATA_SECTION | c.SHOW_PROCESSING_INSTRUCTION,
       null
     );
-    let oe = ae.nextNode();
+    let oe = ie.nextNode();
     for (; oe; )
-      oe.data = ya(oe.data), oe = ae.nextNode();
-    const pe = (A = h.querySelectorAll) === null || A === void 0 ? void 0 : A.call(h, "template");
-    pe && xa(pe, (Ze) => {
-      x1(Ze.content) && li(Ze.content);
+      oe.data = ya(oe.data), oe = ie.nextNode();
+    const pe = (D = u.querySelectorAll) === null || D === void 0 ? void 0 : D.call(u, "template");
+    pe && xa(pe, (Ce) => {
+      w1(Ce.content) && li(Ce.content);
     });
-  }, ba = function(h) {
-    const A = C ? C(h) : null;
-    return typeof A != "string" || Te(A) !== "form" ? !1 : typeof h.nodeName != "string" || typeof h.textContent != "string" || typeof h.removeChild != "function" || // Realm-safe NamedNodeMap detection: equality against the cached
+  }, ba = function(u) {
+    const D = I ? I(u) : null;
+    return typeof D != "string" || Te(D) !== "form" ? !1 : typeof u.nodeName != "string" || typeof u.textContent != "string" || typeof u.removeChild != "function" || // Realm-safe NamedNodeMap detection: equality against the cached
     // prototype getter. Clobbered .attributes (e.g. <input name="attributes">)
     // makes the direct read diverge from the cached read; a clean form
     // (same-realm OR foreign-realm) has both reads pointing at the same
     // canonical NamedNodeMap.
-    h.attributes !== g(h) || typeof h.removeAttribute != "function" || typeof h.setAttribute != "function" || typeof h.namespaceURI != "string" || typeof h.insertBefore != "function" || typeof h.hasChildNodes != "function" || // NodeType clobbering probe. Cached Node.prototype.nodeType getter
+    u.attributes !== g(u) || typeof u.removeAttribute != "function" || typeof u.setAttribute != "function" || typeof u.namespaceURI != "string" || typeof u.insertBefore != "function" || typeof u.hasChildNodes != "function" || // NodeType clobbering probe. Cached Node.prototype.nodeType getter
     // returns the integer 1 for any Element regardless of realm; direct
     // read on a clobbered form (e.g. <input name="nodeType">) returns
     // the named child element. Cheap addition — nodeType is read from
     // an internal slot, no serialization cost — and removes a residual
     // clobbering surface used by several mXSS / PI / comment branches
     // in _sanitizeElements that compare currentNode.nodeType directly.
-    h.nodeType !== x(h) || // HTMLFormElement has [LegacyOverrideBuiltIns]: a descendant named
+    u.nodeType !== x(u) || // HTMLFormElement has [LegacyOverrideBuiltIns]: a descendant named
     // "childNodes" shadows the prototype getter. Direct reads of
     // form.childNodes from a clobbered form return the named child
     // instead of the real NodeList, so any walk that reads it directly
@@ -11942,84 +11942,84 @@ function Jr() {
     // select, etc.) regardless of whether the named child happens to
     // carry a numeric .length, which a typeof-based probe would miss
     // (e.g. HTMLSelectElement.length is a defined unsigned-long).
-    h.childNodes !== m(h);
-  }, x1 = function(h) {
-    if (!x || typeof h != "object" || h === null)
+    u.childNodes !== m(u);
+  }, w1 = function(u) {
+    if (!x || typeof u != "object" || u === null)
       return !1;
     try {
-      return x(h) === xt.documentFragment;
+      return x(u) === Mt.documentFragment;
     } catch {
       return !1;
     }
-  }, F1 = function(h) {
-    if (!x || typeof h != "object" || h === null)
+  }, U1 = function(u) {
+    if (!x || typeof u != "object" || u === null)
       return !1;
     try {
-      return typeof x(h) == "number";
+      return typeof x(u) == "number";
     } catch {
       return !1;
     }
   };
-  function Dt(V, h, A) {
+  function Tt(V, u, D) {
     V.length !== 0 && xa(V, (U) => {
-      U.call(t, h, A, b1);
+      U.call(t, u, D, k1);
     });
   }
-  const bn = function(h, A) {
-    return !!(ut && h.hasChildNodes() && !F1(h.firstElementChild) && Ue(cs, h.textContent) && Ue(cs, h.innerHTML) || ut && h.namespaceURI === Pt && A === "style" && F1(h.firstElementChild) || h.nodeType === xt.processingInstruction || ut && h.nodeType === xt.comment && Ue(ds, h.data));
-  }, kn = function(h, A, U) {
-    if (!mt[A] && ka(A) && (ge.tagNameCheck instanceof RegExp && Ue(ge.tagNameCheck, A) || ge.tagNameCheck instanceof Function && ge.tagNameCheck(A)))
+  const bn = function(u, D) {
+    return !!(wt && u.hasChildNodes() && !U1(u.firstElementChild) && He(cs, u.textContent) && He(cs, u.innerHTML) || wt && u.namespaceURI === At && D === "style" && U1(u.firstElementChild) || u.nodeType === Mt.processingInstruction || wt && u.nodeType === Mt.comment && He(ds, u.data));
+  }, kn = function(u, D, U) {
+    if (!je[D] && ka(D) && (ye.tagNameCheck instanceof RegExp && He(ye.tagNameCheck, D) || ye.tagNameCheck instanceof Function && ye.tagNameCheck(D)))
       return !1;
-    if (pa && !Ct[A]) {
-      const ae = D(h), oe = m(h);
-      if (oe && ae) {
+    if (pa && !Dt[D]) {
+      const ie = P(u), oe = m(u);
+      if (oe && ie) {
         const pe = oe.length;
-        for (let Ze = pe - 1; Ze >= 0; --Ze) {
-          const Ne = h === U ? w(oe[Ze], !0) : oe[Ze];
-          ae.insertBefore(Ne, v(h));
+        for (let Ce = pe - 1; Ce >= 0; --Ce) {
+          const Ne = u === U ? w(oe[Ce], !0) : oe[Ce];
+          ie.insertBefore(Ne, v(u));
         }
       }
     }
-    return Jt(h), !0;
-  }, w1 = function(h, A, U, ae) {
-    return h.length === 0 ? A : A === U || A === ae ? et(A) : A;
-  }, ci = function(h, A) {
-    if (Dt(S.beforeSanitizeElements, h, null), h !== A && D(h) === null)
-      return fa && k1(h), !0;
-    if (ba(h))
-      return Jt(h), !0;
-    const U = Te(C ? C(h) : h.nodeName);
-    if (be = w1(S.uponSanitizeElement, be, zt, ca), Dt(S.uponSanitizeElement, h, {
+    return Qt(u), !0;
+  }, M1 = function(u, D, U, ie) {
+    return u.length === 0 ? D : D === U || D === ie ? nt(D) : D;
+  }, ci = function(u, D) {
+    if (Tt(R.beforeSanitizeElements, u, null), u !== D && P(u) === null)
+      return fa && x1(u), !0;
+    if (ba(u))
+      return Qt(u), !0;
+    const U = Te(I ? I(u) : u.nodeName);
+    if (ke = M1(R.uponSanitizeElement, ke, Bt, Kt), Tt(R.uponSanitizeElement, u, {
       tagName: U,
-      allowedTags: be
-    }), h !== A && D(h) === null)
-      return fa && k1(h), !0;
-    if (bn(h, U))
-      return Jt(h), !0;
-    if (mt[U] || !(Ce.tagCheck instanceof Function && Ce.tagCheck(U)) && !be[U]) {
-      const oe = kn(h, U, A);
-      return oe === !1 && Dt(S.afterSanitizeElements, h, null), oe;
+      allowedTags: ke
+    }), u !== D && P(u) === null)
+      return fa && x1(u), !0;
+    if (bn(u, U))
+      return Qt(u), !0;
+    if (je[U] || !(Fe.tagCheck instanceof Function && Fe.tagCheck(U)) && !ke[U]) {
+      const oe = kn(u, U, D);
+      return oe === !1 && Tt(R.afterSanitizeElements, u, null), oe;
     }
-    if ((x ? x(h) : h.nodeType) === xt.element && !ri(h) || (U === "noscript" || U === "noembed" || U === "noframes") && Ue(ld, h.innerHTML))
-      return Jt(h), !0;
-    if (It && h.nodeType === xt.text) {
-      const oe = ya(h.textContent);
-      h.textContent !== oe && (wa(t.removed, {
-        element: h.cloneNode()
-      }), h.textContent = oe);
+    if ((x ? x(u) : u.nodeType) === Mt.element && !ri(u) || (U === "noscript" || U === "noembed" || U === "noframes") && He(cd, u.innerHTML))
+      return Qt(u), !0;
+    if (gt && u.nodeType === Mt.text) {
+      const oe = ya(u.textContent);
+      u.textContent !== oe && (wa(t.removed, {
+        element: u.cloneNode()
+      }), u.textContent = oe);
     }
-    return Dt(S.afterSanitizeElements, h, null), !1;
-  }, di = function(h, A, U) {
-    if (nt[A] || ut && A === "patchsrc" || ut && A === "for" && h !== "label" && h !== "output" || io && (A === "id" || A === "name") && (U in a || U in hn))
+    return Tt(R.afterSanitizeElements, u, null), !1;
+  }, di = function(u, D, U) {
+    if (Ct[D] || wt && D === "patchsrc" || wt && D === "for" && u !== "label" && u !== "output" || io && (D === "id" || D === "name") && (U in a || U in hn))
       return !1;
-    const ae = me[A] || Ce.attributeCheck instanceof Function && Ce.attributeCheck(A, h);
-    if (!(ht && Ue(de, A))) {
-      if (!(Ge && Ue(Ie, A))) {
-        if (ae) {
-          if (!ii[A]) {
-            if (!Ue(g1, fi(U, ot, ""))) {
-              if (!((A === "src" || A === "xlink:href" || A === "href") && h !== "script" && ts(U, "data:") === 0 && no[h])) {
-                if (!(s1 && !Ue(Ae, fi(U, ot, "")))) {
+    const ie = ve[D] || Fe.attributeCheck instanceof Function && Fe.attributeCheck(D, u);
+    if (!(Ge && He(de, D))) {
+      if (!(Re && He(me, D))) {
+        if (ie) {
+          if (!ii[D]) {
+            if (!He(Xt, fi(U, Ie, ""))) {
+              if (!((D === "src" || D === "xlink:href" || D === "href") && u !== "script" && ts(U, "data:") === 0 && no[u])) {
+                if (!(ut && !He(Se, fi(U, Ie, "")))) {
                   if (U)
                     return !1;
                 }
@@ -12030,113 +12030,113 @@ function Jr() {
           // First condition does a very basic check if a) it's basically a valid custom element tagname AND
           // b) if the tagName passes whatever the user has configured for CUSTOM_ELEMENT_HANDLING.tagNameCheck
           // and c) if the attribute name passes whatever the user has configured for CUSTOM_ELEMENT_HANDLING.attributeNameCheck
-          !(ka(h) && (ge.tagNameCheck instanceof RegExp && Ue(ge.tagNameCheck, h) || ge.tagNameCheck instanceof Function && ge.tagNameCheck(h)) && (ge.attributeNameCheck instanceof RegExp && Ue(ge.attributeNameCheck, A) || ge.attributeNameCheck instanceof Function && ge.attributeNameCheck(A, h)) || // Alternative, second condition checks if it's an `is`-attribute, AND
+          !(ka(u) && (ye.tagNameCheck instanceof RegExp && He(ye.tagNameCheck, u) || ye.tagNameCheck instanceof Function && ye.tagNameCheck(u)) && (ye.attributeNameCheck instanceof RegExp && He(ye.attributeNameCheck, D) || ye.attributeNameCheck instanceof Function && ye.attributeNameCheck(D, u)) || // Alternative, second condition checks if it's an `is`-attribute, AND
           // the value passes whatever the user has configured for CUSTOM_ELEMENT_HANDLING.tagNameCheck
-          A === "is" && ge.allowCustomizedBuiltInElements && (ge.tagNameCheck instanceof RegExp && Ue(ge.tagNameCheck, U) || ge.tagNameCheck instanceof Function && ge.tagNameCheck(U)))
+          D === "is" && ye.allowCustomizedBuiltInElements && (ye.tagNameCheck instanceof RegExp && He(ye.tagNameCheck, U) || ye.tagNameCheck instanceof Function && ye.tagNameCheck(U)))
         ) return !1;
       }
     }
     return !0;
-  }, pi = ye({}, ["annotation-xml", "color-profile", "font-face", "font-face-format", "font-face-name", "font-face-src", "font-face-uri", "missing-glyph"]), ka = function(h) {
-    return !pi[xi(h)] && Ue(Wt, h);
-  }, W2 = function(h, A, U, ae) {
-    if (F && typeof u == "object" && typeof u.getAttributeType == "function" && !U)
-      switch (u.getAttributeType(h, A)) {
+  }, pi = be({}, ["annotation-xml", "color-profile", "font-face", "font-face-format", "font-face-name", "font-face-src", "font-face-uri", "missing-glyph"]), ka = function(u) {
+    return !pi[xi(u)] && He(We, u);
+  }, W2 = function(u, D, U, ie) {
+    if (F && typeof h == "object" && typeof h.getAttributeType == "function" && !U)
+      switch (h.getAttributeType(u, D)) {
         case "TrustedHTML":
-          return I(ae);
+          return z(ie);
         case "TrustedScriptURL":
-          return E(ae);
+          return T(ie);
       }
-    return ae;
-  }, xn = function(h, A, U, ae) {
+    return ie;
+  }, xn = function(u, D, U, ie) {
     try {
-      U ? h.setAttributeNS(U, A, ae) : h.setAttribute(A, ae), ba(h) ? Jt(h) : $2(t.removed);
+      U ? u.setAttributeNS(U, D, ie) : u.setAttribute(D, ie), ba(u) ? Qt(u) : $2(t.removed);
     } catch {
-      Xt(A, h);
+      _t(D, u);
     }
-  }, O = function(h) {
-    Dt(S.beforeSanitizeAttributes, h, null);
-    const A = h.attributes;
-    if (!A || ba(h))
+  }, O = function(u) {
+    Tt(R.beforeSanitizeAttributes, u, null);
+    const D = u.attributes;
+    if (!D || ba(u))
       return;
-    me = w1(S.uponSanitizeAttribute, me, ft, G1);
+    ve = M1(R.uponSanitizeAttribute, ve, Ve, N1);
     const U = {
       attrName: "",
       attrValue: "",
       keepAttr: !0,
-      allowedAttributes: me,
+      allowedAttributes: ve,
       forceKeepAttr: void 0
     };
-    let ae = A.length;
-    const oe = Te(h.nodeName);
-    for (; ae--; ) {
-      const pe = A[ae], Ze = pe.name, Ne = pe.namespaceURI, gt = pe.value, vt = Te(Ze), wn = gt;
-      let st = Ze === "value" ? wn : Kc(wn);
-      if (U.attrName = vt, U.attrValue = st, U.keepAttr = !0, U.forceKeepAttr = void 0, Dt(S.uponSanitizeAttribute, h, U), st = U.attrValue, ti && (vt === "id" || vt === "name") && ts(st, oo) !== 0 && (Xt(Ze, h), st = oo + st), ut && Ue(/((--!?|])>)|<\/(style|script|title|xmp|textarea|noscript|iframe|noembed|noframes)/i, st)) {
-        Xt(Ze, h);
+    let ie = D.length;
+    const oe = Te(u.nodeName);
+    for (; ie--; ) {
+      const pe = D[ie], Ce = pe.name, Ne = pe.namespaceURI, vt = pe.value, yt = Te(Ce), wn = vt;
+      let ct = Ce === "value" ? wn : Hc(wn);
+      if (U.attrName = yt, U.attrValue = ct, U.keepAttr = !0, U.forceKeepAttr = void 0, Tt(R.uponSanitizeAttribute, u, U), ct = U.attrValue, ti && (yt === "id" || yt === "name") && ts(ct, oo) !== 0 && (_t(Ce, u), ct = oo + ct), wt && He(/((--!?|])>)|<\/(style|script|title|xmp|textarea|noscript|iframe|noembed|noframes)/i, ct)) {
+        _t(Ce, u);
         continue;
       }
-      if (vt === "attributename" && es(st, "href")) {
-        Xt(Ze, h);
+      if (yt === "attributename" && es(ct, "href")) {
+        _t(Ce, u);
         continue;
       }
       if (!U.forceKeepAttr) {
         if (!U.keepAttr) {
-          Xt(Ze, h);
+          _t(Ce, u);
           continue;
         }
-        if (!Ft && Ue(cd, st)) {
-          Xt(Ze, h);
+        if (!Vt && He(dd, ct)) {
+          _t(Ce, u);
           continue;
         }
-        if (It && (st = ya(st)), !di(oe, vt, st)) {
-          Xt(Ze, h);
+        if (gt && (ct = ya(ct)), !di(oe, yt, ct)) {
+          _t(Ce, u);
           continue;
         }
-        st = W2(oe, vt, Ne, st), st !== wn && xn(h, Ze, Ne, st);
+        ct = W2(oe, yt, Ne, ct), ct !== wn && xn(u, Ce, Ne, ct);
       }
     }
-    Dt(S.afterSanitizeAttributes, h, null);
-  }, _e = function(h) {
-    let A = null;
-    const U = yo(h);
-    for (Dt(S.beforeSanitizeShadowDOM, h, null); A = U.nextNode(); )
-      if (Dt(S.uponSanitizeShadowNode, A, null), ci(A, h), O(A), x1(A.content) && _e(A.content), (x ? x(A) : A.nodeType) === xt.element) {
-        const oe = Z(A);
-        x1(oe) && (U1(oe), _e(oe));
+    Tt(R.afterSanitizeAttributes, u, null);
+  }, it = function(u) {
+    let D = null;
+    const U = yo(u);
+    for (Tt(R.beforeSanitizeShadowDOM, u, null); D = U.nextNode(); )
+      if (Tt(R.uponSanitizeShadowNode, D, null), ci(D, u), O(D), w1(D.content) && it(D.content), (x ? x(D) : D.nodeType) === Mt.element) {
+        const oe = S(D);
+        w1(oe) && (B1(oe), it(oe));
       }
-    Dt(S.afterSanitizeShadowDOM, h, null);
-  }, U1 = function(h) {
-    const A = [{
-      node: h,
+    Tt(R.afterSanitizeShadowDOM, u, null);
+  }, B1 = function(u) {
+    const D = [{
+      node: u,
       shadow: null
     }];
-    for (; A.length > 0; ) {
-      const U = A.pop();
+    for (; D.length > 0; ) {
+      const U = D.pop();
       if (U.shadow) {
-        _e(U.shadow);
+        it(U.shadow);
         continue;
       }
-      const ae = U.node, pe = (x ? x(ae) : ae.nodeType) === xt.element, Ze = m(ae);
-      if (Ze)
-        for (let Ne = Ze.length - 1; Ne >= 0; --Ne)
-          A.push({
-            node: Ze[Ne],
+      const ie = U.node, pe = (x ? x(ie) : ie.nodeType) === Mt.element, Ce = m(ie);
+      if (Ce)
+        for (let Ne = Ce.length - 1; Ne >= 0; --Ne)
+          D.push({
+            node: Ce[Ne],
             shadow: null
           });
       if (pe) {
-        const Ne = C ? C(ae) : null;
+        const Ne = I ? I(ie) : null;
         if (typeof Ne == "string" && Te(Ne) === "template") {
-          const gt = ae.content;
-          x1(gt) && A.push({
-            node: gt,
+          const vt = ie.content;
+          w1(vt) && D.push({
+            node: vt,
             shadow: null
           });
         }
       }
       if (pe) {
-        const Ne = Z(ae);
-        x1(Ne) && A.push({
+        const Ne = S(ie);
+        w1(Ne) && D.push({
           node: null,
           shadow: Ne
         }, {
@@ -12147,96 +12147,96 @@ function Jr() {
     }
   };
   return t.sanitize = function(V) {
-    let h = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, A = null, U = null, ae = null, oe = null;
-    if (ua = !V, ua && (V = "<!-->"), typeof V != "string" && !F1(V) && (V = Jc(V), typeof V != "string"))
-      throw B1("dirty is not a string, aborting");
+    let u = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, D = null, U = null, ie = null, oe = null;
+    if (ua = !V, ua && (V = "<!-->"), typeof V != "string" && !U1(V) && (V = Xc(V), typeof V != "string"))
+      throw V1("dirty is not a string, aborting");
     if (!t.isSupported)
       return V;
-    Bt ? (be = ca, me = G1) : si(h), (S.uponSanitizeElement.length > 0 || S.uponSanitizeAttribute.length > 0) && (be = et(be)), S.uponSanitizeAttribute.length > 0 && (me = et(me)), t.removed = [];
-    const pe = fa && typeof V != "string" && F1(V);
+    v1 ? (ke = Kt, ve = N1) : si(u), (R.uponSanitizeElement.length > 0 || R.uponSanitizeAttribute.length > 0) && (ke = nt(ke)), R.uponSanitizeAttribute.length > 0 && (ve = nt(ve)), t.removed = [];
+    const pe = fa && typeof V != "string" && U1(V);
     if (pe) {
       yn(V);
-      const gt = C ? C(V) : V.nodeName;
-      if (typeof gt == "string") {
-        const vt = Te(gt);
-        if (!be[vt] || mt[vt])
-          throw j1(V), B1("root node is forbidden and cannot be sanitized in-place");
+      const vt = I ? I(V) : V.nodeName;
+      if (typeof vt == "string") {
+        const yt = Te(vt);
+        if (!ke[yt] || je[yt])
+          throw F1(V), V1("root node is forbidden and cannot be sanitized in-place");
       }
       if (ba(V))
-        throw j1(V), B1("root node is clobbered and cannot be sanitized in-place");
+        throw F1(V), V1("root node is clobbered and cannot be sanitized in-place");
       try {
-        U1(V);
-      } catch (vt) {
-        throw j1(V), vt;
+        B1(V);
+      } catch (yt) {
+        throw F1(V), yt;
       }
-    } else if (F1(V))
-      A = vo("<!---->"), U = A.ownerDocument.importNode(V, !0), U.nodeType === xt.element && U.nodeName === "BODY" || U.nodeName === "HTML" ? A = U : A.appendChild(U), U1(U);
+    } else if (U1(V))
+      D = vo("<!---->"), U = D.ownerDocument.importNode(V, !0), U.nodeType === Mt.element && U.nodeName === "BODY" || U.nodeName === "HTML" ? D = U : D.appendChild(U), B1(U);
     else {
-      if (!r1 && !It && !Ut && // eslint-disable-next-line unicorn/prefer-includes
+      if (!l1 && !gt && !Pt && // eslint-disable-next-line unicorn/prefer-includes
       V.indexOf("<") === -1)
-        return F && N1 ? I(V) : V;
-      if (A = vo(V), !A)
-        return r1 ? null : N1 ? L : "";
+        return F && R1 ? z(V) : V;
+      if (D = vo(V), !D)
+        return l1 ? null : R1 ? L : "";
     }
-    A && ei && Jt(A.firstChild);
-    const Ze = pe ? V : A;
+    D && ei && Qt(D.firstChild);
+    const Ce = pe ? V : D;
     try {
-      const gt = yo(Ze);
-      for (; ae = gt.nextNode(); )
-        ci(ae, Ze), O(ae), x1(ae.content) && _e(ae.content);
-    } catch (gt) {
-      throw pe && (j1(V), xa(t.removed, (vt) => {
-        vt.element && k1(vt.element);
-      })), gt;
+      const vt = yo(Ce);
+      for (; ie = vt.nextNode(); )
+        ci(ie, Ce), O(ie), w1(ie.content) && it(ie.content);
+    } catch (vt) {
+      throw pe && (F1(V), xa(t.removed, (yt) => {
+        yt.element && x1(yt.element);
+      })), vt;
     }
     if (pe)
-      return xa(t.removed, (gt) => {
-        gt.element && k1(gt.element);
-      }), It && li(V), V;
-    if (r1) {
-      if (It && li(A), da)
-        for (oe = ke.call(A.ownerDocument); A.firstChild; )
-          oe.appendChild(A.firstChild);
+      return xa(t.removed, (vt) => {
+        vt.element && x1(vt.element);
+      }), gt && li(V), V;
+    if (l1) {
+      if (gt && li(D), da)
+        for (oe = Me.call(D.ownerDocument); D.firstChild; )
+          oe.appendChild(D.firstChild);
       else
-        oe = A;
-      return (me.shadowroot || me.shadowrootmode) && (oe = Y.call(i, oe, !0)), oe;
+        oe = D;
+      return (ve.shadowroot || ve.shadowrootmode) && (oe = Y.call(i, oe, !0)), oe;
     }
-    let Ne = Ut ? A.outerHTML : A.innerHTML;
-    return Ut && be["!doctype"] && A.ownerDocument && A.ownerDocument.doctype && A.ownerDocument.doctype.name && Ue(sd, A.ownerDocument.doctype.name) && (Ne = "<!DOCTYPE " + A.ownerDocument.doctype.name + `>
-` + Ne), It && (Ne = ya(Ne)), F && N1 ? I(Ne) : Ne;
+    let Ne = Pt ? D.outerHTML : D.innerHTML;
+    return Pt && ke["!doctype"] && D.ownerDocument && D.ownerDocument.doctype && D.ownerDocument.doctype.name && He(rd, D.ownerDocument.doctype.name) && (Ne = "<!DOCTYPE " + D.ownerDocument.doctype.name + `>
+` + Ne), gt && (Ne = ya(Ne)), F && R1 ? z(Ne) : Ne;
   }, t.setConfig = function() {
     let V = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    si(V), Bt = !0, ca = be, G1 = me;
+    si(V), v1 = !0, Kt = ke, N1 = ve;
   }, t.clearConfig = function() {
-    b1 = null, Bt = !1, ca = null, G1 = null, F = R, L = "";
-  }, t.isValidAttribute = function(V, h, A) {
-    b1 || si({});
-    const U = Te(V), ae = Te(h);
-    return di(U, ae, A);
-  }, t.addHook = function(V, h) {
-    typeof h == "function" && Be(S, V) && wa(S[V], h);
-  }, t.removeHook = function(V, h) {
-    if (Be(S, V)) {
-      if (h !== void 0) {
-        const A = Bc(S[V], h);
-        return A === -1 ? void 0 : Vc(S[V], A, 1)[0];
+    k1 = null, v1 = !1, Kt = null, N1 = null, F = j, L = "";
+  }, t.isValidAttribute = function(V, u, D) {
+    k1 || si({});
+    const U = Te(V), ie = Te(u);
+    return di(U, ie, D);
+  }, t.addHook = function(V, u) {
+    typeof u == "function" && qe(R, V) && wa(R[V], u);
+  }, t.removeHook = function(V, u) {
+    if (qe(R, V)) {
+      if (u !== void 0) {
+        const D = Vc(R[V], u);
+        return D === -1 ? void 0 : Kc(R[V], D, 1)[0];
       }
-      return $2(S[V]);
+      return $2(R[V]);
     }
   }, t.removeHooks = function(V) {
-    Be(S, V) && (S[V] = []);
+    qe(R, V) && (R[V] = []);
   }, t.removeAllHooks = function() {
-    S = ps();
+    R = ps();
   }, t;
 }
-var fd = Jr();
-const md = {
+var md = Xr();
+const hd = {
   USE_PROFILES: { svg: !0, svgFilters: !0 },
   FORBID_TAGS: ["script", "iframe", "object", "embed", "foreignObject"]
 };
-function hd(e) {
-  const t = `<svg xmlns="http://www.w3.org/2000/svg">${e}</svg>`, i = fd.sanitize(t, {
-    ...md,
+function ud(e) {
+  const t = `<svg xmlns="http://www.w3.org/2000/svg">${e}</svg>`, i = md.sanitize(t, {
+    ...hd,
     RETURN_DOM: !0
   }).firstElementChild;
   if (!i || i.tagName.toLowerCase() !== "svg") return "";
@@ -12246,7 +12246,7 @@ function hd(e) {
     n += o.serializeToString(s);
   return n;
 }
-const qt = "https://github.com/ZoliQua/React-Odontogram-Modul/fhir/CodeSystem/odontogram", Xr = "urn:iso:std:iso:3950", ud = "http://snomed.info/sct", gd = "http://hl7.org/fhir/sid/icd-10", vd = "https://www.icdas.org", yd = {
+const Wt = "https://github.com/ZoliQua/React-Odontogram-Modul/fhir/CodeSystem/odontogram", Qr = "urn:iso:std:iso:3950", gd = "http://snomed.info/sct", vd = "http://hl7.org/fhir/sid/icd-10", yd = "https://www.icdas.org", bd = {
   0: "ICDAS 0 — Sound tooth surface",
   1: "ICDAS 1 — First visual change in enamel",
   2: "ICDAS 2 — Distinct visual change in enamel",
@@ -12473,43 +12473,43 @@ const qt = "https://github.com/ZoliQua/React-Odontogram-Modul/fhir/CodeSystem/od
     fracture: { code: "fracture", display: "Fractured / chipped filling" },
     wear: { code: "wear", display: "Worn / deficient filling material" }
   }
-}, bd = {}, kd = "odontogram-subject", Eo = "urn:uuid:odontogram-subject";
-function Qr(e, t, a) {
-  const i = [{ system: e, code: t.code, display: t.display }], o = t.snomed ?? (a ? bd[a] : void 0);
-  return o && i.push({ system: ud, code: o, display: t.display }), { coding: i, text: t.display };
+}, kd = {}, xd = "odontogram-subject", Eo = "urn:uuid:odontogram-subject";
+function _r(e, t, a) {
+  const i = [{ system: e, code: t.code, display: t.display }], o = t.snomed ?? (a ? kd[a] : void 0);
+  return o && i.push({ system: gd, code: o, display: t.display }), { coding: i, text: t.display };
 }
-function P1(e, t) {
+function D1(e, t) {
   const a = h2[e]?.[t] ?? { code: t, display: t };
-  return Qr(qt, a, `${e}:${t}`);
+  return _r(Wt, a, `${e}:${t}`);
 }
 function Io(e, t) {
-  return Qr(qt, { code: e, display: t }, `finding:${e}`);
+  return _r(Wt, { code: e, display: t }, `finding:${e}`);
 }
-function xd(e) {
-  return { coding: [{ system: Xr, code: e }], text: `Tooth ${e}` };
+function wd(e) {
+  return { coding: [{ system: Qr, code: e }], text: `Tooth ${e}` };
 }
-const _r = [
+const $r = [
   {
     coding: [
       { system: "http://terminology.hl7.org/CodeSystem/observation-category", code: "exam", display: "Exam" }
     ]
   }
-], Ht = (e, t, a) => ({
+], Yt = (e, t, a) => ({
   resourceType: "Observation",
   status: "final",
-  category: _r,
+  category: $r,
   code: a,
   subject: { reference: e },
-  bodySite: xd(t)
+  bodySite: wd(t)
 });
-function Vt(e) {
+function Ht(e) {
   const t = e?.coding;
-  return Array.isArray(t) ? t.find((i) => i?.system === qt && typeof i.code == "string")?.code : void 0;
+  return Array.isArray(t) ? t.find((i) => i?.system === Wt && typeof i.code == "string")?.code : void 0;
 }
-function wd(e, t) {
+function Md(e, t) {
   return e[t] || (e[t] = {}), e[t];
 }
-const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local: t.code, display: t.display } })), hi = (e, t) => e.map((a) => a.id in t ? { ...a, svgLayer: t[a.id] } : a), fs = (e) => Object.fromEntries(e.map((t) => [t, t])), ra = [
+const De = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local: t.code, display: t.display } })), hi = (e, t) => e.map((a) => a.id in t ? { ...a, svgLayer: t[a.id] } : a), fs = (e) => Object.fromEntries(e.map((t) => [t, t])), la = [
   {
     id: "toothSelection",
     field: "toothSelection",
@@ -12517,7 +12517,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "toothSelection",
     skipValue: "tooth-base",
     finding: { local: "tooth-status", display: "Tooth status" },
-    values: hi(Pe("toothSelection"), {
+    values: hi(De("toothSelection"), {
       implant: "implant",
       milktooth: "milktooth",
       "tooth-under-gum": "tooth-under-gum",
@@ -12538,7 +12538,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "endo",
     skipValue: "none",
     finding: { local: "endodontic-status", display: "Endodontic status" },
-    values: hi(Pe("endo"), {
+    values: hi(De("endo"), {
       "endo-medical-filling": "endo-medical-filling",
       "endo-filling": "endo-filling",
       "endo-filling-incomplete": "endo-filling-incomplete",
@@ -12561,7 +12561,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "toothSubstrate",
     skipValue: "natural",
     finding: { local: "tooth-substrate", display: "Tooth substrate" },
-    values: Pe("toothSubstrate")
+    values: De("toothSubstrate")
   },
   {
     id: "restorationType",
@@ -12570,7 +12570,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "restorationType",
     skipValue: "none",
     finding: { local: "restoration-type", display: "Restoration type" },
-    values: Pe("restorationType")
+    values: De("restorationType")
   },
   {
     id: "restorationMaterial",
@@ -12579,7 +12579,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "restorationMaterial",
     skipValue: "none",
     finding: { local: "restoration-material", display: "Restoration material" },
-    values: Pe("restorationMaterial")
+    values: De("restorationMaterial")
   },
   {
     id: "prosthesis",
@@ -12588,7 +12588,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "prosthesis",
     skipValue: "none",
     finding: { local: "prosthesis-type", display: "Prosthesis / attachment" },
-    values: Pe("prosthesis")
+    values: De("prosthesis")
   },
   {
     id: "mobility",
@@ -12597,7 +12597,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "mobility",
     skipValue: "none",
     finding: { local: "tooth-mobility", display: "Tooth mobility" },
-    values: Pe("mobility"),
+    values: De("mobility"),
     uiOptions: [
       { value: "none", labelKey: "mobility.none" },
       { value: "m1", labelKey: "mobility.m1" },
@@ -12611,7 +12611,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     kind: "set",
     valueGroup: "caries",
     finding: { local: "caries", display: "Dental caries" },
-    values: hi(Pe("caries"), fs([
+    values: hi(De("caries"), fs([
       "caries-subcrown",
       "caries-buccal",
       "caries-lingual",
@@ -12626,7 +12626,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     kind: "set",
     valueGroup: "mods",
     finding: { local: "tooth-modifier", display: "Tooth modifier" },
-    values: hi(Pe("mods"), fs(["inflammation", "parodontal", "mobility"])),
+    values: hi(De("mods"), fs(["inflammation", "parodontal", "mobility"])),
     uiOptions: [
       { value: "parodontal", labelKey: "mods.parodontal" },
       { value: "inflammation", labelKey: "mods.periapicalInflammation" }
@@ -12647,7 +12647,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "periapicalType",
     skipValue: "none",
     finding: { local: "periapical-lesion-type", display: "Periapical lesion type" },
-    values: hi(Pe("periapicalType"), {
+    values: hi(De("periapicalType"), {
       granuloma: "granuloma",
       cyst: "cysta",
       abscess: "abscess"
@@ -12666,7 +12666,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     skipValue: "none",
     surfacesField: "fillingSurfaces",
     finding: { local: "restoration", display: "Dental restoration" },
-    values: Pe("fillingMaterial")
+    values: De("fillingMaterial")
   },
   {
     id: "endoResection",
@@ -12790,7 +12790,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "pulpDx",
     skipValue: "normal",
     finding: { local: "pulp-diagnosis", display: "Pulp diagnosis (AAE)" },
-    values: Pe("pulpDx")
+    values: De("pulpDx")
   },
   {
     id: "pulpLatin",
@@ -12800,7 +12800,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     skipValue: "none",
     flag: "latinPulpDetail",
     finding: { local: "pulp-diagnosis-latin", display: "Pulp diagnosis (Latin, practical)" },
-    values: Pe("pulpLatin")
+    values: De("pulpLatin")
   },
   {
     id: "apicalDx",
@@ -12809,7 +12809,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "apicalDx",
     skipValue: "normal",
     finding: { local: "apical-diagnosis", display: "Apical diagnosis (AAE)" },
-    values: Pe("apicalDx")
+    values: De("apicalDx")
   },
   {
     id: "resorptionType",
@@ -12818,7 +12818,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "resorptionType",
     skipValue: "none",
     finding: { local: "root-resorption-type", display: "Root resorption type" },
-    values: Pe("resorptionType"),
+    values: De("resorptionType"),
     // Both `internal` and `external-cervical` render the single `endo-resorption`
     // layer (visually identical; only the data distinguishes them). The axis-level
     // svgLayer/appliesWhen is metadata only (kept for the clear-set and
@@ -12836,7 +12836,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "wearEdge",
     skipValue: "none",
     finding: { local: "tooth-wear-edge", display: "Incisal/occlusal wear" },
-    values: Pe("wearEdge"),
+    values: De("wearEdge"),
     // All types render the single `tooth-bruxism-wear` layer; the axis svgLayer is
     // metadata only (svg-layers.test coverage) — activation is explicit in
     // applyStateToSvgSingle (applyFlagLayers only auto-activates boolean axes).
@@ -12850,7 +12850,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "wearCervical",
     skipValue: "none",
     finding: { local: "tooth-wear-cervical", display: "Cervical wear" },
-    values: Pe("wearCervical"),
+    values: De("wearCervical"),
     svgLayer: "tooth-bruxism-neck-wear",
     appliesWhen: (e) => e.bruxismAllowed
   },
@@ -12863,7 +12863,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     finding: { local: "tooth-discoloration", display: "Tooth discoloration" },
     // No svgLayer: activation is explicit in applyStateToSvgSingle — it tints the
     // crown path's .style.fill (no layer toggle), so there is no layer to declare.
-    values: Pe("discoloration")
+    values: De("discoloration")
   },
   // The 3 enum ortho axes mirror wearEdge: svgLayer is metadata only (activation
   // stays explicit in applyStateToSvgSingle; applyFlagLayers only auto-activates
@@ -12877,7 +12877,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "orthoAppliance",
     skipValue: "none",
     finding: { local: "tooth-ortho-appliance", display: "Orthodontic appliance" },
-    values: Pe("orthoAppliance"),
+    values: De("orthoAppliance"),
     svgLayer: "ortho-bracket",
     appliesWhen: (e) => e.toothPresent
   },
@@ -12888,7 +12888,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "orthoDrift",
     skipValue: "none",
     finding: { local: "tooth-ortho-drift", display: "Orthodontic drift" },
-    values: Pe("orthoDrift"),
+    values: De("orthoDrift"),
     svgLayer: "arrow-mesial",
     appliesWhen: (e) => e.toothPresent
   },
@@ -12899,7 +12899,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "orthoVertical",
     skipValue: "none",
     finding: { local: "tooth-ortho-vertical", display: "Vertical malposition" },
-    values: Pe("orthoVertical"),
+    values: De("orthoVertical"),
     svgLayer: "arrow-up",
     appliesWhen: (e) => e.toothPresent
   },
@@ -12920,7 +12920,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "rootCaries",
     skipValue: "none",
     finding: { local: "root-caries", display: "Root caries" },
-    values: Pe("rootCaries"),
+    values: De("rootCaries"),
     svgLayer: "caries-root",
     appliesWhen: (e) => e.toothPresent
   },
@@ -12934,7 +12934,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "cejVisibility",
     skipValue: "none",
     finding: { local: "cej-visibility", display: "CEJ visibility" },
-    values: Pe("cejVisibility")
+    values: De("cejVisibility")
   },
   {
     id: "rootConcavity",
@@ -12943,7 +12943,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "rootConcavity",
     skipValue: "none",
     finding: { local: "root-concavity", display: "Root concavity" },
-    values: Pe("rootConcavity")
+    values: De("rootConcavity")
   },
   // Gingival thickness (GT) + Miller recession class — two per-tooth categorical
   // data axes. No svgLayer: neither renders on the odontogram (SVG-fingerprint
@@ -12955,7 +12955,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "gingivalThickness",
     skipValue: "unknown",
     finding: { local: "gingival-thickness", display: "Gingival thickness" },
-    values: Pe("gingivalThickness")
+    values: De("gingivalThickness")
   },
   {
     id: "millerClass",
@@ -12964,7 +12964,7 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     valueGroup: "millerClass",
     skipValue: "none",
     finding: { local: "miller-recession-class", display: "Miller recession class" },
-    values: Pe("millerClass")
+    values: De("millerClass")
   },
   {
     id: "periImplant",
@@ -12978,47 +12978,47 @@ const Pe = (e) => Object.values(h2[e]).map((t) => ({ id: t.code, coding: { local
     // severity-scaled opacity). The bone-loss layer exists only on the 4 implant
     // SVGs, so it must NOT be declared as an axis svgLayer (which svg-layers.test.ts
     // would expect on every tooth). Mirrors the apicalDx axis.
-    values: Pe("periImplant")
+    values: De("periImplant")
   }
-], $r = {}, el = {};
+], el = {}, tl = {};
 for (let e = 1; e <= 4; e++)
   for (let t = 1; t <= 5; t++) {
     const a = `${e}${t}`, i = `${e + 4}${t}`;
-    $r[a] = i, el[i] = a;
+    el[a] = i, tl[i] = a;
   }
-function Md(e) {
-  return el[e] ?? null;
+function Sd(e) {
+  return tl[e] ?? null;
 }
-function tl(e, t) {
+function al(e, t) {
   if (t?.toothSelection !== "milktooth") return e;
-  const a = $r[e];
+  const a = el[e];
   return a || (console.warn(`odontogram FHIR export: tooth ${e} is flagged milktooth but has no ISO 3950 deciduous equivalent — exporting the permanent code`), e);
 }
-function Sd(e, t, a, i) {
+function Zd(e, t, a, i) {
   const o = a[i.field], n = () => Io(i.finding.local, i.finding.display);
   switch (i.kind) {
     case "enum": {
       const s = typeof o == "string" ? o : "";
       if (!s || s === i.skipValue) return [];
-      const d = Ht(e, t, n());
-      return d.valueCodeableConcept = P1(i.valueGroup, s), [d];
+      const d = Yt(e, t, n());
+      return d.valueCodeableConcept = D1(i.valueGroup, s), [d];
     }
     case "boolean": {
       if (o !== !0) return [];
-      const s = Ht(e, t, n());
+      const s = Yt(e, t, n());
       return s.valueBoolean = !0, [s];
     }
     case "set": {
       const s = Array.isArray(o) ? o.filter((p) => typeof p == "string") : [];
       if (s.length === 0) return [];
-      const d = Ht(e, t, n()), c = i.field === "caries" ? a.cariesSeverity : void 0;
+      const d = Yt(e, t, n()), c = i.field === "caries" ? a.cariesSeverity : void 0;
       return d.component = s.map((p) => {
-        const f = { code: P1(i.valueGroup, p), valueBoolean: !0 };
+        const f = { code: D1(i.valueGroup, p), valueBoolean: !0 };
         if (c) {
-          const u = String(p).replace("caries-", ""), b = c[u];
+          const h = String(p).replace("caries-", ""), b = c[h];
           if (typeof b == "number") {
             f.valueInteger = b, delete f.valueBoolean;
-            const w = a.fillingSurfaceMaterials, v = !!w && typeof w == "object" && u in w ? { system: qt, code: `cars-${b}`, display: `CARS score ${b}` } : { system: vd, code: `ICDAS-${b}`, display: yd[b] ?? `ICDAS ${b}` };
+            const w = a.fillingSurfaceMaterials, v = !!w && typeof w == "object" && h in w ? { system: Wt, code: `cars-${b}`, display: `CARS score ${b}` } : { system: yd, code: `ICDAS-${b}`, display: bd[b] ?? `ICDAS ${b}` };
             f.code = { ...f.code, coding: [...f.code.coding ?? [], v] };
           }
         }
@@ -13031,72 +13031,72 @@ function Sd(e, t, a, i) {
         for (const [p, f] of Object.entries(s))
           typeof f == "string" && f && d.push([p, f]);
       if (d.length === 0) {
-        const p = typeof o == "string" ? o : "", f = Array.isArray(a[i.surfacesField]) ? a[i.surfacesField].filter((u) => typeof u == "string") : [];
-        if (p && p !== i.skipValue) for (const u of f) d.push([u, p]);
+        const p = typeof o == "string" ? o : "", f = Array.isArray(a[i.surfacesField]) ? a[i.surfacesField].filter((h) => typeof h == "string") : [];
+        if (p && p !== i.skipValue) for (const h of f) d.push([h, p]);
       }
       if (d.length === 0) return [];
-      const c = Ht(e, t, n());
+      const c = Yt(e, t, n());
       return c.component = d.map(([p, f]) => ({
-        code: P1("fillingSurfaces", p),
-        valueCodeableConcept: P1("fillingMaterial", f)
+        code: D1("fillingSurfaces", p),
+        valueCodeableConcept: D1("fillingMaterial", f)
       })), [c];
     }
     default:
       return [];
   }
 }
-function Zd(e, t = {}) {
+function zd(e, t = {}) {
   const a = e && typeof e == "object" && e.teeth && typeof e.teeth == "object" ? e.teeth : {}, i = t.subject ?? Eo, o = [];
   if (!t.subject) {
-    const s = { resourceType: "Patient", id: kd };
+    const s = { resourceType: "Patient", id: xd };
     o.push({ fullUrl: Eo, resource: s });
   }
   if ((e && typeof e == "object" && e.globals && typeof e.globals == "object" ? e.globals : {}).edentulous === !0) {
     const s = {
       resourceType: "Observation",
       status: "final",
-      category: _r,
-      code: { coding: [{ system: qt, code: "edentulous", display: "Edentulous (whole mouth)" }], text: "Edentulous (whole mouth)" },
+      category: $r,
+      code: { coding: [{ system: Wt, code: "edentulous", display: "Edentulous (whole mouth)" }], text: "Edentulous (whole mouth)" },
       subject: { reference: i },
       valueBoolean: !0
     };
     o.push({ resource: s });
   }
   for (const [s, d] of Object.entries(a)) {
-    const c = d && typeof d == "object" ? d : {}, p = tl(s, c);
-    for (const w of ra) for (const y of Sd(i, p, c, w)) o.push({ resource: y });
+    const c = d && typeof d == "object" ? d : {}, p = al(s, c);
+    for (const w of la) for (const y of Zd(i, p, c, w)) o.push({ resource: y });
     const f = c.radiographicDepth;
     if (f && typeof f == "object") {
       const w = Object.entries(f).filter((y) => typeof y[1] == "string");
       if (w.length) {
-        const y = Ht(i, p, Io("radiographic-caries-depth", "Radiographic caries depth"));
+        const y = Yt(i, p, Io("radiographic-caries-depth", "Radiographic caries depth"));
         y.component = w.map(([v, m]) => ({
-          code: P1("fillingSurfaces", v),
-          valueCodeableConcept: P1("radiographicDepth", m)
+          code: D1("fillingSurfaces", v),
+          valueCodeableConcept: D1("radiographicDepth", m)
         })), o.push({ resource: y });
       }
     }
-    const u = c.fillingDefect;
-    if (u && typeof u == "object") {
-      const w = Object.entries(u).filter((y) => typeof y[1] == "string");
+    const h = c.fillingDefect;
+    if (h && typeof h == "object") {
+      const w = Object.entries(h).filter((y) => typeof y[1] == "string");
       if (w.length) {
-        const y = Ht(i, p, Io("filling-defect", "Filling defect"));
+        const y = Yt(i, p, Io("filling-defect", "Filling defect"));
         y.component = w.map(([v, m]) => ({
-          code: P1("fillingSurfaces", v),
-          valueCodeableConcept: P1("fillingDefect", m)
+          code: D1("fillingSurfaces", v),
+          valueCodeableConcept: D1("fillingDefect", m)
         })), o.push({ resource: y });
       }
     }
     if (typeof c.note == "string" && c.note.trim().length > 0) {
-      const w = Ht(i, p, Io("tooth-note", "Tooth note"));
+      const w = Yt(i, p, Io("tooth-note", "Tooth note"));
       w.note = [{ text: c.note }], o.push({ resource: w });
     }
     const b = c.customStates;
     if (b && typeof b == "object")
       for (const [w, y] of Object.entries(b)) {
         if (typeof y != "string" && typeof y != "number" && typeof y != "boolean") continue;
-        const v = Ht(i, p, {
-          coding: [{ system: qt, code: `custom-state:${w}`, display: `Custom state: ${w}` }],
+        const v = Yt(i, p, {
+          coding: [{ system: Wt, code: `custom-state:${w}`, display: `Custom state: ${w}` }],
           text: `Custom state: ${w}`
         });
         typeof y == "string" ? v.valueString = y : typeof y == "number" ? v.valueQuantity = { value: y } : v.valueBoolean = y, o.push({ resource: v });
@@ -13104,57 +13104,57 @@ function Zd(e, t = {}) {
   }
   return { resourceType: "Bundle", type: "collection", entry: o };
 }
-const zd = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], Id = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38];
-function Cd(e, t) {
-  for (const a of [zd, Id]) {
+const Id = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], Cd = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38];
+function Pd(e, t) {
+  for (const a of [Id, Cd]) {
     const i = a.indexOf(e), o = a.indexOf(t);
     if (i !== -1 && o !== -1 && Math.abs(i - o) === 1) return !0;
   }
   return !1;
 }
-function al(e) {
+function il(e) {
   return e % 10;
 }
 function ms(e) {
-  const t = al(e);
+  const t = il(e);
   return t === 6 || t === 7 || t === 8;
 }
 function hs(e) {
-  const t = al(e);
+  const t = il(e);
   return t === 1 || t === 2;
 }
 const us = ["A", "B", "C"];
 function gs(e, t) {
   return us.indexOf(e) >= us.indexOf(t) ? e : t;
 }
-function Pd(e, t) {
+function Dd(e, t) {
   const a = e.filter((s) => s.present), i = a.filter((s) => s.interdentalCal >= 1);
   let o = !1;
   e: for (let s = 0; s < i.length; s++)
     for (let d = s + 1; d < i.length; d++)
-      if (!Cd(i[s].toothNo, i[d].toothNo)) {
+      if (!Pd(i[s].toothNo, i[d].toothNo)) {
         o = !0;
         break e;
       }
   const n = a.filter((s) => s.buccalOralCal >= 3 && s.maxPd > 3).length;
   return o || n >= 2 ? "periodontitis" : t >= 10 ? "gingivitis" : "health";
 }
-function Dd(e) {
+function Ad(e) {
   return e >= 5 ? 3 : e >= 3 ? 2 : e >= 1 ? 1 : null;
 }
-function Ad(e) {
+function Td(e) {
   return e > 33 ? 3 : e >= 15 ? 2 : 1;
 }
-const Td = ["I", "II", "III"];
-function Ed(e, t, a) {
-  const i = e.filter((f) => f.present), o = i.reduce((f, u) => Math.max(f, u.interdentalCal), 0), n = Dd(o), s = t.maxRblPercent === null ? null : Ad(t.maxRblPercent);
+const Ed = ["I", "II", "III"];
+function Od(e, t, a) {
+  const i = e.filter((f) => f.present), o = i.reduce((f, h) => Math.max(f, h.interdentalCal), 0), n = Ad(o), s = t.maxRblPercent === null ? null : Td(t.maxRblPercent);
   if (n === null && s === null) return "indeterminate";
   let d = Math.max(n ?? 0, s ?? 0);
-  (i.reduce((f, u) => Math.max(f, u.maxPd), 0) >= 6 || a !== null && a >= 2) && (d = Math.max(d, 3));
-  let p = Td[d - 1];
+  (i.reduce((f, h) => Math.max(f, h.maxPd), 0) >= 6 || a !== null && a >= 2) && (d = Math.max(d, 3));
+  let p = Ed[d - 1];
   return t.toothLossPerio !== null && t.toothLossPerio >= 5 && (p = "IV"), p;
 }
-function Od(e) {
+function Ld(e) {
   let t = null;
   if (e.age !== null && e.age > 0 && e.maxRblPercent !== null) {
     const s = e.maxRblPercent / e.age;
@@ -13167,7 +13167,7 @@ function Od(e) {
   const o = { smoking: a, diabetes: i, direct: t };
   return t === null && e.smokingStatus === "unknown" && e.diabetesStatus === "unknown" ? { grade: "indeterminate", buckets: o } : { grade: gs(gs(t ?? "B", a), i), buckets: o };
 }
-function Ld(e) {
+function Gd(e) {
   const t = e.filter((o) => o.present), a = t.filter((o) => o.interdentalCal >= 1);
   if (a.length > 0) {
     const o = a.every((d) => ms(d.toothNo) || hs(d.toothNo)), n = a.some((d) => ms(d.toothNo)), s = a.some((d) => hs(d.toothNo));
@@ -13175,17 +13175,17 @@ function Ld(e) {
   }
   return t.length === 0 || a.length / t.length < 0.3 ? "localized" : "generalized";
 }
-function il(e) {
-  const t = Pd(e.teeth, e.bopPercent), { grade: a, buckets: i } = Od(e.meta);
+function ol(e) {
+  const t = Dd(e.teeth, e.bopPercent), { grade: a, buckets: i } = Ld(e.meta);
   return t !== "periodontitis" ? { diagnosis: t, stage: "na", grade: a, extent: "na", buckets: i } : {
     diagnosis: t,
-    stage: Ed(e.teeth, e.meta, e.maxFurcation),
+    stage: Od(e.teeth, e.meta, e.maxFurcation),
     grade: a,
-    extent: Ld(e.teeth),
+    extent: Gd(e.teeth),
     buckets: i
   };
 }
-const Gd = "http://loinc.org", K1 = {
+const Nd = "http://loinc.org", H1 = {
   panel: { code: "74029-0", display: "Periodontal panel" },
   pd: { code: "32910-2", display: "Probing depth" },
   recession: { code: "32911-0", display: "Gingival recession" },
@@ -13194,17 +13194,17 @@ const Gd = "http://loinc.org", K1 = {
   // Condition evidence Observations.
   smokingStatus: { code: "72166-2", display: "Tobacco smoking status" },
   hba1c: { code: "4548-4", display: "Hemoglobin A1c/Hemoglobin.total in Blood" }
-}, Nd = ["mesial", "distal", "buccal", "lingual"], Rd = {
+}, Rd = ["mesial", "distal", "buccal", "lingual"], jd = {
   mesial: "Mesial",
   distal: "Distal",
   buccal: "Buccal",
   lingual: "Lingual"
-}, ui = ["mesial", "distal", "buccal", "lingual"], jd = {
+}, ui = ["mesial", "distal", "buccal", "lingual"], Fd = {
   mesial: "Mesial",
   distal: "Distal",
   buccal: "Buccal",
   lingual: "Lingual"
-}, ol = ["MB", "B", "DB", "ML", "L", "DL"], Fd = {
+}, nl = ["MB", "B", "DB", "ML", "L", "DL"], Ud = {
   MB: "Mesio-buccal",
   B: "Buccal",
   DB: "Disto-buccal",
@@ -13212,139 +13212,139 @@ const Gd = "http://loinc.org", K1 = {
   L: "Lingual/palatal",
   DL: "Disto-lingual"
 };
-function H1(e) {
-  return { coding: [{ system: Gd, code: e.code, display: e.display }], text: e.display };
+function q1(e) {
+  return { coding: [{ system: Nd, code: e.code, display: e.display }], text: e.display };
 }
-function Lt(e, t) {
-  return { coding: [{ system: qt, code: e, display: t }], text: t };
+function Nt(e, t) {
+  return { coding: [{ system: Wt, code: e, display: t }], text: t };
 }
 function Dn(e, t) {
-  return { coding: [{ system: gd, code: e, display: t }], text: t };
+  return { coding: [{ system: vd, code: e, display: t }], text: t };
 }
-const Ud = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.component.bodySite";
-function Bd(e, t, a) {
+const Bd = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.component.bodySite";
+function Vd(e, t, a) {
   return {
     coding: [
-      { system: Xr, code: e },
-      { system: qt, code: t, display: a }
+      { system: Qr, code: e },
+      { system: Wt, code: t, display: a }
     ],
     text: `Tooth ${e} – ${a}`
   };
 }
 function qo(e, t, a, i) {
   e.extension = [
-    { url: Ud, valueCodeableConcept: Bd(t, a, i) }
+    { url: Bd, valueCodeableConcept: Vd(t, a, i) }
   ];
 }
 function ko(e, t, a) {
-  qo(e, t, `perio-site:${a}`, Fd[a]);
-}
-function Vd(e, t, a) {
-  qo(e, t, `furcation-entrance:${a}`, Rd[a]);
-}
-function gi(e, t, a) {
-  qo(e, t, `plaque-surface:${a}`, jd[a]);
-}
-function qe(e) {
-  return typeof e == "number" && Number.isFinite(e);
+  qo(e, t, `perio-site:${a}`, Ud[a]);
 }
 function Kd(e, t, a) {
-  const i = a.perio, o = i && typeof i.pd == "object" ? i.pd : void 0, n = i && typeof i.gm == "object" ? i.gm : {}, s = Array.isArray(i?.bop) ? i.bop.filter((L) => typeof L == "string") : [], d = o ? ol.filter((L) => Object.prototype.hasOwnProperty.call(o, L) && qe(o[L])) : [], c = a.furcation && typeof a.furcation == "object" ? a.furcation : void 0, p = c ? Nd.filter((L) => {
-    const R = c[L];
-    return qe(R) && Number.isInteger(R) && R >= 1 && R <= 4;
-  }) : [], f = Array.isArray(a.plaque) ? a.plaque.filter((L) => typeof L == "string") : [], u = ui.filter((L) => f.includes(L)), b = a.pi && typeof a.pi == "object" ? a.pi : void 0, w = b ? ui.filter((L) => {
-    const R = b[L];
-    return qe(R) && Number.isInteger(R) && R >= 1 && R <= 3;
+  qo(e, t, `furcation-entrance:${a}`, jd[a]);
+}
+function gi(e, t, a) {
+  qo(e, t, `plaque-surface:${a}`, Fd[a]);
+}
+function Qe(e) {
+  return typeof e == "number" && Number.isFinite(e);
+}
+function Hd(e, t, a) {
+  const i = a.perio, o = i && typeof i.pd == "object" ? i.pd : void 0, n = i && typeof i.gm == "object" ? i.gm : {}, s = Array.isArray(i?.bop) ? i.bop.filter((L) => typeof L == "string") : [], d = o ? nl.filter((L) => Object.prototype.hasOwnProperty.call(o, L) && Qe(o[L])) : [], c = a.furcation && typeof a.furcation == "object" ? a.furcation : void 0, p = c ? Rd.filter((L) => {
+    const j = c[L];
+    return Qe(j) && Number.isInteger(j) && j >= 1 && j <= 4;
+  }) : [], f = Array.isArray(a.plaque) ? a.plaque.filter((L) => typeof L == "string") : [], h = ui.filter((L) => f.includes(L)), b = a.pi && typeof a.pi == "object" ? a.pi : void 0, w = b ? ui.filter((L) => {
+    const j = b[L];
+    return Qe(j) && Number.isInteger(j) && j >= 1 && j <= 3;
   }).map((L) => [L, b[L]]) : [], y = a.gi && typeof a.gi == "object" ? a.gi : void 0, v = y ? ui.filter((L) => {
-    const R = y[L];
-    return qe(R) && Number.isInteger(R) && R >= 1 && R <= 3;
-  }).map((L) => [L, y[L]]) : [], m = a.mpi && typeof a.mpi == "object" ? a.mpi : void 0, D = m ? ui.filter((L) => {
-    const R = m[L];
-    return qe(R) && Number.isInteger(R) && R >= 1 && R <= 3;
-  }).map((L) => [L, m[L]]) : [], Z = a.mbi && typeof a.mbi == "object" ? a.mbi : void 0, g = Z ? ui.filter((L) => {
-    const R = Z[L];
-    return qe(R) && Number.isInteger(R) && R >= 1 && R <= 3;
-  }).map((L) => [L, Z[L]]) : [], x = a.kg, C = qe(x) && Number.isInteger(x) && x >= 0 && x <= 15 ? x : void 0;
-  if (d.length === 0 && p.length === 0 && u.length === 0 && w.length === 0 && v.length === 0 && C === void 0 && D.length === 0 && g.length === 0) return;
-  const z = [];
+    const j = y[L];
+    return Qe(j) && Number.isInteger(j) && j >= 1 && j <= 3;
+  }).map((L) => [L, y[L]]) : [], m = a.mpi && typeof a.mpi == "object" ? a.mpi : void 0, P = m ? ui.filter((L) => {
+    const j = m[L];
+    return Qe(j) && Number.isInteger(j) && j >= 1 && j <= 3;
+  }).map((L) => [L, m[L]]) : [], S = a.mbi && typeof a.mbi == "object" ? a.mbi : void 0, g = S ? ui.filter((L) => {
+    const j = S[L];
+    return Qe(j) && Number.isInteger(j) && j >= 1 && j <= 3;
+  }).map((L) => [L, S[L]]) : [], x = a.kg, I = Qe(x) && Number.isInteger(x) && x >= 0 && x <= 15 ? x : void 0;
+  if (d.length === 0 && p.length === 0 && h.length === 0 && w.length === 0 && v.length === 0 && I === void 0 && P.length === 0 && g.length === 0) return;
+  const Z = [];
   for (const L of d) {
-    const R = o[L], J = n[L], T = qe(J) ? J : 0, M = R + T, I = {
-      code: H1(K1.pd),
-      valueQuantity: { value: R, unit: "mm" }
+    const j = o[L], W = n[L], A = Qe(W) ? W : 0, M = j + A, z = {
+      code: q1(H1.pd),
+      valueQuantity: { value: j, unit: "mm" }
     };
-    if (ko(I, t, L), z.push(I), T > 0) {
+    if (ko(z, t, L), Z.push(z), A > 0) {
       const le = {
-        code: H1(K1.recession),
-        valueQuantity: { value: T, unit: "mm" }
+        code: q1(H1.recession),
+        valueQuantity: { value: A, unit: "mm" }
       };
-      ko(le, t, L), z.push(le);
+      ko(le, t, L), Z.push(le);
     }
-    const E = {
-      code: H1(K1.cal),
+    const T = {
+      code: q1(H1.cal),
       valueQuantity: { value: M, unit: "mm" }
     };
-    ko(E, t, L), z.push(E);
+    ko(T, t, L), Z.push(T);
     const $ = {
-      code: { coding: [{ system: qt, code: "perio-bop", display: "Bleeding on probing" }], text: "Bleeding on probing" },
+      code: { coding: [{ system: Wt, code: "perio-bop", display: "Bleeding on probing" }], text: "Bleeding on probing" },
       valueBoolean: s.includes(L)
     };
-    ko($, t, L), z.push($);
+    ko($, t, L), Z.push($);
   }
   for (const L of p) {
-    const R = c[L], J = {
-      code: H1(K1.furcation),
-      valueInteger: R
+    const j = c[L], W = {
+      code: q1(H1.furcation),
+      valueInteger: j
     };
-    Vd(J, t, L), z.push(J);
+    Kd(W, t, L), Z.push(W);
   }
-  for (const L of u) {
-    const R = {
-      code: { coding: [{ system: qt, code: "plaque-surface", display: "Dental plaque present" }], text: "Dental plaque present" },
+  for (const L of h) {
+    const j = {
+      code: { coding: [{ system: Wt, code: "plaque-surface", display: "Dental plaque present" }], text: "Dental plaque present" },
       valueBoolean: !0
     };
-    gi(R, t, L), z.push(R);
+    gi(j, t, L), Z.push(j);
   }
-  for (const [L, R] of w) {
-    const J = {
-      code: Lt("plaque-index-silness-loe", "Plaque index (Silness-Löe)"),
-      valueInteger: R
+  for (const [L, j] of w) {
+    const W = {
+      code: Nt("plaque-index-silness-loe", "Plaque index (Silness-Löe)"),
+      valueInteger: j
     };
-    gi(J, t, L), z.push(J);
+    gi(W, t, L), Z.push(W);
   }
-  for (const [L, R] of v) {
-    const J = {
-      code: Lt("gingival-index-loe-silness", "Gingival index (Löe-Silness)"),
-      valueInteger: R
+  for (const [L, j] of v) {
+    const W = {
+      code: Nt("gingival-index-loe-silness", "Gingival index (Löe-Silness)"),
+      valueInteger: j
     };
-    gi(J, t, L), z.push(J);
+    gi(W, t, L), Z.push(W);
   }
-  for (const [L, R] of D) {
-    const J = { code: Lt("mod-plaque-index-mombelli", "Modified plaque index (Mombelli)"), valueInteger: R };
-    gi(J, t, L), z.push(J);
+  for (const [L, j] of P) {
+    const W = { code: Nt("mod-plaque-index-mombelli", "Modified plaque index (Mombelli)"), valueInteger: j };
+    gi(W, t, L), Z.push(W);
   }
-  for (const [L, R] of g) {
-    const J = { code: Lt("mod-bleeding-index-mombelli", "Modified sulcus bleeding index (Mombelli)"), valueInteger: R };
-    gi(J, t, L), z.push(J);
+  for (const [L, j] of g) {
+    const W = { code: Nt("mod-bleeding-index-mombelli", "Modified sulcus bleeding index (Mombelli)"), valueInteger: j };
+    gi(W, t, L), Z.push(W);
   }
-  if (C !== void 0) {
+  if (I !== void 0) {
     const L = {
-      code: Lt("keratinized-gingiva-width", "Keratinized gingiva width"),
-      valueQuantity: { value: C, unit: "mm", system: "http://unitsofmeasure.org", code: "mm" }
+      code: Nt("keratinized-gingiva-width", "Keratinized gingiva width"),
+      valueQuantity: { value: I, unit: "mm", system: "http://unitsofmeasure.org", code: "mm" }
     };
-    qo(L, t, "site:buccal", "Buccal"), z.push(L);
+    qo(L, t, "site:buccal", "Buccal"), Z.push(L);
   }
-  const F = Ht(e, t, H1(K1.panel));
-  return F.component = z, F;
+  const F = Yt(e, t, q1(H1.panel));
+  return F.component = Z, F;
 }
-function Hd(e, t, a = {}) {
+function qd(e, t, a = {}) {
   const i = t && typeof t == "object" && t.teeth && typeof t.teeth == "object" ? t.teeth : {}, o = a.subject ?? Eo;
   e.entry || (e.entry = []);
   for (const [n, s] of Object.entries(i)) {
-    const d = s && typeof s == "object" ? s : {}, c = tl(n, d), p = Kd(o, c, d);
+    const d = s && typeof s == "object" ? s : {}, c = al(n, d), p = Hd(o, c, d);
     p && e.entry.push({ resource: p });
   }
 }
-const qd = [
+const Yd = [
   18,
   17,
   16,
@@ -13377,180 +13377,180 @@ const qd = [
   36,
   37,
   38
-], Yd = ["MB", "DB", "ML", "DL"], Wd = ["B", "L"], nl = /* @__PURE__ */ new Set(["unknown", "never", "former", "current"]), Jd = /* @__PURE__ */ new Set(["unknown", "none", "present"]), Xd = /* @__PURE__ */ new Set(["health", "gingivitis", "periodontitis"]), Qd = /* @__PURE__ */ new Set(["I", "II", "III", "IV"]), _d = /* @__PURE__ */ new Set(["A", "B", "C"]), $d = /* @__PURE__ */ new Set(["localized", "generalized", "molar-incisor"]);
-function e4(e) {
+], Wd = ["MB", "DB", "ML", "DL"], Jd = ["B", "L"], sl = /* @__PURE__ */ new Set(["unknown", "never", "former", "current"]), Xd = /* @__PURE__ */ new Set(["unknown", "none", "present"]), Qd = /* @__PURE__ */ new Set(["health", "gingivitis", "periodontitis"]), _d = /* @__PURE__ */ new Set(["I", "II", "III", "IV"]), $d = /* @__PURE__ */ new Set(["A", "B", "C"]), e4 = /* @__PURE__ */ new Set(["localized", "generalized", "molar-incisor"]);
+function t4(e) {
   const t = typeof e == "string" && e ? e : "tooth-base";
   return t !== "none" && t !== "implant";
 }
-function t4(e) {
+function a4(e) {
   const t = e && typeof e == "object" && e.teeth && typeof e.teeth == "object" ? e.teeth : {};
   let a = 0, i = 0, o = null;
-  const n = qd.map((p) => {
-    const f = t[String(p)] ?? {}, u = e4(f.toothSelection), b = f.perio && typeof f.perio.pd == "object" ? f.perio.pd : void 0, w = f.perio && typeof f.perio.gm == "object" ? f.perio.gm : {}, y = Array.isArray(f.perio?.bop) ? f.perio.bop.filter((g) => typeof g == "string") : [];
-    let v = 0, m = 0, D = 0;
+  const n = Yd.map((p) => {
+    const f = t[String(p)] ?? {}, h = t4(f.toothSelection), b = f.perio && typeof f.perio.pd == "object" ? f.perio.pd : void 0, w = f.perio && typeof f.perio.gm == "object" ? f.perio.gm : {}, y = Array.isArray(f.perio?.bop) ? f.perio.bop.filter((g) => typeof g == "string") : [];
+    let v = 0, m = 0, P = 0;
     if (b)
-      for (const g of ol) {
+      for (const g of nl) {
         const x = b[g];
-        if (!qe(x)) continue;
-        a++, y.includes(g) && i++, x > D && (D = x);
-        const C = w[g], z = x + (qe(C) ? C : 0);
-        Yd.includes(g) && z > v && (v = z), Wd.includes(g) && z > m && (m = z);
+        if (!Qe(x)) continue;
+        a++, y.includes(g) && i++, x > P && (P = x);
+        const I = w[g], Z = x + (Qe(I) ? I : 0);
+        Wd.includes(g) && Z > v && (v = Z), Jd.includes(g) && Z > m && (m = Z);
       }
-    const Z = f.furcation && typeof f.furcation == "object" ? f.furcation : void 0;
-    if (Z)
-      for (const g of Object.values(Z))
-        qe(g) && (o === null || g > o) && (o = g);
-    return { toothNo: p, interdentalCal: v, buccalOralCal: m, maxPd: D, present: u };
+    const S = f.furcation && typeof f.furcation == "object" ? f.furcation : void 0;
+    if (S)
+      for (const g of Object.values(S))
+        Qe(g) && (o === null || g > o) && (o = g);
+    return { toothNo: p, interdentalCal: v, buccalOralCal: m, maxPd: P, present: h };
   }), s = a > 0 ? Math.round(i / a * 1e3) / 10 : 0, d = e && typeof e == "object" ? e.case : void 0, c = {
-    age: qe(d?.age) ? d.age : null,
-    maxRblPercent: qe(d?.maxRblPercent) ? d.maxRblPercent : null,
-    toothLossPerio: qe(d?.toothLossPerio) ? d.toothLossPerio : null,
-    smokingStatus: nl.has(d?.smokingStatus) ? d.smokingStatus : "unknown",
-    cigarettesPerDay: qe(d?.cigarettesPerDay) ? d.cigarettesPerDay : null,
-    diabetesStatus: Jd.has(d?.diabetesStatus) ? d.diabetesStatus : "unknown",
-    hba1c: qe(d?.hba1c) ? d.hba1c : null
+    age: Qe(d?.age) ? d.age : null,
+    maxRblPercent: Qe(d?.maxRblPercent) ? d.maxRblPercent : null,
+    toothLossPerio: Qe(d?.toothLossPerio) ? d.toothLossPerio : null,
+    smokingStatus: sl.has(d?.smokingStatus) ? d.smokingStatus : "unknown",
+    cigarettesPerDay: Qe(d?.cigarettesPerDay) ? d.cigarettesPerDay : null,
+    diabetesStatus: Xd.has(d?.diabetesStatus) ? d.diabetesStatus : "unknown",
+    hba1c: Qe(d?.hba1c) ? d.hba1c : null
   };
   return { teeth: n, bopPercent: s, maxFurcation: o, meta: c };
 }
-function a4(e) {
-  const t = il(t4(e)), a = e && typeof e == "object" ? e.case : void 0;
+function i4(e) {
+  const t = ol(a4(e)), a = e && typeof e == "object" ? e.case : void 0;
   return {
-    diagnosis: Xd.has(a?.diagnosisOverride) ? a.diagnosisOverride : t.diagnosis,
-    stage: Qd.has(a?.stageOverride) ? a.stageOverride : t.stage,
-    grade: _d.has(a?.gradeOverride) ? a.gradeOverride : t.grade,
-    extent: $d.has(a?.extentOverride) ? a.extentOverride : t.extent
+    diagnosis: Qd.has(a?.diagnosisOverride) ? a.diagnosisOverride : t.diagnosis,
+    stage: _d.has(a?.stageOverride) ? a.stageOverride : t.stage,
+    grade: $d.has(a?.gradeOverride) ? a.gradeOverride : t.grade,
+    extent: e4.has(a?.extentOverride) ? a.extentOverride : t.extent
   };
 }
-const sl = "odontogram-perio-condition", i4 = `urn:uuid:${sl}`, rl = "odontogram-perio-smoking-observation", vs = `urn:uuid:${rl}`, ll = "odontogram-perio-hba1c-observation", ys = `urn:uuid:${ll}`, o4 = {
+const rl = "odontogram-perio-condition", o4 = `urn:uuid:${rl}`, ll = "odontogram-perio-smoking-observation", vs = `urn:uuid:${ll}`, cl = "odontogram-perio-hba1c-observation", ys = `urn:uuid:${cl}`, n4 = {
   never: { code: "smoking-never", display: "Never smoker" },
   former: { code: "smoking-former", display: "Former smoker" },
   current: { code: "smoking-current", display: "Current smoker" }
 };
-function n4(e, t) {
-  const a = Ht(e, "", H1(K1.smokingStatus));
-  delete a.bodySite, a.id = rl;
-  const i = o4[t];
-  return a.valueCodeableConcept = Lt(i.code, i.display), a;
-}
 function s4(e, t) {
-  const a = Ht(e, "", H1(K1.hba1c));
-  return delete a.bodySite, a.id = ll, a.valueQuantity = { value: t, unit: "%", system: "http://unitsofmeasure.org", code: "%" }, a;
+  const a = Yt(e, "", q1(H1.smokingStatus));
+  delete a.bodySite, a.id = ll;
+  const i = n4[t];
+  return a.valueCodeableConcept = Nt(i.code, i.display), a;
 }
-const r4 = {
+function r4(e, t) {
+  const a = Yt(e, "", q1(H1.hba1c));
+  return delete a.bodySite, a.id = cl, a.valueQuantity = { value: t, unit: "%", system: "http://unitsofmeasure.org", code: "%" }, a;
+}
+const l4 = {
   I: "Stage I",
   II: "Stage II",
   III: "Stage III",
   IV: "Stage IV"
-}, l4 = {
+}, c4 = {
   A: "Grade A",
   B: "Grade B",
   C: "Grade C"
-}, c4 = {
+}, d4 = {
   localized: "Localized",
   generalized: "Generalized",
   "molar-incisor": "Molar-incisor pattern"
 };
-function d4(e, t, a = {}) {
-  const i = a4(t);
+function p4(e, t, a = {}) {
+  const i = i4(t);
   if (i.diagnosis === "health") return;
   const o = a.subject ?? Eo;
   e.entry || (e.entry = []);
   const n = i.diagnosis === "gingivitis" ? Dn("K05.1", "Chronic gingivitis") : i.extent === "molar-incisor" ? Dn("K05.2", "Acute periodontitis") : Dn("K05.3", "Chronic periodontitis"), s = {
     resourceType: "Condition",
-    id: sl,
+    id: rl,
     code: {
       coding: [
         ...n.coding ?? [],
-        { system: qt, code: `periodontal-diagnosis:${i.diagnosis}`, display: i.diagnosis }
+        { system: Wt, code: `periodontal-diagnosis:${i.diagnosis}`, display: i.diagnosis }
       ],
       text: n.text
     },
     subject: { reference: o }
   }, d = [];
   i.diagnosis === "periodontitis" && i.stage !== "na" && i.stage !== "indeterminate" && d.push({
-    type: Lt("periodontal-stage", "Periodontal stage"),
-    summary: Lt(`stage-${i.stage}`, r4[i.stage])
+    type: Nt("periodontal-stage", "Periodontal stage"),
+    summary: Nt(`stage-${i.stage}`, l4[i.stage])
   }), i.grade !== "indeterminate" && d.push({
-    type: Lt("periodontal-grade", "Periodontal grade"),
-    summary: Lt(`grade-${i.grade}`, l4[i.grade])
+    type: Nt("periodontal-grade", "Periodontal grade"),
+    summary: Nt(`grade-${i.grade}`, c4[i.grade])
   }), i.extent !== "na" && d.push({
-    type: Lt("periodontal-extent", "Periodontal extent"),
-    summary: Lt(`extent-${i.extent}`, c4[i.extent])
+    type: Nt("periodontal-extent", "Periodontal extent"),
+    summary: Nt(`extent-${i.extent}`, d4[i.extent])
   }), d.length > 0 && (s.stage = d);
-  const c = t && typeof t == "object" ? t.case : void 0, p = nl.has(c?.smokingStatus) && c?.smokingStatus !== "unknown" ? n4(o, c.smokingStatus) : void 0, f = qe(c?.hba1c) ? s4(o, c.hba1c) : void 0, u = [];
-  p && u.push(vs), f && u.push(ys), u.length > 0 && (s.evidence = [{ detail: u.map((b) => ({ reference: b })) }]), e.entry.push({ fullUrl: i4, resource: s }), p && e.entry.push({ fullUrl: vs, resource: p }), f && e.entry.push({ fullUrl: ys, resource: f });
+  const c = t && typeof t == "object" ? t.case : void 0, p = sl.has(c?.smokingStatus) && c?.smokingStatus !== "unknown" ? s4(o, c.smokingStatus) : void 0, f = Qe(c?.hba1c) ? r4(o, c.hba1c) : void 0, h = [];
+  p && h.push(vs), f && h.push(ys), h.length > 0 && (s.evidence = [{ detail: h.map((b) => ({ reference: b })) }]), e.entry.push({ fullUrl: o4, resource: s }), p && e.entry.push({ fullUrl: vs, resource: p }), f && e.entry.push({ fullUrl: ys, resource: f });
 }
-function p4(e, t = {}) {
-  const a = Zd(e, t);
-  return Hd(a, e, t), d4(a, e, t), a;
+function f4(e, t = {}) {
+  const a = zd(e, t);
+  return qd(a, e, t), p4(a, e, t), a;
 }
-const cl = {};
-for (const e of ra) cl[e.finding.local] = e;
-function f4(e) {
+const dl = {};
+for (const e of la) dl[e.finding.local] = e;
+function m4(e) {
   const t = {}, a = {}, i = e?.entry;
   if (Array.isArray(i))
     for (const o of i) {
       const n = o?.resource;
       if (!n || n.resourceType !== "Observation") continue;
-      const s = Vt(n.code);
+      const s = Ht(n.code);
       if (!s) continue;
-      const d = n.bodySite?.coding?.find((u) => typeof u.code == "string")?.code, c = d ? Md(d) ?? d : void 0;
+      const d = n.bodySite?.coding?.find((h) => typeof h.code == "string")?.code, c = d ? Sd(d) ?? d : void 0;
       if (s === "edentulous") {
         a.edentulous = n.valueBoolean === !0;
         continue;
       }
       if (!c) continue;
-      const p = wd(t, c);
+      const p = Md(t, c);
       if (s === "tooth-note") {
-        const u = n.note?.[0]?.text;
-        typeof u == "string" && (p.note = u);
+        const h = n.note?.[0]?.text;
+        typeof h == "string" && (p.note = h);
         continue;
       }
       if (s.startsWith("custom-state:")) {
-        const u = s.slice(13), b = typeof n.valueString == "string" ? n.valueString : typeof n.valueBoolean == "boolean" ? n.valueBoolean : typeof n.valueQuantity?.value == "number" ? n.valueQuantity.value : void 0;
-        b !== void 0 && ((p.customStates ??= {})[u] = b);
+        const h = s.slice(13), b = typeof n.valueString == "string" ? n.valueString : typeof n.valueBoolean == "boolean" ? n.valueBoolean : typeof n.valueQuantity?.value == "number" ? n.valueQuantity.value : void 0;
+        b !== void 0 && ((p.customStates ??= {})[h] = b);
         continue;
       }
       if (s === "secondary-caries") {
-        const u = {};
+        const h = {};
         for (const b of n.component ?? []) {
-          const w = Vt(b.code), y = b.valueInteger;
-          w && typeof y == "number" && (u[w] = y);
+          const w = Ht(b.code), y = b.valueInteger;
+          w && typeof y == "number" && (h[w] = y);
         }
-        Object.keys(u).length && (p.secondaryCaries = u);
+        Object.keys(h).length && (p.secondaryCaries = h);
         continue;
       }
       if (s === "radiographic-caries-depth") {
-        const u = {};
+        const h = {};
         for (const b of n.component ?? []) {
-          const w = Vt(b.code), y = Vt(b.valueCodeableConcept);
-          w && y && (u[w] = y);
+          const w = Ht(b.code), y = Ht(b.valueCodeableConcept);
+          w && y && (h[w] = y);
         }
-        Object.keys(u).length && (p.radiographicDepth = u);
+        Object.keys(h).length && (p.radiographicDepth = h);
         continue;
       }
       if (s === "filling-defect") {
-        const u = {};
+        const h = {};
         for (const b of n.component ?? []) {
-          const w = Vt(b.code), y = Vt(b.valueCodeableConcept);
-          w && y && (u[w] = y);
+          const w = Ht(b.code), y = Ht(b.valueCodeableConcept);
+          w && y && (h[w] = y);
         }
-        Object.keys(u).length && (p.fillingDefect = u);
+        Object.keys(h).length && (p.fillingDefect = h);
         continue;
       }
-      const f = cl[s];
+      const f = dl[s];
       if (f) {
         if (f.kind === "enum") {
-          const u = Vt(n.valueCodeableConcept);
-          u && (p[f.field] = u);
+          const h = Ht(n.valueCodeableConcept);
+          h && (p[f.field] = h);
         } else if (f.kind === "boolean")
           n.valueBoolean === !0 && (p[f.field] = !0);
         else if (f.kind === "set") {
-          const u = (n.component ?? []).map((b) => Vt(b.code)).filter((b) => !!b);
-          if (u.length && (p[f.field] = u), f.field === "caries") {
+          const h = (n.component ?? []).map((b) => Ht(b.code)).filter((b) => !!b);
+          if (h.length && (p[f.field] = h), f.field === "caries") {
             const b = {};
             for (const w of n.component ?? []) {
-              const y = Vt(w.code);
+              const y = Ht(w.code);
               if (!y) continue;
               const v = w.valueInteger;
               typeof v == "number" && (b[String(y).replace("caries-", "")] = v);
@@ -13558,12 +13558,12 @@ function f4(e) {
             Object.keys(b).length && (p.cariesSeverity = b);
           }
         } else if (f.kind === "restoration") {
-          const u = {};
+          const h = {};
           for (const b of n.component ?? []) {
-            const w = Vt(b.code), y = Vt(b.valueCodeableConcept);
-            w && y && (u[w] = y);
+            const w = Ht(b.code), y = Ht(b.valueCodeableConcept);
+            w && y && (h[w] = y);
           }
-          Object.keys(u).length && (p.fillingSurfaceMaterials = u);
+          Object.keys(h).length && (p.fillingSurfaceMaterials = h);
         }
       }
     }
@@ -13574,8 +13574,8 @@ function f4(e) {
     }
   return { version: "2.20", globals: a, teeth: t };
 }
-function m4(e) {
-  return f4(e);
+function h4(e) {
+  return m4(e);
 }
 const Ga = {
   crown: { materials: ["emax", "gold", "gradia", "zircon", "metal", "metal-ceramic", "telescope", "temporary"] },
@@ -13595,22 +13595,22 @@ function Oo(e, t, a) {
 function ks(e) {
   return e === "telescope" ? ["telescope-crown", "telescope-crown-inside", "telescope-crown-outside"] : [`${e}-crown`];
 }
-function dl(e, t, a) {
+function pl(e, t, a) {
   return e === "none" || t === "none" ? [] : e === "onlay" && a !== "occlusal" ? Oo("inlay", t, a) ? [`${t}-inlay`] : [] : Oo(e, t, a) ? e === "bridge" ? [...ks(t), `${t}-bridge-connector`] : e === "crown" ? ks(t) : [`${t}-${e}`] : [];
 }
-function h4() {
+function u4() {
   const e = /* @__PURE__ */ new Set();
   for (const t of Object.keys(Ga))
     for (const a of Ga[t].materials)
       for (const i of ["front", "occlusal"])
-        dl(t, a, i).forEach((o) => e.add(o));
+        pl(t, a, i).forEach((o) => e.add(o));
   return [...e];
 }
-const u4 = ["crown", "bridge"], g4 = ["healing-abutment", "locator", "locator-denture", "bar", "bar-denture"], v4 = ["removable-partial", "removable-full"], y4 = ["bridge"];
-function b4(e, t = {}) {
+const g4 = ["crown", "bridge"], v4 = ["healing-abutment", "locator", "locator-denture", "bar", "bar-denture"], y4 = ["removable-partial", "removable-full"], b4 = ["bridge"];
+function k4(e, t = {}) {
   const a = [
     { restorationType: "none", restorationMaterial: "none", labelKey: "restoration.none" }
-  ], i = !t.isImplant && t.toothSelection === "none", o = t.isImplant ? u4 : i ? y4 : Object.keys(Ga);
+  ], i = !t.isImplant && t.toothSelection === "none", o = t.isImplant ? g4 : i ? b4 : Object.keys(Ga);
   for (const s of o) {
     const d = Ga[s];
     if (!(d.occlusalOnly && e !== "occlusal"))
@@ -13624,7 +13624,7 @@ function b4(e, t = {}) {
           materialLabelKey: bs.material(c)
         });
   }
-  const n = t.isImplant ? g4 : i ? v4 : [];
+  const n = t.isImplant ? v4 : i ? y4 : [];
   for (const s of n)
     a.push({
       restorationType: "none",
@@ -13635,7 +13635,7 @@ function b4(e, t = {}) {
     });
   return a;
 }
-const k4 = [
+const x4 = [
   "tooth-base",
   "tooth-healthy-pulp",
   "tooth-inflam-pulp",
@@ -13812,21 +13812,21 @@ const k4 = [
   "arrow-down",
   "arrow-rotation"
 ];
-function x4() {
+function w4() {
   const e = [];
-  for (const t of ra) for (const a of t.values ?? []) {
+  for (const t of la) for (const a of t.values ?? []) {
     const i = a.svgLayer == null ? [] : Array.isArray(a.svgLayer) ? a.svgLayer : [a.svgLayer];
     for (const o of i) e.includes(o) || e.push(o);
   }
   return e;
 }
-function w4() {
-  const e = new Set(k4);
-  for (const t of x4()) e.add(t);
-  for (const t of h4()) e.add(t);
+function M4() {
+  const e = new Set(x4);
+  for (const t of w4()) e.add(t);
+  for (const t of u4()) e.add(t);
   return [...e];
 }
-function M4(e, t, a) {
+function S4(e, t, a) {
   const i = e.toothSelection;
   return {
     isImplant: i === "implant",
@@ -13841,8 +13841,8 @@ function M4(e, t, a) {
     extractionPlanAllowed: ["tooth-base", "milktooth", "implant", "tooth-under-gum"].includes(i)
   };
 }
-function S4(e, t, a, i) {
-  for (const o of ra)
+function Z4(e, t, a, i) {
+  for (const o of la)
     if (o.kind === "boolean" && o.svgLayer)
       t[o.field] === !0 && (!o.appliesWhen || o.appliesWhen(a, t)) && i.setActive(i.svgGetById(e, o.svgLayer), !0);
     else if (o.kind === "set" && o.id === "mods") {
@@ -13853,21 +13853,21 @@ function S4(e, t, a, i) {
       }
     }
 }
-function De(e) {
-  const t = ra.find((a) => a.id === e);
+function Ae(e) {
+  const t = la.find((a) => a.id === e);
   return new Set((t?.values ?? []).map((a) => a.id));
 }
-function Z4() {
+function z4() {
   return new Set(Object.keys(h2.fillingSurfaces));
 }
-function pl(e, t = {}) {
-  const a = ra.find((i) => i.id === e);
+function fl(e, t = {}) {
+  const a = la.find((i) => i.id === e);
   return !a || !a.flag ? !0 : !!t[a.flag];
 }
-function la(e, t = {}, a = {}) {
-  return pl(e, a) ? (ra.find((o) => o.id === e)?.uiOptions ?? []).filter((o) => o.when ? o.when(t) : !0).map((o) => ({ value: o.value, labelKey: o.labelKey })) : [];
+function ca(e, t = {}, a = {}) {
+  return fl(e, a) ? (la.find((o) => o.id === e)?.uiOptions ?? []).filter((o) => o.when ? o.when(t) : !0).map((o) => ({ value: o.value, labelKey: o.labelKey })) : [];
 }
-const fl = "http://www.w3.org/2000/svg", z4 = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], I4 = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], C4 = [z4, I4], ml = 0.72, P4 = 1 - ml, D4 = 0.09, A4 = 0.12, T4 = {
+const ml = "http://www.w3.org/2000/svg", I4 = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], C4 = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], P4 = [I4, C4], hl = 0.72, D4 = 1 - hl, A4 = 0.09, T4 = 0.12, E4 = {
   emax: "#e9e1d2",
   gold: "#ece614",
   gradia: "#55ff98",
@@ -13878,22 +13878,22 @@ const fl = "http://www.w3.org/2000/svg", z4 = [18, 17, 16, 15, 14, 13, 12, 11, 2
   temporary: "#ffffff"
 };
 function u2(e) {
-  return T4[e] ?? "#8a8f98";
+  return E4[e] ?? "#8a8f98";
 }
-function E4(e) {
+function O4(e) {
   return e ? e.restorationType === "bridge" || e.bridgePillar === !0 : !1;
 }
-function hl(e) {
+function ul(e) {
   const t = [];
-  for (const a of C4) {
+  for (const a of P4) {
     let i = [];
     for (const o of a)
-      E4(e(o)) ? i.push(o) : (i.length >= 2 && t.push(i), i = []);
+      O4(e(o)) ? i.push(o) : (i.length >= 2 && t.push(i), i = []);
     i.length >= 2 && t.push(i);
   }
   return t;
 }
-function O4(e, t) {
+function L4(e, t) {
   for (const a of e) {
     const i = t(a);
     if (i && i.restorationType === "bridge" && i.restorationMaterial && i.restorationMaterial !== "none")
@@ -13905,67 +13905,67 @@ function O4(e, t) {
   }
   return "metal";
 }
-function ul(e, t, a, i) {
+function gl(e, t, a, i) {
   const o = [];
   for (const n of e) {
-    const s = i(O4(n, t)), c = n[0] >= 31 ? P4 : ml;
+    const s = i(L4(n, t)), c = n[0] >= 31 ? D4 : hl;
     for (let p = 0; p < n.length - 1; p++) {
-      const f = a(n[p]), u = a(n[p + 1]);
-      if (!f || !u || f.width <= 0 || f.height <= 0 || u.width <= 0 || u.height <= 0) continue;
-      const b = f.x <= u.x ? f : u, w = f.x <= u.x ? u : f, y = Math.min(b.width, w.width) * A4, v = b.x + b.width - y, D = w.x + y - v;
-      if (D <= 0) continue;
-      const Z = b.height * D4, g = b.y + b.height * c;
-      o.push({ x: v, y: g - Z / 2, width: D, height: Z, fill: s });
+      const f = a(n[p]), h = a(n[p + 1]);
+      if (!f || !h || f.width <= 0 || f.height <= 0 || h.width <= 0 || h.height <= 0) continue;
+      const b = f.x <= h.x ? f : h, w = f.x <= h.x ? h : f, y = Math.min(b.width, w.width) * T4, v = b.x + b.width - y, P = w.x + y - v;
+      if (P <= 0) continue;
+      const S = b.height * A4, g = b.y + b.height * c;
+      o.push({ x: v, y: g - S / 2, width: P, height: S, fill: s });
     }
   }
   return o;
 }
-const xs = "bridge-overlay", L4 = "bridge-overlay-bar";
-function G4(e, t) {
+const xs = "bridge-overlay", G4 = "bridge-overlay-bar";
+function N4(e, t) {
   return e.querySelector(
     `.tooth-tile.side-view[data-tooth="${t}"]`
   );
 }
-function gl(e, t, a) {
-  const i = G4(e, a);
+function vl(e, t, a) {
+  const i = N4(e, a);
   if (!i) return null;
   const o = i.getBoundingClientRect();
   return o.width === 0 || o.height === 0 ? null : { x: o.left - t.left, y: o.top - t.top, width: o.width, height: o.height };
 }
-function N4(e) {
+function R4(e) {
   const { grid: t } = e;
   if (!t) return;
   const a = e.materialColor ?? u2;
   let i = t.querySelector(
     `:scope > svg.${xs}`
   );
-  const o = hl(e.getState);
+  const o = ul(e.getState);
   if (o.length === 0) {
     if (i)
       for (; i.firstChild; ) i.removeChild(i.firstChild);
     return;
   }
-  const n = t.getBoundingClientRect(), s = (f) => gl(t, n, f), d = ul(o, e.getState, s, a);
-  for (i || (i = document.createElementNS(fl, "svg"), i.setAttribute("class", xs), i.setAttribute("aria-hidden", "true"), t.appendChild(i)); i.firstChild; ) i.removeChild(i.firstChild);
+  const n = t.getBoundingClientRect(), s = (f) => vl(t, n, f), d = gl(o, e.getState, s, a);
+  for (i || (i = document.createElementNS(ml, "svg"), i.setAttribute("class", xs), i.setAttribute("aria-hidden", "true"), t.appendChild(i)); i.firstChild; ) i.removeChild(i.firstChild);
   const c = Math.max(1, Math.round(n.width)), p = Math.max(1, Math.round(n.height));
   i.setAttribute("width", String(c)), i.setAttribute("height", String(p)), i.setAttribute("viewBox", `0 0 ${c} ${p}`);
   for (const f of d)
-    i.appendChild(vl(f));
+    i.appendChild(yl(f));
 }
-function vl(e) {
-  const t = document.createElementNS(fl, "rect");
-  t.setAttribute("class", L4), t.setAttribute("x", String(e.x)), t.setAttribute("y", String(e.y)), t.setAttribute("width", String(e.width)), t.setAttribute("height", String(e.height));
+function yl(e) {
+  const t = document.createElementNS(ml, "rect");
+  t.setAttribute("class", G4), t.setAttribute("x", String(e.x)), t.setAttribute("y", String(e.y)), t.setAttribute("width", String(e.width)), t.setAttribute("height", String(e.height));
   const a = Math.min(e.height / 2, e.width / 2);
   return t.setAttribute("rx", String(a)), t.setAttribute("ry", String(a)), t.setAttribute("fill", e.fill), t.setAttribute("stroke", "#1b3f1c"), t.setAttribute("stroke-width", "0.5"), t;
 }
-const Je = "http://www.w3.org/2000/svg", yl = [
+const et = "http://www.w3.org/2000/svg", bl = [
   "gum-base",
   "bone-base",
   "tooth-healthy-pulp",
   "tooth-base-beauty",
   "milktooth-base"
 ];
-function bl(e, t) {
+function kl(e, t) {
   const a = qa();
   return t === "implant" ? a.implantCejY[e] : t === "milktooth" ? a.milktoothCejY[e] : a.cejY[e];
 }
@@ -13984,17 +13984,17 @@ async function g2() {
     throw wi = null, e;
   })), wi;
 }
-function R4() {
+function j4() {
   wi = null;
 }
-function kl(e) {
+function xl(e) {
   const a = (e.documentElement.getAttribute("viewBox") || "0 0 40 71").trim().split(/\s+/).map(Number);
   return { w: a[2] ?? 40, h: a[3] ?? 71 };
 }
-function j4(e) {
+function F4(e) {
   return e % 10;
 }
-function F4(e) {
+function U4(e) {
   const t = /* @__PURE__ */ new Set(), a = /url\(#([^)]+)\)/g, i = (o) => {
     const n = `${o.getAttribute("fill") || ""} ${o.getAttribute("style") || ""}`;
     let s;
@@ -14003,9 +14003,9 @@ function F4(e) {
   };
   return i(e), t;
 }
-function U4(e, t) {
+function B4(e, t) {
   if (t.size === 0) return null;
-  const a = document.createElementNS(Je, "defs");
+  const a = document.createElementNS(et, "defs");
   let i = !1;
   for (const o of t) {
     const n = e.querySelector(`#${o}`);
@@ -14013,7 +14013,7 @@ function U4(e, t) {
   }
   return i ? a : null;
 }
-function B4(e, t = yl) {
+function V4(e, t = bl) {
   const a = new Set(t);
   if (a.has(e.getAttribute("id") || "")) {
     e.remove();
@@ -14025,39 +14025,39 @@ function B4(e, t = yl) {
   });
   for (const o of i) o.remove();
 }
-function V4(e, t, a = {}) {
+function K4(e, t, a = {}) {
   const i = qa().toothTemplate.get(t);
   if (!i) throw new Error(`perioGraphic: no TOOTH_TEMPLATE entry for tooth ${t}`);
   const o = i.tpl, n = e.get(o);
   if (!n) throw new Error(`perioGraphic: template ${o} not loaded in the given cache (tooth ${t})`);
   const s = a.implant === !0, d = a.milktooth === !0 && !s && !!n.querySelector("#milktooth-base"), c = s ? "implant" : d ? "milktooth" : "normal", p = s ? "implant-base" : d ? "milktooth-base" : "tooth-base", f = n.querySelector(`#${p}`);
   if (!f) throw new Error(`perioGraphic: #${p} not found in template ${o}`);
-  const u = f.cloneNode(!0);
-  B4(u, yl.filter((z) => z !== p));
-  const b = F4(u), w = U4(n, b), { w: y, h: v } = kl(n), m = bl(o, c), D = document.createElementNS(Je, "g");
-  D.setAttribute("data-tooth", String(t)), D.setAttribute("data-tpl", String(o)), s && D.setAttribute("data-implant", "1"), d && D.setAttribute("data-milktooth", "1"), w && D.appendChild(w);
-  const Z = document.createElementNS(Je, "g");
-  Z.setAttribute("transform", `matrix(1 0 0 -1 0 ${ze(v)})`), Z.appendChild(u);
-  const g = document.createElementNS(Je, "g");
-  i.mirror && (g.setAttribute("data-perio-mirror", "1"), g.setAttribute("transform", `matrix(-1 0 0 1 ${ze(y)} 0)`)), g.appendChild(Z);
-  const x = j4(t), C = document.createElementNS(Je, "g");
+  const h = f.cloneNode(!0);
+  V4(h, bl.filter((Z) => Z !== p));
+  const b = U4(h), w = B4(n, b), { w: y, h: v } = xl(n), m = kl(o, c), P = document.createElementNS(et, "g");
+  P.setAttribute("data-tooth", String(t)), P.setAttribute("data-tpl", String(o)), s && P.setAttribute("data-implant", "1"), d && P.setAttribute("data-milktooth", "1"), w && P.appendChild(w);
+  const S = document.createElementNS(et, "g");
+  S.setAttribute("transform", `matrix(1 0 0 -1 0 ${Pe(v)})`), S.appendChild(h);
+  const g = document.createElementNS(et, "g");
+  i.mirror && (g.setAttribute("data-perio-mirror", "1"), g.setAttribute("transform", `matrix(-1 0 0 1 ${Pe(y)} 0)`)), g.appendChild(S);
+  const x = F4(t), I = document.createElementNS(et, "g");
   if (x === 2)
-    C.setAttribute("data-perio-size", `position-2-width-${Tn}`), C.setAttribute("transform", `matrix(${Tn} 0 0 1 ${ze(y * (1 - Tn) / 2)} 0)`);
+    I.setAttribute("data-perio-size", `position-2-width-${Tn}`), I.setAttribute("transform", `matrix(${Tn} 0 0 1 ${Pe(y * (1 - Tn) / 2)} 0)`);
   else if (x === 3) {
-    const z = m * (1 - An);
-    C.setAttribute("data-perio-size", `position-3-root-${An}`), C.setAttribute("transform", `matrix(1 0 0 ${An} 0 ${ze(z)})`);
+    const Z = m * (1 - An);
+    I.setAttribute("data-perio-size", `position-3-root-${An}`), I.setAttribute("transform", `matrix(1 0 0 ${An} 0 ${Pe(Z)})`);
   }
-  return C.appendChild(g), D.appendChild(C), D;
+  return I.appendChild(g), P.appendChild(I), P;
 }
-function ze(e) {
+function Pe(e) {
   return Number(e.toFixed(3)).toString();
 }
-const Na = 40, Ka = 3, K4 = 15, H4 = 2, Hi = 2, q4 = 1.5, En = q4, Y4 = 2.6;
-function W4(e, t) {
+const Na = 40, Ka = 3, H4 = 15, q4 = 2, Hi = 2, Y4 = 1.5, En = Y4, W4 = 2.6;
+function J4(e, t) {
   if (!Number.isFinite(e) || !Number.isFinite(t) || t <= 0)
     return En;
   const a = e / t;
-  return Number.isFinite(a) ? Math.min(Y4, Math.max(En, a)) : En;
+  return Number.isFinite(a) ? Math.min(W4, Math.max(En, a)) : En;
 }
 function Ha(e, t, a = Hi) {
   const i = [];
@@ -14068,50 +14068,50 @@ function Ha(e, t, a = Hi) {
     if (!d) continue;
     const c = d.tpl, p = e.get(c);
     if (!p) continue;
-    const { w: f } = kl(p);
+    const { w: f } = xl(p);
     i.push({ toothNo: s, x: o, width: f }), o += f + a;
   }
   return { cejY: Na, totalWidth: o, teeth: i };
 }
-function xl(e, t, a = () => !1, i = Hi, o) {
-  const n = document.createElementNS(Je, "g");
+function wl(e, t, a = () => !1, i = Hi, o) {
+  const n = document.createElementNS(et, "g");
   n.setAttribute("class", "perio-tooth-row-buccal");
   const s = Ha(e, t, i);
   for (const { toothNo: d, x: c } of s.teeth) {
     const p = o ? o(d) : a(d) ? "implant" : "normal";
     if (p === "missing") continue;
-    const f = qa().toothTemplate.get(d).tpl, u = V4(e, d, {
+    const f = qa().toothTemplate.get(d).tpl, h = K4(e, d, {
       implant: p === "implant",
       milktooth: p === "milktooth"
-    }), b = Na - bl(f, p);
-    u.setAttribute("transform", `translate(${ze(c)} ${ze(b)})`), n.appendChild(u);
+    }), b = Na - kl(f, p);
+    h.setAttribute("transform", `translate(${Pe(c)} ${Pe(b)})`), n.appendChild(h);
   }
   return { group: n, width: s.totalWidth };
 }
 const ws = 14, Ms = 51;
-function J4(e) {
+function X4(e) {
   const t = Na - Ms - ws, a = 2 * (Ms + ws);
   return { y: t, w: Math.max(e, 1), h: a };
 }
-function wl(e, t, a) {
-  const i = document.createElementNS(Je, "svg");
+function Ml(e, t, a) {
+  const i = document.createElementNS(et, "svg");
   i.setAttribute("class", e);
-  const o = J4(a);
-  return i.setAttribute("viewBox", `0 ${ze(o.y)} ${ze(o.w)} ${ze(o.h)}`), i.setAttribute("preserveAspectRatio", "xMinYMid meet"), i.setAttribute("aria-hidden", "true"), i.appendChild(t), i;
+  const o = X4(a);
+  return i.setAttribute("viewBox", `0 ${Pe(o.y)} ${Pe(o.w)} ${Pe(o.h)}`), i.setAttribute("preserveAspectRatio", "xMinYMid meet"), i.setAttribute("aria-hidden", "true"), i.appendChild(t), i;
 }
 function Aa(e, t, a = () => !1, i = Hi, o) {
-  const { group: n, width: s } = xl(e, t, a, i, o);
-  return n.setAttribute("class", "perio-tooth-row-buccal"), n.setAttribute("transform", `matrix(1 0 0 -1 0 ${ze(2 * Na)})`), n.insertBefore(
-    Ml({ cejY: Na, mmPx: Ka, width: s, flip: !0 }),
+  const { group: n, width: s } = wl(e, t, a, i, o);
+  return n.setAttribute("class", "perio-tooth-row-buccal"), n.setAttribute("transform", `matrix(1 0 0 -1 0 ${Pe(2 * Na)})`), n.insertBefore(
+    Sl({ cejY: Na, mmPx: Ka, width: s, flip: !0 }),
     n.firstChild
-  ), wl("perio-tooth-arch perio-tooth-arch-buccal", n, s);
+  ), Ml("perio-tooth-arch perio-tooth-arch-buccal", n, s);
 }
 function Ta(e, t, a = () => !1, i = Hi, o) {
-  const { group: n, width: s } = xl(e, t, a, i, o);
+  const { group: n, width: s } = wl(e, t, a, i, o);
   return n.setAttribute("class", "perio-tooth-row-palatal-inner"), n.insertBefore(
-    Ml({ cejY: Na, mmPx: Ka, width: s, flip: !1 }),
+    Sl({ cejY: Na, mmPx: Ka, width: s, flip: !1 }),
     n.firstChild
-  ), wl("perio-tooth-arch perio-tooth-arch-palatal", n, s);
+  ), Ml("perio-tooth-arch perio-tooth-arch-palatal", n, s);
 }
 function Ei(e, t) {
   const { cejY: a, mmPx: i, siteX: o } = t, n = [], s = [];
@@ -14120,8 +14120,8 @@ function Ei(e, t) {
       n.push(null), s.push(null);
       return;
     }
-    const p = o(c), f = a + (d.gm ?? 0) * i, u = f + d.pd * i;
-    n.push({ x: p, y: f }), s.push({ x: p, y: u });
+    const p = o(c), f = a + (d.gm ?? 0) * i, h = f + d.pd * i;
+    n.push({ x: p, y: f }), s.push({ x: p, y: h });
   }), { cejY: a, marginPts: n, pocketPts: s };
 }
 function Ss(e) {
@@ -14132,38 +14132,38 @@ function Ss(e) {
   return a.length && t.push(a), t;
 }
 function Zs(e) {
-  return e.map((t) => `${ze(t.x)},${ze(t.y)}`).join(" ");
+  return e.map((t) => `${Pe(t.x)},${Pe(t.y)}`).join(" ");
 }
 function Oi(e, t) {
-  const a = document.createElementNS(Je, "g");
+  const a = document.createElementNS(et, "g");
   a.setAttribute("class", t.className ?? "perio-curve");
-  const i = document.createElementNS(Je, "line");
-  i.setAttribute("class", "perio-curve-cej"), i.setAttribute("x1", "0"), i.setAttribute("y1", ze(e.cejY)), i.setAttribute("x2", ze(t.width)), i.setAttribute("y2", ze(e.cejY)), a.appendChild(i);
+  const i = document.createElementNS(et, "line");
+  i.setAttribute("class", "perio-curve-cej"), i.setAttribute("x1", "0"), i.setAttribute("y1", Pe(e.cejY)), i.setAttribute("x2", Pe(t.width)), i.setAttribute("y2", Pe(e.cejY)), a.appendChild(i);
   const o = Ss(e.marginPts), n = Ss(e.pocketPts);
   for (let s = 0; s < o.length; s++) {
     const d = o[s], c = n[s];
     if (!c || d.length === 0) continue;
-    const p = d.map((b, w) => `${w === 0 ? "M" : "L"}${ze(b.x)} ${ze(b.y)}`).join(" "), f = [...c].reverse().map((b) => `L${ze(b.x)} ${ze(b.y)}`).join(" "), u = document.createElementNS(Je, "path");
-    u.setAttribute("class", "perio-curve-band"), u.setAttribute("d", `${p} ${f} Z`), a.appendChild(u);
+    const p = d.map((b, w) => `${w === 0 ? "M" : "L"}${Pe(b.x)} ${Pe(b.y)}`).join(" "), f = [...c].reverse().map((b) => `L${Pe(b.x)} ${Pe(b.y)}`).join(" "), h = document.createElementNS(et, "path");
+    h.setAttribute("class", "perio-curve-band"), h.setAttribute("d", `${p} ${f} Z`), a.appendChild(h);
   }
   for (const s of o) {
-    const d = document.createElementNS(Je, "polyline");
+    const d = document.createElementNS(et, "polyline");
     d.setAttribute("class", "perio-curve-margin"), d.setAttribute("points", Zs(s)), a.appendChild(d);
   }
   for (const s of n) {
-    const d = document.createElementNS(Je, "polyline");
+    const d = document.createElementNS(et, "polyline");
     d.setAttribute("class", "perio-curve-pocket"), d.setAttribute("points", Zs(s)), a.appendChild(d);
   }
   return a;
 }
-function Ml(e) {
-  const { cejY: t, mmPx: a, width: i } = e, o = e.maxMm ?? K4, n = e.flip ?? !1, s = document.createElementNS(Je, "g");
+function Sl(e) {
+  const { cejY: t, mmPx: a, width: i } = e, o = e.maxMm ?? H4, n = e.flip ?? !1, s = document.createElementNS(et, "g");
   s.setAttribute("class", "perio-mm-grid"), s.setAttribute("aria-hidden", "true");
   for (let d = 1; d <= o; d++) {
-    const c = t + d * a, p = d % 5 === 0, f = document.createElementNS(Je, "line");
-    if (f.setAttribute("class", p ? "perio-mm-line perio-mm-line-major" : "perio-mm-line perio-mm-line-minor"), f.setAttribute("data-mm", String(d)), f.setAttribute("x1", "0"), f.setAttribute("y1", ze(c)), f.setAttribute("x2", ze(i)), f.setAttribute("y2", ze(c)), s.appendChild(f), p) {
-      const u = document.createElementNS(Je, "text");
-      u.setAttribute("class", "perio-mm-label"), u.setAttribute("data-mm", String(d)), u.setAttribute("x", ze(H4)), u.setAttribute("y", ze(c)), n && u.setAttribute("transform", `matrix(1 0 0 -1 0 ${ze(2 * c)})`), u.textContent = String(d), s.appendChild(u);
+    const c = t + d * a, p = d % 5 === 0, f = document.createElementNS(et, "line");
+    if (f.setAttribute("class", p ? "perio-mm-line perio-mm-line-major" : "perio-mm-line perio-mm-line-minor"), f.setAttribute("data-mm", String(d)), f.setAttribute("x1", "0"), f.setAttribute("y1", Pe(c)), f.setAttribute("x2", Pe(i)), f.setAttribute("y2", Pe(c)), s.appendChild(f), p) {
+      const h = document.createElementNS(et, "text");
+      h.setAttribute("class", "perio-mm-label"), h.setAttribute("data-mm", String(d)), h.setAttribute("x", Pe(q4)), h.setAttribute("y", Pe(c)), n && h.setAttribute("transform", `matrix(1 0 0 -1 0 ${Pe(2 * c)})`), h.textContent = String(d), s.appendChild(h);
     }
   }
   return s;
@@ -14177,10 +14177,10 @@ function Lo(e, t, a) {
   }
   return n;
 }
-function X4(e) {
+function Q4(e) {
   return e >= 6 ? "deep" : e >= 4 ? "moderate" : "shallow";
 }
-function Q4(e) {
+function _4(e) {
   return e >= 4 ? "deep" : e >= 2 ? "moderate" : "shallow";
 }
 function zs(e, t, a) {
@@ -14190,11 +14190,11 @@ function zs(e, t, a) {
     const c = s.pd, p = s.gm ?? 0;
     if (e === "gr") {
       if (p <= 0) continue;
-      n.push({ x: s.x, y: i + p * o, kind: `heat-${Q4(p)}` });
+      n.push({ x: s.x, y: i + p * o, kind: `heat-${_4(p)}` });
       continue;
     }
-    const f = e === "cal" ? s.cal ?? c + p : c, u = i + (p + c) * o;
-    n.push({ x: s.x, y: u, kind: `heat-${X4(f)}` });
+    const f = e === "cal" ? s.cal ?? c + p : c, h = i + (p + c) * o;
+    n.push({ x: s.x, y: h, kind: `heat-${Q4(f)}` });
   }
   return n;
 }
@@ -14206,35 +14206,35 @@ function Is(e, t, a) {
   }
   return i;
 }
-function _4(e, t) {
+function $4(e, t) {
   const a = [];
   for (const i of e)
     i.rt !== "none" && a.push({ x: i.x + i.width * 0.5, y: t.cejY, kind: i.rt });
   return a;
 }
-function $4(e) {
+function e0(e) {
   return e >= 3 ? "deep" : e >= 2 ? "moderate" : "shallow";
 }
 function Cs(e, t, a) {
   const i = [];
   for (const o of e) {
     const n = (s, d) => {
-      d && i.push({ x: s, y: a.cejY, kind: `heat-${$4(d)}` });
+      d && i.push({ x: s, y: a.cejY, kind: `heat-${e0(d)}` });
     };
     t === "buccal" ? (n(o.x + o.width * 0.2, o.grades.mesial), n(o.x + o.width * 0.5, o.grades.buccal), n(o.x + o.width * 0.8, o.grades.distal)) : n(o.x + o.width * 0.5, o.grades.lingual);
   }
   return i;
 }
-function e0(e) {
+function t0(e) {
   return e < 2 ? "deep" : e < 4 ? "moderate" : "shallow";
 }
-function t0(e, t) {
+function a0(e, t) {
   const a = [];
   for (const i of e)
-    i.kg !== null && a.push({ x: i.x + i.width * 0.5, y: t.cejY, kind: `heat-${e0(i.kg)}` });
+    i.kg !== null && a.push({ x: i.x + i.width * 0.5, y: t.cejY, kind: `heat-${t0(i.kg)}` });
   return a;
 }
-const a0 = {
+const i0 = {
   bop: 2,
   plaque: 2.6,
   pd5: 3.4,
@@ -14246,16 +14246,16 @@ const a0 = {
   rt2: 3.5,
   rt3: 4.2
 };
-function At(e, t) {
-  const a = document.createElementNS(Je, "g");
+function Et(e, t) {
+  const a = document.createElementNS(et, "g");
   a.setAttribute("class", `perio-overlay-layer${t.className ? ` ${t.className}` : ""}`), a.setAttribute("aria-hidden", "true");
   for (const i of e) {
-    const o = document.createElementNS(Je, "circle");
-    o.setAttribute("class", `perio-overlay-mark perio-overlay-${i.kind}`), o.setAttribute("data-kind", i.kind), o.setAttribute("cx", ze(i.x)), o.setAttribute("cy", ze(i.y)), o.setAttribute("r", ze(a0[i.kind])), a.appendChild(o);
+    const o = document.createElementNS(et, "circle");
+    o.setAttribute("class", `perio-overlay-mark perio-overlay-${i.kind}`), o.setAttribute("data-kind", i.kind), o.setAttribute("cx", Pe(i.x)), o.setAttribute("cy", Pe(i.y)), o.setAttribute("r", Pe(i0[i.kind])), a.appendChild(o);
   }
   return a;
 }
-const Sl = {
+const Zl = {
   pd: "PD",
   gm: "GM",
   cal: "CAL",
@@ -14272,7 +14272,7 @@ const Sl = {
   kg: "Keratinized Gingiva (KG)",
   gt: "Gingival Thickness (GT)",
   miller: "Miller Class"
-}, i0 = {
+}, o0 = {
   plaque: "plaque.label",
   bop: "perio.bop",
   cal: "perio.cal",
@@ -14291,11 +14291,11 @@ const Sl = {
   miller: "perio.miller.row"
 };
 function ne(e) {
-  return na() === "canonical" ? Sl[e] : l(i0[e]);
+  return sa() === "canonical" ? Zl[e] : l(o0[e]);
 }
-const Pa = "http://www.w3.org/2000/svg", o0 = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], n0 = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], Mi = ["MB", "B", "DB"], Si = ["ML", "L", "DL"], Ps = ["mesial", "distal", "buccal", "lingual"], s0 = { mesial: "M", distal: "D", buccal: "B", lingual: "L" }, r0 = ["–", "I", "II", "III", "IV"], xo = { 1: "1", 2: "2", 3: "3" }, l0 = { m1: "1", m2: "2", m3: "3" }, c0 = { detectable: "D", "not-detectable": "ND" }, d0 = { mild: "Mi", deep: "Dp" }, p0 = { thin: "Tn", medium: "Md", thick: "Tk" }, f0 = { i: "I", ii: "II", iii: "III", iv: "IV" }, Ye = 150;
-let Se = 13, Wn = 8, qi = !1, Ra = [];
-const m0 = 6, h0 = `
+const Pa = "http://www.w3.org/2000/svg", n0 = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], s0 = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], Mi = ["MB", "B", "DB"], Si = ["ML", "L", "DL"], Ps = ["mesial", "distal", "buccal", "lingual"], r0 = { mesial: "M", distal: "D", buccal: "B", lingual: "L" }, l0 = ["–", "I", "II", "III", "IV"], xo = { 1: "1", 2: "2", 3: "3" }, c0 = { m1: "1", m2: "2", m3: "3" }, d0 = { detectable: "D", "not-detectable": "ND" }, p0 = { mild: "Mi", deep: "Dp" }, f0 = { thin: "Tn", medium: "Md", thick: "Tk" }, m0 = { i: "I", ii: "II", iii: "III", iv: "IV" }, _e = 150;
+let ze = 13, Wn = 8, qi = !1, Ra = [];
+const h0 = 6, u0 = `
 .perio-curve-cej{ stroke:#e11d48; stroke-width:0.8; opacity:0.85; }
 .perio-curve-band{ fill:#3b82f6; fill-opacity:0.18; stroke:none; }
 .perio-curve-margin{ fill:none; stroke:#f472b6; stroke-width:0.9; stroke-linejoin:round; stroke-linecap:round; }
@@ -14308,58 +14308,58 @@ const m0 = 6, h0 = `
 .perio-col-sep{ stroke:#cbd5e1; stroke-width:0.3; opacity:0.55; }
 .perio-surface-letter{ fill:#94a3b8; font-weight:700; opacity:0.5; }
 `;
-function Ke(e) {
+function Je(e) {
   return Number(e.toFixed(3)).toString();
 }
-function Gt(e, t, a, i = "middle") {
+function Rt(e, t, a, i = "middle") {
   const o = document.createElementNS(Pa, "text");
-  return o.setAttribute("x", Ke(e)), o.setAttribute("y", Ke(t)), o.setAttribute("font-size", String(Wn)), o.setAttribute("text-anchor", i), o.textContent = a, o;
+  return o.setAttribute("x", Je(e)), o.setAttribute("y", Je(t)), o.setAttribute("font-size", String(Wn)), o.setAttribute("text-anchor", i), o.textContent = a, o;
 }
 function Yo(e, t, a) {
-  a && e.appendChild(Gt(4, t, a, "start"));
+  a && e.appendChild(Rt(4, t, a, "start"));
 }
-function S1(e, t, a, i, o, n) {
+function Z1(e, t, a, i, o, n) {
   const s = [];
   for (const d of i.teeth)
     o.forEach((c, p) => {
       const f = n(d.toothNo, c);
-      f !== null && s.push({ x: Ye + d.x + d.width * (p + 0.5) / o.length, v: f });
+      f !== null && s.push({ x: _e + d.x + d.width * (p + 0.5) / o.length, v: f });
     });
   if (qi && s.length === 0) return !1;
-  Ra.push({ y: t, w: Ye + i.totalWidth }), Yo(e, t, a);
-  for (const d of s) e.appendChild(Gt(d.x, t, d.v));
+  Ra.push({ y: t, w: _e + i.totalWidth }), Yo(e, t, a);
+  for (const d of s) e.appendChild(Rt(d.x, t, d.v));
   return !0;
 }
 function vi(e, t, a, i, o) {
   const n = [], s = [];
   for (const d of i.teeth)
     Ps.forEach((c, p) => {
-      const f = Ye + d.x + d.width * (p + 0.5) / Ps.length;
-      s.push({ x: f, letter: s0[c] ?? "" });
-      const u = o(d.toothNo, c);
-      u !== null && n.push({ x: f, v: u });
+      const f = _e + d.x + d.width * (p + 0.5) / Ps.length;
+      s.push({ x: f, letter: r0[c] ?? "" });
+      const h = o(d.toothNo, c);
+      h !== null && n.push({ x: f, v: h });
     });
   if (qi && n.length === 0) return !1;
-  Ra.push({ y: t, w: Ye + i.totalWidth }), Yo(e, t, a);
+  Ra.push({ y: t, w: _e + i.totalWidth }), Yo(e, t, a);
   for (const d of s) {
-    const c = Gt(d.x, t, d.letter);
+    const c = Rt(d.x, t, d.letter);
     c.setAttribute("class", "perio-surface-letter"), e.appendChild(c);
   }
-  for (const d of n) e.appendChild(Gt(d.x, t, d.v));
+  for (const d of n) e.appendChild(Rt(d.x, t, d.v));
   return !0;
 }
 function Ma(e, t, a, i, o) {
   const n = [];
   for (const s of i.teeth) {
     const d = o(s.toothNo);
-    d !== null && n.push({ x: Ye + s.x + s.width / 2, v: d });
+    d !== null && n.push({ x: _e + s.x + s.width / 2, v: d });
   }
   if (qi && n.length === 0) return !1;
-  Ra.push({ y: t, w: Ye + i.totalWidth }), Yo(e, t, a);
-  for (const s of n) e.appendChild(Gt(s.x, t, s.v));
+  Ra.push({ y: t, w: _e + i.totalWidth }), Yo(e, t, a);
+  for (const s of n) e.appendChild(Rt(s.x, t, s.v));
   return !0;
 }
-function u0(e, t, a, i) {
+function g0(e, t, a, i) {
   const o = [];
   for (const n of i.teeth) {
     const s = y2(n.toothNo);
@@ -14367,150 +14367,150 @@ function u0(e, t, a, i) {
     const d = T2(n.toothNo);
     s.forEach((c, p) => {
       const f = d[c] ?? 0;
-      o.push({ x: Ye + n.x + n.width * (p + 0.5) / s.length, v: r0[f] ?? "–" });
+      o.push({ x: _e + n.x + n.width * (p + 0.5) / s.length, v: l0[f] ?? "–" });
     });
   }
   if (qi && o.length === 0) return !1;
-  Ra.push({ y: t, w: Ye + i.totalWidth }), Yo(e, t, a);
-  for (const n of o) e.appendChild(Gt(n.x, t, n.v));
+  Ra.push({ y: t, w: _e + i.totalWidth }), Yo(e, t, a);
+  for (const n of o) e.appendChild(Rt(n.x, t, n.v));
   return !0;
 }
 function Ds(e, t, a, i, o, n, s) {
-  const d = n === "buccal" ? Aa(t, a, He, s, wt) : Ta(t, a, He, s, wt), c = (d.getAttribute("viewBox") || "0 0 1 1").trim().split(/\s+/).map(Number), p = c[2] ?? Math.max(i.totalWidth, 1), f = c[3] ?? 1;
-  d.setAttribute("x", Ke(Ye)), d.setAttribute("y", Ke(o)), d.setAttribute("width", Ke(p)), d.setAttribute("height", Ke(f));
-  const u = n === "buccal" ? ".perio-tooth-row-buccal" : ".perio-tooth-row-palatal-inner", b = d.querySelector(u) ?? d, w = n === "buccal" ? Mi : Si, y = [], v = [];
-  for (const Z of i.teeth) {
-    if (wt(Z.toothNo) === "missing") {
-      w.forEach((C, z) => {
-        y.push({ site: C, pd: void 0, gm: void 0 }), v.push(Z.x + Z.width * (z + 0.5) / 3);
+  const d = n === "buccal" ? Aa(t, a, Xe, s, St) : Ta(t, a, Xe, s, St), c = (d.getAttribute("viewBox") || "0 0 1 1").trim().split(/\s+/).map(Number), p = c[2] ?? Math.max(i.totalWidth, 1), f = c[3] ?? 1;
+  d.setAttribute("x", Je(_e)), d.setAttribute("y", Je(o)), d.setAttribute("width", Je(p)), d.setAttribute("height", Je(f));
+  const h = n === "buccal" ? ".perio-tooth-row-buccal" : ".perio-tooth-row-palatal-inner", b = d.querySelector(h) ?? d, w = n === "buccal" ? Mi : Si, y = [], v = [];
+  for (const S of i.teeth) {
+    if (St(S.toothNo) === "missing") {
+      w.forEach((I, Z) => {
+        y.push({ site: I, pd: void 0, gm: void 0 }), v.push(S.x + S.width * (Z + 0.5) / 3);
       });
       continue;
     }
-    const g = bt(Z.toothNo), x = w.some((C) => Object.prototype.hasOwnProperty.call(g.pd, C));
-    w.forEach((C, z) => {
-      const L = Object.prototype.hasOwnProperty.call(g.pd, C) ? g.pd[C] : x ? 0 : void 0, R = L === void 0 ? void 0 : Object.prototype.hasOwnProperty.call(g.gm, C) ? g.gm[C] : 0;
-      y.push({ site: C, pd: L, gm: R }), v.push(Z.x + Z.width * (z + 0.5) / 3);
+    const g = kt(S.toothNo), x = w.some((I) => Object.prototype.hasOwnProperty.call(g.pd, I));
+    w.forEach((I, Z) => {
+      const L = Object.prototype.hasOwnProperty.call(g.pd, I) ? g.pd[I] : x ? 0 : void 0, j = L === void 0 ? void 0 : Object.prototype.hasOwnProperty.call(g.gm, I) ? g.gm[I] : 0;
+      y.push({ site: I, pd: L, gm: j }), v.push(S.x + S.width * (Z + 0.5) / 3);
     });
   }
-  const m = Ei(y, { cejY: i.cejY, mmPx: Ka, siteX: (Z) => v[Z] }), D = Oi(m, {
+  const m = Ei(y, { cejY: i.cejY, mmPx: Ka, siteX: (S) => v[S] }), P = Oi(m, {
     width: i.totalWidth,
     className: n === "buccal" ? "perio-curve perio-curve-buccal" : "perio-curve perio-curve-palatal"
   });
-  return b.appendChild(D), e.appendChild(d), f;
+  return b.appendChild(P), e.appendChild(d), f;
 }
-async function g0(e = {}) {
+async function v0(e = {}) {
   let t;
   try {
     t = await g2();
   } catch {
     return null;
   }
-  Wn = e.fontSize ?? 8, Se = e.rowHeight ?? 13, qi = e.showEmptyRows === !1;
+  Wn = e.fontSize ?? 8, ze = e.rowHeight ?? 13, qi = e.showEmptyRows === !1;
   const a = e.toothGap ?? 2, i = e.labelPlacement ?? "center", o = (v) => {
     let m = 0;
-    const D = v.teeth.map((Z) => {
-      const g = { ...Z, x: m };
-      return m += Z.width + a, g;
+    const P = v.teeth.map((S) => {
+      const g = { ...S, x: m };
+      return m += S.width + a, g;
     });
-    return { ...v, teeth: D, totalWidth: m };
+    return { ...v, teeth: P, totalWidth: m };
   }, n = document.createElementNS(Pa, "svg"), s = document.createElementNS(Pa, "style");
-  s.textContent = h0, n.appendChild(s);
+  s.textContent = u0, n.appendChild(s);
   const d = document.createElementNS(Pa, "g");
   d.setAttribute("aria-hidden", "true"), n.appendChild(d), Ra = [];
-  let c = Se, p = Ye;
-  const f = Bi(), u = (v) => {
+  let c = ze, p = _e;
+  const f = Bi(), h = (v) => {
     const m = o(Ha(t, v));
     if (m.teeth.length === 0) return;
-    p = Math.max(p, Ye + m.totalWidth);
-    const D = Wo(v[0]), Z = l("perio.buccal"), g = l(D ? "perio.palatal" : "perio.lingual"), x = v.some((T) => He(T)), C = Gt(Ye + m.totalWidth / 2, c, l(D ? "perio.export.upperTeeth" : "perio.export.lowerTeeth"), "middle");
-    C.setAttribute("font-weight", "700"), C.setAttribute("font-size", String(Wn * 1.15)), n.appendChild(C), c += Se;
-    const z = c - Se * 0.7;
-    for (const T of m.teeth) {
-      const M = Ye + T.x + T.width / 2;
-      n.appendChild(Gt(M, c, u1(T.toothNo)));
+    p = Math.max(p, _e + m.totalWidth);
+    const P = Wo(v[0]), S = l("perio.buccal"), g = l(P ? "perio.palatal" : "perio.lingual"), x = v.some((A) => Xe(A)), I = Rt(_e + m.totalWidth / 2, c, l(P ? "perio.export.upperTeeth" : "perio.export.lowerTeeth"), "middle");
+    I.setAttribute("font-weight", "700"), I.setAttribute("font-size", String(Wn * 1.15)), n.appendChild(I), c += ze;
+    const Z = c - ze * 0.7;
+    for (const A of m.teeth) {
+      const M = _e + A.x + A.width / 2;
+      n.appendChild(Rt(M, c, g1(A.toothNo)));
     }
-    c += Se, f.miller && Ma(n, c, ne("miller"), m, (T) => {
-      const M = pn(T);
-      return M === "none" ? null : f0[M] ?? M;
-    }) && (c += Se), f.bop && S1(n, c, `${Z} ${ne("bop")}`, m, Mi, (T, M) => {
-      const I = bt(T);
-      return Object.prototype.hasOwnProperty.call(I.pd, M) && I.bop.includes(M) ? "•" : null;
-    }) && (c += Se), f.cal && S1(n, c, `${Z} ${ne("cal")}`, m, Mi, (T, M) => {
-      const I = L1(T).get(M);
-      return I === void 0 ? null : String(I);
-    }) && (c += Se), f.gm && S1(n, c, `${Z} ${ne("gm")}`, m, Mi, (T, M) => {
-      const I = bt(T);
-      return !Object.prototype.hasOwnProperty.call(I.pd, M) || !Object.prototype.hasOwnProperty.call(I.gm, M) ? null : String(I.gm[M]);
-    }) && (c += Se), f.pd && S1(n, c, `${Z} ${ne("pd")}`, m, Mi, (T, M) => {
-      const I = bt(T);
-      return Object.prototype.hasOwnProperty.call(I.pd, M) ? String(I.pd[M]) : null;
-    }) && (c += Se), f.furcation && u0(n, c, ne("furcation"), m) && (c += Se), c += Ds(n, t, v, m, c, "buccal", a);
-    const F = l("perio.band.buccal"), L = l("perio.band.lingual"), R = Ye + m.totalWidth / 2;
-    i === "center" ? n.appendChild(Gt(R, c, `▲ ${F} ▲`, "middle")) : (n.appendChild(Gt(4, c, `▲ ${F}`, "start")), n.appendChild(Gt(Ye + m.totalWidth, c, `${L} ▼`, "end"))), c += Se, f.plaque && vi(
+    c += ze, f.miller && Ma(n, c, ne("miller"), m, (A) => {
+      const M = pn(A);
+      return M === "none" ? null : m0[M] ?? M;
+    }) && (c += ze), f.bop && Z1(n, c, `${S} ${ne("bop")}`, m, Mi, (A, M) => {
+      const z = kt(A);
+      return Object.prototype.hasOwnProperty.call(z.pd, M) && z.bop.includes(M) ? "•" : null;
+    }) && (c += ze), f.cal && Z1(n, c, `${S} ${ne("cal")}`, m, Mi, (A, M) => {
+      const z = G1(A).get(M);
+      return z === void 0 ? null : String(z);
+    }) && (c += ze), f.gm && Z1(n, c, `${S} ${ne("gm")}`, m, Mi, (A, M) => {
+      const z = kt(A);
+      return !Object.prototype.hasOwnProperty.call(z.pd, M) || !Object.prototype.hasOwnProperty.call(z.gm, M) ? null : String(z.gm[M]);
+    }) && (c += ze), f.pd && Z1(n, c, `${S} ${ne("pd")}`, m, Mi, (A, M) => {
+      const z = kt(A);
+      return Object.prototype.hasOwnProperty.call(z.pd, M) ? String(z.pd[M]) : null;
+    }) && (c += ze), f.furcation && g0(n, c, ne("furcation"), m) && (c += ze), c += Ds(n, t, v, m, c, "buccal", a);
+    const F = l("perio.band.buccal"), L = l("perio.band.lingual"), j = _e + m.totalWidth / 2;
+    i === "center" ? n.appendChild(Rt(j, c, `▲ ${F} ▲`, "middle")) : (n.appendChild(Rt(4, c, `▲ ${F}`, "start")), n.appendChild(Rt(_e + m.totalWidth, c, `${L} ▼`, "end"))), c += ze, f.plaque && vi(
       n,
       c,
       ne("plaque"),
       m,
-      (T, M) => rn(T).includes(M) ? "•" : null
-    ) && (c += Se), f.pi && vi(n, c, ne("pi"), m, (T, M) => {
-      const I = Ji(T, M);
-      return I > 0 ? xo[I] ?? String(I) : null;
-    }) && (c += Se), f.gi && vi(n, c, ne("gi"), m, (T, M) => {
-      const I = Xi(T, M);
-      return I > 0 ? xo[I] ?? String(I) : null;
-    }) && (c += Se), i === "center" && (n.appendChild(Gt(R, c, `▼ ${L} ▼`, "middle")), c += Se), f.mpi && x && vi(n, c, ne("mpi"), m, (T, M) => {
-      const I = Qi(T, M);
-      return I > 0 ? xo[I] ?? String(I) : null;
-    }) && (c += Se), f.mbi && x && vi(n, c, ne("mbi"), m, (T, M) => {
-      const I = _i(T, M);
-      return I > 0 ? xo[I] ?? String(I) : null;
-    }) && (c += Se), c += Ds(n, t, v, m, c, "palatal", a), f.pd && S1(n, c, `${g} ${ne("pd")}`, m, Si, (T, M) => {
-      const I = bt(T);
-      return Object.prototype.hasOwnProperty.call(I.pd, M) ? String(I.pd[M]) : null;
-    }) && (c += Se), f.gm && S1(n, c, `${g} ${ne("gm")}`, m, Si, (T, M) => {
-      const I = bt(T);
-      return !Object.prototype.hasOwnProperty.call(I.pd, M) || !Object.prototype.hasOwnProperty.call(I.gm, M) ? null : String(I.gm[M]);
-    }) && (c += Se), f.cal && S1(n, c, `${g} ${ne("cal")}`, m, Si, (T, M) => {
-      const I = L1(T).get(M);
-      return I === void 0 ? null : String(I);
-    }) && (c += Se), f.bop && S1(n, c, `${g} ${ne("bop")}`, m, Si, (T, M) => {
-      const I = bt(T);
-      return Object.prototype.hasOwnProperty.call(I.pd, M) && I.bop.includes(M) ? "•" : null;
-    }) && (c += Se), f.mobility && Ma(n, c, ne("mobility"), m, (T) => {
-      const M = N2(T);
-      return M === "none" ? null : l0[M] ?? M;
-    }) && (c += Se), f.cej && Ma(n, c, ne("cej"), m, (T) => {
-      const M = $i(T);
+      (A, M) => rn(A).includes(M) ? "•" : null
+    ) && (c += ze), f.pi && vi(n, c, ne("pi"), m, (A, M) => {
+      const z = Ji(A, M);
+      return z > 0 ? xo[z] ?? String(z) : null;
+    }) && (c += ze), f.gi && vi(n, c, ne("gi"), m, (A, M) => {
+      const z = Xi(A, M);
+      return z > 0 ? xo[z] ?? String(z) : null;
+    }) && (c += ze), i === "center" && (n.appendChild(Rt(j, c, `▼ ${L} ▼`, "middle")), c += ze), f.mpi && x && vi(n, c, ne("mpi"), m, (A, M) => {
+      const z = Qi(A, M);
+      return z > 0 ? xo[z] ?? String(z) : null;
+    }) && (c += ze), f.mbi && x && vi(n, c, ne("mbi"), m, (A, M) => {
+      const z = _i(A, M);
+      return z > 0 ? xo[z] ?? String(z) : null;
+    }) && (c += ze), c += Ds(n, t, v, m, c, "palatal", a), f.pd && Z1(n, c, `${g} ${ne("pd")}`, m, Si, (A, M) => {
+      const z = kt(A);
+      return Object.prototype.hasOwnProperty.call(z.pd, M) ? String(z.pd[M]) : null;
+    }) && (c += ze), f.gm && Z1(n, c, `${g} ${ne("gm")}`, m, Si, (A, M) => {
+      const z = kt(A);
+      return !Object.prototype.hasOwnProperty.call(z.pd, M) || !Object.prototype.hasOwnProperty.call(z.gm, M) ? null : String(z.gm[M]);
+    }) && (c += ze), f.cal && Z1(n, c, `${g} ${ne("cal")}`, m, Si, (A, M) => {
+      const z = G1(A).get(M);
+      return z === void 0 ? null : String(z);
+    }) && (c += ze), f.bop && Z1(n, c, `${g} ${ne("bop")}`, m, Si, (A, M) => {
+      const z = kt(A);
+      return Object.prototype.hasOwnProperty.call(z.pd, M) && z.bop.includes(M) ? "•" : null;
+    }) && (c += ze), f.mobility && Ma(n, c, ne("mobility"), m, (A) => {
+      const M = N2(A);
       return M === "none" ? null : c0[M] ?? M;
-    }) && (c += Se), f.rootConcavity && Ma(n, c, ne("rootConcavity"), m, (T) => {
-      const M = eo(T);
+    }) && (c += ze), f.cej && Ma(n, c, ne("cej"), m, (A) => {
+      const M = $i(A);
       return M === "none" ? null : d0[M] ?? M;
-    }) && (c += Se), f.kg && Ma(n, c, ne("kg"), m, (T) => {
-      const M = Qa(T);
+    }) && (c += ze), f.rootConcavity && Ma(n, c, ne("rootConcavity"), m, (A) => {
+      const M = eo(A);
+      return M === "none" ? null : p0[M] ?? M;
+    }) && (c += ze), f.kg && Ma(n, c, ne("kg"), m, (A) => {
+      const M = Qa(A);
       return M === null ? null : String(M);
-    }) && (c += Se), f.gt && Ma(n, c, ne("gt"), m, (T) => {
-      const M = dn(T);
-      return M === "unknown" ? null : p0[M] ?? M;
-    }) && (c += Se);
-    const J = (T) => {
+    }) && (c += ze), f.gt && Ma(n, c, ne("gt"), m, (A) => {
+      const M = dn(A);
+      return M === "unknown" ? null : f0[M] ?? M;
+    }) && (c += ze);
+    const W = (A) => {
       const M = document.createElementNS(Pa, "line");
-      M.setAttribute("class", "perio-col-sep"), M.setAttribute("x1", Ke(T)), M.setAttribute("y1", Ke(z)), M.setAttribute("x2", Ke(T)), M.setAttribute("y2", Ke(c)), d.appendChild(M);
+      M.setAttribute("class", "perio-col-sep"), M.setAttribute("x1", Je(A)), M.setAttribute("y1", Je(Z)), M.setAttribute("x2", Je(A)), M.setAttribute("y2", Je(c)), d.appendChild(M);
     };
-    for (const T of m.teeth) J(Ye + T.x);
-    J(Ye + m.totalWidth), c += m0;
+    for (const A of m.teeth) W(_e + A.x);
+    W(_e + m.totalWidth), c += h0;
   };
-  u(o0), u(n0), Ra.forEach((v, m) => {
+  h(n0), h(s0), Ra.forEach((v, m) => {
     if (m % 2 === 0) return;
-    const D = document.createElementNS(Pa, "rect");
-    D.setAttribute("class", "perio-row-stripe"), D.setAttribute("x", "0"), D.setAttribute("y", Ke(v.y - Se * 0.72)), D.setAttribute("width", Ke(v.w)), D.setAttribute("height", Ke(Se)), d.appendChild(D);
+    const P = document.createElementNS(Pa, "rect");
+    P.setAttribute("class", "perio-row-stripe"), P.setAttribute("x", "0"), P.setAttribute("y", Je(v.y - ze * 0.72)), P.setAttribute("width", Je(v.w)), P.setAttribute("height", Je(ze)), d.appendChild(P);
   });
   const b = p, w = c;
-  return n.setAttribute("viewBox", `0 0 ${Ke(b)} ${Ke(w)}`), n.setAttribute("width", Ke(b)), n.setAttribute("height", Ke(w)), { xml: `<?xml version="1.0" encoding="UTF-8"?>
+  return n.setAttribute("viewBox", `0 0 ${Je(b)} ${Je(w)}`), n.setAttribute("width", Je(b)), n.setAttribute("height", Je(w)), { xml: `<?xml version="1.0" encoding="UTF-8"?>
 ${new XMLSerializer().serializeToString(n)}`, width: b, height: w };
 }
-let Zl = null;
+let zl = null;
 function As(e) {
-  Zl = e ? {
+  zl = e ? {
     reportTitle: e.reportTitle,
     patient: e.patient?.map((t) => ({ ...t })),
     sections: e.sections?.map((t) => ({
@@ -14520,7 +14520,7 @@ function As(e) {
     stationery: e.stationery ? { ...e.stationery } : void 0
   } : null;
 }
-const ve = 15, v0 = 6, y0 = 0.55;
+const ge = 15, y0 = 6, Ts = 0.55;
 function Sa(e, t) {
   const a = e.split(/\s+/).filter(Boolean);
   if (a.length === 0) return [];
@@ -14544,119 +14544,123 @@ const v2 = {
 function w0(e, t, a = () => {
   throw new Error("assemblePdf: a docFactory is required — jsPDF is lazy-loaded by exportPdf()");
 }) {
-  const i = a(), o = Zl, n = o?.stationery, s = t.fontFamily ?? "helvetica", d = t.shapeText ?? ((S) => S);
+  const i = a(), o = zl, n = o?.stationery, s = t.fontFamily ?? "helvetica", d = t.shapeText ?? ((E) => E);
   i.setFont(s, "normal");
-  const c = (S, j, ie, ue) => i.text(d(S), j, ie, ue), p = i.internal.pageSize.getWidth(), f = i.internal.pageSize.getHeight(), u = p - ve * 2, {
+  const c = (E, ee, ue, de) => i.text(d(E), ee, ue, de), p = i.internal.pageSize.getWidth(), f = i.internal.pageSize.getHeight(), h = p - ge * 2, {
     header: b,
     headerText: w,
     labelBg: y,
     rowBg: v,
     rowAlt: m,
-    border: D,
-    text: Z,
+    border: P,
+    text: S,
     muted: g
-  } = t.palette, x = (S) => i.setFillColor(S[0], S[1], S[2]), C = (S) => i.setDrawColor(S[0], S[1], S[2]), z = (S) => i.setTextColor(S[0], S[1], S[2]), F = n ? 27 : 0, L = n ? 11 : 0, R = n ? F + 7 : ve, J = n ? f - L - 5 : f - ve;
-  let T = R;
+  } = t.palette, x = (E) => i.setFillColor(E[0], E[1], E[2]), I = (E) => i.setDrawColor(E[0], E[1], E[2]), Z = (E) => i.setTextColor(E[0], E[1], E[2]), F = n ? 27 : 0, L = n ? 11 : 0, j = n ? F + 7 : ge, W = n ? f - L - 5 : f - ge;
+  let A = j;
   const M = () => {
     if (!n) return;
-    const S = [0, 29, 60], j = [168, 200, 247], ie = [1, 55, 113], ue = [190, 205, 221];
-    x(S), i.rect(0, 0, p, F, "F"), i.circle && (C(ie), i.setLineWidth(5.5), i.circle(p - 8, -7, 24, "S")), n.logoPng ? i.addImage(n.logoPng, "PNG", ve, 5.2, 42, 6.8) : (z([255, 255, 255]), i.setFont(s, "bold"), i.setFontSize(16), c("ORALLIX", ve, 10.5)), z(j), i.setFont(s, "bold"), i.setFontSize(7.5), c(n.documentLabel || "CLINICAL REPORT", ve, 19.2);
-    const de = p - ve;
-    z(j), i.setFont(s, "normal"), i.setFontSize(6.5), c(n.recordLabel || "Record number", de, 8.2, { align: "right" }), z([255, 255, 255]), i.setFont(s, "bold"), i.setFontSize(9.5), c(n.recordValue || "", de, 13.4, { align: "right" }), x(S), i.rect(0, f - L, p, L, "F"), z(ue), i.setFont(s, "normal"), i.setFontSize(6.5), c(n.footerLabel || "ORALLIX Clinical Report", ve, f - 5.2), n.recordValue && (i.setFont(s, "bold"), c(n.recordValue, de, f - 6.4, { align: "right" })), z([255, 255, 255]), i.setFont(s, "bold"), i.setFontSize(7.5), c(n.footerRight || "orallix.com", de, f - 3, { align: "right" }), z(Z), i.setFont(s, "normal"), i.setFontSize(10);
-  }, I = () => {
-    i.addPage(), M(), T = R;
-  }, E = (S) => {
-    T + S > J && I();
+    const E = [0, 29, 60], ee = [168, 200, 247], ue = [1, 55, 113], de = [190, 205, 221];
+    x(E), i.rect(0, 0, p, F, "F"), i.circle && (I(ue), i.setLineWidth(5.5), i.circle(p - 8, -7, 24, "S")), n.logoPng ? i.addImage(n.logoPng, "PNG", ge, 5.2, 42, 6.8) : (Z([255, 255, 255]), i.setFont(s, "bold"), i.setFontSize(16), c("ORALLIX", ge, 10.5)), Z(ee), i.setFont(s, "bold"), i.setFontSize(7.5), c(n.documentLabel || "CLINICAL REPORT", ge, 19.2);
+    const me = p - ge, Se = n.recordLabel?.trim();
+    Se && (Z(ee), i.setFont(s, "normal"), i.setFontSize(6.5), c(Se, me, 8.2, { align: "right" })), Z([255, 255, 255]), i.setFont(s, "bold"), i.setFontSize(9.5), c(n.recordValue || "", me, Se ? 13.4 : 10.8, { align: "right" }), x(E), i.rect(0, f - L, p, L, "F"), Z(de), i.setFont(s, "normal"), i.setFontSize(6.5), c(n.footerLabel || "ORALLIX Clinical Report", ge, f - 5.2), Z([255, 255, 255]), i.setFont(s, "bold"), i.setFontSize(7.5), c(n.footerRight || "orallix.com", me, f - 5.2, { align: "right" }), Z(S), i.setFont(s, "normal"), i.setFontSize(10);
+  }, z = () => {
+    i.addPage(), M(), A = j;
+  }, T = (E) => {
+    A + E > W && z();
   };
   M();
-  const $ = (S) => {
-    E(7.5 + 3 + 10), x(b), i.rect(ve, T, u, 7.5, "F"), z(w), i.setFontSize(11.5), i.setFont(s, "bold"), c(S, ve + 2.5, T + 5.1), T += 7.5 + 3, z(Z), i.setFont(s, "normal"), i.setFontSize(10);
-  }, le = (S) => {
-    if (!S) return;
-    const j = Math.max(20, Math.floor(u / 1.6));
-    i.setFontSize(9), i.setFont(s, "italic"), z(g);
-    for (const ie of S.split(`
+  const $ = (E) => {
+    T(7.5 + 3 + 10), x(b), i.rect(ge, A, h, 7.5, "F"), Z(w), i.setFontSize(11.5), i.setFont(s, "bold"), c(E, ge + 2.5, A + 5.1), A += 7.5 + 3, Z(S), i.setFont(s, "normal"), i.setFontSize(10);
+  }, le = (E) => {
+    if (!E) return;
+    const ee = Math.max(20, Math.floor(h / 1.6));
+    i.setFontSize(9), i.setFont(s, "italic"), Z(g);
+    for (const ue of E.split(`
 `)) {
-      const ue = ie.trim() === "" ? [""] : Sa(ie, j);
-      for (const de of ue)
-        E(4.4), c(de, ve, T + 3.1), T += 4.4;
+      const de = ue.trim() === "" ? [""] : Sa(ue, ee);
+      for (const me of de)
+        T(4.4), c(me, ge, A + 3.1), A += 4.4;
     }
-    T += 1.5, z(Z), i.setFont(s, "normal"), i.setFontSize(10);
-  }, W = (S, j) => {
-    if (!S.length) return;
-    const ie = j.fontSize ?? 9, ue = j.labelWidth, de = ve + ue, Ie = u - ue, Ae = 1.8, ot = ie * 0.48, Wt = 1.7 * ie / 10, g1 = Math.max(4, Math.floor((ue - Ae * 2) / Wt)), be = Math.max(6, Math.floor((Ie - Ae * 2) / Wt));
-    S.forEach((zt, me) => {
-      const ft = zt.label ? Sa(zt.label, g1) : [""], ge = zt.value ? Sa(zt.value, be) : [""], nt = Math.max(ft.length, ge.length, 1) * ot + Ae * 2;
-      T + nt > J && I(), x(y), i.rect(ve, T, ue, nt, "F"), x(me % 2 ? m : v), i.rect(de, T, Ie, nt, "F"), C(D), i.setLineWidth(0.15), i.rect(ve, T, u, nt, "S"), i.line(de, T, de, T + nt), i.setFontSize(ie);
-      let Ce = T + Ae + ot * 0.72;
-      i.setFont(s, "bold"), z(Z);
-      for (const Ge of ft)
-        c(Ge, ve + Ae, Ce), Ce += ot;
-      Ce = T + Ae + ot * 0.72, i.setFont(s, "normal"), z(g);
-      for (const Ge of ge)
-        c(Ge, de + Ae, Ce), Ce += ot;
-      T += nt;
-    }), T += 3, z(Z), i.setFont(s, "normal"), i.setFontSize(10);
-  }, te = (S) => {
-    const j = S.columns.length;
-    if (j === 0 || S.rows.length === 0) return;
-    const ie = 8, ue = ie * 0.5, de = 1.6, Ie = 34, Ae = (u - Ie) / j, ot = 1.7 * ie / 10, Wt = (me) => Math.max(4, Math.floor((me - de * 2) / ot)), g1 = (me) => {
-      const ft = Wt(Ae), ge = [[]];
-      return me.forEach((mt, nt) => {
-        const Ce = mt.label + (nt < me.length - 1 ? "," : ""), Ge = ge[ge.length - 1];
-        Ge.reduce((s1, Ft) => s1 + Ft.text.length + 1, 0) + Ce.length + 1 > ft && Ge.length && ge.push([]), ge[ge.length - 1].push({ text: Ce, status: mt.status });
-      }), ge;
-    }, be = ue + de * 2;
-    E(be + 4), x(b), i.rect(ve, T, u, be, "F"), z(w), i.setFont(s, "bold"), i.setFontSize(ie), S.columns.forEach((me, ft) => c(me.label, ve + Ie + ft * Ae + de, T + de + ue * 0.72)), T += be;
-    const zt = Wt(Ie);
-    S.rows.forEach((me, ft) => {
-      const ge = S.columns.map((Ge) => g1(me.cells[Ge.key] ?? [])), mt = Sa(me.label, zt), Ce = Math.max(1, mt.length, ...ge.map((Ge) => Ge.length)) * ue + de * 2;
-      T + Ce > J && I(), x(y), i.rect(ve, T, Ie, Ce, "F"), x(ft % 2 ? m : v), i.rect(ve + Ie, T, u - Ie, Ce, "F"), C(D), i.setLineWidth(0.15), i.rect(ve, T, u, Ce, "S"), i.line(ve + Ie, T, ve + Ie, T + Ce);
-      for (let Ge = 1; Ge < j; Ge++) {
-        const ht = ve + Ie + Ge * Ae;
-        i.line(ht, T, ht, T + Ce);
+    A += 1.5, Z(S), i.setFont(s, "normal"), i.setFontSize(10);
+  }, J = (E, ee) => {
+    if (!E.length) return;
+    const ue = ee.fontSize ?? 9, de = ee.labelWidth, me = ge + de, Se = h - de, Ie = 1.8, We = ue * 0.48, Xt = 1.7 * ue / 10, ke = Math.max(4, Math.floor((de - Ie * 2) / Xt)), Bt = Math.max(6, Math.floor((Se - Ie * 2) / Xt));
+    E.forEach((ve, Ve) => {
+      const ye = ve.label ? Sa(ve.label, ke) : [""], je = ve.value ? Sa(ve.value, Bt) : [""], Fe = Math.max(ye.length, je.length, 1) * We + Ie * 2;
+      A + Fe > W && z(), x(y), i.rect(ge, A, de, Fe, "F"), x(Ve % 2 ? m : v), i.rect(me, A, Se, Fe, "F"), I(P), i.setLineWidth(0.15), i.rect(ge, A, h, Fe, "S"), i.line(me, A, me, A + Fe), i.setFontSize(ue);
+      let Re = A + Ie + We * 0.72;
+      i.setFont(s, "bold"), Z(S);
+      for (const Ge of ye)
+        c(Ge, ge + Ie, Re), Re += We;
+      Re = A + Ie + We * 0.72, i.setFont(s, "normal"), Z(g);
+      for (const Ge of je)
+        c(Ge, me + Ie, Re), Re += We;
+      A += Fe;
+    }), A += 3, Z(S), i.setFont(s, "normal"), i.setFontSize(10);
+  }, ae = (E) => {
+    const ee = E.columns.length;
+    if (ee === 0 || E.rows.length === 0) return;
+    const ue = 8, de = ue * 0.5, me = 1.6, Se = 34, Ie = (h - Se) / ee, We = 1.7 * ue / 10, Xt = (Ve) => Math.max(4, Math.floor((Ve - me * 2) / We)), ke = (Ve) => {
+      const ye = Xt(Ie), je = [[]];
+      return Ve.forEach((Ct, Fe) => {
+        const Re = Ct.label + (Fe < Ve.length - 1 ? "," : ""), Ge = je[je.length - 1];
+        Ge.reduce((Vt, gt) => Vt + gt.text.length + 1, 0) + Re.length + 1 > ye && Ge.length && je.push([]), je[je.length - 1].push({ text: Re, status: Ct.status });
+      }), je;
+    }, Bt = de + me * 2;
+    T(Bt + 4), x(b), i.rect(ge, A, h, Bt, "F"), Z(w), i.setFont(s, "bold"), i.setFontSize(ue), E.columns.forEach((Ve, ye) => c(Ve.label, ge + Se + ye * Ie + me, A + me + de * 0.72)), A += Bt;
+    const ve = Xt(Se);
+    E.rows.forEach((Ve, ye) => {
+      const je = E.columns.map((Ge) => ke(Ve.cells[Ge.key] ?? [])), Ct = Sa(Ve.label, ve), Re = Math.max(1, Ct.length, ...je.map((Ge) => Ge.length)) * de + me * 2;
+      A + Re > W && z(), x(y), i.rect(ge, A, Se, Re, "F"), x(ye % 2 ? m : v), i.rect(ge + Se, A, h - Se, Re, "F"), I(P), i.setLineWidth(0.15), i.rect(ge, A, h, Re, "S"), i.line(ge + Se, A, ge + Se, A + Re);
+      for (let Ge = 1; Ge < ee; Ge++) {
+        const ut = ge + Se + Ge * Ie;
+        i.line(ut, A, ut, A + Re);
       }
-      i.setFont(s, "bold"), i.setFontSize(ie), z(Z), mt.forEach((Ge, ht) => c(Ge, ve + de, T + de + ue * (ht + 0.72))), S.columns.forEach((Ge, ht) => {
-        const s1 = ve + Ie + ht * Ae;
-        ge[ht].forEach((Ft, It) => {
-          let ut = s1 + de;
-          const Ut = T + de + ue * (It + 0.72);
-          for (const Bt of Ft)
-            Bt.status === "problem" ? (i.setFont(s, "bolditalic"), z(x0)) : Bt.status === "content" ? (i.setFont(s, "bold"), z(b)) : (i.setFont(s, "normal"), z(g)), c(Bt.text, ut, Ut), ut += (Bt.text.length + 1) * ot;
+      i.setFont(s, "bold"), i.setFontSize(ue), Z(S), Ct.forEach((Ge, ut) => c(Ge, ge + me, A + me + de * (ut + 0.72))), E.columns.forEach((Ge, ut) => {
+        const Vt = ge + Se + ut * Ie;
+        je[ut].forEach((gt, wt) => {
+          let Pt = Vt + me;
+          const v1 = A + me + de * (wt + 0.72);
+          for (const Kt of gt)
+            Kt.status === "problem" ? (i.setFont(s, "bolditalic"), Z(x0)) : Kt.status === "content" ? (i.setFont(s, "bold"), Z(b)) : (i.setFont(s, "normal"), Z(g)), c(Kt.text, Pt, v1), Pt += (Kt.text.length + 1) * We;
         });
-      }), T += Ce;
-    }), T += 1, i.setFont(s, "italic"), i.setFontSize(7), z(g);
-    for (const me of Sa(S.legend, Math.max(20, Math.floor(u / 1.3))))
-      E(3.4), c(me, ve, T + 2.4), T += 3.4;
-    T += 2, z(Z), i.setFont(s, "normal"), i.setFontSize(10);
-  }, ke = (S, j, ie) => {
-    if (!S) return;
-    const ue = j && j.width > 0 ? j.height / j.width : y0, de = u, Ie = J - R, Ae = Math.min(Ie, de * ue);
-    E(Ae), i.addImage(S, "PNG", ve, T, de, Ae), ie && (i.setDrawColor(ie.color[0], ie.color[1], ie.color[2]), i.setLineWidth(ie.widthMm), i.rect(ve, T, de, Ae, "S")), T += Ae + v0;
-  }, P = (S) => {
-    !S || n || (z(b), i.setFontSize(20), i.setFont(s, "bold"), c(S, ve, T + 7), T += 10, C(b), i.setLineWidth(0.6), i.line(ve, T, ve + u, T), T += 6, z(Z), i.setFont(s, "normal"), i.setFontSize(10));
-  }, Y = (S) => {
+      }), A += Re;
+    }), A += 1, i.setFont(s, "italic"), i.setFontSize(7), Z(g);
+    for (const Ve of Sa(E.legend, Math.max(20, Math.floor(h / 1.3))))
+      T(3.4), c(Ve, ge, A + 2.4), A += 3.4;
+    A += 2, Z(S), i.setFont(s, "normal"), i.setFontSize(10);
+  }, Me = (E, ee, ue) => {
+    if (!E) return;
+    const de = ee && ee.width > 0 ? ee.height / ee.width : Ts, me = h, Se = W - j, Ie = Math.min(Se, me * de);
+    T(Ie), i.addImage(E, "PNG", ge, A, me, Ie), ue && (i.setDrawColor(ue.color[0], ue.color[1], ue.color[2]), i.setLineWidth(ue.widthMm), i.rect(ge, A, me, Ie, "S")), A += Ie + y0;
+  }, C = (E, ee) => {
+    if (!E) return;
+    const ue = ee && ee.width > 0 ? ee.height / ee.width : Ts, de = Math.max(1, W - A), me = h * ue, Se = Math.min(de, me), Ie = Math.min(h, Se / ue), We = ge + (h - Ie) / 2;
+    i.addImage(E, "PNG", We, A, Ie, Se), A += Se;
+  }, Y = (E) => {
+    !E || n || (Z(b), i.setFontSize(20), i.setFont(s, "bold"), c(E, ge, A + 7), A += 10, I(b), i.setLineWidth(0.6), i.line(ge, A, ge + h, A), A += 6, Z(S), i.setFont(s, "normal"), i.setFontSize(10));
+  }, R = (E) => {
     if (n) return;
-    const j = 3.6, ie = Math.max(20, Math.floor(u / 1.35)), ue = S.disclaimer ? Sa(S.disclaimer, ie) : [], de = (S.generated ? 1 : 0) + (S.repoUrl ? 1 : 0) + (S.doi ? 1 : 0);
-    if (ue.length === 0 && de === 0) return;
-    const Ie = ue.length && de ? 2 : 0, Ae = 3 + ue.length * j + Ie + de * j + 2;
-    if (T + 8 + Ae > J && I(), T = Math.max(T + 8, J - Ae), C(D), i.setLineWidth(0.3), i.line(ve, T, ve + u, T), T += 3, i.setFontSize(7.5), ue.length) {
-      i.setFont(s, "italic"), z(g);
-      for (const ot of ue)
-        c(ot, ve, T + 2.6), T += j;
+    const ee = 3.6, ue = Math.max(20, Math.floor(h / 1.35)), de = E.disclaimer ? Sa(E.disclaimer, ue) : [], me = (E.generated ? 1 : 0) + (E.repoUrl ? 1 : 0) + (E.doi ? 1 : 0);
+    if (de.length === 0 && me === 0) return;
+    const Se = de.length && me ? 2 : 0, Ie = 3 + de.length * ee + Se + me * ee + 2;
+    if (A + 8 + Ie > W && z(), A = Math.max(A + 8, W - Ie), I(P), i.setLineWidth(0.3), i.line(ge, A, ge + h, A), A += 3, i.setFontSize(7.5), de.length) {
+      i.setFont(s, "italic"), Z(g);
+      for (const We of de)
+        c(We, ge, A + 2.6), A += ee;
     }
-    de && (ue.length && (T += 2), i.setFont(s, "normal"), z(g), S.generated && (c(S.generated, ve, T + 2.6), T += j), z(b), S.repoUrl && (c(`GitHub: ${S.repoUrl}`, ve, T + 2.6), T += j), S.doi && (c(`DOI: ${S.doi}`, ve, T + 2.6), T += j)), z(Z);
+    me && (de.length && (A += 2), i.setFont(s, "normal"), Z(g), E.generated && (c(E.generated, ge, A + 2.6), A += ee), Z(b), E.repoUrl && (c(`GitHub: ${E.repoUrl}`, ge, A + 2.6), A += ee), E.doi && (c(`DOI: ${E.doi}`, ge, A + 2.6), A += ee)), Z(S);
   };
-  if (P(o?.reportTitle?.trim() || t.reportTitle), e.patientData) {
+  if (Y(o?.reportTitle?.trim() || t.reportTitle), e.patientData) {
     $(l("pdf.section.patientData"));
-    const S = o?.patient?.length ? o.patient : t.patient;
-    W(S, { labelWidth: 45, fontSize: 10 });
+    const E = o?.patient?.length ? o.patient : t.patient;
+    J(E, { labelWidth: 45, fontSize: 10 });
   }
-  for (const S of o?.sections ?? []) {
-    const j = S.title.trim(), ie = S.rows.filter((ue) => ue.label.trim() !== "" || ue.value.trim() !== "");
-    !j || ie.length === 0 || ($(j), W(ie, { labelWidth: 48, fontSize: 9 }));
+  for (const E of o?.sections ?? []) {
+    const ee = E.title.trim(), ue = E.rows.filter((de) => de.label.trim() !== "" || de.value.trim() !== "");
+    !ee || ue.length === 0 || ($(ee), J(ue, { labelWidth: 48, fontSize: 9 }));
   }
-  return (e.odontogramChart || e.odontogramDescription) && ($(l("pdf.section.odontogram")), e.odontogramChart && ke(t.odontogramPng, t.odontogramImageSize, t.odontogramBorder), e.odontogramDescription && (le(t.odontogramCaption), t.toothTable && te(t.toothTable))), e.odontogramDescription && t.odontogramFindings.length && ($(l("pdf.section.findings")), W(t.odontogramFindings, { labelWidth: 48, fontSize: 9 })), e.individualNotes && t.individualNotes.length && ($(l("toothInfo.notes")), W(t.individualNotes, { labelWidth: 24, fontSize: 9 })), t.hasPerio && e.perioStatus && (T > R && I(), $(l("pdf.section.perioStatus")), ke(t.perioPng, t.perioImageSize)), t.hasPerio && e.perioDescription && (t.perioMetrics.length && ($(l("pdf.section.perioDescription")), W(t.perioMetrics, { labelWidth: 55, fontSize: 9.5 })), t.abbreviations.length && ($(l("pdf.footer.title")), W(t.abbreviations.map((S) => ({ label: S.term, value: S.desc })), { labelWidth: 22, fontSize: 7.5 }))), Y(t.footer), i.save(`ORALLIX-Clinical-Report-${b0().slice(0, 10)}.pdf`), i;
+  return (e.odontogramChart || e.odontogramDescription) && ($(l("pdf.section.odontogram")), e.odontogramChart && Me(t.odontogramPng, t.odontogramImageSize, t.odontogramBorder), e.odontogramDescription && (le(t.odontogramCaption), t.toothTable && ae(t.toothTable))), e.odontogramDescription && t.odontogramFindings.length && ($(l("pdf.section.findings")), J(t.odontogramFindings, { labelWidth: 48, fontSize: 9 })), e.individualNotes && t.individualNotes.length && ($(l("toothInfo.notes")), J(t.individualNotes, { labelWidth: 24, fontSize: 9 })), t.hasPerio && e.perioStatus && (A > j && z(), $(l("pdf.section.perioStatus")), C(t.perioPng, t.perioImageSize)), t.hasPerio && e.perioDescription && (e.perioStatus && A > j && z(), t.perioMetrics.length && ($(l("pdf.section.perioDescription")), J(t.perioMetrics, { labelWidth: 55, fontSize: 9.5 })), t.abbreviations.length && ($(l("pdf.footer.title")), J(t.abbreviations.map((E) => ({ label: E.term, value: E.desc })), { labelWidth: 22, fontSize: 7.5 }))), R(t.footer), i.save(`ORALLIX-Clinical-Report-${b0().slice(0, 10)}.pdf`), i;
 }
 const M0 = `<?xml version='1.0' encoding='utf-8'?>
 <!-- Created by Zoltan Dul in 2026 - free to use with MIT license. Part of React Odontogram Modul - https://github.com/ZoliQua/React-Odontogram-Modul - SVG Version: 2.5.0 -->
@@ -24279,14 +24283,14 @@ const M0 = `<?xml version='1.0' encoding='utf-8'?>
   [46, { tpl: 16, rot: 180, mirror: !0 }],
   [47, { tpl: 16, rot: 180, mirror: !0 }],
   [48, { tpl: 16, rot: 180, mirror: !0 }]
-]), zl = { 11: 32.2, 13: 32.4, 14: 32.1, 16: 31 }, H0 = { 11: 33, 13: 35.4, 14: 34.6, 16: 34.3 }, q0 = { ...zl }, Il = {
+]), Il = { 11: 32.2, 13: 32.4, 14: 32.1, 16: 31 }, H0 = { 11: 33, 13: 35.4, 14: 34.6, 16: 34.3 }, q0 = { ...Il }, Cl = {
   templates: B0,
   templatesOccl: V0,
   toothTemplate: K0,
   tplNos: [11, 13, 14, 16],
   occlNos: [14, 16],
   layout: "uniform16",
-  cejY: zl,
+  cejY: Il,
   implantCejY: H0,
   milktoothCejY: q0
 }, Y0 = {
@@ -24366,7 +24370,7 @@ const M0 = `<?xml version='1.0' encoding='utf-8'?>
   [46, { tpl: 46, rot: 180, mirror: !0 }],
   [47, { tpl: 46, rot: 180, mirror: !0 }],
   [48, { tpl: 46, rot: 180, mirror: !0 }]
-]), Cl = {
+]), Pl = {
   11: 40.8,
   12: 37.8,
   13: 38.1,
@@ -24386,7 +24390,7 @@ const M0 = `<?xml version='1.0' encoding='utf-8'?>
   17: 33.4,
   31: 30.7,
   46: 28.9
-}, _0 = { ...Cl }, $0 = {
+}, _0 = { ...Pl }, $0 = {
   templates: Y0,
   templatesOccl: W0,
   toothTemplate: J0,
@@ -24394,22 +24398,22 @@ const M0 = `<?xml version='1.0' encoding='utf-8'?>
   tplNos: [11, 12, 13, 14, 15, 16, 17, 31, 46],
   occlNos: [14, 16, 34, 46],
   layout: "twoArch",
-  cejY: Cl,
+  cejY: Pl,
   implantCejY: Q0,
   milktoothCejY: _0
 }, e5 = {
-  classic: Il,
+  classic: Cl,
   measured: $0
 };
 let Go = "classic";
-function Ts() {
+function Es() {
   return Go;
 }
 function t5(e) {
-  e !== Go && (Go = e, R4(), X());
+  e !== Go && (Go = e, j4(), X());
 }
 function qa() {
-  return e5[Go] ?? Il;
+  return e5[Go] ?? Cl;
 }
 const ce = [
   18,
@@ -24444,14 +24448,14 @@ const ce = [
   36,
   37,
   38
-], Jn = /* @__PURE__ */ new Set([16, 17, 18, 26, 27, 28, 36, 37, 38, 46, 47, 48]), Pl = /* @__PURE__ */ new Set([14, 15, 16, 17, 24, 25, 26, 27, 34, 35, 36, 37, 44, 45, 46, 47]), Dl = /* @__PURE__ */ new Set([
+], Jn = /* @__PURE__ */ new Set([16, 17, 18, 26, 27, 28, 36, 37, 38, 46, 47, 48]), Dl = /* @__PURE__ */ new Set([14, 15, 16, 17, 24, 25, 26, 27, 34, 35, 36, 37, 44, 45, 46, 47]), Al = /* @__PURE__ */ new Set([
   "tooth-broken-incisal",
   "tooth-broken-distal-incisal",
   "tooth-broken-distal",
   "tooth-broken-mesial-incisal",
   "tooth-broken-mesial"
 ]), a5 = /* @__PURE__ */ new Set([11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35, 41, 42, 43, 44, 45]), i5 = /* @__PURE__ */ new Set([11, 12, 16, 21, 22, 26, 31, 32, 36, 41, 42, 46]), o5 = /* @__PURE__ */ new Set([13, 14, 15, 23, 24, 25, 33, 34, 35, 43, 44, 45]), n5 = /* @__PURE__ */ new Set([17, 18, 27, 28, 37, 38, 47, 48]), s5 = /* @__PURE__ */ new Set([11, 12, 13, 21, 22, 23, 31, 32, 33, 41, 42, 43]);
-function Al(e) {
+function Tl(e) {
   return s5.has(e);
 }
 function Wo(e) {
@@ -24462,9 +24466,9 @@ function y2(e) {
   const t = e % 10, a = Math.floor(e / 10), i = a === 1 || a === 2, o = a === 3 || a === 4, n = t === 6 || t === 7 || t === 8;
   return n && i ? ["mesial", "distal", "buccal"] : n && o ? ["buccal", "lingual"] : t === 4 && i ? ["mesial", "distal"] : [];
 }
-const Tl = la("mods");
+const El = ca("mods");
 function r5() {
-  return la("periapicalType").map((e) => ({ value: e.value, label: l(e.labelKey) }));
+  return ca("periapicalType").map((e) => ({ value: e.value, label: l(e.labelKey) }));
 }
 const l5 = {
   emax: "emax",
@@ -24483,7 +24487,7 @@ const l5 = {
   "bar-denture": "prosthesis.type.barDenture",
   "removable-partial": "prosthesis.type.removablePartial",
   "removable-full": "prosthesis.type.removableFull"
-}, ta = ["MB", "B", "DB", "ML", "L", "DL"];
+}, aa = ["MB", "B", "DB", "ML", "L", "DL"];
 function fe() {
   return {
     toothSelection: "tooth-base",
@@ -24689,11 +24693,11 @@ function f5(e) {
 function B(e, t) {
   return e.getElementById ? e.getElementById(t) : q("#" + t, e);
 }
-const Re = {
+const Ue = {
   status: /* @__PURE__ */ new Map(),
   plan: /* @__PURE__ */ new Map()
 };
-let N = Re.status, p1 = "status";
+let N = Ue.status, f1 = "status";
 function b2() {
   return {
     age: null,
@@ -24713,7 +24717,7 @@ function b2() {
   };
 }
 let H = b2();
-const El = /* @__PURE__ */ new Set(["unknown", "never", "former", "current"]), Ol = /* @__PURE__ */ new Set(["unknown", "none", "present"]), Ll = /* @__PURE__ */ new Set(["health", "gingivitis", "periodontitis"]), Gl = /* @__PURE__ */ new Set(["I", "II", "III", "IV"]), Nl = /* @__PURE__ */ new Set(["A", "B", "C"]), Rl = /* @__PURE__ */ new Set(["localized", "generalized", "molar-incisor"]);
+const Ol = /* @__PURE__ */ new Set(["unknown", "never", "former", "current"]), Ll = /* @__PURE__ */ new Set(["unknown", "none", "present"]), Gl = /* @__PURE__ */ new Set(["health", "gingivitis", "periodontitis"]), Nl = /* @__PURE__ */ new Set(["I", "II", "III", "IV"]), Rl = /* @__PURE__ */ new Set(["A", "B", "C"]), jl = /* @__PURE__ */ new Set(["localized", "generalized", "molar-incisor"]);
 function Zi(e, t, a) {
   const i = Number(e);
   return Number.isFinite(i) ? Math.max(t, Math.min(a, Math.round(i))) : null;
@@ -24723,7 +24727,7 @@ function Xo(e, t, a, i) {
   const o = Zi(t, a, i);
   return o === null ? e : o;
 }
-function e1() {
+function a1() {
   return { ...H };
 }
 function m5(e) {
@@ -24753,38 +24757,38 @@ function v5(e) {
   a !== H.hba1c && (H.hba1c = a, X());
 }
 function y5(e) {
-  El.has(e) && e !== H.smokingStatus && (H.smokingStatus = e, X());
+  Ol.has(e) && e !== H.smokingStatus && (H.smokingStatus = e, X());
 }
 function b5(e) {
-  Ol.has(e) && e !== H.diabetesStatus && (H.diabetesStatus = e, X());
+  Ll.has(e) && e !== H.diabetesStatus && (H.diabetesStatus = e, X());
 }
 function k5(e) {
   if (e === null) {
     H.diagnosisOverride !== null && (H.diagnosisOverride = null, X());
     return;
   }
-  Ll.has(e) && e !== H.diagnosisOverride && (H.diagnosisOverride = e, X());
+  Gl.has(e) && e !== H.diagnosisOverride && (H.diagnosisOverride = e, X());
 }
 function x5(e) {
   if (e === null) {
     H.stageOverride !== null && (H.stageOverride = null, X());
     return;
   }
-  Gl.has(e) && e !== H.stageOverride && (H.stageOverride = e, X());
+  Nl.has(e) && e !== H.stageOverride && (H.stageOverride = e, X());
 }
 function w5(e) {
   if (e === null) {
     H.gradeOverride !== null && (H.gradeOverride = null, X());
     return;
   }
-  Nl.has(e) && e !== H.gradeOverride && (H.gradeOverride = e, X());
+  Rl.has(e) && e !== H.gradeOverride && (H.gradeOverride = e, X());
 }
 function M5(e) {
   if (e === null) {
     H.extentOverride !== null && (H.extentOverride = null, X());
     return;
   }
-  Rl.has(e) && e !== H.extentOverride && (H.extentOverride = e, X());
+  jl.has(e) && e !== H.extentOverride && (H.extentOverride = e, X());
 }
 function Xn(e) {
   const t = e === null || e.trim() === "" ? null : e.trim();
@@ -24817,183 +24821,183 @@ function S5(e) {
   const t = e.trim();
   t !== H.patientDob && (H.patientDob = t, X());
 }
-function jl() {
+function Fl() {
   H = b2();
 }
 function k2(e) {
   return e.age === null && e.smokingStatus === "unknown" && e.cigarettesPerDay === null && e.diabetesStatus === "unknown" && e.hba1c === null && e.toothLossPerio === null && e.maxRblPercent === null && e.diagnosisOverride === null && e.stageOverride === null && e.gradeOverride === null && e.extentOverride === null && e.patientName === null && e.patientDob === null && e.examDate === null;
 }
-function Fl(e) {
+function Ul(e) {
   const t = {};
   return e.age !== null && (t.age = e.age), e.smokingStatus !== "unknown" && (t.smokingStatus = e.smokingStatus), e.cigarettesPerDay !== null && (t.cigarettesPerDay = e.cigarettesPerDay), e.diabetesStatus !== "unknown" && (t.diabetesStatus = e.diabetesStatus), e.hba1c !== null && (t.hba1c = e.hba1c), e.toothLossPerio !== null && (t.toothLossPerio = e.toothLossPerio), e.maxRblPercent !== null && (t.maxRblPercent = e.maxRblPercent), e.diagnosisOverride !== null && (t.diagnosisOverride = e.diagnosisOverride), e.stageOverride !== null && (t.stageOverride = e.stageOverride), e.gradeOverride !== null && (t.gradeOverride = e.gradeOverride), e.extentOverride !== null && (t.extentOverride = e.extentOverride), e.patientName !== null && (t.patientName = e.patientName), e.patientDob !== null && (t.patientDob = e.patientDob), e.examDate !== null && (t.examDate = e.examDate), t;
 }
 function Z5(e) {
   if (H = b2(), !(!e || typeof e != "object")) {
-    H.age = Zi(e.age, 0, 120), El.has(e.smokingStatus) && (H.smokingStatus = e.smokingStatus), H.cigarettesPerDay = Zi(e.cigarettesPerDay, 0, 99), Ol.has(e.diabetesStatus) && (H.diabetesStatus = e.diabetesStatus);
+    H.age = Zi(e.age, 0, 120), Ol.has(e.smokingStatus) && (H.smokingStatus = e.smokingStatus), H.cigarettesPerDay = Zi(e.cigarettesPerDay, 0, 99), Ll.has(e.diabetesStatus) && (H.diabetesStatus = e.diabetesStatus);
     {
       const t = Number(e.hba1c);
       H.hba1c = Number.isFinite(t) ? Math.max(3, Math.min(20, Math.round(t * 10) / 10)) : null;
     }
-    H.toothLossPerio = Zi(e.toothLossPerio, 0, 32), H.maxRblPercent = Zi(e.maxRblPercent, 0, 100), H.diagnosisOverride = Ll.has(e.diagnosisOverride) ? e.diagnosisOverride : null, H.stageOverride = Gl.has(e.stageOverride) ? e.stageOverride : null, H.gradeOverride = Nl.has(e.gradeOverride) ? e.gradeOverride : null, H.extentOverride = Rl.has(e.extentOverride) ? e.extentOverride : null, H.patientName = typeof e.patientName == "string" && e.patientName.trim() !== "" ? e.patientName.trim() : null, H.patientDob = typeof e.patientDob == "string" && No.test(e.patientDob.trim()) ? e.patientDob.trim() : null, H.examDate = typeof e.examDate == "string" && No.test(e.examDate.trim()) ? e.examDate.trim() : null;
+    H.toothLossPerio = Zi(e.toothLossPerio, 0, 32), H.maxRblPercent = Zi(e.maxRblPercent, 0, 100), H.diagnosisOverride = Gl.has(e.diagnosisOverride) ? e.diagnosisOverride : null, H.stageOverride = Nl.has(e.stageOverride) ? e.stageOverride : null, H.gradeOverride = Rl.has(e.gradeOverride) ? e.gradeOverride : null, H.extentOverride = jl.has(e.extentOverride) ? e.extentOverride : null, H.patientName = typeof e.patientName == "string" && e.patientName.trim() !== "" ? e.patientName.trim() : null, H.patientDob = typeof e.patientDob == "string" && No.test(e.patientDob.trim()) ? e.patientDob.trim() : null, H.examDate = typeof e.examDate == "string" && No.test(e.examDate.trim()) ? e.examDate.trim() : null;
   }
 }
 function z5(e) {
   const t = [];
   return e.age !== null && t.push(l("case.summary.age", { age: e.age })), e.smokingStatus === "never" ? t.push(l("case.summary.smokingNever")) : e.smokingStatus === "former" ? t.push(l("case.summary.smokingFormer")) : e.smokingStatus === "current" && t.push(e.cigarettesPerDay !== null ? l("case.summary.smokingCurrentCigs", { n: e.cigarettesPerDay }) : l("case.summary.smokingCurrent")), e.diabetesStatus === "none" ? t.push(l("case.summary.diabetesNone")) : e.diabetesStatus === "present" && t.push(e.hba1c !== null ? l("case.summary.diabetesPresentHba1c", { value: e.hba1c }) : l("case.summary.diabetesPresent")), e.maxRblPercent !== null && t.push(l("case.summary.rbl", { value: e.maxRblPercent })), e.toothLossPerio !== null && t.push(l(`case.summary.toothLoss${e.toothLossPerio === 1 ? "One" : "Other"}`, { n: e.toothLossPerio })), t.join(" · ");
 }
-let jt = !1;
+let Ut = !1;
 function Wa() {
-  return p1;
+  return f1;
 }
 function I5(e, t) {
   t.clear();
-  for (const [a, i] of e) t.set(a, Ba(Rt(i)));
+  for (const [a, i] of e) t.set(a, Ba(Ft(i)));
 }
-const d1 = /* @__PURE__ */ new Set();
-function Ul(e) {
-  Re.plan.set(e, Ba(Rt(Re.status.get(e) ?? fe()), !1));
+const p1 = /* @__PURE__ */ new Set();
+function Bl(e) {
+  Ue.plan.set(e, Ba(Ft(Ue.status.get(e) ?? fe()), !1));
 }
-function Yt(e, t) {
-  if (p1 === "plan") {
-    t() !== !1 && d1.add(e);
+function Jt(e, t) {
+  if (f1 === "plan") {
+    t() !== !1 && p1.add(e);
     return;
   }
-  if (!jt || !d1.has(e)) {
+  if (!Ut || !p1.has(e)) {
     const a = t() !== !1;
-    jt && a && Ul(e);
+    Ut && a && Bl(e);
     return;
   }
-  Bl(
+  Vl(
     () => {
       t();
     },
-    Vl
+    Kl
   );
 }
 function Ja(e, t) {
-  if (p1 === "plan") {
+  if (f1 === "plan") {
     t();
-    for (const i of e) d1.add(i);
+    for (const i of e) p1.add(i);
     return;
   }
-  if (!jt) {
+  if (!Ut) {
     t();
     return;
   }
   const a = () => {
     for (const i of e)
-      d1.has(i) || Ul(i);
+      p1.has(i) || Bl(i);
   };
-  if (e.some((i) => d1.has(i))) {
-    Bl(
+  if (e.some((i) => p1.has(i))) {
+    Vl(
       () => {
         t(), a();
       },
-      Vl
+      Kl
     );
     return;
   }
   t(), a();
 }
-let a1 = null;
+let o1 = null;
 function C5() {
-  return a1 !== null;
+  return o1 !== null;
 }
-function Bl(e, t) {
-  a1 || (a1 = { apply: e, revert: t }, X());
+function Vl(e, t) {
+  o1 || (o1 = { apply: e, revert: t }, X());
 }
 function P5() {
-  const e = a1;
-  a1 = null, e && e.apply(), X();
+  const e = o1;
+  o1 = null, e && e.apply(), X();
 }
 function D5() {
-  const e = a1;
-  a1 = null, e && e.revert(), X();
+  const e = o1;
+  o1 = null, e && e.revert(), X();
 }
-function Vl() {
+function Kl() {
   G != null && we(N.get(G));
 }
 function x2() {
-  const e = p1 === "plan", t = q("#chartModeStatus"), a = q("#chartModePlan"), i = q(".chart"), o = q("#chartModePlanBadge");
+  const e = f1 === "plan", t = q("#chartModeStatus"), a = q("#chartModePlan"), i = q(".chart"), o = q("#chartModePlanBadge");
   t && (t.classList.toggle("is-active", !e), t.setAttribute("aria-selected", String(!e))), a && (a.classList.toggle("is-active", e), a.setAttribute("aria-selected", String(e))), i && i.classList.toggle("plan-mode", e), o && o.classList.toggle("hidden", !e);
 }
 function _n(e) {
-  if (!(e !== "status" && e !== "plan") && e !== p1) {
-    e === "plan" && !jt && (I5(Re.status, Re.plan), jt = !0, d1.clear()), p1 = e, N = Re[e];
+  if (!(e !== "status" && e !== "plan") && e !== f1) {
+    e === "plan" && !Ut && (I5(Ue.status, Ue.plan), Ut = !0, p1.clear()), f1 = e, N = Ue[e];
     for (const t of ce)
-      it(t), kt(t), oa(t);
+      lt(t), xt(t), na(t);
     G && we(N.get(G)), X(), x2();
   }
 }
-const A1 = /* @__PURE__ */ new Map(), St = /* @__PURE__ */ new Map(), On = /* @__PURE__ */ new WeakMap(), ja = /* @__PURE__ */ new Map(), Fa = /* @__PURE__ */ new Map();
-let G = null, ee = /* @__PURE__ */ new Set(), i1 = !1, Li = !0, T1 = !0, Oa = !0, t1 = !0, aa = !1, f1 = "FDI", We = !1, n1 = !1, Es = {}, Yi = !1;
-function Os(e) {
+const T1 = /* @__PURE__ */ new Map(), zt = /* @__PURE__ */ new Map(), On = /* @__PURE__ */ new WeakMap(), ja = /* @__PURE__ */ new Map(), Fa = /* @__PURE__ */ new Map();
+let G = null, te = /* @__PURE__ */ new Set(), n1 = !1, Li = !0, E1 = !0, Oa = !0, i1 = !0, ia = !1, m1 = "FDI", $e = !1, r1 = !1, Os = {}, Yi = !1;
+function Ls(e) {
   Yi = !!e, G && we(N.get(G));
 }
 function Ff() {
   return Yi;
 }
 let Ua = "aae";
-function Ls(e) {
+function Gs(e) {
   const t = e === "simple" || e === "latin" ? e : "aae";
   if (t !== Ua) {
     Ua = t, G && we(N.get(G)), X();
     for (const a of ce)
-      ia(a);
+      oa(a);
   }
 }
 function A5() {
   return Ua;
 }
-let Kl = "complex";
-function Gs(e) {
-  Kl = e === "simple" ? "simple" : "complex", G && we(N.get(G));
-}
-function T5() {
-  return Kl;
-}
 let Hl = "complex";
 function Ns(e) {
   Hl = e === "simple" ? "simple" : "complex", G && we(N.get(G));
 }
-function E5() {
+function T5() {
   return Hl;
 }
-let Gi = "full";
+let ql = "complex";
 function Rs(e) {
+  ql = e === "simple" ? "simple" : "complex", G && we(N.get(G));
+}
+function E5() {
+  return ql;
+}
+let Gi = "full";
+function js(e) {
   const t = e === "simple" ? "simple" : "full";
   if (t !== Gi) {
     Gi = t, G && we(N.get(G)), X();
     for (const a of ce)
-      ia(a);
+      oa(a);
   }
 }
 function Uf() {
   return Gi;
 }
 let w2 = "standard";
-function js(e) {
+function Fs(e) {
   w2 = e === "simple" || e === "full" ? e : "standard", G && we(N.get(G));
 }
 function Bf() {
   return w2;
 }
 let Qo = "simple";
-function Fs(e) {
+function Us(e) {
   Qo = e === "severity" ? e : "simple", G && we(N.get(G));
 }
 function Vf() {
   return Qo;
 }
 let _o = "off";
-function Us(e) {
+function Bs(e) {
   _o = e === "threeLevel" || e === "detailed" ? e : "off", G && we(N.get(G));
 }
 function Kf() {
   return _o;
 }
 let Wi = !0;
-function Bs(e) {
+function Vs(e) {
   Wi = e !== !1, G && we(N.get(G));
 }
 function Hf() {
@@ -25001,7 +25005,7 @@ function Hf() {
 }
 let zi = null;
 const $n = /* @__PURE__ */ new Set();
-function tt(e) {
+function st(e) {
   return $n.add(e), () => {
     $n.delete(e);
   };
@@ -25024,15 +25028,15 @@ function e2(e) {
 }
 function $o() {
   const e = q("#toothGrid");
-  N4({ grid: e, getState: e2, materialColor: u2 });
+  R4({ grid: e, getState: e2, materialColor: u2 });
 }
-let Ii = null, q1 = null;
-function ql() {
+let Ii = null, Y1 = null;
+function Yl() {
   if (typeof ResizeObserver > "u") return;
   const e = q("#toothGrid");
-  e && (Yl(), Ii = new ResizeObserver(() => {
-    q1 && clearTimeout(q1), q1 = setTimeout(() => {
-      q1 = null;
+  e && (Wl(), Ii = new ResizeObserver(() => {
+    Y1 && clearTimeout(Y1), Y1 = setTimeout(() => {
+      Y1 = null;
       try {
         $o();
       } catch (t) {
@@ -25041,19 +25045,19 @@ function ql() {
     }, 100);
   }), Ii.observe(e));
 }
-function Yl() {
-  Ii && (Ii.disconnect(), Ii = null), q1 && (clearTimeout(q1), q1 = null);
+function Wl() {
+  Ii && (Ii.disconnect(), Ii = null), Y1 && (clearTimeout(Y1), Y1 = null);
 }
 let Ni = [];
-const t2 = /* @__PURE__ */ new Map(), Vs = () => window.matchMedia("(pointer: coarse)").matches;
-let Ks = 0, Hs = 0, qs = 0, wo = !1, $t = null;
-const Ys = 500, Ws = 10;
-let Wl = 0, Ea = 1, Ri = !1, Co = "both", Et = null;
-const Js = /* @__PURE__ */ new WeakMap();
-function $e(e, t, a) {
+const t2 = /* @__PURE__ */ new Map(), Ks = () => window.matchMedia("(pointer: coarse)").matches;
+let Hs = 0, qs = 0, Ys = 0, wo = !1, t1 = null;
+const Ws = 500, Js = 10;
+let Jl = 0, Ea = 1, Ri = !1, Co = "both", Lt = null;
+const Xs = /* @__PURE__ */ new WeakMap();
+function ot(e, t, a) {
   if (!e) return;
-  let i = Js.get(e);
-  i || (i = /* @__PURE__ */ new Set(), Js.set(e, i)), !i.has(t) && (i.add(t), e.addEventListener(t, a));
+  let i = Xs.get(e);
+  i || (i = /* @__PURE__ */ new Set(), Xs.set(e, i)), !i.has(t) && (i.add(t), e.addEventListener(t, a));
 }
 async function O5(e) {
   if (!e) return;
@@ -25065,7 +25069,7 @@ async function O5(e) {
     } catch {
     }
 }
-function Jl(e) {
+function Xl(e) {
   if (!e || !e.dataset.xline) return;
   const t = e.getAttribute("aria-pressed") === "true", a = e.querySelector("#x-line");
   a && (a.style.display = t ? "none" : "");
@@ -25086,12 +25090,12 @@ function Po(e, t) {
   e && (e.disabled = !!t, N5(e));
 }
 function en(e, t) {
-  e && (e.setAttribute("aria-pressed", t ? "true" : "false"), Jl(e));
+  e && (e.setAttribute("aria-pressed", t ? "true" : "false"), Xl(e));
 }
 function R5(e, t) {
   return l(t ? "actions.expand" : "actions.collapse", { label: l(e) });
 }
-function E1(e, t, a) {
+function O1(e, t, a) {
   if (!e) return;
   const i = R5(t, a);
   e.setAttribute("title", i), e.setAttribute("aria-label", i);
@@ -25108,7 +25112,7 @@ const j5 = {
   btnToggleFillingCard: "filling",
   btnToggleRootPeriodontiumCard: "rootPeriodontium"
 };
-function Xl(e) {
+function Ql(e) {
   const a = e.target?.closest?.(".icon-btn");
   if (!a) return;
   const i = a.querySelector(".toggle-icon"), o = F5[a.id];
@@ -25117,7 +25121,7 @@ function Xl(e) {
     const c = document.querySelector("#controlsActions");
     if (!c) return;
     const p = c.classList.toggle("hidden");
-    E1(a, "panel.controls", p), i && (i.textContent = p ? "+" : "−"), Es.controls = p, X();
+    O1(a, "panel.controls", p), i && (i.textContent = p ? "+" : "−"), Os.controls = p, X();
     return;
   }
   const n = j5[a.id];
@@ -25125,38 +25129,38 @@ function Xl(e) {
   const s = a.closest(".card");
   if (!s) return;
   const d = s.classList.toggle("collapsed");
-  E1(a, n, d), i && (i.textContent = d ? "+" : "−"), Es[o] = d, X();
+  O1(a, n, d), i && (i.textContent = d ? "+" : "−"), Os[o] = d, X();
 }
-function Ql(e) {
+function _l(e) {
   const t = e.target?.closest?.("button");
   if (t)
     switch (t.id) {
       case "btnWisdomVisible":
-        L3(!Li);
+        G3(!Li);
         break;
       case "btnOcclView":
         D2(!Oa);
         break;
       case "btnBoneVisible":
-        Uo(!T1);
+        Uo(!E1);
         break;
       case "btnPulpVisible":
-        Fi(!t1);
+        Fi(!i1);
         break;
     }
 }
-function ct(e) {
+function ft(e) {
   return e !== "none" && e !== "implant";
 }
-function m1(e) {
+function h1(e) {
   return e === "tooth-under-gum";
 }
-function o1(e) {
+function s1(e) {
   return e === "no-tooth-after-extraction";
 }
 function M2(e) {
   const t = e?.toothSelection;
-  return !ct(t) || m1(t) || o1(t);
+  return !ft(t) || h1(t) || s1(t);
 }
 function S2(e) {
   const t = N.get(e);
@@ -25164,16 +25168,16 @@ function S2(e) {
   const a = Math.floor(e / 10), i = e % 10;
   return (a === 1 ? 5 : a === 2 ? 6 : a === 3 ? 7 : 8) * 10 + i;
 }
-function kt(e) {
-  if (!St.get(e)) return;
-  const a = ea(S2(e), f1), i = ja.get(e);
+function xt(e) {
+  if (!zt.get(e)) return;
+  const a = ta(S2(e), m1), i = ja.get(e);
   i && (i.textContent = a);
   const o = Fa.get(e);
-  o && (o.textContent = a), oa(e);
+  o && (o.textContent = a), na(e);
 }
 function U5() {
   for (const e of ce)
-    kt(e);
+    xt(e);
 }
 function B5(e, t, a) {
   if (e) {
@@ -25185,36 +25189,36 @@ function B5(e, t, a) {
     t.some((i) => i.value === a) ? e.value = a : e.value = t[0]?.value ?? "";
   }
 }
-function Xs(e) {
-  return la("endo", { isMilktooth: !!e }).map((t) => ({ value: t.value, label: l(t.labelKey) }));
+function Qs(e) {
+  return ca("endo", { isMilktooth: !!e }).map((t) => ({ value: t.value, label: l(t.labelKey) }));
 }
 let ji = !0, Ro = "complex", jo = !0;
 const V5 = ["amalgam", "composite", "gic", "temporary"], Ci = { amalgam: !0, composite: !0, gic: !0, temporary: !0 };
-function _l() {
+function $l() {
   return ji;
 }
-function Qs(e) {
+function _s(e) {
   const t = !!e;
   t !== ji && (ji = t, G && we(N.get(G)), X());
 }
 function K5() {
   return Ro;
 }
-function _s(e) {
+function $s(e) {
   const t = e === "simple" ? "simple" : "complex";
   t !== Ro && (Ro = t, G && we(N.get(G)), X());
 }
 function H5() {
   return jo;
 }
-function $s(e) {
+function er(e) {
   const t = !!e;
   t !== jo && (jo = t, G && we(N.get(G)), X());
 }
 function q5() {
   return { ...Ci };
 }
-function er(e, t) {
+function tr(e, t) {
   if (!Object.prototype.hasOwnProperty.call(Ci, e)) return;
   const a = !!t;
   Ci[e] !== a && (Ci[e] = a, G && we(N.get(G)), X());
@@ -25249,8 +25253,8 @@ function _5() {
     { value: "crownprep", label: l("substrate.crownprep") }
   ];
 }
-function tr(e, t = {}) {
-  return b4(e, { isImplant: !!t.isImplant, toothSelection: t.toothSelection }).map((a) => a.prosthesis ? {
+function ar(e, t = {}) {
+  return k4(e, { isImplant: !!t.isImplant, toothSelection: t.toothSelection }).map((a) => a.prosthesis ? {
     value: `prosthesis|${a.prosthesis}`,
     label: `${l(a.prefixKey ?? "restoration.prefix.removable")}: ${l(Jo[a.prosthesis] ?? a.prosthesis)}`
   } : {
@@ -25259,7 +25263,7 @@ function tr(e, t = {}) {
   });
 }
 function Z2(e) {
-  const t = e?.toothSelection === "milktooth", a = m1(e?.toothSelection), i = o1(e?.toothSelection) || e?.toothSelection === "none" && e?.extractionWound;
+  const t = e?.toothSelection === "milktooth", a = h1(e?.toothSelection), i = s1(e?.toothSelection) || e?.toothSelection === "none" && e?.extractionWound;
   return t || a || i || e?.toothSubstrate === "radix";
 }
 function $5(e, t) {
@@ -25275,75 +25279,75 @@ function z2(e, t) {
   const a = `restoration.material.${t === "metal-ceramic" ? "metalCeramic" : t}`;
   return `${l(`restoration.type.${e}`)} – ${l(a)}`;
 }
-function $l(e) {
+function e3(e) {
   if (A5() === "latin") {
     if (e.pulpLatin && e.pulpLatin !== "none")
-      return l("pulpLatin." + at(e.pulpLatin));
+      return l("pulpLatin." + rt(e.pulpLatin));
     if (e.pulpDx && e.pulpDx !== "normal") {
-      const t = y3[e.pulpDx];
-      if (t) return l("pulpLatin." + at(t));
+      const t = b3[e.pulpDx];
+      if (t) return l("pulpLatin." + rt(t));
     }
   }
-  return e.pulpDx && e.pulpDx !== "normal" ? l("pulpDx." + at(e.pulpDx)) : null;
-}
-function e3(e) {
-  if (!e.apicalDx || e.apicalDx === "normal") return null;
-  let t = l("apicalDx." + at(e.apicalDx));
-  return e.periapicalType && e.periapicalType !== "none" && (t += " (" + l("periapical.type." + at(e.periapicalType)) + ")"), t;
-}
-function e6(e) {
-  return !e.resorptionType || e.resorptionType === "none" ? null : l("resorption.type." + at(e.resorptionType));
+  return e.pulpDx && e.pulpDx !== "normal" ? l("pulpDx." + rt(e.pulpDx)) : null;
 }
 function t3(e) {
-  return e.toothSelection !== "implant" || !e.periImplant || e.periImplant === "none" ? null : l("periImplant." + at(e.periImplant));
+  if (!e.apicalDx || e.apicalDx === "normal") return null;
+  let t = l("apicalDx." + rt(e.apicalDx));
+  return e.periapicalType && e.periapicalType !== "none" && (t += " (" + l("periapical.type." + rt(e.periapicalType)) + ")"), t;
+}
+function e6(e) {
+  return !e.resorptionType || e.resorptionType === "none" ? null : l("resorption.type." + rt(e.resorptionType));
 }
 function a3(e) {
-  return !e.cejVisibility || e.cejVisibility === "none" ? null : l("perio.cej." + at(e.cejVisibility));
+  return e.toothSelection !== "implant" || !e.periImplant || e.periImplant === "none" ? null : l("periImplant." + rt(e.periImplant));
 }
 function i3(e) {
-  return !e.rootConcavity || e.rootConcavity === "none" ? null : l("perio.rootConcavity." + at(e.rootConcavity));
+  return !e.cejVisibility || e.cejVisibility === "none" ? null : l("perio.cej." + rt(e.cejVisibility));
+}
+function o3(e) {
+  return !e.rootConcavity || e.rootConcavity === "none" ? null : l("perio.rootConcavity." + rt(e.rootConcavity));
 }
 function tn(e, t, a) {
   const i = [];
-  for (const o of Y1) {
-    if (!C1.has(o)) continue;
+  for (const o of W1) {
+    if (!P1.has(o)) continue;
     const n = t(e, o);
-    n > 0 && i.push(`${D1(o, e)}: ${n}`);
+    n > 0 && i.push(`${A1(o, e)}: ${n}`);
   }
   return i.length === 0 ? null : `${l(a)} (${i.join(", ")})`;
 }
-function o3(e) {
+function n3(e) {
   return tn(e, Ji, "perio.pi.row");
 }
-function n3(e) {
+function s3(e) {
   return tn(e, Xi, "perio.gi.row");
 }
-function s3(e) {
+function r3(e) {
   return tn(e, Qi, "perio.mpi.row");
 }
-function r3(e) {
+function l3(e) {
   return tn(e, _i, "perio.mbi.row");
 }
-function l3(e) {
+function c3(e) {
   const t = Qa(e);
   return t === null ? null : `${l("perio.kg.row")}: ${t} mm`;
 }
-function c3(e) {
+function d3(e) {
   const t = dn(e);
   return t === "unknown" ? null : l("perio.gt." + t);
 }
-function d3(e) {
+function p3(e) {
   const t = pn(e);
   return t === "none" ? null : l("perio.miller." + t);
 }
-function p3(e) {
+function f3(e) {
   return [
-    $l(e),
     e3(e),
+    t3(e),
     e6(e)
   ].filter((t) => !!t);
 }
-function f3(e) {
+function m3(e) {
   if (!e.caries || e.caries.size === 0 || !e.cariesSeverity) return null;
   let t = 0;
   for (const i of e.caries) {
@@ -25362,43 +25366,43 @@ function a6(e) {
   return t && i && a ? "tooth-broken-mesial-distal-incisal" : t && i ? "tooth-broken-mesial-distal" : i && a ? "tooth-broken-distal-incisal" : t && a ? "tooth-broken-mesial-incisal" : i ? "tooth-broken-distal" : t ? "tooth-broken-mesial" : a ? "tooth-broken-incisal" : null;
 }
 function i6() {
-  const e = la("toothSelection").map((i) => ({ value: i.value, label: l(i.labelKey) }));
+  const e = ca("toothSelection").map((i) => ({ value: i.value, label: l(i.labelKey) }));
   if (Wa() !== "plan") return e;
   const t = /* @__PURE__ */ new Set(["none", "tooth-base", "implant"]), a = G ? N.get(G)?.toothSelection : void 0;
   return a && t.add(a), e.filter((i) => t.has(i.value));
 }
-function m3() {
+function h3() {
   return !zo || !Array.isArray(zo.options) ? [] : zo.options.map((e) => ({
     ...e,
     label: l(e.labelKey)
   }));
 }
-function ar() {
+function ir() {
   return zo?.arches || null;
 }
 function o6() {
-  return la("mobility").map((e) => ({ value: e.value, label: l(e.labelKey) }));
+  return ca("mobility").map((e) => ({ value: e.value, label: l(e.labelKey) }));
 }
 function n6(e) {
-  const t = e?.toothSelection === "implant", a = m1(e?.toothSelection), i = o1(e?.toothSelection) || e?.toothSelection === "none" && e?.extractionWound;
+  const t = e?.toothSelection === "implant", a = h1(e?.toothSelection), i = s1(e?.toothSelection) || e?.toothSelection === "none" && e?.extractionWound;
   return t || a || i;
 }
 function s6(e) {
-  const t = e?.toothSelection === "implant", a = o1(e?.toothSelection) || e?.toothSelection === "none" && e?.extractionWound;
+  const t = e?.toothSelection === "implant", a = s1(e?.toothSelection) || e?.toothSelection === "none" && e?.extractionWound;
   return e?.toothSelection === "none" || a || t;
 }
-const ir = /* @__PURE__ */ new Set([1, 2, 3, 4, 5, 6]);
-function h3(e) {
+const or = /* @__PURE__ */ new Set([1, 2, 3, 4, 5, 6]);
+function u3(e) {
   return e <= 2 ? 1 : e <= 4 ? 2 : 3;
 }
 function r6(e) {
   return e === "deep" ? 6 : e === "dentin" ? 4 : 2;
 }
-function u3(e) {
-  const t = h3(e);
+function g3(e) {
+  const t = u3(e);
   return t === 3 ? "deep" : t === 2 ? "dentin" : "surface";
 }
-function g3() {
+function v3() {
   return Yi ? [1, 2, 3, 4, 5, 6].map((e) => ({ value: e, label: `${e} — ${l(`icdas.code.${e}`)}`, title: l(`icdas.desc.${e}`) })) : [
     { value: 2, label: l("caries.depth.surface") },
     { value: 4, label: l("caries.depth.dentin") },
@@ -25418,7 +25422,7 @@ function c6(e = w2) {
   return (e === "simple" ? [0, 3] : e === "full" ? [0, 1, 2, 3, 4, 5, 6] : [0, 1, 3, 6]).map((a) => ({ value: a, label: l(l6[a]) }));
 }
 function d6(e = Qo) {
-  return e === "severity" ? Array.from(W3).map((t) => ({ value: t, label: l("rootCaries." + at(t)) })) : [
+  return e === "severity" ? Array.from(J3).map((t) => ({ value: t, label: l("rootCaries." + rt(t)) })) : [
     { value: "none", label: l("rootCaries.none") },
     { value: "active-cavitated", label: l("rootCaries.present") }
   ];
@@ -25442,10 +25446,10 @@ function m6(e, t, a) {
 function h6(e, t, a) {
   a && a !== "none" ? e.set(t, a) : e.delete(t);
 }
-function v3(e, t, a) {
+function y3(e, t, a) {
   a && a !== "none" ? e.set(t, a) : e.delete(t);
 }
-function at(e) {
+function rt(e) {
   return String(e).replace(/-([a-z])/g, (t, a) => a.toUpperCase());
 }
 const u6 = {
@@ -25459,17 +25463,17 @@ const u6 = {
   "pulpitis-chronica-hyperplastica": "irreversible-pulpitis",
   "necrosis-pulpae": "necrosis",
   "gangraena-pulpae": "necrosis"
-}, y3 = {
+}, b3 = {
   normal: "pulpa-sana",
   "reversible-pulpitis": "hyperaemia-pulpae",
   "irreversible-pulpitis": "pulpitis-acuta-serosa",
   necrosis: "necrosis-pulpae"
 };
 function g6(e) {
-  return e === "latin" && pl("pulpLatin", { latinPulpDetail: !0 }) ? Array.from(j3).filter((t) => t !== "none").map((t) => ({ value: t, labelKey: "pulpLatin." + at(t) })) : e === "simple" ? [
+  return e === "latin" && fl("pulpLatin", { latinPulpDetail: !0 }) ? Array.from(F3).filter((t) => t !== "none").map((t) => ({ value: t, labelKey: "pulpLatin." + rt(t) })) : e === "simple" ? [
     { value: "normal", labelKey: "pulpDx.normal" },
     { value: "irreversible-pulpitis", labelKey: "pulpDx.irreversiblePulpitis" }
-  ] : Array.from(R3).map((t) => ({ value: t, labelKey: "pulpDx." + at(t) }));
+  ] : Array.from(j3).map((t) => ({ value: t, labelKey: "pulpDx." + rt(t) }));
 }
 function v6(e) {
   return e.apicalDx === "symptomatic-apical-periodontitis" || e.apicalDx === "asymptomatic-apical-periodontitis";
@@ -25479,13 +25483,13 @@ function y6(e, t) {
 }
 function b6(e, t) {
   const a = t.pulpDx ?? "normal", i = t.pulpLatin ?? "none";
-  return e === "simple" ? a === "normal" ? "normal" : "irreversible-pulpitis" : e === "latin" ? i !== "none" ? i : y3[a] ?? "pulpa-sana" : a;
+  return e === "simple" ? a === "normal" ? "normal" : "irreversible-pulpitis" : e === "latin" ? i !== "none" ? i : b3[a] ?? "pulpa-sana" : a;
 }
 function k6() {
   return g6(Ua).map((e) => ({ value: e.value, label: l(e.labelKey) }));
 }
-function b3(e) {
-  return e !== "none" && G3.has(e);
+function k3(e) {
+  return e !== "none" && N3.has(e);
 }
 function x6(e) {
   return e.endo && e.endo !== "none" ? e.endo : b6(Ua, e);
@@ -25495,7 +25499,7 @@ function w6(e, t) {
     e.endo = "none";
     return;
   }
-  if (b3(t))
+  if (k3(t))
     e.endo = t, e.pulpDx = "normal", e.pulpLatin = "none";
   else {
     e.endo = "none";
@@ -25504,28 +25508,28 @@ function w6(e, t) {
   }
 }
 function M6() {
-  return Array.from(F3).map((e) => ({ value: e, label: l("apicalDx." + at(e)) }));
+  return Array.from(U3).map((e) => ({ value: e, label: l("apicalDx." + rt(e)) }));
 }
 function S6() {
-  return Array.from(U3).map((e) => ({ value: e, label: l("resorption.type." + at(e)) }));
+  return Array.from(B3).map((e) => ({ value: e, label: l("resorption.type." + rt(e)) }));
 }
 function Z6() {
-  return Array.from(B3).map((e) => ({ value: e, label: l("wearType." + e) }));
-}
-function z6() {
   return Array.from(V3).map((e) => ({ value: e, label: l("wearType." + e) }));
 }
-function I6() {
-  return Array.from(K3).map((e) => ({ value: e, label: l("discoloration." + e) }));
+function z6() {
+  return Array.from(K3).map((e) => ({ value: e, label: l("wearType." + e) }));
 }
-function k3() {
-  return Array.from(H3).map((e) => ({ value: e, label: l("ortho.appliance." + e) }));
+function I6() {
+  return Array.from(H3).map((e) => ({ value: e, label: l("discoloration." + e) }));
 }
 function x3() {
-  return Array.from(q3).map((e) => ({ value: e, label: l("ortho.drift." + e) }));
+  return Array.from(q3).map((e) => ({ value: e, label: l("ortho.appliance." + e) }));
 }
 function w3() {
-  return Array.from(Y3).map((e) => ({ value: e, label: l("ortho.vertical." + e) }));
+  return Array.from(Y3).map((e) => ({ value: e, label: l("ortho.drift." + e) }));
+}
+function M3() {
+  return Array.from(W3).map((e) => ({ value: e, label: l("ortho.vertical." + e) }));
 }
 function I2(e) {
   return e?.toothSelection === "tooth-base" && e?.restorationType === "none" && e?.toothSubstrate === "natural";
@@ -25545,13 +25549,13 @@ function on(e) {
 }
 function P6() {
   if (G == null) return null;
-  const e = N.get(G) ?? fe(), t = k3();
+  const e = N.get(G) ?? fe(), t = x3();
   t.some((s) => s.value === e.orthoAppliance) || (e.orthoAppliance = t[0]?.value ?? "none");
-  const a = x3();
+  const a = w3();
   a.some((s) => s.value === e.orthoDrift) || (e.orthoDrift = a[0]?.value ?? "none");
-  const i = w3();
+  const i = M3();
   i.some((s) => s.value === e.orthoVertical) || (e.orthoVertical = i[0]?.value ?? "none");
-  const o = ee.size > 0 ? Array.from(ee) : [G], n = o.length > 0 && o.every((s) => {
+  const o = te.size > 0 ? Array.from(te) : [G], n = o.length > 0 && o.every((s) => {
     const d = N.get(s);
     return d && on(d);
   });
@@ -25604,7 +25608,7 @@ function L6() {
         checked: e.caries.has(d.value),
         // Same disable predicate the sync used for the 5 surface checkboxes.
         disabled: n || i,
-        depth: u3(c),
+        depth: g3(c),
         icdas: c,
         isIcdas: Yi,
         radio: f
@@ -25616,18 +25620,18 @@ function L6() {
     cariesActiveDepth: e.cariesActiveDepth,
     rootCariesDisplay: p6(Qo, e.rootCaries),
     cariesDepthVisible: Wi && !t,
-    rootCariesVisible: ct(e.toothSelection) && !t,
+    rootCariesVisible: ft(e.toothSelection) && !t,
     cariesSectionVisible: G6(e, t)
   };
 }
 function G6(e, t) {
-  const a = m1(e.toothSelection), i = o1(e.toothSelection) || e.toothSelection === "none" && e.extractionWound, o = ee.size > 0 ? Array.from(ee) : [], n = o.length > 0 && o.some((c) => {
+  const a = h1(e.toothSelection), i = s1(e.toothSelection) || e.toothSelection === "none" && e.extractionWound, o = te.size > 0 ? Array.from(te) : [], n = o.length > 0 && o.some((c) => {
     const p = N.get(c)?.toothSelection;
     return p === "implant" || p === "none" || p === "tooth-under-gum" || p === "no-tooth-after-extraction";
   }), s = e.toothSelection === "implant" || e.toothSelection === "none" || a || i || n, d = e.toothSubstrate === "radix";
   return !(s || d || t);
 }
-function or(e, t) {
+function nr(e, t) {
   re((a) => {
     t ? (a.caries.add(e), e !== "caries-subcrown" && a.cariesSeverity.set(e.replace("caries-", ""), a.cariesActiveDepth)) : (a.caries.delete(e), a.cariesSeverity.delete(e.replace("caries-", "")));
   });
@@ -25652,32 +25656,32 @@ const j6 = [
 function F6() {
   const e = G != null ? N.get(G) : null, t = e ?? fe(), a = G ?? null, i = t.toothSelection === "milktooth", o = J5(i);
   let n = t.fillingMaterial;
-  o.some((z) => z.value === n) || (n = o[0]?.value ?? "none", e && (e.fillingMaterial = n));
-  const s = j6.map((z) => {
-    const F = z.surface, L = t.fillingSurfaceMaterials.has(F), R = L && t.caries.has(`caries-${F}`), J = t.cariesSeverity.get(F) || 2, T = t.fillingDefect?.get(F), M = L && !!T && T !== "none";
+  o.some((Z) => Z.value === n) || (n = o[0]?.value ?? "none", e && (e.fillingMaterial = n));
+  const s = j6.map((Z) => {
+    const F = Z.surface, L = t.fillingSurfaceMaterials.has(F), j = L && t.caries.has(`caries-${F}`), W = t.cariesSeverity.get(F) || 2, A = t.fillingDefect?.get(F), M = L && !!A && A !== "none";
     return {
-      value: z.value,
+      value: Z.value,
       surface: F,
-      pos: z.pos,
+      pos: Z.pos,
       letter: P2(F, a),
       label: l(sn(F, a)),
       labelId: `lbl-${F}`,
       checked: L,
       material: t.fillingSurfaceMaterials.get(F) || "",
-      hasSubcaries: R,
-      subDepth: u3(J),
-      subIcdas: J,
+      hasSubcaries: j,
+      subDepth: g3(W),
+      subIcdas: W,
       isIcdas: Yi,
       hasDefect: M,
-      defectValue: M ? String(T) : null
+      defectValue: M ? String(A) : null
     };
-  }), d = t.restorationType !== "none", c = n !== "none" && !d, p = Ro === "simple", f = t.fillingSurfaceMaterials.size, u = [...t.fillingSurfaceMaterials.keys()][0], b = u ? t.fillingDefect?.get(u) ?? "none" : "none", w = ee.size > 0 ? Array.from(ee) : [], y = w.length > 0 ? w : G != null ? [G] : [], v = y.length > 0 && y.every((z) => {
-    const F = N.get(z);
-    return !!F && F.toothSelection === "tooth-base" && Pl.has(z);
-  }), m = y.length === 0 ? !0 : v && jo, D = m1(t.toothSelection), Z = o1(t.toothSelection) || t.toothSelection === "none" && t.extractionWound, g = w.length > 0 && w.some((z) => {
-    const F = N.get(z)?.toothSelection;
+  }), d = t.restorationType !== "none", c = n !== "none" && !d, p = Ro === "simple", f = t.fillingSurfaceMaterials.size, h = [...t.fillingSurfaceMaterials.keys()][0], b = h ? t.fillingDefect?.get(h) ?? "none" : "none", w = te.size > 0 ? Array.from(te) : [], y = w.length > 0 ? w : G != null ? [G] : [], v = y.length > 0 && y.every((Z) => {
+    const F = N.get(Z);
+    return !!F && F.toothSelection === "tooth-base" && Dl.has(Z);
+  }), m = y.length === 0 ? !0 : v && jo, P = h1(t.toothSelection), S = s1(t.toothSelection) || t.toothSelection === "none" && t.extractionWound, g = w.length > 0 && w.some((Z) => {
+    const F = N.get(Z)?.toothSelection;
     return F === "implant" || F === "none" || F === "tooth-under-gum" || F === "no-tooth-after-extraction";
-  }), x = t.toothSelection === "implant" || t.toothSelection === "none" || D || Z || g, C = t.toothSelection === "tooth-base" && d;
+  }), x = t.toothSelection === "implant" || t.toothSelection === "none" || P || S || g, I = t.toothSelection === "tooth-base" && d;
   return {
     surfaces: s,
     fillingMaterial: n,
@@ -25692,9 +25696,9 @@ function F6() {
     simpleDefectOptions: W5(),
     fissureSealing: !!t.fissureSealing,
     fissureRowVisible: m,
-    fillingSectionVisible: !(x || C),
-    subcariesSummary: Rp(w, (z) => N.get(z)),
-    defectSummary: Fp(w, (z) => N.get(z))
+    fillingSectionVisible: !(x || I),
+    subcariesSummary: Rp(w, (Z) => N.get(Z)),
+    defectSummary: Fp(w, (Z) => N.get(Z))
   };
 }
 function U6(e) {
@@ -25720,7 +25724,7 @@ function V6(e) {
 function K6(e) {
   re((t) => {
     for (const a of t.fillingSurfaceMaterials.keys())
-      v3(t.fillingDefect, a, e);
+      y3(t.fillingDefect, a, e);
   });
 }
 function H6(e) {
@@ -25729,13 +25733,13 @@ function H6(e) {
   });
 }
 function q6() {
-  return Array.from(J3).map((e) => ({ value: e, label: l("periImplant." + at(e)) }));
+  return Array.from(X3).map((e) => ({ value: e, label: l("periImplant." + rt(e)) }));
 }
 function Y6(e, t) {
   e.periImplant = t;
 }
 function W6() {
-  const e = (G != null ? N.get(G) : null) ?? fe(), t = Wa() === "plan", a = e.toothSelection === "milktooth", i = e.toothSelection === "implant", o = ct(e.toothSelection), n = m1(e.toothSelection), s = o1(e.toothSelection) || e.toothSelection === "none" && e.extractionWound, d = M6();
+  const e = (G != null ? N.get(G) : null) ?? fe(), t = Wa() === "plan", a = e.toothSelection === "milktooth", i = e.toothSelection === "implant", o = ft(e.toothSelection), n = h1(e.toothSelection), s = s1(e.toothSelection) || e.toothSelection === "none" && e.extractionWound, d = M6();
   d.some((F) => F.value === e.apicalDx) || (e.apicalDx = d[0]?.value ?? "normal");
   const c = r5();
   c.some((F) => F.value === e.periapicalType) || (e.periapicalType = c[0]?.value ?? "none");
@@ -25743,25 +25747,25 @@ function W6() {
   p.some((F) => F.value === e.resorptionType) || (e.resorptionType = p[0]?.value ?? "none");
   const f = o6();
   f.some((F) => F.value === e.mobility) || (e.mobility = f[0]?.value ?? "none");
-  const u = q6();
-  u.some((F) => F.value === e.periImplant) || (e.periImplant = u[0]?.value ?? "none");
+  const h = q6();
+  h.some((F) => F.value === e.periImplant) || (e.periImplant = h[0]?.value ?? "none");
   const b = x6(e);
   let w = null, y, v;
   if (!t)
     y = [
       { label: l("pulpEndo.groupVital"), options: k6() },
-      { label: l("pulpEndo.groupTreated"), options: Xs(a).filter((F) => F.value !== "none") }
+      { label: l("pulpEndo.groupTreated"), options: Qs(a).filter((F) => F.value !== "none") }
     ], v = b;
   else {
-    const F = Xs(a);
-    w = F.find((R) => R.value === "none") ?? null, y = [
-      { label: l("pulpEndo.groupTreated"), options: F.filter((R) => R.value !== "none") }
-    ], v = b3(b) ? b : "none";
+    const F = Qs(a);
+    w = F.find((j) => j.value === "none") ?? null, y = [
+      { label: l("pulpEndo.groupTreated"), options: F.filter((j) => j.value !== "none") }
+    ], v = k3(b) ? b : "none";
   }
-  const m = !o || n || s, D = ee.size > 0 ? Array.from(ee) : [], Z = D.length > 0 && D.some((F) => {
+  const m = !o || n || s, P = te.size > 0 ? Array.from(te) : [], S = P.length > 0 && P.some((F) => {
     const L = N.get(F)?.toothSelection;
     return L === "implant" || L === "none" || L === "tooth-under-gum" || L === "no-tooth-after-extraction";
-  }), g = D.length > 0 && D.some((F) => N.get(F)?.toothSelection === "none"), x = i || e.toothSelection === "none" || n || s || Z, C = e.toothSelection === "none" || g, z = Tl.map((F) => F.value === "parodontal" ? {
+  }), g = P.length > 0 && P.some((F) => N.get(F)?.toothSelection === "none"), x = i || e.toothSelection === "none" || n || s || S, I = e.toothSelection === "none" || g, Z = El.map((F) => F.value === "parodontal" ? {
     value: "parodontal",
     label: l("mods.parodontal"),
     checked: e.mods.has("parodontal"),
@@ -25779,9 +25783,9 @@ function W6() {
   return {
     // The section collapses only when BOTH blocks would be gone; the root block
     // stays visible in Plan so endo TREATMENT remains plannable.
-    sectionVisible: !(x && (C || t)),
+    sectionVisible: !(x && (I || t)),
     rootBlockVisible: !x,
-    perioBlockVisible: !(C || t),
+    perioBlockVisible: !(I || t),
     pulpEndoValue: v,
     pulpEndoNoneOption: w,
     pulpEndoGroups: y,
@@ -25806,14 +25810,14 @@ function W6() {
     mobilityDisabled: s6(e),
     mobilityRowVisible: !n6(e),
     perioRowVisible: !M2(e),
-    mods: z,
+    mods: Z,
     calculusChecked: !!e.calculus,
     // The old static shell authored #calculusRow hidden (the imperative sync
     // then showed it for a natural tooth); with no active tooth keep it hidden,
     // so the mocked-init shell-DOM golden stays byte-identical.
     calculusRowVisible: G != null && (e.toothSelection === "tooth-base" || e.toothSelection === "milktooth"),
     periImplantValue: e.periImplant,
-    periImplantOptions: u,
+    periImplantOptions: h,
     periImplantRowVisible: i
   };
 }
@@ -25868,25 +25872,25 @@ function op(e) {
   });
 }
 function np() {
-  const e = ee.size > 0 ? Array.from(ee) : [], t = e.length > 0 ? e.some((a) => Jn.has(Number(a))) : G ? Jn.has(G) : !1;
+  const e = te.size > 0 ? Array.from(te) : [], t = e.length > 0 ? e.some((a) => Jn.has(Number(a))) : G ? Jn.has(G) : !1;
   return i6().map((a) => a.value === "milktooth" ? { ...a, disabled: t } : a);
 }
 function sp() {
   const e = Wa() === "plan", t = np(), a = _5(), i = Z6(), o = z6(), n = I6(), s = Q5(G);
   if (!(G != null)) {
-    const W = fe(), te = tr(s, { isImplant: !1, toothSelection: W.toothSelection });
+    const J = fe(), ae = ar(s, { isImplant: !1, toothSelection: J.toothSelection });
     return {
-      toothSelectValue: W.toothSelection,
+      toothSelectValue: J.toothSelection,
       toothSelectOptions: t,
-      substrateValue: W.toothSubstrate,
+      substrateValue: J.toothSubstrate,
       substrateOptions: a,
       substrateRowVisible: !0,
       extractionWoundChecked: !1,
       extractionRowVisible: !0,
       missingClosedChecked: !1,
       missingClosedRowVisible: !0,
-      restorationValue: `${W.restorationType}|${W.restorationMaterial}`,
-      restorationOptions: te,
+      restorationValue: `${J.restorationType}|${J.restorationMaterial}`,
+      restorationOptions: ae,
       restorationRowVisible: !0,
       crownLeakageChecked: !1,
       crownLeakageRowVisible: !1,
@@ -25899,15 +25903,15 @@ function sp() {
       contactPointRowVisible: !0,
       bruxismRowVisible: !0,
       wearSimple: !1,
-      wearEdgeValue: W.wearEdge,
+      wearEdgeValue: J.wearEdge,
       wearEdgeOptions: i,
       wearEdgeToggleChecked: !1,
-      wearCervicalValue: W.wearCervical,
+      wearCervicalValue: J.wearCervical,
       wearCervicalOptions: o,
       wearCervicalToggleChecked: !1,
       discolorationRowVisible: !0,
       discoSimple: !1,
-      discolorationValue: W.discoloration,
+      discolorationValue: J.discoloration,
       discolorationOptions: n,
       discolorationToggleChecked: !1,
       crownActionsRowVisible: !0,
@@ -25922,42 +25926,42 @@ function sp() {
       crownNeededRowVisible: !0
     };
   }
-  const c = N.get(G) ?? fe(), p = c.toothSelection === "milktooth", f = c.toothSelection === "implant", u = m1(c.toothSelection), b = o1(c.toothSelection) || c.toothSelection === "none" && c.extractionWound;
-  i.some((W) => W.value === c.wearEdge) || (c.wearEdge = i[0]?.value ?? "none"), o.some((W) => W.value === c.wearCervical) || (c.wearCervical = o[0]?.value ?? "none"), n.some((W) => W.value === c.discoloration) || (c.discoloration = n[0]?.value ?? "none"), a.some((W) => W.value === c.toothSubstrate) || (c.toothSubstrate = a[0]?.value ?? "natural");
-  const w = tr(s, { isImplant: f, toothSelection: c.toothSelection }), y = c.prosthesis && c.prosthesis !== "none" ? `prosthesis|${c.prosthesis}` : `${c.restorationType}|${c.restorationMaterial}`;
-  let v = w.some((W) => W.value === y) ? y : w[0]?.value ?? "";
+  const c = N.get(G) ?? fe(), p = c.toothSelection === "milktooth", f = c.toothSelection === "implant", h = h1(c.toothSelection), b = s1(c.toothSelection) || c.toothSelection === "none" && c.extractionWound;
+  i.some((J) => J.value === c.wearEdge) || (c.wearEdge = i[0]?.value ?? "none"), o.some((J) => J.value === c.wearCervical) || (c.wearCervical = o[0]?.value ?? "none"), n.some((J) => J.value === c.discoloration) || (c.discoloration = n[0]?.value ?? "none"), a.some((J) => J.value === c.toothSubstrate) || (c.toothSubstrate = a[0]?.value ?? "natural");
+  const w = ar(s, { isImplant: f, toothSelection: c.toothSelection }), y = c.prosthesis && c.prosthesis !== "none" ? `prosthesis|${c.prosthesis}` : `${c.restorationType}|${c.restorationMaterial}`;
+  let v = w.some((J) => J.value === y) ? y : w[0]?.value ?? "";
   if (v.startsWith("prosthesis|")) {
-    const W = v.slice(11);
-    c.prosthesis !== W && (c.prosthesis = W), c.restorationType = "none", c.restorationMaterial = "none";
+    const J = v.slice(11);
+    c.prosthesis !== J && (c.prosthesis = J), c.restorationType = "none", c.restorationMaterial = "none";
   } else {
-    const [W, te] = v.split("|");
-    (W !== c.restorationType || te !== c.restorationMaterial) && (c.restorationType = W || "none", c.restorationMaterial = te || "none"), c.prosthesis !== "none" && (c.prosthesis = "none");
+    const [J, ae] = v.split("|");
+    (J !== c.restorationType || ae !== c.restorationMaterial) && (c.restorationType = J || "none", c.restorationMaterial = ae || "none"), c.prosthesis !== "none" && (c.prosthesis = "none");
   }
-  (p || u || b || c.toothSubstrate === "radix") && (c.restorationType = "none", c.restorationMaterial = "none", v = "none|none"), c.toothSelection !== "tooth-base" && (c.toothSubstrate = "natural");
-  const m = ee.size > 0 ? Array.from(ee) : [], D = m.length > 0 ? m : G ? [G] : [], Z = Z2(c), g = c.toothSelection !== "tooth-base", x = D.length > 0 && D.every((W) => {
-    const te = N.get(W);
-    return !(!(te && (te.toothSelection === "tooth-base" || te.toothSelection === "milktooth" || Dl.has(te.toothSelection))) || te.toothSelection === "tooth-base" && te.restorationType !== "none");
-  }), C = !e && D.length > 0 && D.every((W) => {
-    const te = N.get(W);
-    return te && I2(te);
-  }), z = !e && D.length > 0 && D.every((W) => {
-    const te = N.get(W);
-    return te && an(te);
-  }), F = D.length > 0 && D.every((W) => {
-    const te = N.get(W);
-    return te && ["tooth-base", "milktooth", "implant", "tooth-under-gum"].includes(te.toothSelection);
-  }), L = D.length > 0 && D.every((W) => {
-    const te = N.get(W);
-    return te && te.toothSelection === "tooth-base" && te.restorationType !== "none";
-  }), R = D.length > 0 && D.every((W) => {
-    const te = N.get(W);
-    return te && te.toothSelection === "tooth-base" && te.restorationType === "none" && ["natural", "broken", "crownprep"].includes(te.toothSubstrate);
-  }), J = D.length > 0 && D.every((W) => {
-    const te = N.get(W);
-    return te && te.toothSelection === "none";
-  }), T = Z, M = !T && c.restorationType !== "none", I = !T && (c.restorationType === "crown" || c.restorationType === "bridge"), E = c.toothSubstrate === "broken" && c.toothSelection === "tooth-base";
+  (p || h || b || c.toothSubstrate === "radix") && (c.restorationType = "none", c.restorationMaterial = "none", v = "none|none"), c.toothSelection !== "tooth-base" && (c.toothSubstrate = "natural");
+  const m = te.size > 0 ? Array.from(te) : [], P = m.length > 0 ? m : G ? [G] : [], S = Z2(c), g = c.toothSelection !== "tooth-base", x = P.length > 0 && P.every((J) => {
+    const ae = N.get(J);
+    return !(!(ae && (ae.toothSelection === "tooth-base" || ae.toothSelection === "milktooth" || Al.has(ae.toothSelection))) || ae.toothSelection === "tooth-base" && ae.restorationType !== "none");
+  }), I = !e && P.length > 0 && P.every((J) => {
+    const ae = N.get(J);
+    return ae && I2(ae);
+  }), Z = !e && P.length > 0 && P.every((J) => {
+    const ae = N.get(J);
+    return ae && an(ae);
+  }), F = P.length > 0 && P.every((J) => {
+    const ae = N.get(J);
+    return ae && ["tooth-base", "milktooth", "implant", "tooth-under-gum"].includes(ae.toothSelection);
+  }), L = P.length > 0 && P.every((J) => {
+    const ae = N.get(J);
+    return ae && ae.toothSelection === "tooth-base" && ae.restorationType !== "none";
+  }), j = P.length > 0 && P.every((J) => {
+    const ae = N.get(J);
+    return ae && ae.toothSelection === "tooth-base" && ae.restorationType === "none" && ["natural", "broken", "crownprep"].includes(ae.toothSubstrate);
+  }), W = P.length > 0 && P.every((J) => {
+    const ae = N.get(J);
+    return ae && ae.toothSelection === "none";
+  }), A = S, M = !A && c.restorationType !== "none", z = !A && (c.restorationType === "crown" || c.restorationType === "bridge"), T = c.toothSubstrate === "broken" && c.toothSelection === "tooth-base";
   let $, le;
-  return E ? ($ = "brokenCrownRow", le = !1) : C ? ($ = "bruxismRow", le = !1) : ($ = "crownActionsRow", le = F), {
+  return T ? ($ = "brokenCrownRow", le = !1) : I ? ($ = "bruxismRow", le = !1) : ($ = "crownActionsRow", le = F), {
     toothSelectValue: c.toothSelection,
     toothSelectOptions: t,
     substrateValue: c.toothSubstrate,
@@ -25966,12 +25970,12 @@ function sp() {
     extractionWoundChecked: !!c.extractionWound,
     extractionRowVisible: c.toothSelection === "none",
     missingClosedChecked: !!c.missingClosed,
-    missingClosedRowVisible: J,
+    missingClosedRowVisible: W,
     restorationValue: v,
     restorationOptions: w,
-    restorationRowVisible: !Z,
+    restorationRowVisible: !S,
     crownLeakageChecked: !!c.crownLeakage,
-    crownLeakageRowVisible: I,
+    crownLeakageRowVisible: z,
     brokenMesialChecked: !!c.brokenMesial,
     brokenIncisalChecked: !!c.brokenIncisal,
     brokenDistalChecked: !!c.brokenDistal,
@@ -25979,7 +25983,7 @@ function sp() {
     contactMesialChecked: !!c.contactMesial,
     contactDistalChecked: !!c.contactDistal,
     contactPointRowVisible: x,
-    bruxismRowVisible: C,
+    bruxismRowVisible: I,
     wearSimple: T5() === "simple",
     wearEdgeValue: c.wearEdge,
     wearEdgeOptions: i,
@@ -25987,7 +25991,7 @@ function sp() {
     wearCervicalValue: c.wearCervical,
     wearCervicalOptions: o,
     wearCervicalToggleChecked: c.wearCervical !== "none",
-    discolorationRowVisible: z,
+    discolorationRowVisible: Z,
     discoSimple: E5() === "simple",
     discolorationValue: c.discoloration,
     discolorationOptions: n,
@@ -26001,7 +26005,7 @@ function sp() {
     crownReplaceChecked: !!c.crownReplace,
     crownReplaceRowVisible: L,
     crownNeededChecked: !!c.crownNeeded,
-    crownNeededRowVisible: R
+    crownNeededRowVisible: j
   };
 }
 function rp(e) {
@@ -26114,111 +26118,111 @@ function Ip(e) {
   });
 }
 function Cp() {
-  ee.size !== 0 && Bp(Array.from(ee));
+  te.size !== 0 && Bp(Array.from(te));
 }
-function nr(e, t) {
+function sr(e, t) {
   for (let a = 1; a <= 8; a++)
     K(B(e, "pulp-inflam-path-" + a), t), K(B(e, "pulp-inflam-path-" + a + "1"), t);
 }
-function M3(e, t, a = N.get(e)) {
+function S3(e, t, a = N.get(e)) {
   if (!a || !t) return;
   const i = ["mods", "tooth-variants", "endos", "surfaces", "restorations", "tooth"];
-  for (const C of i) {
-    const z = B(t, C);
-    z && z.hasAttribute("data-active") && z.setAttribute("data-active", "1");
+  for (const I of i) {
+    const Z = B(t, I);
+    Z && Z.hasAttribute("data-active") && Z.setAttribute("data-active", "1");
   }
-  for (const C of w4()) K(B(t, C), !1);
-  const o = a.restorationType !== "none", n = a.toothSubstrate === "broken" ? a6(a) : null, s = a.toothSelection === "implant", d = a.toothSelection === "milktooth", c = m1(a.toothSelection), p = o1(a.toothSelection) || a.toothSelection === "none" && a.extractionWound, f = a.toothSelection === "none" && (a.prosthesis === "removable-partial" || a.prosthesis === "removable-full"), u = a.toothSelection === "none", b = o || f, w = t.querySelector('[id$="-onlay"]') ? "occlusal" : "front", y = {
+  for (const I of M4()) K(B(t, I), !1);
+  const o = a.restorationType !== "none", n = a.toothSubstrate === "broken" ? a6(a) : null, s = a.toothSelection === "implant", d = a.toothSelection === "milktooth", c = h1(a.toothSelection), p = s1(a.toothSelection) || a.toothSelection === "none" && a.extractionWound, f = a.toothSelection === "none" && (a.prosthesis === "removable-partial" || a.prosthesis === "removable-full"), h = a.toothSelection === "none", b = o || f, w = t.querySelector('[id$="-onlay"]') ? "occlusal" : "front", y = {
     setActive: K,
     svgGetById: B,
-    isToothPresent: ct,
-    isUnderGum: m1,
-    isExtraction: o1,
-    fissureAllowedTeeth: Pl,
-    brokenVariants: Dl
+    isToothPresent: ft,
+    isUnderGum: h1,
+    isExtraction: s1,
+    fissureAllowedTeeth: Dl,
+    brokenVariants: Al
   };
-  if (S4(t, a, M4(a, e, y), y), a.resorptionType !== "none" && ct(a.toothSelection) && K(B(t, "endo-resorption"), !0), a.toothSelection === "tooth-base" && a.restorationType === "none" && a.toothSubstrate === "natural" && (a.wearEdge !== "none" && K(B(t, "tooth-bruxism-wear"), !0), a.wearCervical !== "none" && K(B(t, "tooth-bruxism-neck-wear"), !0)), a.rootCaries !== "none" && ct(a.toothSelection) && w === "front") {
-    const C = B(t, "caries-root");
-    K(C, !0), C && (C.style.opacity = a.rootCaries === "active" ? "0.5" : a.rootCaries === "arrested" ? "0.7" : "1");
+  if (Z4(t, a, S4(a, e, y), y), a.resorptionType !== "none" && ft(a.toothSelection) && K(B(t, "endo-resorption"), !0), a.toothSelection === "tooth-base" && a.restorationType === "none" && a.toothSubstrate === "natural" && (a.wearEdge !== "none" && K(B(t, "tooth-bruxism-wear"), !0), a.wearCervical !== "none" && K(B(t, "tooth-bruxism-neck-wear"), !0)), a.rootCaries !== "none" && ft(a.toothSelection) && w === "front") {
+    const I = B(t, "caries-root");
+    K(I, !0), I && (I.style.opacity = a.rootCaries === "active" ? "0.5" : a.rootCaries === "arrested" ? "0.7" : "1");
   }
   if (s && a.periImplant !== "none") {
     K(B(t, "parodontal"), !0);
-    const C = B(t, "peri-implant-bone-loss"), z = a.periImplant === "peri-implantitis-mild" ? "0.4" : a.periImplant === "peri-implantitis-moderate" ? "0.7" : a.periImplant === "peri-implantitis-severe" ? "1" : "";
-    K(C, z !== ""), C && z !== "" && (C.style.opacity = z);
+    const I = B(t, "peri-implant-bone-loss"), Z = a.periImplant === "peri-implantitis-mild" ? "0.4" : a.periImplant === "peri-implantitis-moderate" ? "0.7" : a.periImplant === "peri-implantitis-severe" ? "1" : "";
+    K(I, Z !== ""), I && Z !== "" && (I.style.opacity = Z);
   }
-  const m = a.pulpDx !== "normal", D = a.pulpDx === "reversible-pulpitis" || a.pulpLatin === "hyperaemia-pulpae", Z = a.endo !== "none";
-  K(B(t, "base"), T1), K(B(t, "implant"), s), K(B(t, "milktooth"), d), s ? K(B(t, "implant-base"), !0) : d ? (K(B(t, "milktooth-base"), !0), K(B(t, "milktooth-beauty"), !0), m ? Z || (K(B(t, "milktooth-inflam-pulp"), !0), nr(t, !D)) : t1 && K(B(t, "milktooth-healthy-pulp"), !0)) : ct(a.toothSelection) && (a.toothSelection === "tooth-base" ? (K(B(t, "tooth-base"), !0), K(B(t, "tooth-base-beauty"), a.toothSubstrate === "natural" && a.restorationType === "none")) : K(B(t, a.toothSelection), !0), !c && !p && (m ? Z || (K(B(t, "tooth-inflam-pulp"), !0), nr(t, !D)) : t1 && K(B(t, "tooth-healthy-pulp"), !0))), n && a.toothSelection === "tooth-base" && (K(B(t, "tooth-base"), !1), K(B(t, n), !0)), a.toothSubstrate === "radix" && a.toothSelection === "tooth-base" && (K(B(t, "tooth-base"), !1), K(B(t, "tooth-radix"), !0)), a.toothSubstrate === "crownprep" && a.toothSelection === "tooth-base" && (K(B(t, "tooth-base"), !1), K(B(t, "tooth-crownprep"), !0)), a.toothSelection === "none" && a.extractionWound && K(B(t, "no-tooth-after-extraction"), !0);
+  const m = a.pulpDx !== "normal", P = a.pulpDx === "reversible-pulpitis" || a.pulpLatin === "hyperaemia-pulpae", S = a.endo !== "none";
+  K(B(t, "base"), E1), K(B(t, "implant"), s), K(B(t, "milktooth"), d), s ? K(B(t, "implant-base"), !0) : d ? (K(B(t, "milktooth-base"), !0), K(B(t, "milktooth-beauty"), !0), m ? S || (K(B(t, "milktooth-inflam-pulp"), !0), sr(t, !P)) : i1 && K(B(t, "milktooth-healthy-pulp"), !0)) : ft(a.toothSelection) && (a.toothSelection === "tooth-base" ? (K(B(t, "tooth-base"), !0), K(B(t, "tooth-base-beauty"), a.toothSubstrate === "natural" && a.restorationType === "none")) : K(B(t, a.toothSelection), !0), !c && !p && (m ? S || (K(B(t, "tooth-inflam-pulp"), !0), sr(t, !P)) : i1 && K(B(t, "tooth-healthy-pulp"), !0))), n && a.toothSelection === "tooth-base" && (K(B(t, "tooth-base"), !1), K(B(t, n), !0)), a.toothSubstrate === "radix" && a.toothSelection === "tooth-base" && (K(B(t, "tooth-base"), !1), K(B(t, "tooth-radix"), !0)), a.toothSubstrate === "crownprep" && a.toothSelection === "tooth-base" && (K(B(t, "tooth-base"), !1), K(B(t, "tooth-crownprep"), !0)), a.toothSelection === "none" && a.extractionWound && K(B(t, "no-tooth-after-extraction"), !0);
   {
-    const C = an(a) && a.discoloration !== "none", z = C && C6[a.discoloration] || "", F = a.toothSelection === "milktooth" ? "milktooth-base" : "tooth-base";
+    const I = an(a) && a.discoloration !== "none", Z = I && C6[a.discoloration] || "", F = a.toothSelection === "milktooth" ? "milktooth-base" : "tooth-base";
     for (const L of ["tooth-base", "milktooth-base"]) {
-      const R = B(t, L);
-      if (!R) continue;
-      R.getAttribute("data-base-fill") === null && R.setAttribute("data-base-fill", R.style.fill || "");
-      const J = R.getAttribute("data-base-fill") || "";
-      R.style.fill = C && L === F ? z : J;
+      const j = B(t, L);
+      if (!j) continue;
+      j.getAttribute("data-base-fill") === null && j.setAttribute("data-base-fill", j.style.fill || "");
+      const W = j.getAttribute("data-base-fill") || "";
+      j.style.fill = I && L === F ? Z : W;
     }
   }
   {
-    const C = on(a), z = (F, L) => {
-      const R = B(t, F);
-      R && K(R, L);
+    const I = on(a), Z = (F, L) => {
+      const j = B(t, F);
+      j && K(j, L);
     };
-    z("ortho-bracket", C && a.orthoAppliance === "bracket"), z("ortho-ring", C && a.orthoAppliance === "band"), z("arrow-mesial", C && a.orthoDrift === "mesial"), z("arrow-distal", C && a.orthoDrift === "distal"), z("arrow-up", C && a.orthoVertical === "extrusion"), z("arrow-down", C && a.orthoVertical === "intrusion"), z("arrow-rotation", C && a.orthoRotation === !0);
+    Z("ortho-bracket", I && a.orthoAppliance === "bracket"), Z("ortho-ring", I && a.orthoAppliance === "band"), Z("arrow-mesial", I && a.orthoDrift === "mesial"), Z("arrow-distal", I && a.orthoDrift === "distal"), Z("arrow-up", I && a.orthoVertical === "extrusion"), Z("arrow-down", I && a.orthoVertical === "intrusion"), Z("arrow-rotation", I && a.orthoRotation === !0);
   }
-  const g = ct(a.toothSelection) ? a.apicalDx !== "normal" : a.toothSelection === "implant" ? !1 : a.mods.has("inflammation");
+  const g = ft(a.toothSelection) ? a.apicalDx !== "normal" : a.toothSelection === "implant" ? !1 : a.mods.has("inflammation");
   if (g) {
     K(B(t, "inflammation"), !0);
-    const C = a.periapicalType === "cyst" ? "cysta" : a.periapicalType === "abscess" || a.apicalDx === "acute-apical-abscess" || a.apicalDx === "chronic-apical-abscess" ? "abscess" : "granuloma";
-    K(B(t, C), !0);
+    const I = a.periapicalType === "cyst" ? "cysta" : a.periapicalType === "abscess" || a.apicalDx === "acute-apical-abscess" || a.apicalDx === "chronic-apical-abscess" ? "abscess" : "granuloma";
+    K(B(t, I), !0);
   } else s && K(B(t, "inflammation"), !1);
-  if (a.mobility !== "none" && a.toothSelection !== "none" && !p && !s && K(B(t, "mobility"), !0), ct(a.toothSelection) && !c && !p && (a.endo === "endo-medical-filling" ? K(B(t, "endo-medical-filling"), !0) : a.endo === "endo-filling" ? K(B(t, "endo-filling"), !0) : a.endo === "endo-glass-pin" ? (K(B(t, "endo-filling"), !0), K(B(t, "endo-glass-pin"), !0)) : a.endo === "endo-filling-incomplete" ? K(B(t, "endo-filling-incomplete"), !0) : a.endo === "endo-metal-pin" && (K(B(t, "endo-filling"), !0), K(B(t, "endo-metal-pin"), !0))), f && (K(B(t, "prosthesis"), !0), K(B(t, "prosthesis-crown"), !0), K(B(t, "prosthesis-connector"), !0)), s && (a.prosthesis === "healing-abutment" ? K(B(t, "implant-healing-abutment"), !0) : a.restorationType === "crown" || a.restorationType === "bridge" ? K(B(t, "implant-connector"), !0) : a.prosthesis === "locator" ? (K(B(t, "restorations"), !0), K(B(t, "implant"), !0), K(B(t, "implant-connector"), !0), K(B(t, "implant-locator-screw"), !0)) : a.prosthesis === "locator-denture" ? (K(B(t, "restorations"), !0), K(B(t, "implant"), !0), K(B(t, "implant-connector"), !0), K(B(t, "implant-locator-screw"), !0), K(B(t, "prosthesis-implant"), !0), K(B(t, "prosthesis-implant-crown"), !0), K(B(t, "prosthesis-implant-gum"), !0)) : a.prosthesis === "bar" ? (K(B(t, "restorations"), !0), K(B(t, "implant"), !0), K(B(t, "implant-connector"), !0), K(B(t, "implant-locator-screw"), !0), K(B(t, "implant-bar"), !0)) : a.prosthesis === "bar-denture" && (K(B(t, "restorations"), !0), K(B(t, "implant"), !0), K(B(t, "implant-connector"), !0), K(B(t, "implant-locator-screw"), !0), K(B(t, "implant-bar"), !0), K(B(t, "prosthesis-implant"), !0), K(B(t, "prosthesis-implant-crown"), !0), K(B(t, "prosthesis-implant-gum"), !0))), u && (K(B(t, "restorations"), !0), a.prosthesis === "bar" ? (K(B(t, "implant"), !0), K(B(t, "implant-bar"), !0)) : a.prosthesis === "bar-denture" && (K(B(t, "implant"), !0), K(B(t, "implant-bar"), !0), K(B(t, "prosthesis-implant"), !0), K(B(t, "prosthesis-implant-crown"), !0), K(B(t, "prosthesis-implant-gum"), !0))), a.restorationType !== "none" && a.restorationMaterial !== "none") {
-    const C = l5[a.restorationMaterial], z = dl(a.restorationType, a.restorationMaterial, w);
-    if (C && z.length) {
-      K(B(t, "restorations"), !0), K(B(t, C), !0);
-      for (const F of z) K(B(t, F), !0);
+  if (a.mobility !== "none" && a.toothSelection !== "none" && !p && !s && K(B(t, "mobility"), !0), ft(a.toothSelection) && !c && !p && (a.endo === "endo-medical-filling" ? K(B(t, "endo-medical-filling"), !0) : a.endo === "endo-filling" ? K(B(t, "endo-filling"), !0) : a.endo === "endo-glass-pin" ? (K(B(t, "endo-filling"), !0), K(B(t, "endo-glass-pin"), !0)) : a.endo === "endo-filling-incomplete" ? K(B(t, "endo-filling-incomplete"), !0) : a.endo === "endo-metal-pin" && (K(B(t, "endo-filling"), !0), K(B(t, "endo-metal-pin"), !0))), f && (K(B(t, "prosthesis"), !0), K(B(t, "prosthesis-crown"), !0), K(B(t, "prosthesis-connector"), !0)), s && (a.prosthesis === "healing-abutment" ? K(B(t, "implant-healing-abutment"), !0) : a.restorationType === "crown" || a.restorationType === "bridge" ? K(B(t, "implant-connector"), !0) : a.prosthesis === "locator" ? (K(B(t, "restorations"), !0), K(B(t, "implant"), !0), K(B(t, "implant-connector"), !0), K(B(t, "implant-locator-screw"), !0)) : a.prosthesis === "locator-denture" ? (K(B(t, "restorations"), !0), K(B(t, "implant"), !0), K(B(t, "implant-connector"), !0), K(B(t, "implant-locator-screw"), !0), K(B(t, "prosthesis-implant"), !0), K(B(t, "prosthesis-implant-crown"), !0), K(B(t, "prosthesis-implant-gum"), !0)) : a.prosthesis === "bar" ? (K(B(t, "restorations"), !0), K(B(t, "implant"), !0), K(B(t, "implant-connector"), !0), K(B(t, "implant-locator-screw"), !0), K(B(t, "implant-bar"), !0)) : a.prosthesis === "bar-denture" && (K(B(t, "restorations"), !0), K(B(t, "implant"), !0), K(B(t, "implant-connector"), !0), K(B(t, "implant-locator-screw"), !0), K(B(t, "implant-bar"), !0), K(B(t, "prosthesis-implant"), !0), K(B(t, "prosthesis-implant-crown"), !0), K(B(t, "prosthesis-implant-gum"), !0))), h && (K(B(t, "restorations"), !0), a.prosthesis === "bar" ? (K(B(t, "implant"), !0), K(B(t, "implant-bar"), !0)) : a.prosthesis === "bar-denture" && (K(B(t, "implant"), !0), K(B(t, "implant-bar"), !0), K(B(t, "prosthesis-implant"), !0), K(B(t, "prosthesis-implant-crown"), !0), K(B(t, "prosthesis-implant-gum"), !0))), a.restorationType !== "none" && a.restorationMaterial !== "none") {
+    const I = l5[a.restorationMaterial], Z = pl(a.restorationType, a.restorationMaterial, w);
+    if (I && Z.length) {
+      K(B(t, "restorations"), !0), K(B(t, I), !0);
+      for (const F of Z) K(B(t, F), !0);
     }
   }
   if (!s && !c && !p && a.toothSelection !== "none") {
-    for (const C of a.caries) {
-      if (C === "caries-subcrown") {
+    for (const I of a.caries) {
+      if (I === "caries-subcrown") {
         o && K(B(t, "caries-subcrown"), !0);
         continue;
       }
       if (b || o) continue;
-      const z = C.replace("caries-", ""), F = a.fillingSurfaceMaterials.has(z), L = a.cariesSeverity.get(z) ?? 2;
+      const Z = I.replace("caries-", ""), F = a.fillingSurfaceMaterials.has(Z), L = a.cariesSeverity.get(Z) ?? 2;
       if (F) {
-        const R = B(t, `subcaries-${z}`);
-        if (K(R, !0), R && L > 0) {
-          const J = 0.3 + (L - 1) / 5 * 0.7;
-          R.style.opacity = String(Math.round(J * 100) / 100);
+        const j = B(t, `subcaries-${Z}`);
+        if (K(j, !0), j && L > 0) {
+          const W = 0.3 + (L - 1) / 5 * 0.7;
+          j.style.opacity = String(Math.round(W * 100) / 100);
         }
       } else {
-        const R = B(t, C);
-        if (K(R, !0), R && Wi) {
-          const J = h3(L);
-          R.style.opacity = J === 3 ? "1" : J === 2 ? "0.7" : "0.45", R.classList.toggle("caries-deep", J === 3);
+        const j = B(t, I);
+        if (K(j, !0), j && Wi) {
+          const W = u3(L);
+          j.style.opacity = W === 3 ? "1" : W === 2 ? "0.7" : "0.45", j.classList.toggle("caries-deep", W === 3);
         }
       }
     }
     if (a.fillingSurfaceMaterials.size > 0 && !o)
-      for (const [C, z] of a.fillingSurfaceMaterials)
-        K(B(t, `filling-${z}-${C}`), !0);
+      for (const [I, Z] of a.fillingSurfaceMaterials)
+        K(B(t, `filling-${Z}-${I}`), !0);
     if (a.fillingDefect && a.fillingDefect.size > 0 && !o)
-      for (const [C, z] of a.fillingDefect)
-        z && z !== "none" && a.fillingSurfaceMaterials.has(C) && K(B(t, `defect-${C}`), !0);
+      for (const [I, Z] of a.fillingDefect)
+        Z && Z !== "none" && a.fillingSurfaceMaterials.has(I) && K(B(t, `defect-${I}`), !0);
   }
   const x = B(t, "inflammation");
   if (x) {
     !On.has(x) && x.parentElement && On.set(x, { parent: x.parentElement, next: x.nextSibling });
-    const C = a.endoResection && ct(a.toothSelection) && !c && !p, z = a.resorptionType !== "none" && ct(a.toothSelection);
-    if ((C || z) && g) {
-      const L = B(t, "tooth"), R = L && L.parentElement || t;
-      R.lastElementChild !== x && R.appendChild(x);
+    const I = a.endoResection && ft(a.toothSelection) && !c && !p, Z = a.resorptionType !== "none" && ft(a.toothSelection);
+    if ((I || Z) && g) {
+      const L = B(t, "tooth"), j = L && L.parentElement || t;
+      j.lastElementChild !== x && j.appendChild(x);
     } else {
       const L = On.get(x);
       if (L && L.parent) {
-        const R = L.next && L.next.parentElement === L.parent ? L.next : null;
-        (x.parentElement !== L.parent || x.nextSibling !== R) && L.parent.insertBefore(x, R);
+        const j = L.next && L.next.parentElement === L.parent ? L.next : null;
+        (x.parentElement !== L.parent || x.nextSibling !== j) && L.parent.insertBefore(x, j);
       }
     }
   }
@@ -26234,25 +26238,25 @@ function Tp(e) {
   e.getAttribute("data-proposed") !== "1" && (e.getAttribute("data-base-dash") === null && e.setAttribute("data-base-dash", e.style.strokeDasharray || ""), e.getAttribute("data-base-pstroke") === null && e.setAttribute("data-base-pstroke", e.style.stroke || ""), e.style.strokeDasharray = Pp, e.style.stroke = Dp, e.setAttribute("data-proposed", "1"));
 }
 function Ep(e, t) {
-  if (Ap(t), p1 !== "plan" || !jt) return;
-  const a = new Set(sr(t).map((n) => n.id)), i = t.cloneNode(!0);
-  M3(e, i, Re.status.get(e) ?? fe());
-  const o = new Set(sr(i).map((n) => n.id));
+  if (Ap(t), f1 !== "plan" || !Ut) return;
+  const a = new Set(rr(t).map((n) => n.id)), i = t.cloneNode(!0);
+  S3(e, i, Ue.status.get(e) ?? fe());
+  const o = new Set(rr(i).map((n) => n.id));
   for (const n of a) {
     if (o.has(n)) continue;
     const s = B(t, n);
     s && Tp(s);
   }
 }
-function it(e) {
-  const t = A1.get(e);
+function lt(e) {
+  const t = T1.get(e);
   if (t) {
     for (const a of t)
-      M3(e, a), Ep(e, a);
-    S3(e), ia(e);
+      S3(e, a), Ep(e, a);
+    Z3(e), oa(e);
   }
 }
-function sr(e) {
+function rr(e) {
   const t = /* @__PURE__ */ new Set(["defs", "linearGradient", "radialGradient", "stop", "clipPath", "mask", "style", "title", "desc", "metadata"]), a = (o) => o.tagName.replace(/^.*:/, "").toLowerCase(), i = [];
   for (const o of Array.from(e.querySelectorAll("[id]"))) {
     if (t.has(a(o))) continue;
@@ -26273,11 +26277,11 @@ function sr(e) {
   }
   return i;
 }
-function S3(e) {
+function Z3(e) {
   if (Ni.length === 0) return;
-  const t = A1.get(e);
+  const t = T1.get(e);
   if (!t) return;
-  const a = N.get(e), i = Ec(e);
+  const a = N.get(e), i = Oc(e);
   for (const o of t) {
     let n = t2.get(e);
     n || (n = /* @__PURE__ */ new Map(), t2.set(e, n));
@@ -26292,13 +26296,13 @@ function S3(e) {
         continue;
       }
       if (!p) continue;
-      const f = hd(p);
+      const f = ud(p);
       if (!f) {
         console.warn(`odontogram plugin "${s.id}": renderSvg() output was fully removed by sanitization — overlay skipped`);
         continue;
       }
-      const u = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      u.setAttribute("data-plugin", s.id), u.setAttribute("data-layer", s.layer), u.innerHTML = f, Op(o, u, s.layer), n.set(s.id, u);
+      const h = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      h.setAttribute("data-plugin", s.id), h.setAttribute("data-layer", s.layer), h.innerHTML = f, Op(o, h, s.layer), n.set(s.id, h);
     }
   }
 }
@@ -26314,7 +26318,7 @@ function Op(e, t, a) {
   }
   n || (a === "base" && e.firstChild ? e.insertBefore(t, e.firstChild) : e.appendChild(t));
 }
-function Z3(e) {
+function z3(e) {
   const t = N.get(e);
   if (!t) return [];
   const a = [];
@@ -26343,19 +26347,19 @@ function Z3(e) {
   }
   if (t.fillingDefect && t.fillingDefect.size > 0 && t.restorationType === "none")
     for (const [o, n] of t.fillingDefect)
-      n && n !== "none" && t.fillingSurfaceMaterials.has(o) && a.push(`${l("fillingDefect.label")} (${D1(o, e)}: ${l("fillingDefect." + n)})`);
+      n && n !== "none" && t.fillingSurfaceMaterials.has(o) && a.push(`${l("fillingDefect.label")} (${A1(o, e)}: ${l("fillingDefect." + n)})`);
   if (t.caries.size > 0) {
-    const o = f3(t);
+    const o = m3(t);
     a.push(o ? `${l("caries.title")} (${o})` : l("caries.title"));
   }
-  t.rootCaries && t.rootCaries !== "none" && a.push(`${l("caries.rootLabel")} (${l("rootCaries." + at(t.rootCaries))})`);
-  for (const o of p3(t)) a.push(o);
+  t.rootCaries && t.rootCaries !== "none" && a.push(`${l("caries.rootLabel")} (${l("rootCaries." + rt(t.rootCaries))})`);
+  for (const o of f3(t)) a.push(o);
   if (t.mods.size > 0)
     for (const o of t.mods)
       o === "parodontal" ? a.push(l("mods.parodontal")) : o === "inflammation" && a.push(l("mods.periapicalInflammation"));
   t.mobility !== "none" && t.toothSelection !== "implant" && a.push(l("inflammation.mobilityLabel") + " " + l(`mobility.${t.mobility}`)), t.calculus && a.push(l("calculus.label"));
   {
-    const o = t3(t);
+    const o = a3(t);
     o && a.push(o);
   }
   {
@@ -26363,15 +26367,11 @@ function Z3(e) {
     o !== "none" && a.push(l(`perio.recession.${o}`));
   }
   {
-    const o = a3(t);
-    o && a.push(o);
-  }
-  {
     const o = i3(t);
     o && a.push(o);
   }
   {
-    const o = o3(e);
+    const o = o3(t);
     o && a.push(o);
   }
   {
@@ -26379,7 +26379,7 @@ function Z3(e) {
     o && a.push(o);
   }
   {
-    const o = l3(e);
+    const o = s3(e);
     o && a.push(o);
   }
   {
@@ -26391,11 +26391,15 @@ function Z3(e) {
     o && a.push(o);
   }
   {
-    const o = s3(e);
+    const o = p3(e);
     o && a.push(o);
   }
   {
     const o = r3(e);
+    o && a.push(o);
+  }
+  {
+    const o = l3(e);
     o && a.push(o);
   }
   t.crownLeakage && !Z2(t) && (t.restorationType === "crown" || t.restorationType === "bridge") && a.push(l("crownLeakage.label")), t.endoResection && a.push(l("endo.resection")), t.fissureSealing && a.push(l("filling.fissureSealing")), t.parapulpalPin && a.push(l("endo.parapulpalPin"));
@@ -26414,18 +26418,18 @@ function Z3(e) {
   }
   return a;
 }
-function ia(e) {
-  const t = St.get(e);
+function oa(e) {
+  const t = zt.get(e);
   if (!t) return;
-  const a = Z3(e), i = N.get(e), o = n1 && i?.note ? i.note : "";
+  const a = z3(e), i = N.get(e), o = r1 && i?.note ? i.note : "";
   let n = a.length > 0 ? a.join(" · ") : "";
   o && (n = n ? n + `
 📝 ` + o : "📝 " + o);
   for (const s of t)
     n ? s.setAttribute("title", n) : s.removeAttribute("title");
 }
-function oa(e) {
-  const t = N.get(e), a = n1 && !!t?.note;
+function na(e) {
+  const t = N.get(e), a = r1 && !!t?.note;
   for (const i of [ja, Fa]) {
     const o = i.get(e);
     if (!o) continue;
@@ -26450,8 +26454,8 @@ function Gp(e) {
 function Np(e, t) {
   if (!t || !t.caries || !t.fillingSurfaceMaterials) return "";
   const a = [];
-  for (const i of Y1)
-    i !== "subcrown" && t.caries.has(`caries-${i}`) && t.fillingSurfaceMaterials.has(i) && a.push(D1(i, e));
+  for (const i of W1)
+    i !== "subcrown" && t.caries.has(`caries-${i}`) && t.fillingSurfaceMaterials.has(i) && a.push(A1(i, e));
   return a.join("");
 }
 function Rp(e, t) {
@@ -26468,8 +26472,8 @@ function Rp(e, t) {
 function jp(e, t) {
   if (!t || !t.fillingDefect || !t.fillingSurfaceMaterials || t.restorationType && t.restorationType !== "none") return "";
   const a = [];
-  for (const i of Y1)
-    i !== "subcrown" && t.fillingDefect.has(i) && t.fillingSurfaceMaterials.has(i) && a.push(D1(i, e));
+  for (const i of W1)
+    i !== "subcrown" && t.fillingDefect.has(i) && t.fillingSurfaceMaterials.has(i) && a.push(A1(i, e));
   return a.join("");
 }
 function Fp(e, t) {
@@ -26483,23 +26487,23 @@ function Fp(e, t) {
   const o = i.length > 1 ? "filling.fillingDefectSummaryMultiple" : "filling.fillingDefectSummarySingle";
   return l(o, { teeth: i.join(", ") });
 }
-function z3(e, t = G) {
+function I3(e, t = G) {
   const a = q("#perioRow"), i = M2(e);
   if (a && a.classList.toggle("hidden", i), i || t == null) return;
-  const o = bt(t), n = L1(t);
-  for (const d of ta) {
+  const o = kt(t), n = G1(t);
+  for (const d of aa) {
     const c = q(`#perio-pd-${d}`);
     if (!c) continue;
-    const p = q(`#perio-gm-${d}`), f = q(`#perio-bop-${d}`), u = q(`#perio-sup-${d}`), b = Object.prototype.hasOwnProperty.call(o.pd, d);
-    c.value = b ? String(o.pd[d]) : "", p.value = b && Object.prototype.hasOwnProperty.call(o.gm, d) ? String(o.gm[d]) : "", f.checked = o.bop.includes(d), u.checked = o.sup.includes(d), Po(p, !b), Po(f, !b), Po(u, !b);
+    const p = q(`#perio-gm-${d}`), f = q(`#perio-bop-${d}`), h = q(`#perio-sup-${d}`), b = Object.prototype.hasOwnProperty.call(o.pd, d);
+    c.value = b ? String(o.pd[d]) : "", p.value = b && Object.prototype.hasOwnProperty.call(o.gm, d) ? String(o.gm[d]) : "", f.checked = o.bop.includes(d), h.checked = o.sup.includes(d), Po(p, !b), Po(f, !b), Po(h, !b);
   }
   const s = q("#perioReadout");
   if (s) {
-    const d = ta.filter((c) => Object.prototype.hasOwnProperty.call(o.pd, c));
+    const d = aa.filter((c) => Object.prototype.hasOwnProperty.call(o.pd, c));
     if (d.length === 0)
       s.textContent = l("perio.readout.empty");
     else {
-      const c = d.map((u) => `${u} ${l("perio.cal")} ${n.get(u)}`).join("   "), p = o.bop.length, f = Math.round(p / d.length * 1e3) / 10;
+      const c = d.map((h) => `${h} ${l("perio.cal")} ${n.get(h)}`).join("   "), p = o.bop.length, f = Math.round(p / d.length * 1e3) / 10;
       s.textContent = `${c}   ${l("perio.bopPercent")} ${f}% (${p}/${d.length})`;
     }
   }
@@ -26520,94 +26524,94 @@ function Up(e) {
       s.appendChild(Q("label", { class: "perio-check" }, [p, Q("span", { text: l("perio.bop") })]));
       const f = Q("input", { type: "checkbox", id: `perio-sup-${n}`, "data-site": n, "data-field": "sup" });
       s.appendChild(Q("label", { class: "perio-check" }, [f, Q("span", { text: l("perio.sup") })]));
-      const u = () => {
-        G != null && z3(N.get(G), G);
+      const h = () => {
+        G != null && I3(N.get(G), G);
       };
       d.addEventListener("change", () => {
         if (G == null) return;
         const b = d.value.trim();
-        Tt(G, n, { pd: b === "" ? null : Number(b) }), u();
+        Ot(G, n, { pd: b === "" ? null : Number(b) }), h();
       }), c.addEventListener("change", () => {
         if (G == null) return;
         const b = c.value.trim();
-        b !== "" && (Tt(G, n, { gm: Number(b) }), u());
+        b !== "" && (Ot(G, n, { gm: Number(b) }), h());
       }), p.addEventListener("change", () => {
-        G != null && (Tt(G, n, { bop: p.checked }), u());
+        G != null && (Ot(G, n, { bop: p.checked }), h());
       }), f.addEventListener("change", () => {
-        G != null && (Tt(G, n, { sup: f.checked }), u());
+        G != null && (Ot(G, n, { sup: f.checked }), h());
       }), o.appendChild(s);
     }
     e.appendChild(o);
   };
-  t(ta.slice(0, 3), "perio-buccal-row"), t(ta.slice(3, 6), "perio-lingual-row");
+  t(aa.slice(0, 3), "perio-buccal-row"), t(aa.slice(3, 6), "perio-lingual-row");
 }
 function we(e) {
-  z3(e), C3();
+  I3(e), P3();
 }
 function re(e) {
-  if (ee.size === 0) return;
-  const t = Array.from(ee);
+  if (te.size === 0) return;
+  const t = Array.from(te);
   Ja(t, () => {
     for (const a of t) {
       const i = N.get(a);
-      i && (e(i, a), it(a), kt(a));
+      i && (e(i, a), lt(a), xt(a));
     }
-    G && ee.has(G) && we(N.get(G)), i1 && !aa && Xa(!1), nn(), X();
+    G && te.has(G) && we(N.get(G)), n1 && !ia && Xa(!1), nn(), X();
   });
 }
-function I3(e) {
-  Yt(e, () => {
-    N.set(e, fe()), it(e), kt(e), G === e && we(N.get(e));
+function C3(e) {
+  Jt(e, () => {
+    N.set(e, fe()), lt(e), xt(e), G === e && we(N.get(e));
   });
 }
 function Bp(e) {
   e.length !== 0 && Ja(e, () => {
-    i1 && (i1 = !1);
+    n1 && (n1 = !1);
     for (const t of e)
-      N.set(t, fe()), it(t), kt(t);
+      N.set(t, fe()), lt(t), xt(t);
     G && (Fo(!0), we(N.get(G))), X();
   });
 }
 function Vp() {
-  Xa(!1), jl();
+  Xa(!1), Fl();
   for (const e of ce)
-    N.set(e, fe()), it(e), kt(e);
+    N.set(e, fe()), lt(e), xt(e);
   G && (Fo(!0), we(N.get(G))), X();
 }
 function Kp() {
   const e = (a) => {
     const i = fe();
     return i.toothSelection = a5.has(a) ? "milktooth" : "none", i;
-  }, t = ce.filter((a) => JSON.stringify(Rt(N.get(a) ?? fe())) !== JSON.stringify(Rt(e(a))));
+  }, t = ce.filter((a) => JSON.stringify(Ft(N.get(a) ?? fe())) !== JSON.stringify(Ft(e(a))));
   Ja(t, () => {
-    i1 = !1, aa = !0;
+    n1 = !1, ia = !0;
     for (const a of ce)
-      N.set(a, e(a)), it(a), kt(a);
-    aa = !1, G && we(N.get(G)), X();
+      N.set(a, e(a)), lt(a), xt(a);
+    ia = !1, G && we(N.get(G)), X();
   });
 }
 function Hp() {
   const e = (a) => {
     const i = fe();
     return i5.has(a) ? i.toothSelection = "tooth-base" : o5.has(a) ? i.toothSelection = "milktooth" : n5.has(a) && (i.toothSelection = "none"), i;
-  }, t = ce.filter((a) => JSON.stringify(Rt(N.get(a) ?? fe())) !== JSON.stringify(Rt(e(a))));
+  }, t = ce.filter((a) => JSON.stringify(Ft(N.get(a) ?? fe())) !== JSON.stringify(Ft(e(a))));
   Ja(t, () => {
-    i1 = !1, aa = !0;
+    n1 = !1, ia = !0;
     for (const a of ce)
-      N.set(a, e(a)), it(a), kt(a);
-    aa = !1, G && we(N.get(G)), X();
+      N.set(a, e(a)), lt(a), xt(a);
+    ia = !1, G && we(N.get(G)), X();
   });
 }
 function C2() {
   const e = q("#activeToothLabel");
   if (e)
-    if (ee.size === 0)
+    if (te.size === 0)
       e.textContent = l("selection.none");
-    else if (ee.size === 1) {
-      const t = G ?? Array.from(ee)[0];
-      e.textContent = ea(S2(t), f1);
+    else if (te.size === 1) {
+      const t = G ?? Array.from(te)[0];
+      e.textContent = ta(S2(t), m1);
     } else
-      e.textContent = l("selection.count", { count: ee.size });
+      e.textContent = l("selection.count", { count: te.size });
 }
 function nn() {
   let e = !1, t = !1, a = !1, i = !1, o = !1;
@@ -26622,8 +26626,8 @@ function Fo(e) {
     t.id !== "statusExtraSelect" && Po(t, !e);
   });
 }
-function C3() {
-  for (const e of Tl) {
+function P3() {
+  for (const e of El) {
     const t = q(`#lbl-${e.value}`);
     t && (t.textContent = l(e.labelKey));
   }
@@ -26631,16 +26635,16 @@ function C3() {
 function qp() {
   const e = q("#statusExtraSelect");
   if (!e) return;
-  const t = m3();
+  const t = h3();
   if (!t.length) return;
   const a = t.map((o) => ({ value: o.id, label: o.label })), i = e.value || a[0]?.value;
   B5(e, a, i);
 }
 function Yp() {
   const e = q("#statusCard"), t = q("#btnToggleStatusCard");
-  e && t && E1(t, "status.title", e.classList.contains("collapsed"));
+  e && t && O1(t, "status.title", e.classList.contains("collapsed"));
   const a = q("#controlsActions"), i = q("#btnToggleControlsCard");
-  a && i && E1(i, "panel.controls", a.classList.contains("hidden"));
+  a && i && O1(i, "panel.controls", a.classList.contains("hidden"));
   const o = [
     { card: "#cariesSection", btn: "#btnToggleCariesCard", labelKey: "caries.title" },
     { card: "#fillingSection", btn: "#btnToggleFillingCard", labelKey: "filling.title" },
@@ -26648,119 +26652,119 @@ function Yp() {
   ];
   for (const n of o) {
     const s = q(n.card), d = q(n.btn);
-    !s || !d || E1(d, n.labelKey, s.classList.contains("collapsed"));
+    !s || !d || O1(d, n.labelKey, s.classList.contains("collapsed"));
   }
 }
 function Wp() {
   qp();
 }
-function rr() {
-  Wp(), C3(), Yp(), C2(), t8(), G && we(N.get(G));
+function lr() {
+  Wp(), P3(), Yp(), C2(), t8(), G && we(N.get(G));
 }
-function Zt() {
+function It() {
   Ya(".tooth-tile").forEach((e) => {
-    const t = Number(e.dataset.tooth), a = ee.has(t);
+    const t = Number(e.dataset.tooth), a = te.has(t);
     e.classList.toggle("active", a), e.hasAttribute("role") && e.setAttribute("aria-selected", String(a));
-  }), nn(), C2(), G && ee.has(G) ? (Fo(!0), we(N.get(G))) : (we(fe()), Fo(!1)), X();
+  }), nn(), C2(), G && te.has(G) ? (Fo(!0), we(N.get(G))) : (we(fe()), Fo(!1)), X();
 }
 function Jp(e) {
-  _t(), z1();
-  const t = A1.get(e), a = t?.find((D, Z) => St.get(e)?.[Z]?.classList.contains("side-view")) || t?.[0];
+  e1(), I1();
+  const t = T1.get(e), a = t?.find((P, S) => zt.get(e)?.[S]?.classList.contains("side-view")) || t?.[0];
   if (!a) return;
-  const i = Q("div", { class: "odon-zoom-overlay" }), o = Q("div", { class: "odon-zoom-popover" }), n = ea(e, f1), s = Q("div", { class: "odon-zoom-header" }), d = Q("span", { class: "odon-zoom-title", text: l("touch.zoom.title", { tooth: n }) }), c = Q("button", { class: "odon-zoom-close", text: "✕" });
-  c.addEventListener("click", _t), s.appendChild(d), s.appendChild(c);
+  const i = Q("div", { class: "odon-zoom-overlay" }), o = Q("div", { class: "odon-zoom-popover" }), n = ta(e, m1), s = Q("div", { class: "odon-zoom-header" }), d = Q("span", { class: "odon-zoom-title", text: l("touch.zoom.title", { tooth: n }) }), c = Q("button", { class: "odon-zoom-close", text: "✕" });
+  c.addEventListener("click", e1), s.appendChild(d), s.appendChild(c);
   const p = Q("div", { class: "odon-zoom-svg" }), f = a.cloneNode(!0);
   p.appendChild(f);
-  const u = Q("div", { class: "odon-zoom-actions" }), b = ee.has(e), w = Q("button", {
+  const h = Q("div", { class: "odon-zoom-actions" }), b = te.has(e), w = Q("button", {
     class: b ? "odon-zoom-btn active" : "odon-zoom-btn",
     text: l(b ? "touch.zoom.deselect" : "touch.zoom.select")
   });
   w.addEventListener("click", () => {
-    ee.has(e) ? (ee.delete(e), G === e && (G = ee.values().next().value ?? null)) : (ee.add(e), G = e), Zt(), _t();
+    te.has(e) ? (te.delete(e), G === e && (G = te.values().next().value ?? null)) : (te.add(e), G = e), It(), e1();
   });
   const y = Q("button", { class: "odon-zoom-btn", text: l("touch.zoom.info") });
   y.addEventListener("click", () => {
-    ee = /* @__PURE__ */ new Set([e]), G = e, Zt(), _t();
-    const D = q("#controlsActions");
-    D && D.scrollIntoView({ behavior: "smooth", block: "start" });
+    te = /* @__PURE__ */ new Set([e]), G = e, It(), e1();
+    const P = q("#controlsActions");
+    P && P.scrollIntoView({ behavior: "smooth", block: "start" });
   });
   const v = Q("button", { class: "odon-zoom-btn danger", text: l("touch.ctx.reset") });
   v.addEventListener("click", () => {
-    I3(e), _t();
+    C3(e), e1();
   });
   const m = Q("button", { class: "odon-zoom-btn", text: l("touch.zoom.close") });
-  if (m.addEventListener("click", _t), u.appendChild(w), u.appendChild(y), n1 && !We) {
-    const D = Q("button", { class: "odon-zoom-btn", text: l("note.title") });
-    D.addEventListener("click", () => {
-      _t(), P3(e);
-    }), u.appendChild(D);
+  if (m.addEventListener("click", e1), h.appendChild(w), h.appendChild(y), r1 && !$e) {
+    const P = Q("button", { class: "odon-zoom-btn", text: l("note.title") });
+    P.addEventListener("click", () => {
+      e1(), D3(e);
+    }), h.appendChild(P);
   }
-  u.appendChild(v), u.appendChild(m), o.appendChild(s), o.appendChild(p), o.appendChild(u), i.addEventListener("click", (D) => {
-    D.target === i && _t();
+  h.appendChild(v), h.appendChild(m), o.appendChild(s), o.appendChild(p), o.appendChild(h), i.addEventListener("click", (P) => {
+    P.target === i && e1();
   }), i.appendChild(o), document.body.appendChild(i);
 }
-function _t() {
+function e1() {
   const e = document.querySelector(".odon-zoom-overlay");
   e && e.remove();
 }
 function Xp(e, t) {
-  z1(), _t();
+  I1(), e1();
   const a = Q("div", { class: "odon-ctx-menu" });
-  if (ee.has(e)) {
+  if (te.has(e)) {
     const c = Q("button", { class: "odon-ctx-item", text: l("touch.ctx.deselect") });
     c.addEventListener("click", () => {
-      ee.delete(e), G === e && (G = ee.values().next().value ?? null), Zt(), z1();
+      te.delete(e), G === e && (G = te.values().next().value ?? null), It(), I1();
     }), a.appendChild(c);
   } else {
     const c = Q("button", { class: "odon-ctx-item", text: l("touch.ctx.select") });
     if (c.addEventListener("click", () => {
-      ee = /* @__PURE__ */ new Set([e]), G = e, Zt(), z1();
-    }), a.appendChild(c), ee.size > 0) {
+      te = /* @__PURE__ */ new Set([e]), G = e, It(), I1();
+    }), a.appendChild(c), te.size > 0) {
       const p = Q("button", { class: "odon-ctx-item", text: l("touch.ctx.multiSelect") });
       p.addEventListener("click", () => {
-        ee.add(e), G = e, Zt(), z1();
+        te.add(e), G = e, It(), I1();
       }), a.appendChild(p);
     }
   }
   a.appendChild(Q("div", { class: "odon-ctx-divider" }));
   const o = Q("button", { class: "odon-ctx-item danger", text: l("touch.ctx.reset") });
   o.addEventListener("click", () => {
-    I3(e), z1();
+    C3(e), I1();
   }), a.appendChild(o);
   const n = Math.min(t.clientX, window.innerWidth - 200), s = Math.min(t.clientY - 10, window.innerHeight - 200);
   a.style.left = n + "px", a.style.top = s + "px", document.body.appendChild(a);
   const d = (c) => {
-    a.contains(c.target) || (z1(), document.removeEventListener("touchstart", d, !0), document.removeEventListener("click", d, !0));
+    a.contains(c.target) || (I1(), document.removeEventListener("touchstart", d, !0), document.removeEventListener("click", d, !0));
   };
   setTimeout(() => {
     document.addEventListener("touchstart", d, !0), document.addEventListener("click", d, !0);
   }, 50);
 }
-function z1() {
+function I1() {
   const e = document.querySelector(".odon-ctx-menu");
   e && e.remove();
 }
-function P3(e) {
-  if (Da(), !n1 || We) return;
+function D3(e) {
+  if (Da(), !r1 || $e) return;
   const t = N.get(e);
   if (!t) return;
-  const a = St.get(e), i = a?.find((y) => y.classList.contains("side-view")) || a?.[0], o = ea(e, f1), n = Q("div", { class: "odon-note-popover" }), s = Q("div", { class: "odon-note-header" }), d = Q("span", { class: "odon-note-title", text: l("note.title") + " — " + o }), c = Q("button", { class: "odon-zoom-close", text: "✕" });
+  const a = zt.get(e), i = a?.find((y) => y.classList.contains("side-view")) || a?.[0], o = ta(e, m1), n = Q("div", { class: "odon-note-popover" }), s = Q("div", { class: "odon-note-header" }), d = Q("span", { class: "odon-note-title", text: l("note.title") + " — " + o }), c = Q("button", { class: "odon-zoom-close", text: "✕" });
   c.addEventListener("click", Da), s.appendChild(d), s.appendChild(c);
   const p = document.createElement("textarea");
   p.className = "odon-note-textarea", p.value = t.note || "", p.placeholder = l("note.placeholder"), p.rows = 3;
-  const f = Q("div", { class: "odon-note-actions" }), u = Q("button", { class: "odon-zoom-btn", text: l("note.save") });
-  u.addEventListener("click", () => {
-    t.note = p.value.trim(), ia(e), oa(e), Da();
+  const f = Q("div", { class: "odon-note-actions" }), h = Q("button", { class: "odon-zoom-btn", text: l("note.save") });
+  h.addEventListener("click", () => {
+    t.note = p.value.trim(), oa(e), na(e), Da();
   });
   const b = Q("button", { class: "odon-zoom-btn danger", text: l("note.delete") });
   b.addEventListener("click", () => {
-    t.note = "", ia(e), oa(e), Da();
-  }), f.appendChild(u), f.appendChild(b), n.appendChild(s), n.appendChild(p), n.appendChild(f);
+    t.note = "", oa(e), na(e), Da();
+  }), f.appendChild(h), f.appendChild(b), n.appendChild(s), n.appendChild(p), n.appendChild(f);
   const w = Q("div", { class: "odon-note-backdrop" });
   if (w.addEventListener("click", Da), w.appendChild(n), document.body.appendChild(w), n.addEventListener("click", (y) => y.stopPropagation()), i) {
     const y = i.getBoundingClientRect(), v = 320;
-    let m = y.left + y.width / 2 - v / 2, D = y.bottom + 8;
-    m < 8 && (m = 8), m + v > window.innerWidth - 8 && (m = window.innerWidth - v - 8), D + 200 > window.innerHeight && (D = y.top - 208), n.style.position = "fixed", n.style.left = m + "px", n.style.top = D + "px";
+    let m = y.left + y.width / 2 - v / 2, P = y.bottom + 8;
+    m < 8 && (m = 8), m + v > window.innerWidth - 8 && (m = window.innerWidth - v - 8), P + 200 > window.innerHeight && (P = y.top - 208), n.style.position = "fixed", n.style.left = m + "px", n.style.top = P + "px";
   }
   p.focus();
 }
@@ -26776,12 +26780,12 @@ function P2(e, t) {
   if (e === "subcrown") return "SC";
   if (Gi === "simple")
     return { buccal: "B", mesial: "M", occlusal: "O", distal: "D", lingual: "L" }[e] || e;
-  const a = t != null && Al(t), i = t != null && Wo(t);
+  const a = t != null && Tl(t), i = t != null && Wo(t);
   return e === "occlusal" ? a ? "I" : "O" : e === "buccal" ? a ? "L" : "B" : e === "lingual" ? i ? "P" : "L" : e === "mesial" ? "M" : e === "distal" ? "D" : e;
 }
 function sn(e, t) {
   if (Gi === "full") {
-    const i = t != null && Al(t), o = t != null && Wo(t);
+    const i = t != null && Tl(t), o = t != null && Wo(t);
     if (e === "occlusal") return i ? "surface.incisal" : "surface.occlusal";
     if (e === "buccal") return i ? "surface.labial" : "surface.buccal";
     if (e === "lingual") return o ? "surface.palatal" : "surface.lingual";
@@ -26798,13 +26802,13 @@ function Qp(e, t, a) {
   La();
   const i = t.getBoundingClientRect(), o = Q("div", { class: "odon-depth-popup" }), n = G != null ? N.get(G) : null, s = !!n?.fillingSurfaceMaterials?.has(e), d = s ? "caries.recurrentTitle" : "caries.primaryTitle";
   o.appendChild(Q("div", { class: "odon-depth-title", text: `${l(d)} – ${l(sn(e, a))}` }));
-  const c = (v, m, D, Z) => {
+  const c = (v, m, P, S) => {
     if (!(!m || m.length === 0)) {
       o.appendChild(Q("div", { class: "odon-depth-group-label", text: l(v) }));
       for (const g of m) {
         const x = Q("button", { class: "odon-depth-option", text: g.label });
-        x.title = g.title || "", D != null && String(g.value) === String(D) && x.classList.add("is-active"), x.addEventListener("click", (C) => {
-          C.stopPropagation(), Z(g.value), La();
+        x.title = g.title || "", P != null && String(g.value) === String(P) && x.classList.add("is-active"), x.addEventListener("click", (I) => {
+          I.stopPropagation(), S(g.value), La();
         }), o.appendChild(x);
       }
     }
@@ -26813,7 +26817,7 @@ function Qp(e, t, a) {
     re((m) => {
       m6(m, e, Number(v));
     });
-  }) : Wi && c("caries.depthLabel", g3(), n?.cariesSeverity?.get(e), (v) => {
+  }) : Wi && c("caries.depthLabel", v3(), n?.cariesSeverity?.get(e), (v) => {
     re((m) => {
       m.caries.has(`caries-${e}`) && m.cariesSeverity.set(e, Number(v));
     });
@@ -26822,8 +26826,8 @@ function Qp(e, t, a) {
       h6(m.radiographicDepth, e, String(v));
     });
   }), document.body.appendChild(o);
-  const p = o.offsetWidth || 140, f = Math.min(i.left, window.innerWidth - p - 8), u = Math.min(i.bottom + 4, window.innerHeight - o.offsetHeight - 8);
-  o.style.left = `${Math.max(8, f)}px`, o.style.top = `${Math.max(8, u)}px`;
+  const p = o.offsetWidth || 140, f = Math.min(i.left, window.innerWidth - p - 8), h = Math.min(i.bottom + 4, window.innerHeight - o.offsetHeight - 8);
+  o.style.left = `${Math.max(8, f)}px`, o.style.top = `${Math.max(8, h)}px`;
   const b = (v) => {
     o.contains(v.target) || y();
   }, w = (v) => {
@@ -26836,7 +26840,7 @@ function Qp(e, t, a) {
     document.addEventListener("mousedown", b, !0), document.addEventListener("keydown", w, !0);
   }, 0);
 }
-function D3(e, t) {
+function A3(e, t) {
   Qp(e, t, G);
 }
 function _p(e, t) {
@@ -26852,44 +26856,44 @@ function $p(e, t, a) {
   for (const y of ["none", "marginal", "fracture", "wear"]) {
     const v = Q("button", { class: "odon-depth-option" + (y === s ? " is-active" : ""), text: l("fillingDefect." + y) });
     v.addEventListener("click", (m) => {
-      m.stopPropagation(), re((D) => {
-        v3(D.fillingDefect, e, y);
+      m.stopPropagation(), re((P) => {
+        y3(P.fillingDefect, e, y);
       }), La();
     }), d.appendChild(v);
   }
   n.appendChild(d), document.body.appendChild(n);
   const c = n.offsetWidth || 140, p = Math.min(o.left, window.innerWidth - c - 8), f = Math.min(o.bottom + 4, window.innerHeight - n.offsetHeight - 8);
   n.style.left = `${Math.max(8, p)}px`, n.style.top = `${Math.max(8, f)}px`;
-  const u = (y) => {
+  const h = (y) => {
     n.contains(y.target) || w();
   }, b = (y) => {
     y.key === "Escape" && w();
   };
   function w() {
-    La(), document.removeEventListener("mousedown", u, !0), document.removeEventListener("keydown", b, !0);
+    La(), document.removeEventListener("mousedown", h, !0), document.removeEventListener("keydown", b, !0);
   }
   setTimeout(() => {
-    document.addEventListener("mousedown", u, !0), document.addEventListener("keydown", b, !0);
+    document.addEventListener("mousedown", h, !0), document.addEventListener("keydown", b, !0);
   }, 0);
 }
-function A3(e, t) {
+function T3(e, t) {
   const a = e.clientX - t.clientX, i = e.clientY - t.clientY;
   return Math.sqrt(a * a + i * i);
 }
-function T3(e) {
+function E3(e) {
   if (e.touches.length === 2) {
-    Ri = !0, Wl = A3(e.touches[0], e.touches[1]);
+    Ri = !0, Jl = T3(e.touches[0], e.touches[1]);
     const t = q("#toothGrid");
     t && t.classList.add("odon-pinch-active"), e.preventDefault();
   }
 }
-function E3(e) {
+function O3(e) {
   if (Ri && e.touches.length === 2) {
-    const t = A3(e.touches[0], e.touches[1]), a = Math.max(0.5, Math.min(3, t / Wl * Ea)), i = q("#toothGrid");
+    const t = T3(e.touches[0], e.touches[1]), a = Math.max(0.5, Math.min(3, t / Jl * Ea)), i = q("#toothGrid");
     i && (i.style.transform = `scale(${a})`), e.preventDefault();
   }
 }
-function O3(e) {
+function L3(e) {
   if (Ri && e.touches.length < 2) {
     Ri = !1;
     const t = q("#toothGrid");
@@ -26902,47 +26906,47 @@ function O3(e) {
 function e8() {
   const e = q("#toothGrid");
   if (!e) return;
-  Et && Et.remove(), Et = Q("div", { class: "odon-arch-toggle" });
+  Lt && Lt.remove(), Lt = Q("div", { class: "odon-arch-toggle" });
   const t = Q("button", { class: "odon-arch-btn", text: l("touch.arch.upper") }), a = Q("button", { class: "odon-arch-btn", text: l("touch.arch.lower") }), i = Q("button", { class: "odon-arch-btn active", text: l("touch.arch.both") });
   function o(n) {
     Co = n, t.classList.toggle("active", n === "upper"), a.classList.toggle("active", n === "lower"), i.classList.toggle("active", n === "both"), e.classList.toggle("odon-arch-upper", n === "upper"), e.classList.toggle("odon-arch-lower", n === "lower");
   }
-  t.addEventListener("click", () => o(Co === "upper" ? "both" : "upper")), a.addEventListener("click", () => o(Co === "lower" ? "both" : "lower")), i.addEventListener("click", () => o("both")), Et.appendChild(t), Et.appendChild(i), Et.appendChild(a), e.parentElement?.insertBefore(Et, e);
+  t.addEventListener("click", () => o(Co === "upper" ? "both" : "upper")), a.addEventListener("click", () => o(Co === "lower" ? "both" : "lower")), i.addEventListener("click", () => o("both")), Lt.appendChild(t), Lt.appendChild(i), Lt.appendChild(a), e.parentElement?.insertBefore(Lt, e);
 }
 function t8() {
-  if (!Et) return;
-  const e = Et.querySelectorAll(".odon-arch-btn");
+  if (!Lt) return;
+  const e = Lt.querySelectorAll(".odon-arch-btn");
   e[0] && (e[0].textContent = l("touch.arch.upper")), e[1] && (e[1].textContent = l("touch.arch.both")), e[2] && (e[2].textContent = l("touch.arch.lower"));
 }
 function a8(e, t) {
   e.addEventListener("touchstart", (a) => {
-    if (We || a.touches.length !== 1) return;
-    Ks = Date.now(), Hs = a.touches[0].clientX, qs = a.touches[0].clientY, wo = !1;
+    if ($e || a.touches.length !== 1) return;
+    Hs = Date.now(), qs = a.touches[0].clientX, Ys = a.touches[0].clientY, wo = !1;
     const i = a.touches[0];
-    $t = setTimeout(() => {
+    t1 = setTimeout(() => {
       wo || Xp(t, i);
-    }, Ys);
+    }, Ws);
   }, { passive: !0 }), e.addEventListener("touchmove", (a) => {
     if (a.touches.length !== 1) return;
-    const i = a.touches[0].clientX - Hs, o = a.touches[0].clientY - qs;
-    (Math.abs(i) > Ws || Math.abs(o) > Ws) && (wo = !0, $t && (clearTimeout($t), $t = null));
+    const i = a.touches[0].clientX - qs, o = a.touches[0].clientY - Ys;
+    (Math.abs(i) > Js || Math.abs(o) > Js) && (wo = !0, t1 && (clearTimeout(t1), t1 = null));
   }, { passive: !0 }), e.addEventListener("touchend", (a) => {
-    if (We) return;
-    $t && (clearTimeout($t), $t = null);
-    const i = Date.now() - Ks;
-    !wo && i < Ys && (a.preventDefault(), Jp(t));
+    if ($e) return;
+    t1 && (clearTimeout(t1), t1 = null);
+    const i = Date.now() - Hs;
+    !wo && i < Ws && (a.preventDefault(), Jp(t));
   });
 }
 function a2(e, t) {
-  if (We) return;
-  t.metaKey || t.ctrlKey ? ee.has(e) ? ee.delete(e) : (ee.add(e), G = e) : (ee = /* @__PURE__ */ new Set([e]), G = e), G && !ee.has(G) && (G = ee.values().next().value ?? null), Zt();
+  if ($e) return;
+  t.metaKey || t.ctrlKey ? te.has(e) ? te.delete(e) : (te.add(e), G = e) : (te = /* @__PURE__ */ new Set([e]), G = e), G && !te.has(G) && (G = te.values().next().value ?? null), It();
 }
 const yi = [
   [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28],
   [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38]
 ];
 function Za(e) {
-  const t = St.get(e);
+  const t = zt.get(e);
   return !t || t.length === 0 ? !1 : t.some((a) => !a.classList.contains("wisdom-hidden") && !a.classList.contains("placeholder"));
 }
 function i8(e, t) {
@@ -26994,12 +26998,12 @@ function i8(e, t) {
     }
   }
   if (n !== null) {
-    const d = St.get(n)?.find((c) => c.classList.contains("side-view"));
+    const d = zt.get(n)?.find((c) => c.classList.contains("side-view"));
     d && d.focus();
   }
 }
 function o8(e, t) {
-  if (!We)
+  if (!$e)
     switch (t.key) {
       case "Enter":
       case " ":
@@ -27016,48 +27020,48 @@ function o8(e, t) {
         break;
     }
 }
-function yt() {
+function bt() {
   const e = /* @__PURE__ */ new Set([18, 28, 38, 48]);
   for (const t of ce) {
-    const a = St.get(t);
+    const a = zt.get(t);
     if (!a) continue;
     const i = !Li && e.has(t);
     for (const o of a)
-      o.classList.toggle("wisdom-hidden", i), o.hasAttribute("role") && (o.setAttribute("tabindex", i || We ? "-1" : "0"), i ? o.setAttribute("aria-hidden", "true") : o.removeAttribute("aria-hidden"));
+      o.classList.toggle("wisdom-hidden", i), o.hasAttribute("role") && (o.setAttribute("tabindex", i || $e ? "-1" : "0"), i ? o.setAttribute("aria-hidden", "true") : o.removeAttribute("aria-hidden"));
   }
-  ee = new Set([...ee].filter((t) => {
-    const a = St.get(t);
+  te = new Set([...te].filter((t) => {
+    const a = zt.get(t);
     return !a || a.length === 0 ? !0 : !a.every((i) => i.classList.contains("wisdom-hidden"));
-  })), G && !ee.has(G) && (G = ee.values().next().value ?? null), Zt();
+  })), G && !te.has(G) && (G = te.values().next().value ?? null), It();
 }
 function Xa(e) {
   if (e) {
-    const t = JSON.stringify(Rt((() => {
+    const t = JSON.stringify(Ft((() => {
       const i = fe();
       return i.toothSelection = "none", i;
-    })())), a = ce.filter((i) => JSON.stringify(Rt(N.get(i) ?? fe())) !== t);
+    })())), a = ce.filter((i) => JSON.stringify(Ft(N.get(i) ?? fe())) !== t);
     Ja(a, () => {
-      i1 = !0, aa = !0;
+      n1 = !0, ia = !0;
       for (const i of ce) {
         const o = fe();
-        o.toothSelection = "none", N.set(i, o), it(i), kt(i);
+        o.toothSelection = "none", N.set(i, o), lt(i), xt(i);
       }
-      aa = !1, G && we(N.get(G)), X();
+      ia = !1, G && we(N.get(G)), X();
     });
     return;
   }
-  i1 = !1, X();
+  n1 = !1, X();
 }
 function n8() {
-  return i1;
+  return n1;
 }
-function L3(e) {
-  Li = !!e, en(q("#btnWisdomVisible"), Li), yt(), $o();
+function G3(e) {
+  Li = !!e, en(q("#btnWisdomVisible"), Li), bt(), $o();
 }
 function Uo(e) {
-  T1 = e, en(q("#btnBoneVisible"), T1);
+  E1 = e, en(q("#btnBoneVisible"), E1);
   for (const t of ce)
-    it(t);
+    lt(t);
 }
 function D2(e) {
   Oa = !!e, en(q("#btnOcclView"), Oa), Ya(".tooth-tile.occl-view").forEach((t) => {
@@ -27065,11 +27069,11 @@ function D2(e) {
   }), $o();
 }
 function Fi(e) {
-  t1 = !!e, en(q("#btnPulpVisible"), t1);
+  i1 = !!e, en(q("#btnPulpVisible"), i1);
   for (const t of ce)
-    it(t);
+    lt(t);
 }
-function Rt(e) {
+function Ft(e) {
   return {
     toothSelection: e.toothSelection,
     pulpDx: e.pulpDx,
@@ -27161,7 +27165,7 @@ function Rt(e) {
     ...e.note ? { note: e.note } : {}
   };
 }
-const s8 = De("toothSelection"), G3 = De("endo"), lr = De("fillingMaterial"), r8 = De("prosthesis"), N3 = De("mobility"), l8 = De("toothSubstrate"), c8 = De("restorationType"), d8 = De("restorationMaterial"), p8 = De("mods"), f8 = De("periapicalType"), m8 = De("caries"), R3 = De("pulpDx"), j3 = De("pulpLatin"), F3 = De("apicalDx"), U3 = De("resorptionType"), B3 = De("wearEdge"), V3 = De("wearCervical"), K3 = De("discoloration"), H3 = De("orthoAppliance"), q3 = De("orthoDrift"), Y3 = De("orthoVertical"), V1 = Z4(), W3 = De("rootCaries"), J3 = De("periImplant"), X3 = De("cejVisibility"), Q3 = De("rootConcavity"), _3 = De("gingivalThickness"), $3 = De("millerClass"), h8 = /* @__PURE__ */ new Set([0, 1, 2, 3, 4, 5, 6]), u8 = /* @__PURE__ */ new Set([0, 1, 2, 3, 4, 5, 6]), g8 = /* @__PURE__ */ new Set(["none", "E1", "E2", "D1", "D2", "D3"]), v8 = /* @__PURE__ */ new Set(["marginal", "fracture", "wear"]), y8 = /* @__PURE__ */ new Set(["mesial", "distal", "buccal", "lingual"]), ec = /* @__PURE__ */ new Set([1, 2, 3, 4]), C1 = /* @__PURE__ */ new Set(["mesial", "distal", "buccal", "lingual"]);
+const s8 = Ae("toothSelection"), N3 = Ae("endo"), cr = Ae("fillingMaterial"), r8 = Ae("prosthesis"), R3 = Ae("mobility"), l8 = Ae("toothSubstrate"), c8 = Ae("restorationType"), d8 = Ae("restorationMaterial"), p8 = Ae("mods"), f8 = Ae("periapicalType"), m8 = Ae("caries"), j3 = Ae("pulpDx"), F3 = Ae("pulpLatin"), U3 = Ae("apicalDx"), B3 = Ae("resorptionType"), V3 = Ae("wearEdge"), K3 = Ae("wearCervical"), H3 = Ae("discoloration"), q3 = Ae("orthoAppliance"), Y3 = Ae("orthoDrift"), W3 = Ae("orthoVertical"), K1 = z4(), J3 = Ae("rootCaries"), X3 = Ae("periImplant"), Q3 = Ae("cejVisibility"), _3 = Ae("rootConcavity"), $3 = Ae("gingivalThickness"), ec = Ae("millerClass"), h8 = /* @__PURE__ */ new Set([0, 1, 2, 3, 4, 5, 6]), u8 = /* @__PURE__ */ new Set([0, 1, 2, 3, 4, 5, 6]), g8 = /* @__PURE__ */ new Set(["none", "E1", "E2", "D1", "D2", "D3"]), v8 = /* @__PURE__ */ new Set(["marginal", "fracture", "wear"]), y8 = /* @__PURE__ */ new Set(["mesial", "distal", "buccal", "lingual"]), tc = /* @__PURE__ */ new Set([1, 2, 3, 4]), P1 = /* @__PURE__ */ new Set(["mesial", "distal", "buccal", "lingual"]);
 function Ln(e, t) {
   return Array.isArray(e) ? new Set(e.filter((a) => typeof a == "string" && t.has(a))) : /* @__PURE__ */ new Set();
 }
@@ -27174,7 +27178,7 @@ function Bo(e, t) {
   const [a, i] = b8[e];
   return e === "pd" && t < a ? null : Math.min(i, Math.max(a, t));
 }
-function tc(e) {
+function ac(e) {
   if (typeof e != "string" || e.trim() === "") return !0;
   const a = ((o) => o.split(".").map((n) => {
     const s = parseInt(n, 10);
@@ -27211,17 +27215,17 @@ function Ba(e, t = !0) {
   }
   a.toothSelection = Ee(e.toothSelection, s8, a.toothSelection);
   const n = e.pulpInflam ? "irreversible-pulpitis" : "normal";
-  a.pulpDx = Ee(e.pulpDx, R3, n), a.pulpLatin = Ee(e.pulpLatin, j3, "none"), a.endoResection = !!e.endoResection;
+  a.pulpDx = Ee(e.pulpDx, j3, n), a.pulpLatin = Ee(e.pulpLatin, F3, "none"), a.endoResection = !!e.endoResection;
   const s = e.rootResorption ? "external-cervical" : "none";
-  a.resorptionType = Ee(e.resorptionType, U3, s), a.mods = Ln(e.mods, p8), a.periapicalType = Ee(e.periapicalType, f8, "none");
+  a.resorptionType = Ee(e.resorptionType, B3, s), a.mods = Ln(e.mods, p8), a.periapicalType = Ee(e.periapicalType, f8, "none");
   let d = "normal";
-  a.mods.has("inflammation") && ct(a.toothSelection) && (d = a.periapicalType === "abscess" ? "acute-apical-abscess" : "asymptomatic-apical-periodontitis", a.mods.delete("inflammation")), a.apicalDx = Ee(e.apicalDx, F3, d), ct(a.toothSelection) && a.apicalDx !== "symptomatic-apical-periodontitis" && a.apicalDx !== "asymptomatic-apical-periodontitis" && (a.periapicalType = "none"), a.endo = Ee(e.endo, G3, a.endo), a.endo && a.endo !== "none" && (a.pulpDx !== "normal" || a.pulpLatin !== "none") && (a.pulpDx = "normal", a.pulpLatin = "none"), a.caries = Ln(e.caries, m8);
+  a.mods.has("inflammation") && ft(a.toothSelection) && (d = a.periapicalType === "abscess" ? "acute-apical-abscess" : "asymptomatic-apical-periodontitis", a.mods.delete("inflammation")), a.apicalDx = Ee(e.apicalDx, U3, d), ft(a.toothSelection) && a.apicalDx !== "symptomatic-apical-periodontitis" && a.apicalDx !== "asymptomatic-apical-periodontitis" && (a.periapicalType = "none"), a.endo = Ee(e.endo, N3, a.endo), a.endo && a.endo !== "none" && (a.pulpDx !== "normal" || a.pulpLatin !== "none") && (a.pulpDx = "normal", a.pulpLatin = "none"), a.caries = Ln(e.caries, m8);
   const c = (g) => {
-    if (typeof g == "number" && ir.has(g)) return g;
+    if (typeof g == "number" && or.has(g)) return g;
     if (typeof g == "string") {
       if (g === "surface" || g === "dentin" || g === "deep") return r6(g);
       const x = Number(g);
-      if (ir.has(x)) return x;
+      if (or.has(x)) return x;
     }
     return null;
   };
@@ -27229,32 +27233,32 @@ function Ba(e, t = !0) {
   const p = /* @__PURE__ */ new Map();
   if (e.cariesSeverity && typeof e.cariesSeverity == "object")
     for (const [g, x] of Object.entries(e.cariesSeverity)) {
-      const C = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN;
-      V1.has(g) && u8.has(C) && p.set(g, C);
+      const I = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN;
+      K1.has(g) && u8.has(I) && p.set(g, I);
     }
   const f = /* @__PURE__ */ new Map();
   if (e.cariesDepths && typeof e.cariesDepths == "object")
     for (const [g, x] of Object.entries(e.cariesDepths)) {
-      const C = c(x);
-      V1.has(g) && C !== null && f.set(g, C);
+      const I = c(x);
+      K1.has(g) && I !== null && f.set(g, I);
     }
-  const u = /* @__PURE__ */ new Map();
+  const h = /* @__PURE__ */ new Map();
   if (e.secondaryCaries && typeof e.secondaryCaries == "object")
     for (const [g, x] of Object.entries(e.secondaryCaries)) {
-      const C = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN;
-      V1.has(g) && h8.has(C) && u.set(g, C);
+      const I = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN;
+      K1.has(g) && h8.has(I) && h.set(g, I);
     }
-  if (a.rootCaries = Ee(e.rootCaries, W3, "none"), a.periImplant = Ee(e.periImplant, J3, "none"), a.toothSelection === "implant" && a.periImplant === "none" && (a.mods.has("inflammation") && (a.periImplant = "mucositis", a.mods.delete("inflammation")), a.mods.has("parodontal") && (a.periImplant = "mucositis", a.mods.delete("parodontal"))), a.cejVisibility = Ee(e.cejVisibility, X3, "none"), a.rootConcavity = Ee(e.rootConcavity, Q3, "none"), a.gingivalThickness = Ee(e.gingivalThickness, _3, "unknown"), a.millerClass = Ee(e.millerClass, $3, "none"), a.radiographicDepth = /* @__PURE__ */ new Map(), e.radiographicDepth && typeof e.radiographicDepth == "object")
+  if (a.rootCaries = Ee(e.rootCaries, J3, "none"), a.periImplant = Ee(e.periImplant, X3, "none"), a.toothSelection === "implant" && a.periImplant === "none" && (a.mods.has("inflammation") && (a.periImplant = "mucositis", a.mods.delete("inflammation")), a.mods.has("parodontal") && (a.periImplant = "mucositis", a.mods.delete("parodontal"))), a.cejVisibility = Ee(e.cejVisibility, Q3, "none"), a.rootConcavity = Ee(e.rootConcavity, _3, "none"), a.gingivalThickness = Ee(e.gingivalThickness, $3, "unknown"), a.millerClass = Ee(e.millerClass, ec, "none"), a.radiographicDepth = /* @__PURE__ */ new Map(), e.radiographicDepth && typeof e.radiographicDepth == "object")
     for (const [g, x] of Object.entries(e.radiographicDepth))
-      V1.has(g) && typeof x == "string" && g8.has(x) && a.radiographicDepth.set(g, x);
+      K1.has(g) && typeof x == "string" && g8.has(x) && a.radiographicDepth.set(g, x);
   if (a.fillingDefect = /* @__PURE__ */ new Map(), e.fillingDefect && typeof e.fillingDefect == "object")
     for (const [g, x] of Object.entries(e.fillingDefect))
-      V1.has(g) && typeof x == "string" && v8.has(x) && a.fillingDefect.set(g, x);
-  a.fillingMaterial = Ee(e.fillingMaterial, lr, a.fillingMaterial), a.fillingSurfaces = Ln(e.fillingSurfaces, V1), a.fillingSurfaceMaterials = /* @__PURE__ */ new Map();
+      K1.has(g) && typeof x == "string" && v8.has(x) && a.fillingDefect.set(g, x);
+  a.fillingMaterial = Ee(e.fillingMaterial, cr, a.fillingMaterial), a.fillingSurfaces = Ln(e.fillingSurfaces, K1), a.fillingSurfaceMaterials = /* @__PURE__ */ new Map();
   const b = e.fillingSurfaceMaterials;
   if (b && typeof b == "object")
     for (const [g, x] of Object.entries(b))
-      V1.has(g) && typeof x == "string" && lr.has(x) && x !== "none" && a.fillingSurfaceMaterials.set(g, x);
+      K1.has(g) && typeof x == "string" && cr.has(x) && x !== "none" && a.fillingSurfaceMaterials.set(g, x);
   else if (a.fillingMaterial !== "none" && a.fillingSurfaces.size > 0)
     for (const g of a.fillingSurfaces)
       a.fillingSurfaceMaterials.set(g, a.fillingMaterial);
@@ -27262,7 +27266,7 @@ function Ba(e, t = !0) {
   const w = /* @__PURE__ */ new Set([
     ...p.keys(),
     ...f.keys(),
-    ...u.keys()
+    ...h.keys()
   ]);
   for (const g of a.fillingSurfaceMaterials.keys())
     t && a.caries.has("caries-" + g) && w.add(g);
@@ -27271,15 +27275,15 @@ function Ba(e, t = !0) {
       a.cariesSeverity.set(g, p.get(g));
       continue;
     }
-    a.fillingSurfaceMaterials.has(g) ? u.has(g) ? a.cariesSeverity.set(g, u.get(g)) : f.has(g) ? a.cariesSeverity.set(g, f.get(g)) : t && a.caries.has("caries-" + g) && a.cariesSeverity.set(g, 3) : f.has(g) && a.cariesSeverity.set(g, f.get(g));
+    a.fillingSurfaceMaterials.has(g) ? h.has(g) ? a.cariesSeverity.set(g, h.get(g)) : f.has(g) ? a.cariesSeverity.set(g, f.get(g)) : t && a.caries.has("caries-" + g) && a.cariesSeverity.set(g, 3) : f.has(g) && a.cariesSeverity.set(g, f.get(g));
   }
   for (const g of a.fillingSurfaceMaterials.keys())
     a.caries.has("caries-" + g) && a.cariesSeverity.get(g) === 0 && (a.caries.delete("caries-" + g), a.cariesSeverity.delete(g));
   a.fissureSealing = !!e.fissureSealing, a.calculus = !!e.calculus, a.contactMesial = !!e.contactMesial, a.contactDistal = !!e.contactDistal;
   const y = e.bruxismWear ? "attrition" : "none";
-  a.wearEdge = Ee(e.wearEdge, B3, y);
+  a.wearEdge = Ee(e.wearEdge, V3, y);
   const v = e.bruxismNeckWear ? "abrasion" : "none";
-  if (a.wearCervical = Ee(e.wearCervical, V3, v), a.discoloration = Ee(e.discoloration, K3, "none"), a.orthoAppliance = Ee(e.orthoAppliance, H3, "none"), a.orthoDrift = Ee(e.orthoDrift, q3, "none"), a.orthoVertical = Ee(e.orthoVertical, Y3, "none"), a.orthoRotation = e.orthoRotation === !0, a.brokenMesial = !!e.brokenMesial, a.brokenIncisal = !!e.brokenIncisal, a.brokenDistal = !!e.brokenDistal, a.extractionWound = !!e.extractionWound, a.extractionPlan = !!e.extractionPlan, a.parapulpalPin = !!e.parapulpalPin, a.crownReplace = !!e.crownReplace, a.crownNeeded = !!e.crownNeeded, a.missingClosed = !!e.missingClosed, a.bridgePillar = !!e.bridgePillar, a.prosthesis = Ee(e.prosthesis, r8, "none"), a.mobility = Ee(e.mobility, N3, a.mobility), a.toothSubstrate = Ee(e.toothSubstrate, l8, a.toothSubstrate), a.restorationType = Ee(e.restorationType, c8, a.restorationType), a.restorationMaterial = Ee(e.restorationMaterial, d8, a.restorationMaterial), a.toothSubstrate === "radix" && a.restorationType !== "none" && (a.restorationType = "none", a.restorationMaterial = "none"), !Oo(a.restorationType, a.restorationMaterial, "occlusal")) {
+  if (a.wearCervical = Ee(e.wearCervical, K3, v), a.discoloration = Ee(e.discoloration, H3, "none"), a.orthoAppliance = Ee(e.orthoAppliance, q3, "none"), a.orthoDrift = Ee(e.orthoDrift, Y3, "none"), a.orthoVertical = Ee(e.orthoVertical, W3, "none"), a.orthoRotation = e.orthoRotation === !0, a.brokenMesial = !!e.brokenMesial, a.brokenIncisal = !!e.brokenIncisal, a.brokenDistal = !!e.brokenDistal, a.extractionWound = !!e.extractionWound, a.extractionPlan = !!e.extractionPlan, a.parapulpalPin = !!e.parapulpalPin, a.crownReplace = !!e.crownReplace, a.crownNeeded = !!e.crownNeeded, a.missingClosed = !!e.missingClosed, a.bridgePillar = !!e.bridgePillar, a.prosthesis = Ee(e.prosthesis, r8, "none"), a.mobility = Ee(e.mobility, R3, a.mobility), a.toothSubstrate = Ee(e.toothSubstrate, l8, a.toothSubstrate), a.restorationType = Ee(e.restorationType, c8, a.restorationType), a.restorationMaterial = Ee(e.restorationMaterial, d8, a.restorationMaterial), a.toothSubstrate === "radix" && a.restorationType !== "none" && (a.restorationType = "none", a.restorationMaterial = "none"), !Oo(a.restorationType, a.restorationMaterial, "occlusal")) {
     const g = Ga[a.restorationType];
     g && g.materials.length > 0 ? a.restorationMaterial = g.materials[0] : (a.restorationType = "none", a.restorationMaterial = "none");
   }
@@ -27288,15 +27292,15 @@ function Ba(e, t = !0) {
   if (m && typeof m == "object") {
     if (m.pd && typeof m.pd == "object")
       for (const [g, x] of Object.entries(m.pd)) {
-        if (!ta.includes(g)) continue;
-        const C = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN, z = Bo("pd", C);
-        z !== null && a.perio.pd.set(g, z);
+        if (!aa.includes(g)) continue;
+        const I = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN, Z = Bo("pd", I);
+        Z !== null && a.perio.pd.set(g, Z);
       }
     if (m.gm && typeof m.gm == "object")
       for (const [g, x] of Object.entries(m.gm)) {
         if (!a.perio.pd.has(g)) continue;
-        const C = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN, z = Bo("gm", C);
-        z !== null && a.perio.gm.set(g, z);
+        const I = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN, Z = Bo("gm", I);
+        Z !== null && a.perio.gm.set(g, Z);
       }
     if (Array.isArray(m.bop))
       for (const g of m.bop)
@@ -27305,33 +27309,33 @@ function Ba(e, t = !0) {
       for (const g of m.sup)
         typeof g == "string" && a.perio.pd.has(g) && a.perio.sup.add(g);
   }
-  const D = e.furcation;
-  if (D && typeof D == "object")
-    for (const [g, x] of Object.entries(D)) {
+  const P = e.furcation;
+  if (P && typeof P == "object")
+    for (const [g, x] of Object.entries(P)) {
       if (!y8.has(g)) continue;
-      const C = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN;
-      Number.isInteger(C) && ec.has(C) && a.furcation.set(g, C);
+      const I = typeof x == "number" ? x : typeof x == "string" ? Number(x) : NaN;
+      Number.isInteger(I) && tc.has(I) && a.furcation.set(g, I);
     }
-  const Z = e.plaque;
-  if (Array.isArray(Z))
-    for (const g of Z)
-      typeof g == "string" && C1.has(g) && a.plaque.add(g);
+  const S = e.plaque;
+  if (Array.isArray(S))
+    for (const g of S)
+      typeof g == "string" && P1.has(g) && a.plaque.add(g);
   if (e.pi && typeof e.pi == "object")
     for (const [g, x] of Object.entries(e.pi))
-      C1.has(g) && (x === 1 || x === 2 || x === 3) && a.pi.set(g, x);
+      P1.has(g) && (x === 1 || x === 2 || x === 3) && a.pi.set(g, x);
   if (e.gi && typeof e.gi == "object")
     for (const [g, x] of Object.entries(e.gi))
-      C1.has(g) && (x === 1 || x === 2 || x === 3) && a.gi.set(g, x);
+      P1.has(g) && (x === 1 || x === 2 || x === 3) && a.gi.set(g, x);
   if (e.mpi && typeof e.mpi == "object")
     for (const [g, x] of Object.entries(e.mpi))
-      C1.has(g) && (x === 1 || x === 2 || x === 3) && a.mpi.set(g, x);
+      P1.has(g) && (x === 1 || x === 2 || x === 3) && a.mpi.set(g, x);
   if (e.mbi && typeof e.mbi == "object")
     for (const [g, x] of Object.entries(e.mbi))
-      C1.has(g) && (x === 1 || x === 2 || x === 3) && a.mbi.set(g, x);
-  if (a.kg = ic(e.kg), typeof e.note == "string" && (a.note = e.note), e.customStates && typeof e.customStates == "object") {
+      P1.has(g) && (x === 1 || x === 2 || x === 3) && a.mbi.set(g, x);
+  if (a.kg = oc(e.kg), typeof e.note == "string" && (a.note = e.note), e.customStates && typeof e.customStates == "object") {
     const g = new Set(Ni.map((x) => x.id));
-    for (const [x, C] of Object.entries(e.customStates))
-      g.has(x) && (a.customStates[x] = C);
+    for (const [x, I] of Object.entries(e.customStates))
+      g.has(x) && (a.customStates[x] = I);
   }
   return a;
 }
@@ -27339,26 +27343,26 @@ function i2(e) {
   const t = {};
   for (const a of ce) {
     const i = e.get(a) ?? fe();
-    t[a] = Rt(i);
+    t[a] = Ft(i);
   }
   return t;
 }
-function ac() {
+function ic() {
   return {
     wisdomVisible: Li,
-    showBase: T1,
+    showBase: E1,
     occlusalVisible: Oa,
-    showHealthyPulp: t1,
-    edentulous: i1
+    showHealthyPulp: i1,
+    edentulous: n1
   };
 }
 function A2() {
-  const e = i2(Re.status), t = jt ? i2(Re.plan) : null, a = t !== null && JSON.stringify(t) !== JSON.stringify(e);
+  const e = i2(Ue.status), t = Ut ? i2(Ue.plan) : null, a = t !== null && JSON.stringify(t) !== JSON.stringify(e);
   return {
     version: "2.20",
-    globals: ac(),
+    globals: ic(),
     teeth: e,
-    ...k2(H) ? {} : { case: Fl(H) },
+    ...k2(H) ? {} : { case: Ul(H) },
     ...a ? { plan: t } : {}
   };
 }
@@ -27368,26 +27372,26 @@ function k8() {
 function qf() {
   return {
     version: "2.20",
-    globals: ac(),
-    teeth: i2(Re.plan),
-    ...k2(H) ? {} : { case: Fl(H) }
+    globals: ic(),
+    teeth: i2(Ue.plan),
+    ...k2(H) ? {} : { case: Ul(H) }
   };
 }
 function Yf(e) {
   if (!e || typeof e != "object") return;
-  const t = tc(e.version), a = e.teeth || {};
+  const t = ac(e.version), a = e.teeth || {};
   for (const i of ce) {
     const o = a[i];
-    Re.plan.set(i, Ba(o, t));
+    Ue.plan.set(i, Ba(o, t));
   }
-  if (jt = !0, d1.clear(), a1 = null, Wa() === "plan") {
+  if (Ut = !0, p1.clear(), o1 = null, Wa() === "plan") {
     for (const i of ce)
-      it(i), kt(i), oa(i);
+      lt(i), xt(i), na(i);
     G && we(N.get(G)), X();
   }
 }
 const x8 = Object.fromEntries(
-  la("toothSelection").map((e) => [e.value, e.labelKey])
+  ca("toothSelection").map((e) => [e.value, e.labelKey])
 );
 function w8(e) {
   const t = e.perio;
@@ -27464,13 +27468,13 @@ const Z8 = [
         const t = c2[e.endo];
         return l(t || "planChange.none");
       }
-      return $l(e) ?? l("planChange.none");
+      return e3(e) ?? l("planChange.none");
     }
   },
   {
     key: "apical",
     labelKey: "planChange.axis.apical",
-    label: (e) => e3(e) ?? l("planChange.none")
+    label: (e) => t3(e) ?? l("planChange.none")
   },
   {
     // ONE summary-level entry per tooth (see perioSummaryLabel above) — never 6
@@ -27495,10 +27499,10 @@ const Z8 = [
   }
 ];
 function z8() {
-  if (!jt) return [];
+  if (!Ut) return [];
   const e = [];
   for (const t of ce) {
-    const a = Re.status.get(t) ?? fe(), i = Re.plan.get(t) ?? fe();
+    const a = Ue.status.get(t) ?? fe(), i = Ue.plan.get(t) ?? fe();
     for (const o of Z8) {
       const n = o.label(a), s = o.label(i);
       n !== s && e.push({ toothNo: t, axis: o.key, from: n, to: s });
@@ -27506,10 +27510,10 @@ function z8() {
   }
   return e;
 }
-function Tt(e, t, a) {
-  if (!ta.includes(t)) return;
+function Ot(e, t, a) {
+  if (!aa.includes(t)) return;
   let i = N.get(e);
-  i || (i = fe(), N.set(e, i)), Yt(e, () => {
+  i || (i = fe(), N.set(e, i)), Jt(e, () => {
     const o = i.perio;
     let n = !1;
     if ("pd" in a) {
@@ -27529,7 +27533,7 @@ function Tt(e, t, a) {
     return a.bop !== void 0 && (a.bop ? o.bop.has(t) || (o.bop.add(t), n = !0) : o.bop.has(t) && (o.bop.delete(t), n = !0)), a.sup !== void 0 && (a.sup ? o.sup.has(t) || (o.sup.add(t), n = !0) : o.sup.has(t) && (o.sup.delete(t), n = !0)), n && X(), n;
   });
 }
-function bt(e) {
+function kt(e) {
   const a = N.get(e)?.perio;
   return !a || a.pd.size === 0 ? { pd: {}, gm: {}, bop: [], sup: [] } : {
     pd: Object.fromEntries(a.pd),
@@ -27541,9 +27545,9 @@ function bt(e) {
 function I8(e, t, a) {
   if (!y2(e).includes(t)) return;
   let i = N.get(e);
-  i || (i = fe(), N.set(e, i)), Yt(e, () => {
+  i || (i = fe(), N.set(e, i)), Jt(e, () => {
     const o = i.furcation;
-    return a == null ? o.has(t) ? (o.delete(t), X(), !0) : !1 : !Number.isInteger(a) || !ec.has(a) ? !1 : o.get(t) !== a ? (o.set(t, a), X(), !0) : !1;
+    return a == null ? o.has(t) ? (o.delete(t), X(), !0) : !1 : !Number.isInteger(a) || !tc.has(a) ? !1 : o.get(t) !== a ? (o.set(t, a), X(), !0) : !1;
   });
 }
 function T2(e) {
@@ -27551,9 +27555,9 @@ function T2(e) {
   return !a || a.size === 0 ? {} : Object.fromEntries(a);
 }
 function C8(e, t, a) {
-  if (!C1.has(t)) return;
+  if (!P1.has(t)) return;
   let i = N.get(e);
-  i || (i = fe(), N.set(e, i)), Yt(e, () => {
+  i || (i = fe(), N.set(e, i)), Jt(e, () => {
     const o = i.plaque;
     if (a) {
       if (!o.has(t))
@@ -27572,9 +27576,9 @@ function ln(e, t) {
   return a === 1 || a === 2 || a === 3 ? a : 0;
 }
 function cn(e, t, a, i) {
-  if (!C1.has(a)) return;
+  if (!P1.has(a)) return;
   let o = N.get(e);
-  o || (o = fe(), N.set(e, o)), !((t === "mpi" || t === "mbi") && o.toothSelection !== "implant") && Yt(e, () => {
+  o || (o = fe(), N.set(e, o)), !((t === "mpi" || t === "mbi") && o.toothSelection !== "implant") && Jt(e, () => {
     const n = o[t];
     return i === 0 ? n.has(a) ? (n.delete(a), X(), !0) : !1 : (i === 1 || i === 2 || i === 3) && n.get(a) !== i ? (n.set(a, i), X(), !0) : !1;
   });
@@ -27603,7 +27607,7 @@ function _i(e, t) {
 function T8(e, t, a) {
   cn(e, "mbi", t, a);
 }
-function ic(e) {
+function oc(e) {
   if (e == null) return null;
   const t = Number(e);
   return Number.isFinite(t) ? Math.max(0, Math.min(15, Math.round(t))) : null;
@@ -27615,42 +27619,42 @@ function Qa(e) {
 function E8(e, t) {
   let a = N.get(e);
   a || (a = fe(), N.set(e, a));
-  const i = t === null ? null : ic(t);
-  t !== null && i === null || Yt(e, () => a.kg === i ? !1 : (a.kg = i, X(), !0));
+  const i = t === null ? null : oc(t);
+  t !== null && i === null || Jt(e, () => a.kg === i ? !1 : (a.kg = i, X(), !0));
 }
 function O8(e, t) {
-  if (!X3.has(t)) return;
+  if (!Q3.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), Yt(e, () => a.cejVisibility === t ? !1 : (a.cejVisibility = t, X(), !0));
+  a || (a = fe(), N.set(e, a)), Jt(e, () => a.cejVisibility === t ? !1 : (a.cejVisibility = t, X(), !0));
 }
 function $i(e) {
   return N.get(e)?.cejVisibility ?? "none";
 }
 function L8(e, t) {
-  if (!Q3.has(t)) return;
+  if (!_3.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), Yt(e, () => a.rootConcavity === t ? !1 : (a.rootConcavity = t, X(), !0));
+  a || (a = fe(), N.set(e, a)), Jt(e, () => a.rootConcavity === t ? !1 : (a.rootConcavity = t, X(), !0));
 }
 function eo(e) {
   return N.get(e)?.rootConcavity ?? "none";
 }
 function G8(e, t) {
-  if (!_3.has(t)) return;
+  if (!$3.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), Yt(e, () => a.gingivalThickness === t ? !1 : (a.gingivalThickness = t, X(), !0));
+  a || (a = fe(), N.set(e, a)), Jt(e, () => a.gingivalThickness === t ? !1 : (a.gingivalThickness = t, X(), !0));
 }
 function dn(e) {
   return N.get(e)?.gingivalThickness ?? "unknown";
 }
 function N8(e, t) {
-  if (!$3.has(t)) return;
+  if (!ec.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), Yt(e, () => a.millerClass === t ? !1 : (a.millerClass = t, X(), !0));
+  a || (a = fe(), N.set(e, a)), Jt(e, () => a.millerClass === t ? !1 : (a.millerClass = t, X(), !0));
 }
 function pn(e) {
   return N.get(e)?.millerClass ?? "none";
 }
-function L1(e) {
+function G1(e) {
   const t = /* @__PURE__ */ new Map(), a = N.get(e);
   if (!a || !a.perio) return t;
   for (const [i, o] of a.perio.pd)
@@ -27663,59 +27667,59 @@ function E2(e) {
   if (!t || !t.perio) return "none";
   const a = t.perio.gm.get("B");
   if (a === void 0 || a <= 0) return "none";
-  const i = L1(e), o = i.get("B") ?? 0, n = Math.max(i.get("MB") ?? 0, i.get("DB") ?? 0);
+  const i = G1(e), o = i.get("B") ?? 0, n = Math.max(i.get("MB") ?? 0, i.get("DB") ?? 0);
   return n < R8 ? "rt1" : n <= o ? "rt2" : "rt3";
 }
-function h1() {
+function u1() {
   let e = 0, t = 0, a = null, i = null, o = null, n = 0, s = 0;
-  for (const I of ce) {
-    const E = N.get(I);
-    if (!E || !E.perio) continue;
-    const $ = E.perio.pd, le = E.perio.gm, W = E.perio.bop;
-    for (const [te, ke] of $) {
-      e++, W.has(te) && t++;
-      const P = ke + (le.get(te) ?? 0);
-      n += ke, s += P, (a === null || P > a) && (a = P, i = I), (o === null || ke > o) && (o = ke);
+  for (const z of ce) {
+    const T = N.get(z);
+    if (!T || !T.perio) continue;
+    const $ = T.perio.pd, le = T.perio.gm, J = T.perio.bop;
+    for (const [ae, Me] of $) {
+      e++, J.has(ae) && t++;
+      const C = Me + (le.get(ae) ?? 0);
+      n += Me, s += C, (a === null || C > a) && (a = C, i = z), (o === null || Me > o) && (o = Me);
     }
   }
   const d = e > 0 ? Math.round(t / e * 1e3) / 10 : 0, c = e > 0 ? Math.round(n / e * 10) / 10 : null, p = e > 0 ? Math.round(s / e * 10) / 10 : null;
   let f = null;
-  for (const I of ce) {
-    const E = N.get(I);
-    if (!(!E || !E.furcation))
-      for (const $ of E.furcation.values())
+  for (const z of ce) {
+    const T = N.get(z);
+    if (!(!T || !T.furcation))
+      for (const $ of T.furcation.values())
         (f === null || $ > f) && (f = $);
   }
-  let u = 0, b = 0;
-  for (const I of ce) {
-    const E = N.get(I);
-    E && ct(E.toothSelection) && (u++, b += E.plaque?.size ?? 0);
+  let h = 0, b = 0;
+  for (const z of ce) {
+    const T = N.get(z);
+    T && ft(T.toothSelection) && (h++, b += T.plaque?.size ?? 0);
   }
-  const w = u > 0 ? Math.round(b / (u * 4) * 1e3) / 10 : 0;
-  let y = 0, v = 0, m = 0, D = 0, Z = 0;
+  const w = h > 0 ? Math.round(b / (h * 4) * 1e3) / 10 : 0;
+  let y = 0, v = 0, m = 0, P = 0, S = 0;
   const g = { thin: 0, medium: 0, thick: 0 }, x = { i: 0, ii: 0, iii: 0, iv: 0 };
-  for (const I of ce) {
-    const E = N.get(I);
-    if (E) {
-      if (E.pi) for (const $ of E.pi.values())
+  for (const z of ce) {
+    const T = N.get(z);
+    if (T) {
+      if (T.pi) for (const $ of T.pi.values())
         y += $, v++;
-      if (E.gi) for (const $ of E.gi.values())
-        m += $, D++;
-      typeof E.kg == "number" && E.kg < 2 && Z++, E.gingivalThickness === "thin" ? g.thin++ : E.gingivalThickness === "medium" ? g.medium++ : E.gingivalThickness === "thick" && g.thick++, E.millerClass === "i" ? x.i++ : E.millerClass === "ii" ? x.ii++ : E.millerClass === "iii" ? x.iii++ : E.millerClass === "iv" && x.iv++;
+      if (T.gi) for (const $ of T.gi.values())
+        m += $, P++;
+      typeof T.kg == "number" && T.kg < 2 && S++, T.gingivalThickness === "thin" ? g.thin++ : T.gingivalThickness === "medium" ? g.medium++ : T.gingivalThickness === "thick" && g.thick++, T.millerClass === "i" ? x.i++ : T.millerClass === "ii" ? x.ii++ : T.millerClass === "iii" ? x.iii++ : T.millerClass === "iv" && x.iv++;
     }
   }
-  const C = v > 0 ? Math.round(y / v * 10) / 10 : null, z = D > 0 ? Math.round(m / D * 10) / 10 : null;
-  let F = 0, L = 0, R = 0, J = 0;
-  for (const I of ce) {
-    const E = N.get(I);
-    if (E && E.toothSelection === "implant") {
-      if (E.mpi) for (const $ of E.mpi.values())
+  const I = v > 0 ? Math.round(y / v * 10) / 10 : null, Z = P > 0 ? Math.round(m / P * 10) / 10 : null;
+  let F = 0, L = 0, j = 0, W = 0;
+  for (const z of ce) {
+    const T = N.get(z);
+    if (T && T.toothSelection === "implant") {
+      if (T.mpi) for (const $ of T.mpi.values())
         F += $, L++;
-      if (E.mbi) for (const $ of E.mbi.values())
-        R += $, J++;
+      if (T.mbi) for (const $ of T.mbi.values())
+        j += $, W++;
     }
   }
-  const T = L > 0 ? Math.round(F / L * 10) / 10 : null, M = J > 0 ? Math.round(R / J * 10) / 10 : null;
+  const A = L > 0 ? Math.round(F / L * 10) / 10 : null, M = W > 0 ? Math.round(j / W * 10) / 10 : null;
   return {
     chartedSites: e,
     bleedingSites: t,
@@ -27727,24 +27731,24 @@ function h1() {
     avgCal: p,
     maxFurcation: f,
     plaquePercent: w,
-    piScore: C,
-    giScore: z,
-    kgDeficientTeeth: Z,
+    piScore: I,
+    giScore: Z,
+    kgDeficientTeeth: S,
     gtDistribution: g,
     millerDistribution: x,
-    mpiScore: T,
+    mpiScore: A,
     mbiScore: M
   };
 }
 function Vo() {
-  const e = h1();
+  const e = u1();
   if (e.chartedSites > 0 || e.maxFurcation !== null || e.plaquePercent > 0 || e.piScore !== null || e.giScore !== null || e.kgDeficientTeeth > 0 || e.gtDistribution.thin > 0 || e.gtDistribution.medium > 0 || e.gtDistribution.thick > 0 || e.millerDistribution.i > 0 || e.millerDistribution.ii > 0 || e.millerDistribution.iii > 0 || e.millerDistribution.iv > 0 || e.mpiScore !== null || e.mbiScore !== null) return !0;
   for (const t of ce)
     if (Qa(t) !== null || $i(t) !== "none" || eo(t) !== "none") return !0;
   return !1;
 }
-function cr() {
-  if (!n1) return !1;
+function dr() {
+  if (!r1) return !1;
   for (const e of N.values())
     if (e.note && e.note.trim() !== "") return !0;
   return !1;
@@ -27764,7 +27768,7 @@ function j8() {
 }
 function F8() {
   const e = ["MB", "DB", "ML", "DL"], t = ["B", "L"], a = ce.map((n) => {
-    const s = N.get(n), d = ct((s ?? fe()).toothSelection), c = L1(n);
+    const s = N.get(n), d = ft((s ?? fe()).toothSelection), c = G1(n);
     let p = 0;
     for (const b of e) {
       const w = c.get(b);
@@ -27775,12 +27779,12 @@ function F8() {
       const w = c.get(b);
       w !== void 0 && w > f && (f = w);
     }
-    let u = 0;
+    let h = 0;
     if (s && s.perio)
       for (const b of s.perio.pd.values())
-        b > u && (u = b);
-    return { toothNo: n, interdentalCal: p, buccalOralCal: f, maxPd: u, present: d };
-  }), i = h1(), o = e1();
+        b > h && (h = b);
+    return { toothNo: n, interdentalCal: p, buccalOralCal: f, maxPd: h, present: d };
+  }), i = u1(), o = a1();
   return {
     teeth: a,
     bopPercent: i.bopPercent,
@@ -27797,7 +27801,7 @@ function F8() {
   };
 }
 function Ui() {
-  const e = il(F8());
+  const e = ol(F8());
   return {
     diagnosis: H.diagnosisOverride ?? e.diagnosis,
     stage: H.stageOverride ?? e.stage,
@@ -27836,24 +27840,24 @@ const V8 = ["pd", "gm"], K8 = [
 function L2(e) {
   return `${e.row}:${e.toothNo}:${e.site}`;
 }
-const oc = new Map(
+const nc = new Map(
   O2.map((e, t) => [L2(e), t])
 );
 function Gn(e) {
-  const t = oc.get(L2(e));
+  const t = nc.get(L2(e));
   return t === void 0 ? null : O2[t + 1] ?? null;
 }
 function H8(e) {
-  const t = oc.get(L2(e));
+  const t = nc.get(L2(e));
   return t === void 0 || t === 0 ? null : O2[t - 1] ?? null;
 }
 function G2(e) {
   return M2(N.get(e));
 }
-function He(e) {
+function Xe(e) {
   return N.get(e)?.toothSelection === "implant";
 }
-function wt(e) {
+function St(e) {
   const t = N.get(e)?.toothSelection;
   return t === "implant" ? "implant" : t === "milktooth" ? "milktooth" : t === "none" || t === "no-tooth-after-extraction" ? "missing" : "normal";
 }
@@ -27861,24 +27865,24 @@ function N2(e) {
   return N.get(e)?.mobility ?? "none";
 }
 function q8(e, t) {
-  if (!N3.has(t)) return;
+  if (!R3.has(t)) return;
   let a = N.get(e);
-  a || (a = fe(), N.set(e, a)), a.mobility !== t && Yt(e, () => {
-    a.mobility = t, it(e), kt(e), e === G && we(N.get(e)), X();
+  a || (a = fe(), N.set(e, a)), a.mobility !== t && Jt(e, () => {
+    a.mobility = t, lt(e), xt(e), e === G && we(N.get(e)), X();
   });
 }
 let R2 = !1;
 function Y8() {
   R2 = !0, X();
 }
-function nc() {
+function sc() {
   R2 = !1, X();
 }
 function W8() {
   return R2;
 }
 let o2 = "toggle";
-function dr() {
+function pr() {
   return o2;
 }
 function J8(e) {
@@ -27915,7 +27919,7 @@ function _8(e, t) {
   Do[e] !== t && (Do = { ...Do, [e]: t }, X());
 }
 let n2 = "translated";
-function na() {
+function sa() {
   return n2;
 }
 function $8(e) {
@@ -27928,7 +27932,7 @@ function bi() {
 function e7(e) {
   e !== s2 && (s2 = e, X());
 }
-function sc(e, t) {
+function rc(e, t) {
   const a = new Blob([JSON.stringify(e, null, 2)], { type: "application/json" }), i = URL.createObjectURL(a), o = document.createElement("a"), n = (/* @__PURE__ */ new Date()).toISOString().slice(0, 19).replace(/[:T]/g, "-");
   o.href = i, o.download = `${t}-${n}.json`, document.body.appendChild(o), o.click(), o.remove(), URL.revokeObjectURL(i);
 }
@@ -27936,31 +27940,31 @@ function Ko(e, t) {
   const a = document.createElement("a");
   a.href = e, a.download = t, document.body.appendChild(a), a.click(), a.remove();
 }
-let O1 = null, pt = !1;
+let L1 = null, ht = !1;
 function to() {
-  if (O1) return;
+  if (L1) return;
   const e = Q("div", { class: "odon-export-card" }, [
     Q("div", { class: "odon-export-title", text: l("export.progress.title") }),
     Q("div", { class: "odon-export-pct", id: "odonExportPct", text: "0%" }),
     Q("div", { class: "odon-export-phase", id: "odonExportPhase", text: l("export.progress.preparing") })
   ]);
-  O1 = Q("div", { class: "odon-export-overlay", role: "status", "aria-live": "polite" }, [e]), document.body.appendChild(O1);
+  L1 = Q("div", { class: "odon-export-overlay", role: "status", "aria-live": "polite" }, [e]), document.body.appendChild(L1);
 }
-function Ve(e, t) {
-  const a = Math.max(0, Math.min(100, Math.round(e))), i = O1?.querySelector("#odonExportPct"), o = O1?.querySelector("#odonExportPhase");
+function Ye(e, t) {
+  const a = Math.max(0, Math.min(100, Math.round(e))), i = L1?.querySelector("#odonExportPct"), o = L1?.querySelector("#odonExportPhase");
   i && (i.textContent = `${a}%`), o && (o.textContent = l(t));
 }
 function ao() {
-  O1 && (O1.remove(), O1 = null);
+  L1 && (L1.remove(), L1 = null);
 }
 const ki = "http://www.w3.org/2000/svg";
-function rc(e, t) {
+function lc(e, t) {
   const a = Array.from(e.children), i = Array.from(t.children);
   for (let o = 0; o < a.length; o++) {
     const n = a[o], s = i[o];
     if (!s) continue;
     const d = window.getComputedStyle(n), c = d.opacity !== "" && Number(d.opacity) === 0;
-    d.display === "none" || d.visibility === "hidden" || c ? s.remove() : rc(n, s);
+    d.display === "none" || d.visibility === "hidden" || c ? s.remove() : lc(n, s);
   }
 }
 function t7(e, t) {
@@ -28009,36 +28013,36 @@ function i7(e, t = {}) {
     const y = w.getBoundingClientRect();
     if (y.width === 0 || y.height === 0) return;
     const v = w.cloneNode(!0);
-    rc(w, v), t7(v, `t${p++}-`);
-    const m = document.createElementNS(ki, "svg"), D = (y.left - a.left) * d;
-    c = Math.max(c, D + y.width), m.setAttribute("x", String(D)), m.setAttribute("y", String(y.top - a.top)), m.setAttribute("width", String(y.width)), m.setAttribute("height", String(y.height));
-    const Z = w.getAttribute("viewBox");
-    for (Z && m.setAttribute("viewBox", Z), m.setAttribute("preserveAspectRatio", "xMidYMid meet"); v.firstChild; ) m.appendChild(v.firstChild);
+    lc(w, v), t7(v, `t${p++}-`);
+    const m = document.createElementNS(ki, "svg"), P = (y.left - a.left) * d;
+    c = Math.max(c, P + y.width), m.setAttribute("x", String(P)), m.setAttribute("y", String(y.top - a.top)), m.setAttribute("width", String(y.width)), m.setAttribute("height", String(y.height));
+    const S = w.getAttribute("viewBox");
+    for (S && m.setAttribute("viewBox", S), m.setAttribute("preserveAspectRatio", "xMidYMid meet"); v.firstChild; ) m.appendChild(v.firstChild);
     n.appendChild(m);
   });
-  const f = hl(e2);
+  const f = ul(e2);
   if (f.length) {
-    const y = ul(f, e2, (v) => gl(e, a, v), u2);
-    for (const v of y) n.appendChild(vl(d === 1 ? v : { ...v, x: v.x * d, width: v.width * d }));
+    const y = gl(f, e2, (v) => vl(e, a, v), u2);
+    for (const v of y) n.appendChild(yl(d === 1 ? v : { ...v, x: v.x * d, width: v.width * d }));
   }
   e.querySelectorAll(".tooth-label-cell").forEach((w) => {
     const y = (w.textContent || "").trim();
     if (!y) return;
     const v = w.getBoundingClientRect();
     if (v.width === 0 || v.height === 0) return;
-    const m = window.getComputedStyle(w), D = document.createElementNS(ki, "text"), Z = (v.left - a.left) * d + v.width / 2;
-    c = Math.max(c, Z + v.width / 2), D.setAttribute("x", String(Z)), D.setAttribute("y", String(v.top - a.top + v.height / 2)), D.setAttribute("text-anchor", "middle"), D.setAttribute("dominant-baseline", "central"), D.setAttribute("font-family", m.fontFamily);
+    const m = window.getComputedStyle(w), P = document.createElementNS(ki, "text"), S = (v.left - a.left) * d + v.width / 2;
+    c = Math.max(c, S + v.width / 2), P.setAttribute("x", String(S)), P.setAttribute("y", String(v.top - a.top + v.height / 2)), P.setAttribute("text-anchor", "middle"), P.setAttribute("dominant-baseline", "central"), P.setAttribute("font-family", m.fontFamily);
     const g = parseFloat(m.fontSize) || 12;
-    D.setAttribute("font-size", `${g * (t.labelFontScale ?? 1)}px`), D.setAttribute("font-weight", m.fontWeight), D.setAttribute("fill", m.color), D.textContent = y, n.appendChild(D);
+    P.setAttribute("font-size", `${g * (t.labelFontScale ?? 1)}px`), P.setAttribute("font-weight", m.fontWeight), P.setAttribute("fill", m.color), P.textContent = y, n.appendChild(P);
   });
-  const u = d < 1 ? Math.max(1, Math.ceil(c)) : i;
-  return u !== i && (n.setAttribute("width", String(u)), n.setAttribute("viewBox", `0 0 ${u} ${o}`), s.setAttribute("width", String(u))), { xml: `<?xml version="1.0" encoding="UTF-8"?>
-${new XMLSerializer().serializeToString(n)}`, width: u, height: o };
+  const h = d < 1 ? Math.max(1, Math.ceil(c)) : i;
+  return h !== i && (n.setAttribute("width", String(h)), n.setAttribute("viewBox", `0 0 ${h} ${o}`), s.setAttribute("width", String(h))), { xml: `<?xml version="1.0" encoding="UTF-8"?>
+${new XMLSerializer().serializeToString(n)}`, width: h, height: o };
 }
 const o7 = { thin: 2, medium: 3.5, thick: 6 };
 function j2(e) {
-  const t = sa(), a = T1, i = t1;
-  t.showBone !== T1 && Uo(t.showBone), t.showHealthyPulp !== t1 && Fi(t.showHealthyPulp);
+  const t = ra(), a = E1, i = i1;
+  t.showBone !== E1 && Uo(t.showBone), t.showHealthyPulp !== i1 && Fi(t.showHealthyPulp);
   let o;
   try {
     o = a7({
@@ -28046,7 +28050,7 @@ function j2(e) {
       packFactor: u7[t.toothSpacing]
     });
   } finally {
-    T1 !== a && Uo(a), t1 !== i && Fi(i);
+    E1 !== a && Uo(a), i1 !== i && Fi(i);
   }
   if (o && e && t.border) {
     const n = o7[t.borderThickness], [s, d, c] = v2[t.colorTheme].header, p = n / 2, f = `<rect x="${p}" y="${p}" width="${o.width - n}" height="${o.height - n}" fill="none" stroke="rgb(${s},${d},${c})" stroke-width="${n}"/>`;
@@ -28055,8 +28059,8 @@ function j2(e) {
   return o;
 }
 function F2() {
-  const e = sa(), t = y7[e.perioFontSize];
-  return g0({
+  const e = ra(), t = y7[e.perioFontSize];
+  return v0({
     fontSize: t.fontSize,
     rowHeight: t.rowHeight,
     toothGap: b7[e.perioToothSpacing],
@@ -28065,16 +28069,16 @@ function F2() {
   });
 }
 async function n7() {
-  if (!pt) {
-    pt = !0, to(), Ve(30, "export.progress.preparing");
+  if (!ht) {
+    ht = !0, to(), Ye(30, "export.progress.preparing");
     try {
       const e = j2(!0);
       if (!e) throw new Error("Odontogram grid not found");
-      Ve(90, "export.progress.encoding");
+      Ye(90, "export.progress.encoding");
       const t = new Blob([e.xml], { type: "image/svg+xml;charset=utf-8" }), a = URL.createObjectURL(t), i = (/* @__PURE__ */ new Date()).toISOString().slice(0, 19).replace(/[:T]/g, "-"), o = document.createElement("a");
-      o.href = a, o.download = `odontogram-${i}.svg`, document.body.appendChild(o), o.click(), o.remove(), URL.revokeObjectURL(a), Ve(100, "export.progress.done"), await new Promise((n) => window.setTimeout(n, 300));
+      o.href = a, o.download = `odontogram-${i}.svg`, document.body.appendChild(o), o.click(), o.remove(), URL.revokeObjectURL(a), Ye(100, "export.progress.done"), await new Promise((n) => window.setTimeout(n, 300));
     } finally {
-      ao(), pt = !1;
+      ao(), ht = !1;
     }
   }
 }
@@ -28089,55 +28093,55 @@ async function U2(e, t, a, i = 2) {
   if (!d) throw new Error("Canvas 2D context unavailable");
   return d.fillStyle = "#ffffff", d.fillRect(0, 0, s.width, s.height), d.drawImage(n, 0, 0, s.width, s.height), s;
 }
-async function pr(e, t, a, i = 2) {
+async function fr(e, t, a, i = 2) {
   return (await U2(e, t, a, i)).toDataURL("image/png");
 }
-async function fr(e = "png") {
-  if (!pt) {
-    pt = !0, to(), Ve(10, "export.progress.preparing");
+async function mr(e = "png") {
+  if (!ht) {
+    ht = !0, to(), Ye(10, "export.progress.preparing");
     try {
       const t = j2(!0);
       if (!t) throw new Error("Odontogram grid not found");
-      Ve(40, "export.progress.rendering");
+      Ye(40, "export.progress.rendering");
       const a = await U2(t.xml, t.width, t.height);
-      Ve(90, "export.progress.encoding");
+      Ye(90, "export.progress.encoding");
       const i = (/* @__PURE__ */ new Date()).toISOString().slice(0, 19).replace(/[:T]/g, "-");
-      e === "jpg" ? Ko(a.toDataURL("image/jpeg", 0.92), `odontogram-${i}.jpg`) : Ko(a.toDataURL("image/png"), `odontogram-${i}.png`), Ve(100, "export.progress.done"), await new Promise((o) => window.setTimeout(o, 300));
+      e === "jpg" ? Ko(a.toDataURL("image/jpeg", 0.92), `odontogram-${i}.jpg`) : Ko(a.toDataURL("image/png"), `odontogram-${i}.png`), Ye(100, "export.progress.done"), await new Promise((o) => window.setTimeout(o, 300));
     } finally {
-      ao(), pt = !1;
+      ao(), ht = !1;
     }
   }
 }
 async function s7() {
-  if (!pt) {
-    pt = !0, to(), Ve(10, "export.progress.preparing");
+  if (!ht) {
+    ht = !0, to(), Ye(10, "export.progress.preparing");
     try {
       const e = await F2();
       if (!e) throw new Error("Perio chart could not be built");
       const t = new Blob([e.xml], { type: "image/svg+xml;charset=utf-8" }), a = URL.createObjectURL(t), i = (/* @__PURE__ */ new Date()).toISOString().slice(0, 19).replace(/[:T]/g, "-"), o = document.createElement("a");
-      o.href = a, o.download = `perio-${i}.svg`, document.body.appendChild(o), o.click(), o.remove(), URL.revokeObjectURL(a), Ve(100, "export.progress.done"), await new Promise((n) => window.setTimeout(n, 200));
+      o.href = a, o.download = `perio-${i}.svg`, document.body.appendChild(o), o.click(), o.remove(), URL.revokeObjectURL(a), Ye(100, "export.progress.done"), await new Promise((n) => window.setTimeout(n, 200));
     } finally {
-      ao(), pt = !1;
+      ao(), ht = !1;
     }
   }
 }
-async function mr(e = "png") {
-  if (!pt) {
-    pt = !0, to(), Ve(10, "export.progress.preparing");
+async function hr(e = "png") {
+  if (!ht) {
+    ht = !0, to(), Ye(10, "export.progress.preparing");
     try {
       const t = await F2();
       if (!t) throw new Error("Perio chart could not be built");
-      Ve(40, "export.progress.rendering");
+      Ye(40, "export.progress.rendering");
       const a = await U2(t.xml, t.width, t.height);
-      Ve(90, "export.progress.encoding");
+      Ye(90, "export.progress.encoding");
       const i = (/* @__PURE__ */ new Date()).toISOString().slice(0, 19).replace(/[:T]/g, "-");
-      e === "jpg" ? Ko(a.toDataURL("image/jpeg", 0.92), `perio-${i}.jpg`) : Ko(a.toDataURL("image/png"), `perio-${i}.png`), Ve(100, "export.progress.done"), await new Promise((o) => window.setTimeout(o, 300));
+      e === "jpg" ? Ko(a.toDataURL("image/jpeg", 0.92), `perio-${i}.jpg`) : Ko(a.toDataURL("image/png"), `perio-${i}.png`), Ye(100, "export.progress.done"), await new Promise((o) => window.setTimeout(o, 300));
     } finally {
-      ao(), pt = !1;
+      ao(), ht = !1;
     }
   }
 }
-const r7 = /* @__PURE__ */ new Set(["iso", "dmy", "mdy"]), hr = /* @__PURE__ */ new Set(["wide", "medium", "close"]), l7 = /* @__PURE__ */ new Set(["thin", "medium", "thick"]), c7 = /* @__PURE__ */ new Set(["small", "normal", "xlarge"]), d7 = /* @__PURE__ */ new Set(["center", "edge"]), p7 = /* @__PURE__ */ new Set(["small", "normal", "xlarge"]), f7 = /* @__PURE__ */ new Set(["whole", "jaw", "quadrant", "sextant"]), m7 = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/, Le = {
+const r7 = /* @__PURE__ */ new Set(["iso", "dmy", "mdy"]), ur = /* @__PURE__ */ new Set(["wide", "medium", "close"]), l7 = /* @__PURE__ */ new Set(["thin", "medium", "thick"]), c7 = /* @__PURE__ */ new Set(["small", "normal", "xlarge"]), d7 = /* @__PURE__ */ new Set(["center", "edge"]), p7 = /* @__PURE__ */ new Set(["small", "normal", "xlarge"]), f7 = /* @__PURE__ */ new Set(["whole", "jaw", "quadrant", "sextant"]), m7 = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/, Le = {
   defaultName: "John Doe",
   defaultDob: "1980-01-01",
   showAge: !0,
@@ -28163,7 +28167,7 @@ const r7 = /* @__PURE__ */ new Set(["iso", "dmy", "mdy"]), hr = /* @__PURE__ */ 
   showGenerator: !0,
   summaryGrouping: "jaw"
 };
-function sa() {
+function ra() {
   return { ...Le };
 }
 function r2(e) {
@@ -28173,7 +28177,7 @@ function r2(e) {
   }, i = (o) => {
     typeof e[o] == "boolean" && e[o] !== Le[o] && (Le[o] = e[o], t = !0);
   };
-  a("defaultName"), a("defaultDob"), a("disclaimerText"), i("showAge"), i("showBone"), i("showHealthyPulp"), i("border"), i("includeOdontogramText"), i("includeOdontogramTable"), i("perioShowEmptyRows"), i("includePerioTable"), i("includePerioAbbrev"), i("showDisclaimer"), i("showGenerator"), e.dateFormat && r7.has(e.dateFormat) && e.dateFormat !== Le.dateFormat && (Le.dateFormat = e.dateFormat, t = !0), e.colorTheme && e.colorTheme in v2 && e.colorTheme !== Le.colorTheme && (Le.colorTheme = e.colorTheme, t = !0), e.toothSpacing && hr.has(e.toothSpacing) && e.toothSpacing !== Le.toothSpacing && (Le.toothSpacing = e.toothSpacing, t = !0), e.borderThickness && l7.has(e.borderThickness) && e.borderThickness !== Le.borderThickness && (Le.borderThickness = e.borderThickness, t = !0), e.toothNumberSize && c7.has(e.toothNumberSize) && e.toothNumberSize !== Le.toothNumberSize && (Le.toothNumberSize = e.toothNumberSize, t = !0), typeof e.borderColor == "string" && m7.test(e.borderColor) && e.borderColor !== Le.borderColor && (Le.borderColor = e.borderColor, t = !0), e.perioToothSpacing && hr.has(e.perioToothSpacing) && e.perioToothSpacing !== Le.perioToothSpacing && (Le.perioToothSpacing = e.perioToothSpacing, t = !0), e.perioLabelPlacement && d7.has(e.perioLabelPlacement) && e.perioLabelPlacement !== Le.perioLabelPlacement && (Le.perioLabelPlacement = e.perioLabelPlacement, t = !0), e.perioFontSize && p7.has(e.perioFontSize) && e.perioFontSize !== Le.perioFontSize && (Le.perioFontSize = e.perioFontSize, t = !0), e.summaryGrouping && f7.has(e.summaryGrouping) && e.summaryGrouping !== Le.summaryGrouping && (Le.summaryGrouping = e.summaryGrouping, t = !0), t && X();
+  a("defaultName"), a("defaultDob"), a("disclaimerText"), i("showAge"), i("showBone"), i("showHealthyPulp"), i("border"), i("includeOdontogramText"), i("includeOdontogramTable"), i("perioShowEmptyRows"), i("includePerioTable"), i("includePerioAbbrev"), i("showDisclaimer"), i("showGenerator"), e.dateFormat && r7.has(e.dateFormat) && e.dateFormat !== Le.dateFormat && (Le.dateFormat = e.dateFormat, t = !0), e.colorTheme && e.colorTheme in v2 && e.colorTheme !== Le.colorTheme && (Le.colorTheme = e.colorTheme, t = !0), e.toothSpacing && ur.has(e.toothSpacing) && e.toothSpacing !== Le.toothSpacing && (Le.toothSpacing = e.toothSpacing, t = !0), e.borderThickness && l7.has(e.borderThickness) && e.borderThickness !== Le.borderThickness && (Le.borderThickness = e.borderThickness, t = !0), e.toothNumberSize && c7.has(e.toothNumberSize) && e.toothNumberSize !== Le.toothNumberSize && (Le.toothNumberSize = e.toothNumberSize, t = !0), typeof e.borderColor == "string" && m7.test(e.borderColor) && e.borderColor !== Le.borderColor && (Le.borderColor = e.borderColor, t = !0), e.perioToothSpacing && ur.has(e.perioToothSpacing) && e.perioToothSpacing !== Le.perioToothSpacing && (Le.perioToothSpacing = e.perioToothSpacing, t = !0), e.perioLabelPlacement && d7.has(e.perioLabelPlacement) && e.perioLabelPlacement !== Le.perioLabelPlacement && (Le.perioLabelPlacement = e.perioLabelPlacement, t = !0), e.perioFontSize && p7.has(e.perioFontSize) && e.perioFontSize !== Le.perioFontSize && (Le.perioFontSize = e.perioFontSize, t = !0), e.summaryGrouping && f7.has(e.summaryGrouping) && e.summaryGrouping !== Le.summaryGrouping && (Le.summaryGrouping = e.summaryGrouping, t = !0), t && X();
 }
 function Nn(e, t) {
   const a = /^(\d{4})-(\d{2})-(\d{2})$/.exec(e);
@@ -28193,123 +28197,123 @@ const u7 = { wide: 0.85, medium: 0.72, close: 0.6 }, g7 = { small: 1.275, normal
   xlarge: { fontSize: 16, rowHeight: 26 }
 }, b7 = { wide: 8, medium: 2, close: -2 };
 function k7() {
-  const e = h1(), t = (n) => ce.some(n), a = [], i = e.gtDistribution, o = e.millerDistribution;
+  const e = u1(), t = (n) => ce.some(n), a = [], i = e.gtDistribution, o = e.millerDistribution;
   return e.plaquePercent > 0 && a.push({ term: "Plaque", desc: l("perio.info.plaque") }), e.piScore !== null && a.push({ term: "PI", desc: l("perio.info.pi") }), e.giScore !== null && a.push({ term: "GI", desc: l("perio.info.gi") }), e.mpiScore !== null && a.push({ term: "mPI", desc: l("perio.info.mpi") }), e.mbiScore !== null && a.push({ term: "mBI", desc: l("perio.info.mbi") }), t((n) => Qa(n) !== null) && a.push({ term: "KG", desc: l("perio.info.kg") }), i.thin + i.medium + i.thick > 0 && a.push({ term: "GT (Tn/Md/Tk)", desc: `${l("perio.info.gt")} — Tn: ${l("perio.gt.thin")}, Md: ${l("perio.gt.medium")}, Tk: ${l("perio.gt.thick")}` }), t((n) => $i(n) !== "none") && a.push({ term: "CEJ (D/ND)", desc: `${l("perio.info.cej")} — D: ${l("perio.cej.detectable")}, ND: ${l("perio.cej.notDetectable")}` }), t((n) => eo(n) !== "none") && a.push({ term: "Mi / Dp", desc: `${l("perio.info.rootConcavity")} — Mi: ${l("perio.rootConcavity.mild")}, Dp: ${l("perio.rootConcavity.deep")}` }), e.maxFurcation !== null && a.push({ term: "Furcation (I–IV)", desc: l("perio.info.furcation") }), o.i + o.ii + o.iii + o.iv > 0 && a.push({ term: "Miller (I–IV)", desc: l("perio.info.miller") }), t((n) => N2(n) !== "none") && a.push({ term: "Mobility (1–3)", desc: l("perio.info.mobility") }), a;
 }
-async function lc(e) {
-  if (!pt) {
-    pt = !0, to(), Ve(10, "export.progress.preparing");
+async function cc(e) {
+  if (!ht) {
+    ht = !0, to(), Ye(10, "export.progress.preparing");
     try {
-      const t = sa();
+      const t = ra();
       let a = null;
       if (e.odontogramChart && (a = j2(!1), !a))
         throw new Error("Odontogram grid not found");
-      Ve(30, "export.progress.rendering");
-      const i = a ? await pr(a.xml, a.width, a.height) : "", o = Vo(), n = o && (e.perioStatus || e.perioDescription);
+      Ye(30, "export.progress.rendering");
+      const i = a ? await fr(a.xml, a.width, a.height) : "", o = Vo(), n = o && (e.perioStatus || e.perioDescription);
       let s = "", d;
       if (n) {
-        Ve(50, "export.progress.rendering");
-        const S = await F2();
-        if (!S) throw new Error("Perio chart could not be built");
-        s = await pr(S.xml, S.width, S.height), d = { width: S.width, height: S.height };
+        Ye(50, "export.progress.rendering");
+        const R = await F2();
+        if (!R) throw new Error("Perio chart could not be built");
+        s = await fr(R.xml, R.width, R.height), d = { width: R.width, height: R.height };
       }
-      Ve(80, "export.progress.encoding");
-      const c = mc(), p = h1(), f = t.includeOdontogramText ? c.overview : "", u = [];
+      Ye(80, "export.progress.encoding");
+      const c = hc(), p = u1(), f = t.includeOdontogramText ? c.overview : "", h = [];
       if (t.includeOdontogramTable) {
-        for (const S of c.sections)
-          S.items.length && u.push({ label: S.heading, value: S.items.join(", ") });
-        !o && c.periodontalHasFindings && u.push({ label: c.periodontalTitle, value: c.periodontalText });
+        for (const R of c.sections)
+          R.items.length && h.push({ label: R.heading, value: R.items.join(", ") });
+        !o && c.periodontalHasFindings && h.push({ label: c.periodontalTitle, value: c.periodontalText });
       }
-      const b = (c.individualNotes?.items ?? []).map((S) => {
-        const j = S.indexOf(": ");
-        return j > 0 ? { label: S.slice(0, j), value: S.slice(j + 2) } : { label: "", value: S };
-      }), w = p.worstCal === null ? "–" : `${p.worstCal}${p.worstCalTooth !== null ? ` (${u1(p.worstCalTooth)})` : ""}`, y = Ui(), v = (S) => l(`perio.class.dx.${S}`), m = (S) => l(S === "na" ? "perio.class.stage.na" : S === "indeterminate" ? "perio.class.stage.indeterminate" : `perio.class.stage.${S}`), D = (S) => l(S === "indeterminate" ? "perio.class.grade.indeterminate" : `perio.class.grade.${S}`), Z = (S) => l(S === "na" ? "perio.class.extent.na" : S === "molar-incisor" ? "perio.class.extent.molarIncisor" : `perio.class.extent.${S}`), g = t.includePerioTable ? [
+      const b = (c.individualNotes?.items ?? []).map((R) => {
+        const E = R.indexOf(": ");
+        return E > 0 ? { label: R.slice(0, E), value: R.slice(E + 2) } : { label: "", value: R };
+      }), w = p.worstCal === null ? "–" : `${p.worstCal}${p.worstCalTooth !== null ? ` (${g1(p.worstCalTooth)})` : ""}`, y = Ui(), v = (R) => l(`perio.class.dx.${R}`), m = (R) => l(R === "na" ? "perio.class.stage.na" : R === "indeterminate" ? "perio.class.stage.indeterminate" : `perio.class.stage.${R}`), P = (R) => l(R === "indeterminate" ? "perio.class.grade.indeterminate" : `perio.class.grade.${R}`), S = (R) => l(R === "na" ? "perio.class.extent.na" : R === "molar-incisor" ? "perio.class.extent.molarIncisor" : `perio.class.extent.${R}`), g = t.includePerioTable ? [
         { label: l("perio.bopPercent"), value: `${p.bopPercent}%` },
         { label: l("perio.summary.worstCal"), value: w },
         { label: l("perio.summary.maxPd"), value: p.maxPd === null ? "–" : String(p.maxPd) },
         { label: l("perio.class.diagnosis"), value: v(y.diagnosis) },
         { label: l("perio.class.stage"), value: m(y.stage) },
-        { label: l("perio.class.grade"), value: D(y.grade) },
-        { label: l("perio.class.extent"), value: Z(y.extent) }
+        { label: l("perio.class.grade"), value: P(y.grade) },
+        { label: l("perio.class.extent"), value: S(y.extent) }
       ] : [], x = t.includePerioAbbrev ? [
-        ...l("pdf.footer.legend").split(";").map((S) => S.trim()).filter(Boolean).map((S) => {
-          const j = S.split(/\s[–-]\s/);
-          return j.length >= 2 ? { term: j[0].trim(), desc: j.slice(1).join(" – ").trim() } : { term: "", desc: S };
+        ...l("pdf.footer.legend").split(";").map((R) => R.trim()).filter(Boolean).map((R) => {
+          const E = R.split(/\s[–-]\s/);
+          return E.length >= 2 ? { term: E[0].trim(), desc: E.slice(1).join(" – ").trim() } : { term: "", desc: R };
         }),
         // Append every ADDITIONAL perio abbreviation/code actually charted in this
         // case (PI/GI/KG/GT/CEJ/root-concavity/furcation/Miller/mobility/mPI/mBI) —
         // the base PD/GM/CAL/BOP/ICDAS/CARS come from the legend above.
         ...k7()
-      ] : [], C = v2[t.colorTheme], z = e1(), F = /* @__PURE__ */ new Date(), L = (S) => String(S).padStart(2, "0"), R = `${F.getFullYear()}-${L(F.getMonth() + 1)}-${L(F.getDate())}`, J = z.patientName && z.patientName.trim() !== "" ? z.patientName : t.defaultName, T = z.patientDob ?? t.defaultDob, M = z.examDate ?? R, I = Nn(T, t.dateFormat), E = h7(T, M), $ = [
-        { label: l("pdf.field.patientName"), value: J },
-        { label: l("pdf.field.patientDob"), value: t.showAge && E !== null ? `${I} (${E})` : I },
+      ] : [], I = v2[t.colorTheme], Z = a1(), F = /* @__PURE__ */ new Date(), L = (R) => String(R).padStart(2, "0"), j = `${F.getFullYear()}-${L(F.getMonth() + 1)}-${L(F.getDate())}`, W = Z.patientName && Z.patientName.trim() !== "" ? Z.patientName : t.defaultName, A = Z.patientDob ?? t.defaultDob, M = Z.examDate ?? j, z = Nn(A, t.dateFormat), T = h7(A, M), $ = [
+        { label: l("pdf.field.patientName"), value: W },
+        { label: l("pdf.field.patientDob"), value: t.showAge && T !== null ? `${z} (${T})` : z },
         { label: l("pdf.field.examDate"), value: Nn(M, t.dateFormat) }
-      ], le = `${Nn(R, t.dateFormat)} ${L(F.getHours())}:${L(F.getMinutes())}`, W = {
+      ], le = `${Nn(j, t.dateFormat)} ${L(F.getHours())}:${L(F.getMinutes())}`, J = {
         disclaimer: t.showDisclaimer ? t.disclaimerText.trim() || l("pdf.disclaimer") : "",
         generated: t.showGenerator ? l("pdf.generatedWith", { date: le, app: "React Advanced Odontogram", version: "2.4.0" }) : "",
         repoUrl: t.showGenerator ? "https://github.com/ZoliQua/React-Odontogram-Modul" : "",
         doi: t.showGenerator ? "https://doi.org/10.5281/zenodo.21156787" : ""
-      }, te = {
+      }, ae = {
         hasPerio: o,
         reportTitle: l("pdf.reportTitle"),
-        footer: W,
-        palette: C,
+        footer: J,
+        palette: I,
         patient: $,
         odontogramPng: i,
         odontogramCaption: f,
         toothTable: t.includeOdontogramTable ? c.toothTable : null,
-        odontogramFindings: u,
+        odontogramFindings: h,
         individualNotes: b,
         odontogramImageSize: a ? { width: a.width, height: a.height } : void 0,
         // The border colour always uses the active theme's accent (palette.header)
         // so it matches the report.
-        odontogramBorder: t.border && e.odontogramChart ? { widthMm: v7[t.borderThickness], color: C.header } : null,
+        odontogramBorder: t.border && e.odontogramChart ? { widthMm: v7[t.borderThickness], color: I.header } : null,
         perioPng: s,
         perioMetrics: g,
         perioImageSize: d,
         abbreviations: x
-      }, { jsPDF: ke } = await import("jspdf"), { loadPdfFont: P } = await import("./loader-BN_gLe6T.js"), Y = await P(m2());
-      te.fontFamily = Y.family, te.shapeText = Y.transform, w0(e, te, () => {
-        const S = new ke();
-        return Y.register(S), S;
-      }), Ve(100, "export.progress.done"), await new Promise((S) => window.setTimeout(S, 300));
+      }, { jsPDF: Me } = await import("jspdf"), { loadPdfFont: C } = await import("./loader-BN_gLe6T.js"), Y = await C(m2());
+      ae.fontFamily = Y.family, ae.shapeText = Y.transform, w0(e, ae, () => {
+        const R = new Me();
+        return Y.register(R), R;
+      }), Ye(100, "export.progress.done"), await new Promise((R) => window.setTimeout(R, 300));
     } finally {
-      ao(), pt = !1;
+      ao(), ht = !1;
     }
   }
 }
 function x7() {
-  sc(A2(), "odontogram-status");
+  rc(A2(), "odontogram-status");
 }
 function w7(e) {
-  const t = p4(A2(), e);
-  sc(t, "odontogram-fhir");
+  const t = f4(A2(), e);
+  rc(t, "odontogram-fhir");
 }
 function M7(e) {
-  const t = tc(e.version), a = e.teeth || {};
+  const t = ac(e.version), a = e.teeth || {};
   for (const i of ce) {
     const o = a[i];
-    Re.status.set(i, Ba(o, t));
+    Ue.status.set(i, Ba(o, t));
   }
   if (Z5(e.case), e.plan && typeof e.plan == "object") {
     for (const i of ce) {
       const o = e.plan[i];
-      Re.plan.set(i, Ba(o, t));
+      Ue.plan.set(i, Ba(o, t));
     }
-    jt = !0;
+    Ut = !0;
   } else
-    Re.plan.clear(), jt = !1;
-  d1.clear(), a1 = null;
+    Ue.plan.clear(), Ut = !1;
+  p1.clear(), o1 = null;
 }
 function S7() {
-  p1 = "status", N = Re.status;
+  f1 = "status", N = Ue.status;
 }
 function B2(e) {
   if (!(!e || typeof e != "object")) {
     M7(e), S7();
     for (const t of ce)
-      it(t), kt(t), oa(t);
-    e.globals && (typeof e.globals.wisdomVisible == "boolean" && L3(e.globals.wisdomVisible), typeof e.globals.showBase == "boolean" && Uo(e.globals.showBase), typeof e.globals.occlusalVisible == "boolean" && D2(e.globals.occlusalVisible), typeof e.globals.showHealthyPulp == "boolean" && Fi(e.globals.showHealthyPulp), typeof e.globals.edentulous == "boolean" && (i1 = e.globals.edentulous)), nn(), Zt(), X(), x2();
+      lt(t), xt(t), na(t);
+    e.globals && (typeof e.globals.wisdomVisible == "boolean" && G3(e.globals.wisdomVisible), typeof e.globals.showBase == "boolean" && Uo(e.globals.showBase), typeof e.globals.occlusalVisible == "boolean" && D2(e.globals.occlusalVisible), typeof e.globals.showHealthyPulp == "boolean" && Fi(e.globals.showHealthyPulp), typeof e.globals.edentulous == "boolean" && (n1 = e.globals.edentulous)), nn(), It(), X(), x2();
   }
 }
 function Z7(e) {
@@ -28321,27 +28325,27 @@ function Z7(e) {
       console.error("Invalid FHIR JSON", i);
       return;
     }
-  const a = m4(t);
+  const a = h4(t);
   B2(a);
 }
 function z7(e) {
   if (!e) return;
-  const t = ar(), a = (f) => t?.[f] || [], i = (f) => t?.wisdom?.[f] || [], o = /* @__PURE__ */ new Map(), n = (f, u) => {
+  const t = ir(), a = (f) => t?.[f] || [], i = (f) => t?.wisdom?.[f] || [], o = /* @__PURE__ */ new Map(), n = (f, h) => {
     for (const b of f) {
-      const w = o.get(b) ?? N.get(b) ?? fe(), y = Ba(Rt(w), !1), v = u(y, b) || y;
+      const w = o.get(b) ?? N.get(b) ?? fe(), y = Ba(Ft(w), !1), v = h(y, b) || y;
       o.set(b, v);
     }
   }, s = () => {
-    const f = [...o.entries()].filter(([b, w]) => JSON.stringify(Rt(w)) !== JSON.stringify(Rt(N.get(b) ?? fe()))), u = f.map(([b]) => b);
-    Ja(u, () => {
+    const f = [...o.entries()].filter(([b, w]) => JSON.stringify(Ft(w)) !== JSON.stringify(Ft(N.get(b) ?? fe()))), h = f.map(([b]) => b);
+    Ja(h, () => {
       for (const [b, w] of f)
-        N.set(b, w), it(b), kt(b);
+        N.set(b, w), lt(b), xt(b);
       G && we(N.get(G)), nn(), X();
     });
-  }, d = (f) => f === "metal" ? "metal-ceramic" : f, c = (f, u) => {
-    f.toothSubstrate = "crownprep", f.restorationType = "crown", f.restorationMaterial = d(u), f.bridgePillar = !0, f.brokenMesial = !1, f.brokenIncisal = !1, f.brokenDistal = !1;
-  }, p = (f, u) => {
-    f.restorationType = "bridge", f.restorationMaterial = d(u);
+  }, d = (f) => f === "metal" ? "metal-ceramic" : f, c = (f, h) => {
+    f.toothSubstrate = "crownprep", f.restorationType = "crown", f.restorationMaterial = d(h), f.bridgePillar = !0, f.brokenMesial = !1, f.brokenIncisal = !1, f.brokenDistal = !1;
+  }, p = (f, h) => {
+    f.restorationType = "bridge", f.restorationMaterial = d(h);
   };
   if (e.type === "span") {
     n(e.teeth || [], (f) => {
@@ -28350,40 +28354,40 @@ function z7(e) {
     return;
   }
   if (e.type === "arch-bridge") {
-    const f = a(e.arch), u = new Set(i(e.arch)), b = f.filter((w) => N.get(w)?.toothSelection === "tooth-base");
+    const f = a(e.arch), h = new Set(i(e.arch)), b = f.filter((w) => N.get(w)?.toothSelection === "tooth-base");
     if (b.length >= 2) {
-      const w = b[0], y = b[b.length - 1], v = f.indexOf(w), m = f.indexOf(y), D = v < m ? f.slice(v + 1, m) : [];
-      n(f, (Z, g) => {
-        u.has(g) || (Z.toothSelection === "tooth-base" ? c(Z, e.material) : Z.toothSelection === "none" && D.includes(g) && p(Z, e.missingMaterial || e.material));
+      const w = b[0], y = b[b.length - 1], v = f.indexOf(w), m = f.indexOf(y), P = v < m ? f.slice(v + 1, m) : [];
+      n(f, (S, g) => {
+        h.has(g) || (S.toothSelection === "tooth-base" ? c(S, e.material) : S.toothSelection === "none" && P.includes(g) && p(S, e.missingMaterial || e.material));
       });
     } else
       n(f, (w, y) => {
-        u.has(y) || w.toothSelection === "tooth-base" && c(w, e.material);
+        h.has(y) || w.toothSelection === "tooth-base" && c(w, e.material);
       });
     s();
     return;
   }
   if (e.type === "partial-removable") {
-    const f = a(e.arch), u = new Set(i(e.arch));
+    const f = a(e.arch), h = new Set(i(e.arch));
     n(f, (b, w) => {
-      u.has(w) || b.toothSelection === "none" && (b.prosthesis = "removable-partial");
+      h.has(w) || b.toothSelection === "none" && (b.prosthesis = "removable-partial");
     }), s();
     return;
   }
   if (e.type === "full-removable") {
-    const f = a(e.arch), u = new Set(i(e.arch));
+    const f = a(e.arch), h = new Set(i(e.arch));
     n(f, (b, w) => {
       const y = fe();
-      return y.toothSelection = "none", y.prosthesis = u.has(w) ? "none" : "removable-full", y;
+      return y.toothSelection = "none", y.prosthesis = h.has(w) ? "none" : "removable-full", y;
     }), s();
     return;
   }
   if (e.type === "bar-denture") {
-    const f = e.implants || [], u = e.missing || [], w = (e.arch ? ar()?.[e.arch] || [] : []).filter((y) => [7, 8].includes(y % 10));
+    const f = e.implants || [], h = e.missing || [], w = (e.arch ? ir()?.[e.arch] || [] : []).filter((y) => [7, 8].includes(y % 10));
     n(f, (y, v) => {
       const m = fe();
       return m.toothSelection = "implant", m.prosthesis = "bar-denture", m;
-    }), n(u, (y, v) => {
+    }), n(h, (y, v) => {
       const m = fe();
       return m.toothSelection = "none", m.prosthesis = "bar-denture", m;
     }), n(w, (y, v) => {
@@ -28392,13 +28396,13 @@ function z7(e) {
     }), s();
   }
 }
-let Nt = !1, c1 = 0;
-async function ur(e) {
+let jt = !1, d1 = 0;
+async function gr(e) {
   const i = new DOMParser().parseFromString(e, "image/svg+xml").documentElement;
   return c5(i), d5(i), i;
 }
-async function cc(e) {
-  if (!Nt || e !== c1) return;
+async function dc(e) {
+  if (!jt || e !== d1) return;
   const t = q("#toothGrid");
   if (!t) return;
   t.innerHTML = "";
@@ -28406,157 +28410,157 @@ async function cc(e) {
   let i = t;
   const o = /* @__PURE__ */ new Map(), n = /* @__PURE__ */ new Map(), s = a.tplNos, d = a.occlNos;
   if (await Promise.all([
-    ...s.map(async (Z) => {
-      o.set(Z, await ur(a.templates[Z]));
+    ...s.map(async (S) => {
+      o.set(S, await gr(a.templates[S]));
     }),
-    ...d.map(async (Z) => {
-      n.set(Z, await ur(a.templatesOccl[Z]));
+    ...d.map(async (S) => {
+      n.set(S, await gr(a.templatesOccl[S]));
     })
-  ]), !Nt || e !== c1) return;
-  function c({ toothNo: Z, tplNo: g, rot: x, mirror: C, view: z, clickable: F }) {
-    if (!Nt || e !== c1) return;
-    const L = z === "occl" ? n.get(g) : o.get(g);
+  ]), !jt || e !== d1) return;
+  function c({ toothNo: S, tplNo: g, rot: x, mirror: I, view: Z, clickable: F }) {
+    if (!jt || e !== d1) return;
+    const L = Z === "occl" ? n.get(g) : o.get(g);
     if (!L) return;
-    const R = L.cloneNode(!0);
-    x === 180 && p5(R), C && f5(R);
-    const J = [
+    const j = L.cloneNode(!0);
+    x === 180 && p5(j), I && f5(j);
+    const W = [
       "tooth-tile",
       `tpl-${g}`,
-      Z >= 31 ? "lower-row" : "upper-row",
-      z === "occl" ? "occl-view" : "side-view"
-    ], T = Q("div", { class: J.join(" "), "data-tooth": String(Z) }, [
+      S >= 31 ? "lower-row" : "upper-row",
+      Z === "occl" ? "occl-view" : "side-view"
+    ], A = Q("div", { class: W.join(" "), "data-tooth": String(S) }, [
       Q("div", { class: "tooth-svg" })
     ]);
-    q(".tooth-svg", T).appendChild(R), T.addEventListener("click", (M) => a2(Z, M)), T.addEventListener("dblclick", () => {
-      !n1 || We || P3(Z);
-    }), T.addEventListener("keydown", (M) => o8(Z, M)), z === "side" && (T.setAttribute("role", "option"), T.setAttribute("aria-selected", "false"), T.setAttribute("tabindex", We ? "-1" : "0"), T.setAttribute("aria-label", ea(Z, f1))), Vs() && a8(T, Z), i.appendChild(T), A1.has(Z) || A1.set(Z, []), A1.get(Z).push(R), St.has(Z) || St.set(Z, []), St.get(Z).push(T), N.has(Z) || N.set(Z, fe()), it(Z);
+    q(".tooth-svg", A).appendChild(j), A.addEventListener("click", (M) => a2(S, M)), A.addEventListener("dblclick", () => {
+      !r1 || $e || D3(S);
+    }), A.addEventListener("keydown", (M) => o8(S, M)), Z === "side" && (A.setAttribute("role", "option"), A.setAttribute("aria-selected", "false"), A.setAttribute("tabindex", $e ? "-1" : "0"), A.setAttribute("aria-label", ta(S, m1))), Ks() && a8(A, S), i.appendChild(A), T1.has(S) || T1.set(S, []), T1.get(S).push(j), zt.has(S) || zt.set(S, []), zt.get(S).push(A), N.has(S) || N.set(S, fe()), lt(S);
   }
-  function p(Z) {
-    for (const g of Z) {
-      const x = a.toothTemplate.get(g), C = x ? x.tpl : 16;
-      c({ toothNo: g, tplNo: C, rot: x?.rot ?? 0, mirror: x?.mirror ?? !1, view: "side", clickable: !0 });
+  function p(S) {
+    for (const g of S) {
+      const x = a.toothTemplate.get(g), I = x ? x.tpl : 16;
+      c({ toothNo: g, tplNo: I, rot: x?.rot ?? 0, mirror: x?.mirror ?? !1, view: "side", clickable: !0 });
     }
   }
-  function f(Z) {
-    return [14, 15, 24, 25, 34, 35, 44, 45].includes(Z) ? 14 : [16, 17, 18, 26, 27, 28, 36, 37, 38, 46, 47, 48].includes(Z) ? 16 : null;
+  function f(S) {
+    return [14, 15, 24, 25, 34, 35, 44, 45].includes(S) ? 14 : [16, 17, 18, 26, 27, 28, 36, 37, 38, 46, 47, 48].includes(S) ? 16 : null;
   }
-  function u() {
-    const Z = Q("div", { class: "tooth-tile occl-view placeholder" }, [
+  function h() {
+    const S = Q("div", { class: "tooth-tile occl-view placeholder" }, [
       Q("div", { class: "tooth-svg" })
     ]);
-    i.appendChild(Z);
+    i.appendChild(S);
   }
-  function b(Z, g) {
-    for (const x of Z) {
+  function b(S, g) {
+    for (const x of S) {
       if (a.occlusalTemplate) {
         const F = a.occlusalTemplate.get(x);
         if (g.has(x) || !F) {
-          u();
+          h();
           continue;
         }
         c({ toothNo: x, tplNo: F.tpl, rot: F.rot, mirror: F.mirror, view: "occl", clickable: !0 });
         continue;
       }
-      const C = a.toothTemplate.get(x), z = f(x);
-      if (g.has(x) || !z || !C) {
-        u();
+      const I = a.toothTemplate.get(x), Z = f(x);
+      if (g.has(x) || !Z || !I) {
+        h();
         continue;
       }
-      c({ toothNo: x, tplNo: z, rot: C.rot, mirror: C.mirror, view: "occl", clickable: !0 });
+      c({ toothNo: x, tplNo: Z, rot: I.rot, mirror: I.mirror, view: "occl", clickable: !0 });
     }
   }
-  function w(Z, g) {
+  function w(S, g) {
     const x = Q("div", { class: "tooth-label-row", "aria-hidden": "true" });
-    for (const C of Z) {
-      const z = Q("div", { class: "tooth-label-cell", text: ea(C, f1), tabindex: "-1" });
-      z.addEventListener("click", (F) => a2(C, F)), x.appendChild(z), g.set(C, z);
+    for (const I of S) {
+      const Z = Q("div", { class: "tooth-label-cell", text: ta(I, m1), tabindex: "-1" });
+      Z.addEventListener("click", (F) => a2(I, F)), x.appendChild(Z), g.set(I, Z);
     }
     i.appendChild(x);
   }
-  const y = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], v = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], m = /* @__PURE__ */ new Set([13, 12, 11, 21, 22, 23]), D = /* @__PURE__ */ new Set([43, 42, 41, 31, 32, 33]);
-  if (!(!Nt || e !== c1)) {
+  const y = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], v = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], m = /* @__PURE__ */ new Set([13, 12, 11, 21, 22, 23]), P = /* @__PURE__ */ new Set([43, 42, 41, 31, 32, 33]);
+  if (!(!jt || e !== d1)) {
     if (a.layout === "twoArch") {
-      const Z = Q("div", { class: "tooth-arch upper-arch", role: "presentation" }), g = Q("div", { class: "tooth-arch lower-arch", role: "presentation" });
-      t.appendChild(Z), t.appendChild(g), i = Z, w(y, ja), p(y), b(y, m), i = g, b(v, D), p(v), w(v, Fa), i = t;
+      const S = Q("div", { class: "tooth-arch upper-arch", role: "presentation" }), g = Q("div", { class: "tooth-arch lower-arch", role: "presentation" });
+      t.appendChild(S), t.appendChild(g), i = S, w(y, ja), p(y), b(y, m), i = g, b(v, P), p(v), w(v, Fa), i = t;
     } else
-      w(y, ja), p(y), b(y, m), b(v, D), p(v), w(v, Fa);
-    t.setAttribute("role", "listbox"), t.setAttribute("aria-multiselectable", "true"), ee = /* @__PURE__ */ new Set(), G = null, Zt(), yt(), D2(Oa), Fi(t1), Vs() && (t.addEventListener("touchstart", T3, { passive: !1 }), t.addEventListener("touchmove", E3, { passive: !1 }), t.addEventListener("touchend", O3), e8());
+      w(y, ja), p(y), b(y, m), b(v, P), p(v), w(v, Fa);
+    t.setAttribute("role", "listbox"), t.setAttribute("aria-multiselectable", "true"), te = /* @__PURE__ */ new Set(), G = null, It(), bt(), D2(Oa), Fi(i1), Ks() && (t.addEventListener("touchstart", E3, { passive: !1 }), t.addEventListener("touchmove", O3, { passive: !1 }), t.addEventListener("touchend", L3), e8());
   }
 }
 let l2 = "status";
-function gr(e) {
+function vr(e) {
   l2 = e === "fhir" ? "fhir" : "status";
 }
-function dc() {
-  document.addEventListener("click", Xl), document.addEventListener("click", Ql), ["btnOcclView", "btnWisdomVisible", "btnBoneVisible", "btnPulpVisible"].forEach((v) => {
+function pc() {
+  document.addEventListener("click", Ql), document.addEventListener("click", _l), ["btnOcclView", "btnWisdomVisible", "btnBoneVisible", "btnPulpVisible"].forEach((v) => {
     const m = q(`#${v}`);
-    m && O5(m).then(() => Jl(m));
-  }), Up(q("#perioGrid")), $e(q("#btnSelectAll"), "click", () => {
-    ee = new Set(ce), G = ce[0], yt();
-  }), $e(q("#btnSelectAllPresent"), "click", () => {
+    m && O5(m).then(() => Xl(m));
+  }), Up(q("#perioGrid")), ot(q("#btnSelectAll"), "click", () => {
+    te = new Set(ce), G = ce[0], bt();
+  }), ot(q("#btnSelectAllPresent"), "click", () => {
     const v = ce.filter((m) => N.get(m)?.toothSelection !== "none");
-    ee = new Set(v), G = v[0] ?? null, yt();
-  }), $e(q("#btnSelectPermanent"), "click", () => {
+    te = new Set(v), G = v[0] ?? null, bt();
+  }), ot(q("#btnSelectPermanent"), "click", () => {
     const v = ce.filter((m) => N.get(m)?.toothSelection === "tooth-base");
-    ee = new Set(v), G = v[0] ?? null, yt();
-  }), $e(q("#btnSelectMilk"), "click", () => {
+    te = new Set(v), G = v[0] ?? null, bt();
+  }), ot(q("#btnSelectMilk"), "click", () => {
     const v = ce.filter((m) => N.get(m)?.toothSelection === "milktooth");
-    ee = new Set(v), G = v[0] ?? null, yt();
-  }), $e(q("#btnSelectImplants"), "click", () => {
+    te = new Set(v), G = v[0] ?? null, bt();
+  }), ot(q("#btnSelectImplants"), "click", () => {
     const v = ce.filter((m) => N.get(m)?.toothSelection === "implant");
-    ee = new Set(v), G = v[0] ?? null, yt();
-  }), $e(q("#btnSelectAllMissing"), "click", () => {
+    te = new Set(v), G = v[0] ?? null, bt();
+  }), ot(q("#btnSelectAllMissing"), "click", () => {
     const v = ce.filter((m) => N.get(m)?.toothSelection === "none");
-    ee = new Set(v), G = v[0] ?? null, yt();
-  }), $e(q("#btnSelectUpper"), "click", () => {
-    ee = new Set(ce.filter((v) => v >= 11 && v <= 28)), G = 11, yt();
-  }), $e(q("#btnSelectUpperFront"), "click", () => {
+    te = new Set(v), G = v[0] ?? null, bt();
+  }), ot(q("#btnSelectUpper"), "click", () => {
+    te = new Set(ce.filter((v) => v >= 11 && v <= 28)), G = 11, bt();
+  }), ot(q("#btnSelectUpperFront"), "click", () => {
     const v = [13, 12, 11, 21, 22, 23];
-    ee = new Set(v), G = v[0], yt();
-  }), $e(q("#btnSelectUpperMolar"), "click", () => {
+    te = new Set(v), G = v[0], bt();
+  }), ot(q("#btnSelectUpperMolar"), "click", () => {
     const v = [18, 17, 16, 26, 27, 28];
-    ee = new Set(v), G = v[0], yt();
-  }), $e(q("#btnSelectLower"), "click", () => {
-    ee = new Set(ce.filter((v) => v >= 31 && v <= 48)), G = 31, yt();
-  }), $e(q("#btnSelectLowerFront"), "click", () => {
+    te = new Set(v), G = v[0], bt();
+  }), ot(q("#btnSelectLower"), "click", () => {
+    te = new Set(ce.filter((v) => v >= 31 && v <= 48)), G = 31, bt();
+  }), ot(q("#btnSelectLowerFront"), "click", () => {
     const v = [43, 42, 41, 31, 32, 33];
-    ee = new Set(v), G = v[0], yt();
-  }), $e(q("#btnSelectLowerMolar"), "click", () => {
+    te = new Set(v), G = v[0], bt();
+  }), ot(q("#btnSelectLowerMolar"), "click", () => {
     const v = [38, 37, 36, 46, 47, 48];
-    ee = new Set(v), G = v[0], yt();
-  }), $e(q("#btnSelectNone"), "click", () => {
-    ee = /* @__PURE__ */ new Set(), G = null, Zt();
-  }), $e(q("#btnSelectNoneChart"), "click", () => {
-    ee = /* @__PURE__ */ new Set(), G = null, Zt();
-  }), $e(q("#chartModeStatus"), "click", () => _n("status")), $e(q("#chartModePlan"), "click", () => _n("plan"));
+    te = new Set(v), G = v[0], bt();
+  }), ot(q("#btnSelectNone"), "click", () => {
+    te = /* @__PURE__ */ new Set(), G = null, It();
+  }), ot(q("#btnSelectNoneChart"), "click", () => {
+    te = /* @__PURE__ */ new Set(), G = null, It();
+  }), ot(q("#chartModeStatus"), "click", () => _n("status")), ot(q("#chartModePlan"), "click", () => _n("plan"));
   const t = q("#statusCard"), a = q("#btnToggleStatusCard");
-  t && a && E1(a, "status.title", t.classList.contains("collapsed"));
+  t && a && O1(a, "status.title", t.classList.contains("collapsed"));
   const i = q("#btnToggleControlsCard"), o = q("#controlsActions");
-  i && o && E1(i, "panel.controls", o.classList.contains("hidden")), [
+  i && o && O1(i, "panel.controls", o.classList.contains("hidden")), [
     { card: "#cariesSection", btn: "#btnToggleCariesCard", labelKey: "caries.title" },
     { card: "#fillingSection", btn: "#btnToggleFillingCard", labelKey: "filling.title" },
     { card: "#rootPeriodontiumSection", btn: "#btnToggleRootPeriodontiumCard", labelKey: "card.rootPeriodontium" }
-  ].forEach(({ card: v, btn: m, labelKey: D }) => {
-    const Z = q(v), g = q(m);
-    !Z || !g || E1(g, D, Z.classList.contains("collapsed"));
+  ].forEach(({ card: v, btn: m, labelKey: P }) => {
+    const S = q(v), g = q(m);
+    !S || !g || O1(g, P, S.classList.contains("collapsed"));
   });
   const n = q("#btnStatusExport"), s = q("#btnStatusFhirExport"), d = q("#btnStatusImport"), c = q("#statusImportInput");
   n && (n.onclick = () => x7()), s && (s.onclick = () => w7());
-  const p = q("#btnStatusPngExport"), f = q("#btnStatusJpgExport"), u = q("#btnStatusSvgExport");
+  const p = q("#btnStatusPngExport"), f = q("#btnStatusJpgExport"), h = q("#btnStatusSvgExport");
   p && (p.onclick = () => {
-    fr("png").catch((v) => console.error("PNG export failed", v));
+    mr("png").catch((v) => console.error("PNG export failed", v));
   }), f && (f.onclick = () => {
-    fr("jpg").catch((v) => console.error("JPG export failed", v));
-  }), u && (u.onclick = () => {
+    mr("jpg").catch((v) => console.error("JPG export failed", v));
+  }), h && (h.onclick = () => {
     n7().catch((v) => console.error("SVG export failed", v));
   });
   const b = q("#btnPerioSvgExport"), w = q("#btnPerioPngExport"), y = q("#btnPerioJpgExport");
   b && (b.onclick = () => {
     s7().catch((v) => console.error("Perio SVG export failed", v));
   }), w && (w.onclick = () => {
-    mr("png").catch((v) => console.error("Perio PNG export failed", v));
+    hr("png").catch((v) => console.error("Perio PNG export failed", v));
   }), y && (y.onclick = () => {
-    mr("jpg").catch((v) => console.error("Perio JPG export failed", v));
+    hr("jpg").catch((v) => console.error("Perio JPG export failed", v));
   }), d && c && (d.onclick = () => {
     c.value = "", c.click();
   }, c.onchange = async () => {
@@ -28564,72 +28568,72 @@ function dc() {
     if (!v) return;
     const m = l2;
     try {
-      const D = await v.text(), Z = JSON.parse(D);
-      m === "fhir" ? Z7(Z) : B2(Z);
-    } catch (D) {
-      console.error("Odontogram import failed", D);
+      const P = await v.text(), S = JSON.parse(P);
+      m === "fhir" ? Z7(S) : B2(S);
+    } catch (P) {
+      console.error("Odontogram import failed", P);
     } finally {
       c.value = "", l2 = "status";
     }
   });
 }
 function I7(e) {
-  e !== f1 && (f1 = e, U5(), C2());
+  e !== m1 && (m1 = e, U5(), C2());
 }
 async function C7() {
-  if (Nt) return;
-  Nt = !0;
-  const e = ++c1;
-  if (dc(), await cc(e), !(!Nt || e !== c1)) {
-    if (zi || (zi = Pc(() => rr())), rr(), G != null) {
+  if (jt) return;
+  jt = !0;
+  const e = ++d1;
+  if (pc(), await dc(e), !(!jt || e !== d1)) {
+    if (zi || (zi = Dc(() => lr())), lr(), G != null) {
       const t = N.get(G);
       t && we(t);
     }
-    ql(), X(), x2();
+    Yl(), X(), x2();
   }
 }
 function P7() {
-  if (!Nt) return;
-  Nt = !1, c1++, Yl(), document.removeEventListener("click", Xl), document.removeEventListener("click", Ql), zi && (zi(), zi = null);
+  if (!jt) return;
+  jt = !1, d1++, Wl(), document.removeEventListener("click", Ql), document.removeEventListener("click", _l), zi && (zi(), zi = null);
   const e = q("#toothGrid");
-  e && (e.removeEventListener("touchstart", T3), e.removeEventListener("touchmove", E3), e.removeEventListener("touchend", O3), e.style.transform = "", e.classList.remove("odon-pinch-active", "odon-arch-upper", "odon-arch-lower"), e.innerHTML = ""), Et && (Et.remove(), Et = null), _t(), z1(), Da(), $t && (clearTimeout($t), $t = null), Ea = 1, Ri = !1, Co = "both", We = !1, n1 = !1, t2.clear(), Re.status.clear(), Re.plan.clear(), jt = !1, d1.clear(), a1 = null, p1 = "status", N = Re.status, jl(), A1.clear(), St.clear(), ja.clear(), Fa.clear(), ee = /* @__PURE__ */ new Set(), G = null;
+  e && (e.removeEventListener("touchstart", E3), e.removeEventListener("touchmove", O3), e.removeEventListener("touchend", L3), e.style.transform = "", e.classList.remove("odon-pinch-active", "odon-arch-upper", "odon-arch-lower"), e.innerHTML = ""), Lt && (Lt.remove(), Lt = null), e1(), I1(), Da(), t1 && (clearTimeout(t1), t1 = null), Ea = 1, Ri = !1, Co = "both", $e = !1, r1 = !1, t2.clear(), Ue.status.clear(), Ue.plan.clear(), Ut = !1, p1.clear(), o1 = null, f1 = "status", N = Ue.status, Fl(), T1.clear(), zt.clear(), ja.clear(), Fa.clear(), te = /* @__PURE__ */ new Set(), G = null;
 }
-function pc() {
-  if (Nt && (dc(), G != null)) {
+function fc() {
+  if (jt && (pc(), G != null)) {
     const e = N.get(G);
     e && we(e);
   }
 }
 async function V2() {
-  if (!Nt) return;
-  const e = new Set(ee), t = G;
-  A1.clear(), St.clear(), ja.clear(), Fa.clear();
-  const a = ++c1;
-  if (await cc(a), !(!Nt || a !== c1) && (ee = e, G = t, Zt(), ql(), G != null)) {
+  if (!jt) return;
+  const e = new Set(te), t = G;
+  T1.clear(), zt.clear(), ja.clear(), Fa.clear();
+  const a = ++d1;
+  if (await dc(a), !(!jt || a !== d1) && (te = e, G = t, It(), Yl(), G != null)) {
     const i = N.get(G);
     i && we(i);
   }
 }
 function D7() {
-  ee = /* @__PURE__ */ new Set(), G = null, Zt();
+  te = /* @__PURE__ */ new Set(), G = null, It();
 }
 function A7(e) {
   Ni = [...e];
   for (const t of ce)
-    S3(t), ia(t);
+    Z3(t), oa(t);
 }
 function Wf(e, t, a) {
   const i = N.get(e);
-  i && (a === void 0 ? delete i.customStates[t] : i.customStates[t] = a, it(e), kt(e));
+  i && (a === void 0 ? delete i.customStates[t] : i.customStates[t] = a, lt(e), xt(e));
 }
 function Jf(e, t) {
   return N.get(e)?.customStates?.[t];
 }
 function Xf(e) {
-  return Z3(e);
+  return z3(e);
 }
-const Y1 = ["buccal", "mesial", "occlusal", "distal", "lingual", "subcrown"];
-function D1(e, t) {
+const W1 = ["buccal", "mesial", "occlusal", "distal", "lingual", "subcrown"];
+function A1(e, t) {
   return P2(e, t);
 }
 const c2 = {
@@ -28643,17 +28647,17 @@ const c2 = {
   arrested: "rootCaries.arrested",
   "active-cavitated": "rootCaries.activeCavitated"
 };
-function u1(e) {
-  return ea(S2(e), f1);
+function g1(e) {
+  return ta(S2(e), m1);
 }
-function fc(e) {
+function mc(e) {
   return !!(e.caries && e.caries.size > 0 || e.rootCaries && e.rootCaries !== "none" || e.pulpDx && e.pulpDx !== "normal" || e.apicalDx && e.apicalDx !== "normal" || e.periapicalType && e.periapicalType !== "none" || e.resorptionType && e.resorptionType !== "none" || e.mods && typeof e.mods.has == "function" && e.mods.has("inflammation") || e.periImplant && e.periImplant !== "none" || e.mobility && e.mobility !== "none" || e.wearEdge && e.wearEdge !== "none" || e.wearCervical && e.wearCervical !== "none" || e.discoloration && e.discoloration !== "none");
 }
 function E7(e) {
-  return fc(e) || !!(e.restorationType && e.restorationType !== "none" || e.prosthesis && e.prosthesis !== "none" || e.fillingSurfaceMaterials && e.fillingSurfaceMaterials.size > 0 || e.fillingMaterial && e.fillingMaterial !== "none" || e.endo && e.endo !== "none" || e.calculus || e.crownNeeded || e.crownReplace || e.extractionPlan || e.orthoRotation || e.orthoAppliance && e.orthoAppliance !== "none" || e.orthoDrift && e.orthoDrift !== "none" || e.orthoVertical && e.orthoVertical !== "none" || e.toothSubstrate && e.toothSubstrate !== "natural");
+  return mc(e) || !!(e.restorationType && e.restorationType !== "none" || e.prosthesis && e.prosthesis !== "none" || e.fillingSurfaceMaterials && e.fillingSurfaceMaterials.size > 0 || e.fillingMaterial && e.fillingMaterial !== "none" || e.endo && e.endo !== "none" || e.calculus || e.crownNeeded || e.crownReplace || e.extractionPlan || e.orthoRotation || e.orthoAppliance && e.orthoAppliance !== "none" || e.orthoDrift && e.orthoDrift !== "none" || e.orthoVertical && e.orthoVertical !== "none" || e.toothSubstrate && e.toothSubstrate !== "natural");
 }
 function O7(e) {
-  return fc(e) ? "problem" : E7(e) ? "content" : "empty";
+  return mc(e) ? "problem" : E7(e) ? "content" : "empty";
 }
 function L7(e) {
   return e === "none" ? "missing" : e === "implant" ? "implant" : e === "milktooth" ? "primary" : "permanent";
@@ -28692,171 +28696,171 @@ function j7(e, t) {
     const s = {};
     for (const d of i) s[d.key] = [];
     for (const d of e)
-      G7(d.toothNo, t) === n.key && (s[d.category] ??= []).push({ toothNo: d.toothNo, label: u1(d.toothNo), status: d.status });
+      G7(d.toothNo, t) === n.key && (s[d.category] ??= []).push({ toothNo: d.toothNo, label: g1(d.toothNo), status: d.status });
     return { key: n.key, label: l(n.labelKey), cells: s };
   }).filter((n) => i.some((s) => (n.cells[s.key] ?? []).length > 0));
   return { columns: i, rows: o, legend: l("summary.legend") };
 }
-function mc() {
-  const e = u1, t = [], a = [], i = [], o = [];
+function hc() {
+  const e = g1, t = [], a = [], i = [], o = [];
   let n = 0;
-  const s = [], d = [], c = [], p = [], f = [], u = [], b = [], w = [], y = [], v = [];
+  const s = [], d = [], c = [], p = [], f = [], h = [], b = [], w = [], y = [], v = [];
   for (const M of ce) {
-    const I = N.get(M);
-    if (!I) continue;
-    n1 && I.note && I.note.trim() !== "" && v.push(`${u1(M)}: ${I.note.trim()}`);
-    const E = I.toothSelection;
-    if (E === "none" ? i.push(M) : E === "implant" ? o.push(M) : E === "milktooth" ? n++ : a.push(M), t.push({ toothNo: M, category: L7(E), status: O7(I) }), I.caries && I.caries.size > 0) {
-      const P = [], Y = [];
-      for (const j of Y1) {
-        if (!I.caries.has("caries-" + j)) continue;
-        const ie = D1(j, M);
-        I.fillingSurfaceMaterials && I.fillingSurfaceMaterials.has(j) ? Y.push(ie) : P.push(ie);
+    const z = N.get(M);
+    if (!z) continue;
+    r1 && z.note && z.note.trim() !== "" && v.push(`${g1(M)}: ${z.note.trim()}`);
+    const T = z.toothSelection;
+    if (T === "none" ? i.push(M) : T === "implant" ? o.push(M) : T === "milktooth" ? n++ : a.push(M), t.push({ toothNo: M, category: L7(T), status: O7(z) }), z.caries && z.caries.size > 0) {
+      const C = [], Y = [];
+      for (const E of W1) {
+        if (!z.caries.has("caries-" + E)) continue;
+        const ee = A1(E, M);
+        z.fillingSurfaceMaterials && z.fillingSurfaceMaterials.has(E) ? Y.push(ee) : C.push(ee);
       }
-      const S = [];
-      if (P.length && S.push(P.join(", ")), Y.length && S.push(Y.join(", ") + " - " + l("toothInfo.secondary")), S.length) {
-        const j = f3(I);
-        s.push(`${e(M)} (${S.join("; ")})${j ? " – " + j : ""}`);
-      }
-    }
-    if (I.rootCaries && I.rootCaries !== "none") {
-      const P = T7[I.rootCaries];
-      P && s.push(`${e(M)} (${l(P)})`);
-    }
-    if (I.radiographicDepth && I.radiographicDepth.size > 0) {
-      const P = Y1.filter((Y) => I.radiographicDepth.has(Y)).map((Y) => `${D1(Y, M)}: ${l("radiographicDepth." + I.radiographicDepth.get(Y))}`);
-      P.length && s.push(`${e(M)} (${P.join(", ")})`);
-    }
-    if (I.fillingSurfaceMaterials && I.fillingSurfaceMaterials.size > 0) {
-      const P = Y1.filter((Y) => I.fillingSurfaceMaterials.has(Y)).map((Y) => D1(Y, M));
-      if (P.length) {
-        const Y = I.restorationType === "none" ? Y1.filter((j) => I.fillingDefect?.has(j) && I.fillingSurfaceMaterials.has(j)).map((j) => `${D1(j, M)}: ${l("fillingDefect." + I.fillingDefect.get(j))}`) : [], S = Y.length ? ` – ${l("fillingDefect.label")}: ${Y.join(", ")}` : "";
-        d.push(`${e(M)} (${P.join(", ")})${S}`);
+      const R = [];
+      if (C.length && R.push(C.join(", ")), Y.length && R.push(Y.join(", ") + " - " + l("toothInfo.secondary")), R.length) {
+        const E = m3(z);
+        s.push(`${e(M)} (${R.join("; ")})${E ? " – " + E : ""}`);
       }
     }
-    if (I.endo && I.endo !== "none" || I.endoResection) {
-      let P = c2[I.endo] ? l(c2[I.endo]) : "";
-      I.endo === "endo-resection" ? P = l("toothInfo.resected") : I.endoResection && (P = P ? `${P}, ${l("toothInfo.resected")}` : l("toothInfo.resected")), c.push(`${e(M)} (${P})`);
+    if (z.rootCaries && z.rootCaries !== "none") {
+      const C = T7[z.rootCaries];
+      C && s.push(`${e(M)} (${l(C)})`);
     }
-    if (I.restorationType && I.restorationType !== "none" && p.push(`${e(M)}: ${z2(I.restorationType, I.restorationMaterial)}`), I.prosthesis && I.prosthesis !== "none" && p.push(`${e(M)}: ${l(Jo[I.prosthesis] || I.prosthesis)}`), I.crownLeakage && !Z2(I) && (I.restorationType === "crown" || I.restorationType === "bridge") && p.push(`${e(M)} (${l("crownLeakage.label")})`), I.mods && (I.mods.has("inflammation") || I.mods.has("parodontal"))) {
-      let P;
-      I.periapicalType && I.periapicalType !== "none" ? P = l("periapical.type." + I.periapicalType) : I.mods.has("parodontal") ? P = l("mods.parodontal") : P = l("mods.periapicalInflammation"), f.push(`${e(M)} (${P})`);
+    if (z.radiographicDepth && z.radiographicDepth.size > 0) {
+      const C = W1.filter((Y) => z.radiographicDepth.has(Y)).map((Y) => `${A1(Y, M)}: ${l("radiographicDepth." + z.radiographicDepth.get(Y))}`);
+      C.length && s.push(`${e(M)} (${C.join(", ")})`);
     }
-    const ke = p3(I);
-    if (ke.length && u.push(`${e(M)} (${ke.join("; ")})`), I2(I)) {
-      const P = [];
-      I.wearEdge !== "none" && P.push(`${l("tooth.bruxism.edgeWear")}: ${l("wearType." + I.wearEdge)}`), I.wearCervical !== "none" && P.push(`${l("tooth.bruxism.neckWear")}: ${l("wearType." + I.wearCervical)}`), P.length && b.push(`${e(M)} (${P.join(", ")})`);
+    if (z.fillingSurfaceMaterials && z.fillingSurfaceMaterials.size > 0) {
+      const C = W1.filter((Y) => z.fillingSurfaceMaterials.has(Y)).map((Y) => A1(Y, M));
+      if (C.length) {
+        const Y = z.restorationType === "none" ? W1.filter((E) => z.fillingDefect?.has(E) && z.fillingSurfaceMaterials.has(E)).map((E) => `${A1(E, M)}: ${l("fillingDefect." + z.fillingDefect.get(E))}`) : [], R = Y.length ? ` – ${l("fillingDefect.label")}: ${Y.join(", ")}` : "";
+        d.push(`${e(M)} (${C.join(", ")})${R}`);
+      }
     }
-    if (an(I) && I.discoloration !== "none" && w.push(`${e(M)} (${l("discoloration." + I.discoloration)})`), on(I)) {
-      const P = [];
-      I.orthoAppliance !== "none" && P.push(l("ortho.appliance." + I.orthoAppliance)), I.orthoDrift !== "none" && P.push(l("ortho.drift." + I.orthoDrift)), I.orthoVertical !== "none" && P.push(l("ortho.vertical." + I.orthoVertical)), I.orthoRotation === !0 && P.push(l("ortho.rotation.label")), P.length && y.push(`${e(M)} (${P.join(", ")})`);
+    if (z.endo && z.endo !== "none" || z.endoResection) {
+      let C = c2[z.endo] ? l(c2[z.endo]) : "";
+      z.endo === "endo-resection" ? C = l("toothInfo.resected") : z.endoResection && (C = C ? `${C}, ${l("toothInfo.resected")}` : l("toothInfo.resected")), c.push(`${e(M)} (${C})`);
     }
-    I.calculus && f.push(`${e(M)} (${l("calculus.label")})`), I.mobility && I.mobility !== "none" && I.toothSelection !== "implant" && f.push(`${e(M)} (${l("inflammation.mobilityLabel")} ${l("mobility." + I.mobility)})`);
+    if (z.restorationType && z.restorationType !== "none" && p.push(`${e(M)}: ${z2(z.restorationType, z.restorationMaterial)}`), z.prosthesis && z.prosthesis !== "none" && p.push(`${e(M)}: ${l(Jo[z.prosthesis] || z.prosthesis)}`), z.crownLeakage && !Z2(z) && (z.restorationType === "crown" || z.restorationType === "bridge") && p.push(`${e(M)} (${l("crownLeakage.label")})`), z.mods && (z.mods.has("inflammation") || z.mods.has("parodontal"))) {
+      let C;
+      z.periapicalType && z.periapicalType !== "none" ? C = l("periapical.type." + z.periapicalType) : z.mods.has("parodontal") ? C = l("mods.parodontal") : C = l("mods.periapicalInflammation"), f.push(`${e(M)} (${C})`);
+    }
+    const Me = f3(z);
+    if (Me.length && h.push(`${e(M)} (${Me.join("; ")})`), I2(z)) {
+      const C = [];
+      z.wearEdge !== "none" && C.push(`${l("tooth.bruxism.edgeWear")}: ${l("wearType." + z.wearEdge)}`), z.wearCervical !== "none" && C.push(`${l("tooth.bruxism.neckWear")}: ${l("wearType." + z.wearCervical)}`), C.length && b.push(`${e(M)} (${C.join(", ")})`);
+    }
+    if (an(z) && z.discoloration !== "none" && w.push(`${e(M)} (${l("discoloration." + z.discoloration)})`), on(z)) {
+      const C = [];
+      z.orthoAppliance !== "none" && C.push(l("ortho.appliance." + z.orthoAppliance)), z.orthoDrift !== "none" && C.push(l("ortho.drift." + z.orthoDrift)), z.orthoVertical !== "none" && C.push(l("ortho.vertical." + z.orthoVertical)), z.orthoRotation === !0 && C.push(l("ortho.rotation.label")), C.length && y.push(`${e(M)} (${C.join(", ")})`);
+    }
+    z.calculus && f.push(`${e(M)} (${l("calculus.label")})`), z.mobility && z.mobility !== "none" && z.toothSelection !== "implant" && f.push(`${e(M)} (${l("inflammation.mobilityLabel")} ${l("mobility." + z.mobility)})`);
     {
-      const P = t3(I);
-      P && f.push(`${e(M)} (${P})`);
-    }
-    {
-      const P = E2(M);
-      P !== "none" && f.push(`${e(M)} (${l(`perio.recession.${P}`)})`);
-    }
-    {
-      const P = a3(I);
-      P && f.push(`${e(M)} (${P})`);
-    }
-    {
-      const P = i3(I);
-      P && f.push(`${e(M)} (${P})`);
-    }
-    {
-      const P = o3(M);
-      P && f.push(`${e(M)} (${P})`);
-    }
-    {
-      const P = n3(M);
-      P && f.push(`${e(M)} (${P})`);
+      const C = a3(z);
+      C && f.push(`${e(M)} (${C})`);
     }
     {
-      const P = l3(M);
-      P && f.push(`${e(M)} (${P})`);
+      const C = E2(M);
+      C !== "none" && f.push(`${e(M)} (${l(`perio.recession.${C}`)})`);
     }
     {
-      const P = c3(M);
-      P && f.push(`${e(M)} (${P})`);
+      const C = i3(z);
+      C && f.push(`${e(M)} (${C})`);
     }
     {
-      const P = d3(M);
-      P && f.push(`${e(M)} (${P})`);
+      const C = o3(z);
+      C && f.push(`${e(M)} (${C})`);
     }
     {
-      const P = s3(M);
-      P && f.push(`${e(M)} (${P})`);
+      const C = n3(M);
+      C && f.push(`${e(M)} (${C})`);
     }
     {
-      const P = r3(M);
-      P && f.push(`${e(M)} (${P})`);
+      const C = s3(M);
+      C && f.push(`${e(M)} (${C})`);
+    }
+    {
+      const C = c3(M);
+      C && f.push(`${e(M)} (${C})`);
+    }
+    {
+      const C = d3(M);
+      C && f.push(`${e(M)} (${C})`);
+    }
+    {
+      const C = p3(M);
+      C && f.push(`${e(M)} (${C})`);
+    }
+    {
+      const C = r3(M);
+      C && f.push(`${e(M)} (${C})`);
+    }
+    {
+      const C = l3(M);
+      C && f.push(`${e(M)} (${C})`);
     }
   }
-  const m = (M, I) => l(`${M}${I === 1 ? "One" : "Other"}`, { n: I }), D = m("toothInfo.milk", n), Z = n > 0 ? l("toothInfo.milkFragment", { milk: D }) : "", g = m("toothInfo.present", a.length), x = m("toothInfo.missing", i.length);
-  let C;
-  a.length === 0 && o.length === 0 && n > 0 ? C = l("toothInfo.overviewMilkOnly", { milk: D }) : o.length > 0 ? C = l("toothInfo.overviewImplant", { present: g, milk: Z, missing: x, implant: m("toothInfo.implant", o.length) }) : C = l("toothInfo.overview", { present: g, milk: Z, missing: x });
-  const z = a.length ? l("toothInfo.permanentList", { count: a.length, list: a.map(e).join(", ") }) : null, F = i.length ? l("toothInfo.missingList", { count: i.length, list: i.map(e).join(", ") }) : null, L = [
+  const m = (M, z) => l(`${M}${z === 1 ? "One" : "Other"}`, { n: z }), P = m("toothInfo.milk", n), S = n > 0 ? l("toothInfo.milkFragment", { milk: P }) : "", g = m("toothInfo.present", a.length), x = m("toothInfo.missing", i.length);
+  let I;
+  a.length === 0 && o.length === 0 && n > 0 ? I = l("toothInfo.overviewMilkOnly", { milk: P }) : o.length > 0 ? I = l("toothInfo.overviewImplant", { present: g, milk: S, missing: x, implant: m("toothInfo.implant", o.length) }) : I = l("toothInfo.overview", { present: g, milk: S, missing: x });
+  const Z = a.length ? l("toothInfo.permanentList", { count: a.length, list: a.map(e).join(", ") }) : null, F = i.length ? l("toothInfo.missingList", { count: i.length, list: i.map(e).join(", ") }) : null, L = [
     { key: "caries", heading: l("toothInfo.caries"), items: s, emptyText: l("toothInfo.cariesEmpty") },
     { key: "fillings", heading: l("toothInfo.fillings"), items: d, emptyText: l("toothInfo.fillingsEmpty") },
     { key: "endo", heading: l("toothInfo.endo"), items: c, emptyText: l("toothInfo.endoEmpty") },
-    { key: "diagnoses", heading: l("toothInfo.diagnoses"), items: u, emptyText: l("toothInfo.diagnosesEmpty") },
+    { key: "diagnoses", heading: l("toothInfo.diagnoses"), items: h, emptyText: l("toothInfo.diagnosesEmpty") },
     { key: "wear", heading: l("toothInfo.wear"), items: b, emptyText: l("toothInfo.wearEmpty") },
     { key: "discoloration", heading: l("toothInfo.discoloration"), items: w, emptyText: l("toothInfo.discolorationEmpty") },
     { key: "orthodontics", heading: l("toothInfo.orthodontics"), items: y, emptyText: l("toothInfo.orthodonticsEmpty") },
     { key: "prosthetics", heading: l("toothInfo.prosthetics"), items: p, emptyText: l("toothInfo.prostheticsEmpty") }
   ];
-  let R = f.length ? l("toothInfo.periodontalInflamed", { list: f.join(", ") }) : l("toothInfo.periodontalHealthy");
+  let j = f.length ? l("toothInfo.periodontalInflamed", { list: f.join(", ") }) : l("toothInfo.periodontalHealthy");
   if (!k2(H)) {
     const M = z5(H);
-    M && (R = `${R} – ${M}`);
+    M && (j = `${j} – ${M}`);
   }
   {
     const M = B8(Ui());
-    M && (R = `${R} – ${M}`);
+    M && (j = `${j} – ${M}`);
   }
-  const J = o.length ? { heading: l("toothInfo.implants"), text: o.map(e).join(", ") } : null, T = v.length ? { heading: l("toothInfo.notes"), items: v } : null;
+  const W = o.length ? { heading: l("toothInfo.implants"), text: o.map(e).join(", ") } : null, A = v.length ? { heading: l("toothInfo.notes"), items: v } : null;
   return {
-    overview: C,
-    permanentList: z,
+    overview: I,
+    permanentList: Z,
     missingList: F,
-    toothTable: j7(t, sa().summaryGrouping),
+    toothTable: j7(t, ra().summaryGrouping),
     periodontalHasFindings: f.length > 0,
     sections: L,
-    implants: J,
+    implants: W,
     periodontalTitle: l("toothInfo.periodontalTitle"),
-    periodontalText: R,
+    periodontalText: j,
     plannedChanges: z8(),
-    individualNotes: T
+    individualNotes: A
   };
 }
 function F7(e) {
-  We = e;
+  $e = e;
   const t = q("#toothGrid");
-  t && t.classList.toggle("read-only", We);
+  t && t.classList.toggle("read-only", $e);
   const a = q(".panel");
-  a && a.classList.toggle("read-only", We);
+  a && a.classList.toggle("read-only", $e);
   const i = q("#perioOverlay");
-  i && i.classList.toggle("read-only", We);
+  i && i.classList.toggle("read-only", $e);
   const o = q("#perioInlinePanel");
-  o && o.classList.toggle("read-only", We), Ya(".tooth-tile[role='option']").forEach((n) => {
-    n.setAttribute("tabindex", We ? "-1" : "0");
+  o && o.classList.toggle("read-only", $e), Ya(".tooth-tile[role='option']").forEach((n) => {
+    n.setAttribute("tabindex", $e ? "-1" : "0");
   });
 }
-function _1() {
-  return We;
+function $1() {
+  return $e;
 }
-function vr(e) {
-  n1 = e;
+function yr(e) {
+  r1 = e;
   for (const t of ce)
-    ia(t), oa(t);
+    oa(t), na(t);
 }
 function Qf() {
-  return n1;
+  return r1;
 }
 const U7 = {
   chartedSites: 0,
@@ -28905,30 +28909,30 @@ const U7 = {
   },
   overridden: { diagnosis: !1, stage: !1, grade: !1, extent: !1 }
 }, K7 = ["–", "I", "II", "III", "IV"];
-function yr(e) {
+function br(e) {
   return l(`perio.class.dx.${e}`);
 }
-function br(e) {
+function kr(e) {
   return l(e === "na" ? "perio.class.stage.na" : e === "indeterminate" ? "perio.class.stage.indeterminate" : `perio.class.stage.${e}`);
 }
-function kr(e) {
+function xr(e) {
   return l(e === "indeterminate" ? "perio.class.grade.indeterminate" : `perio.class.grade.${e}`);
 }
-function xr(e) {
+function wr(e) {
   return l(e === "na" ? "perio.class.extent.na" : e === "molar-incisor" ? "perio.class.extent.molarIncisor" : `perio.class.extent.${e}`);
 }
-function hc() {
+function uc() {
   const [e, t] = _(U7), [a, i] = _(B7), [o, n] = _(V7);
-  se(() => (t(h1()), i(e1()), n(Ui()), tt(() => {
-    t(h1()), i(e1()), n(Ui());
+  se(() => (t(u1()), i(a1()), n(Ui()), st(() => {
+    t(u1()), i(a1()), n(Ui());
   })), []);
-  const s = _1(), d = e.worstCal === null ? "–" : `${e.worstCal}${e.worstCalTooth !== null ? ` (${u1(e.worstCalTooth)})` : ""}`, c = a.smokingStatus !== "current", p = a.diabetesStatus !== "present", f = na() === "canonical", u = f ? `Avg ${ne("pd")}` : l("perio.summary.avgPd"), b = f ? `Avg ${ne("cal")}` : l("perio.summary.avgCal"), w = f ? `${ne("bop")}%` : l("perio.bopPercent"), y = f ? `Worst ${ne("cal")}` : l("perio.summary.worstCal"), v = f ? `Max ${ne("pd")}` : l("perio.summary.maxPd"), m = f ? `Max ${ne("furcation")}` : l("perio.summary.maxFurcation"), D = f ? `${ne("plaque")}%` : l("plaque.percent");
+  const s = $1(), d = e.worstCal === null ? "–" : `${e.worstCal}${e.worstCalTooth !== null ? ` (${g1(e.worstCalTooth)})` : ""}`, c = a.smokingStatus !== "current", p = a.diabetesStatus !== "present", f = sa() === "canonical", h = f ? `Avg ${ne("pd")}` : l("perio.summary.avgPd"), b = f ? `Avg ${ne("cal")}` : l("perio.summary.avgCal"), w = f ? `${ne("bop")}%` : l("perio.bopPercent"), y = f ? `Worst ${ne("cal")}` : l("perio.summary.worstCal"), v = f ? `Max ${ne("pd")}` : l("perio.summary.maxPd"), m = f ? `Max ${ne("furcation")}` : l("perio.summary.maxFurcation"), P = f ? `${ne("plaque")}%` : l("plaque.percent");
   return /* @__PURE__ */ k("div", { className: "panel-body", children: [
     /* @__PURE__ */ k("div", { className: "perio-summary-card", children: [
       /* @__PURE__ */ r("div", { className: "perio-summary-card-title", children: l("perio.summary.title") }),
       /* @__PURE__ */ k("div", { className: "perio-fullgrid-summary", role: "status", children: [
         /* @__PURE__ */ k("span", { className: "perio-fullgrid-summary-item", children: [
-          /* @__PURE__ */ r("span", { className: "perio-fullgrid-summary-label", children: u }),
+          /* @__PURE__ */ r("span", { className: "perio-fullgrid-summary-label", children: h }),
           /* @__PURE__ */ r("span", { className: "perio-fullgrid-summary-value", id: "perio-fg-summary-avgpd", children: e.avgPd === null ? "–" : e.avgPd })
         ] }),
         /* @__PURE__ */ k("span", { className: "perio-fullgrid-summary-item", children: [
@@ -28959,7 +28963,7 @@ function hc() {
           /* @__PURE__ */ r("span", { className: "perio-fullgrid-summary-value", id: "perio-fg-summary-maxfurc", children: e.maxFurcation === null ? "–" : K7[e.maxFurcation] })
         ] }),
         /* @__PURE__ */ k("span", { className: "perio-fullgrid-summary-item", children: [
-          /* @__PURE__ */ r("span", { className: "perio-fullgrid-summary-label", children: D }),
+          /* @__PURE__ */ r("span", { className: "perio-fullgrid-summary-label", children: P }),
           /* @__PURE__ */ k("span", { className: "perio-fullgrid-summary-value", id: "perio-fg-summary-plaque", children: [
             e.plaquePercent,
             "%"
@@ -28980,7 +28984,7 @@ function hc() {
               type: "text",
               disabled: s,
               value: a.patientName ?? "",
-              onChange: (Z) => Xn(Z.target.value === "" ? null : Z.target.value)
+              onChange: (S) => Xn(S.target.value === "" ? null : S.target.value)
             }
           )
         ] }),
@@ -28994,7 +28998,7 @@ function hc() {
               type: "date",
               disabled: s,
               value: a.examDate ?? "",
-              onChange: (Z) => Qn(Z.target.value === "" ? null : Z.target.value)
+              onChange: (S) => Qn(S.target.value === "" ? null : S.target.value)
             }
           )
         ] }),
@@ -29010,8 +29014,8 @@ function hc() {
               max: 120,
               disabled: s,
               value: a.age ?? "",
-              onChange: (Z) => {
-                const g = Z.target.value;
+              onChange: (S) => {
+                const g = S.target.value;
                 m5(g === "" ? null : Number(g));
               }
             }
@@ -29026,7 +29030,7 @@ function hc() {
               className: "odon-settings-select case-meta-select",
               disabled: s,
               value: a.smokingStatus,
-              onChange: (Z) => y5(Z.target.value),
+              onChange: (S) => y5(S.target.value),
               children: [
                 /* @__PURE__ */ r("option", { value: "unknown", children: l("case.smoking.unknown") }),
                 /* @__PURE__ */ r("option", { value: "never", children: l("case.smoking.never") }),
@@ -29048,8 +29052,8 @@ function hc() {
               max: 99,
               disabled: s || c,
               value: a.cigarettesPerDay ?? "",
-              onChange: (Z) => {
-                const g = Z.target.value;
+              onChange: (S) => {
+                const g = S.target.value;
                 h5(g === "" ? null : Number(g));
               }
             }
@@ -29064,7 +29068,7 @@ function hc() {
               className: "odon-settings-select case-meta-select",
               disabled: s,
               value: a.diabetesStatus,
-              onChange: (Z) => b5(Z.target.value),
+              onChange: (S) => b5(S.target.value),
               children: [
                 /* @__PURE__ */ r("option", { value: "unknown", children: l("case.diabetes.unknown") }),
                 /* @__PURE__ */ r("option", { value: "none", children: l("case.diabetes.none") }),
@@ -29086,8 +29090,8 @@ function hc() {
               step: 0.1,
               disabled: s || p,
               value: a.hba1c ?? "",
-              onChange: (Z) => {
-                const g = Z.target.value;
+              onChange: (S) => {
+                const g = S.target.value;
                 v5(g === "" ? null : Number(g));
               }
             }
@@ -29105,8 +29109,8 @@ function hc() {
               max: 100,
               disabled: s,
               value: a.maxRblPercent ?? "",
-              onChange: (Z) => {
-                const g = Z.target.value;
+              onChange: (S) => {
+                const g = S.target.value;
                 g5(g === "" ? null : Number(g));
               }
             }
@@ -29124,8 +29128,8 @@ function hc() {
               max: 32,
               disabled: s,
               value: a.toothLossPerio ?? "",
-              onChange: (Z) => {
-                const g = Z.target.value;
+              onChange: (S) => {
+                const g = S.target.value;
                 u5(g === "" ? null : Number(g));
               }
             }
@@ -29134,7 +29138,7 @@ function hc() {
         /* @__PURE__ */ r("div", { className: "case-meta-panel-subheading", children: l("perio.class.title") }),
         /* @__PURE__ */ k("div", { className: "perio-class-row", children: [
           /* @__PURE__ */ r("label", { className: "perio-class-row-label", htmlFor: "perioClassDiagnosisOverride", children: l("perio.class.diagnosis") }),
-          /* @__PURE__ */ r("div", { className: "perio-class-derived", id: "perioClassDiagnosisDerived", children: yr(o.derived.diagnosis) }),
+          /* @__PURE__ */ r("div", { className: "perio-class-derived", id: "perioClassDiagnosisDerived", children: br(o.derived.diagnosis) }),
           /* @__PURE__ */ k(
             "select",
             {
@@ -29142,9 +29146,9 @@ function hc() {
               className: "odon-settings-select case-meta-select",
               disabled: s,
               value: a.diagnosisOverride ?? "",
-              onChange: (Z) => k5(Z.target.value === "" ? null : Z.target.value),
+              onChange: (S) => k5(S.target.value === "" ? null : S.target.value),
               children: [
-                /* @__PURE__ */ r("option", { value: "", children: l("perio.class.useDerived", { value: yr(o.derived.diagnosis) }) }),
+                /* @__PURE__ */ r("option", { value: "", children: l("perio.class.useDerived", { value: br(o.derived.diagnosis) }) }),
                 /* @__PURE__ */ r("option", { value: "health", children: l("perio.class.dx.health") }),
                 /* @__PURE__ */ r("option", { value: "gingivitis", children: l("perio.class.dx.gingivitis") }),
                 /* @__PURE__ */ r("option", { value: "periodontitis", children: l("perio.class.dx.periodontitis") })
@@ -29154,7 +29158,7 @@ function hc() {
         ] }),
         /* @__PURE__ */ k("div", { className: "perio-class-row", children: [
           /* @__PURE__ */ r("label", { className: "perio-class-row-label", htmlFor: "perioClassStageOverride", children: l("perio.class.stage") }),
-          /* @__PURE__ */ r("div", { className: "perio-class-derived", id: "perioClassStageDerived", children: br(o.derived.stage) }),
+          /* @__PURE__ */ r("div", { className: "perio-class-derived", id: "perioClassStageDerived", children: kr(o.derived.stage) }),
           /* @__PURE__ */ k(
             "select",
             {
@@ -29162,9 +29166,9 @@ function hc() {
               className: "odon-settings-select case-meta-select",
               disabled: s,
               value: a.stageOverride ?? "",
-              onChange: (Z) => x5(Z.target.value === "" ? null : Z.target.value),
+              onChange: (S) => x5(S.target.value === "" ? null : S.target.value),
               children: [
-                /* @__PURE__ */ r("option", { value: "", children: l("perio.class.useDerived", { value: br(o.derived.stage) }) }),
+                /* @__PURE__ */ r("option", { value: "", children: l("perio.class.useDerived", { value: kr(o.derived.stage) }) }),
                 /* @__PURE__ */ r("option", { value: "I", children: l("perio.class.stage.I") }),
                 /* @__PURE__ */ r("option", { value: "II", children: l("perio.class.stage.II") }),
                 /* @__PURE__ */ r("option", { value: "III", children: l("perio.class.stage.III") }),
@@ -29175,7 +29179,7 @@ function hc() {
         ] }),
         /* @__PURE__ */ k("div", { className: "perio-class-row", children: [
           /* @__PURE__ */ r("label", { className: "perio-class-row-label", htmlFor: "perioClassGradeOverride", children: l("perio.class.grade") }),
-          /* @__PURE__ */ r("div", { className: "perio-class-derived", id: "perioClassGradeDerived", children: kr(o.derived.grade) }),
+          /* @__PURE__ */ r("div", { className: "perio-class-derived", id: "perioClassGradeDerived", children: xr(o.derived.grade) }),
           /* @__PURE__ */ k(
             "select",
             {
@@ -29183,9 +29187,9 @@ function hc() {
               className: "odon-settings-select case-meta-select",
               disabled: s,
               value: a.gradeOverride ?? "",
-              onChange: (Z) => w5(Z.target.value === "" ? null : Z.target.value),
+              onChange: (S) => w5(S.target.value === "" ? null : S.target.value),
               children: [
-                /* @__PURE__ */ r("option", { value: "", children: l("perio.class.useDerived", { value: kr(o.derived.grade) }) }),
+                /* @__PURE__ */ r("option", { value: "", children: l("perio.class.useDerived", { value: xr(o.derived.grade) }) }),
                 /* @__PURE__ */ r("option", { value: "A", children: l("perio.class.grade.A") }),
                 /* @__PURE__ */ r("option", { value: "B", children: l("perio.class.grade.B") }),
                 /* @__PURE__ */ r("option", { value: "C", children: l("perio.class.grade.C") })
@@ -29195,7 +29199,7 @@ function hc() {
         ] }),
         /* @__PURE__ */ k("div", { className: "perio-class-row", children: [
           /* @__PURE__ */ r("label", { className: "perio-class-row-label", htmlFor: "perioClassExtentOverride", children: l("perio.class.extent") }),
-          /* @__PURE__ */ r("div", { className: "perio-class-derived", id: "perioClassExtentDerived", children: xr(o.derived.extent) }),
+          /* @__PURE__ */ r("div", { className: "perio-class-derived", id: "perioClassExtentDerived", children: wr(o.derived.extent) }),
           /* @__PURE__ */ k(
             "select",
             {
@@ -29203,9 +29207,9 @@ function hc() {
               className: "odon-settings-select case-meta-select",
               disabled: s,
               value: a.extentOverride ?? "",
-              onChange: (Z) => M5(Z.target.value === "" ? null : Z.target.value),
+              onChange: (S) => M5(S.target.value === "" ? null : S.target.value),
               children: [
-                /* @__PURE__ */ r("option", { value: "", children: l("perio.class.useDerived", { value: xr(o.derived.extent) }) }),
+                /* @__PURE__ */ r("option", { value: "", children: l("perio.class.useDerived", { value: wr(o.derived.extent) }) }),
                 /* @__PURE__ */ r("option", { value: "localized", children: l("perio.class.extent.localized") }),
                 /* @__PURE__ */ r("option", { value: "generalized", children: l("perio.class.extent.generalized") }),
                 /* @__PURE__ */ r("option", { value: "molar-incisor", children: l("perio.class.extent.molarIncisor") })
@@ -29217,12 +29221,12 @@ function hc() {
     ] })
   ] });
 }
-const d2 = 220, H7 = 46, wr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', rt = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], lt = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], W1 = ["MB", "B", "DB"], J1 = ["ML", "L", "DL"], uc = ["mesial", "distal", "buccal", "lingual"], gc = { mesial: "M", distal: "D", buccal: "B", lingual: "L" };
+const d2 = 220, H7 = 46, Mr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', dt = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], pt = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], J1 = ["MB", "B", "DB"], X1 = ["ML", "L", "DL"], gc = ["mesial", "distal", "buccal", "lingual"], vc = { mesial: "M", distal: "D", buccal: "B", lingual: "L" };
 function q7(e) {
   const t = Math.floor(e / 10);
   return t === 2 || t === 3;
 }
-function vc(e, t) {
+function yc(e, t) {
   if (e === "buccal") return "buc";
   if (e === "lingual") return "lin";
   const a = q7(t);
@@ -29249,13 +29253,13 @@ const Y7 = ["–", "I", "II", "III", "IV"], Rn = ["none", "detectable", "not-det
   mpiScore: null,
   mbiScore: null
 };
-function Mr(e, t) {
+function Sr(e, t) {
   const a = [], i = [];
   for (const o of e.teeth) {
-    const n = bt(o.toothNo), s = t.some((d) => Object.prototype.hasOwnProperty.call(n.pd, d));
+    const n = kt(o.toothNo), s = t.some((d) => Object.prototype.hasOwnProperty.call(n.pd, d));
     t.forEach((d, c) => {
-      const f = Object.prototype.hasOwnProperty.call(n.pd, d) ? n.pd[d] : s ? 0 : void 0, u = f === void 0 ? void 0 : Object.prototype.hasOwnProperty.call(n.gm, d) ? n.gm[d] : 0;
-      a.push({ site: d, pd: f, gm: u }), i.push(o.x + o.width * (c + 0.5) / 3);
+      const f = Object.prototype.hasOwnProperty.call(n.pd, d) ? n.pd[d] : s ? 0 : void 0, h = f === void 0 ? void 0 : Object.prototype.hasOwnProperty.call(n.gm, d) ? n.gm[d] : 0;
+      a.push({ site: d, pd: f, gm: h }), i.push(o.x + o.width * (c + 0.5) / 3);
     });
   }
   return { sites: a, xs: i };
@@ -29268,12 +29272,12 @@ function za(e, t, a) {
   t.querySelectorAll(".perio-curve").forEach((d) => d.remove());
   const i = Ha(e, a), o = { cejY: i.cejY, mmPx: Ka }, n = Ho(t, "perio-tooth-arch-buccal");
   if (n) {
-    const d = n.querySelector(".perio-tooth-row-buccal") ?? n, c = Mr(i, W1), p = Ei(c.sites, { ...o, siteX: (u) => c.xs[u] }), f = Oi(p, { width: i.totalWidth, className: "perio-curve perio-curve-buccal" });
+    const d = n.querySelector(".perio-tooth-row-buccal") ?? n, c = Sr(i, J1), p = Ei(c.sites, { ...o, siteX: (h) => c.xs[h] }), f = Oi(p, { width: i.totalWidth, className: "perio-curve perio-curve-buccal" });
     d.appendChild(f);
   }
   const s = Ho(t, "perio-tooth-arch-palatal");
   if (s) {
-    const d = s.querySelector(".perio-tooth-row-palatal-inner") ?? s, c = Mr(i, J1), p = Ei(c.sites, { ...o, siteX: (u) => c.xs[u] }), f = Oi(p, { width: i.totalWidth, className: "perio-curve perio-curve-palatal" });
+    const d = s.querySelector(".perio-tooth-row-palatal-inner") ?? s, c = Sr(i, X1), p = Ei(c.sites, { ...o, siteX: (h) => c.xs[h] }), f = Oi(p, { width: i.totalWidth, className: "perio-curve perio-curve-palatal" });
     d.appendChild(f);
   }
 }
@@ -29305,12 +29309,12 @@ const e9 = [
 };
 function a9(e) {
   const t = t9[e];
-  return t && na() === "canonical" ? Sl[t] : l(`perio.overlay.${e}`);
+  return t && sa() === "canonical" ? Zl[t] : l(`perio.overlay.${e}`);
 }
-function Sr(e, t) {
+function Zr(e, t) {
   const a = [];
   for (const i of e.teeth) {
-    const o = bt(i.toothNo);
+    const o = kt(i.toothNo);
     t.forEach((n, s) => {
       const d = Object.prototype.hasOwnProperty.call(o.pd, n);
       a.push({
@@ -29323,10 +29327,10 @@ function Sr(e, t) {
   }
   return a;
 }
-function Zr(e, t) {
+function zr(e, t) {
   const a = [];
   for (const i of e.teeth) {
-    const o = bt(i.toothNo), n = L1(i.toothNo);
+    const o = kt(i.toothNo), n = G1(i.toothNo);
     t.forEach((s, d) => {
       const c = Object.prototype.hasOwnProperty.call(o.pd, s);
       a.push({
@@ -29349,9 +29353,9 @@ function Ia(e, t, a, i) {
       surfaces: rn(v.toothNo)
     }));
     s?.appendChild(
-      At(Is(y, "buccal", p), { width: c.totalWidth, className: f })
+      Et(Is(y, "buccal", p), { width: c.totalWidth, className: f })
     ), d?.appendChild(
-      At(Is(y, "palatal", p), { width: c.totalWidth, className: f })
+      Et(Is(y, "palatal", p), { width: c.totalWidth, className: f })
     );
     return;
   }
@@ -29362,7 +29366,7 @@ function Ia(e, t, a, i) {
       rt: E2(v.toothNo)
     }));
     s?.appendChild(
-      At(_4(y, p), { width: c.totalWidth, className: f })
+      Et($4(y, p), { width: c.totalWidth, className: f })
     );
     return;
   }
@@ -29373,7 +29377,7 @@ function Ia(e, t, a, i) {
       kg: Qa(v.toothNo)
     }));
     s?.appendChild(
-      At(t0(y, p), { width: c.totalWidth, className: f })
+      Et(a0(y, p), { width: c.totalWidth, className: f })
     );
     return;
   }
@@ -29389,23 +29393,23 @@ function Ia(e, t, a, i) {
       }
     }));
     s?.appendChild(
-      At(Cs(v, "buccal", p), { width: c.totalWidth, className: f })
+      Et(Cs(v, "buccal", p), { width: c.totalWidth, className: f })
     ), d?.appendChild(
-      At(Cs(v, "palatal", p), { width: c.totalWidth, className: f })
+      Et(Cs(v, "palatal", p), { width: c.totalWidth, className: f })
     );
     return;
   }
   if (i === "pd" || i === "cal" || i === "gr") {
-    const y = i, v = zs(y, Zr(c, W1), p);
-    s?.appendChild(At(v, { width: c.totalWidth, className: f }));
-    const m = zs(y, Zr(c, J1), p);
-    d?.appendChild(At(m, { width: c.totalWidth, className: f }));
+    const y = i, v = zs(y, zr(c, J1), p);
+    s?.appendChild(Et(v, { width: c.totalWidth, className: f }));
+    const m = zs(y, zr(c, X1), p);
+    d?.appendChild(Et(m, { width: c.totalWidth, className: f }));
     return;
   }
-  const u = i, b = Lo(u, Sr(c, W1), p);
-  s?.appendChild(At(b, { width: c.totalWidth, className: f }));
-  const w = Lo(u, Sr(c, J1), p);
-  d?.appendChild(At(w, { width: c.totalWidth, className: f }));
+  const h = i, b = Lo(h, Zr(c, J1), p);
+  s?.appendChild(Et(b, { width: c.totalWidth, className: f }));
+  const w = Lo(h, Zr(c, X1), p);
+  d?.appendChild(Et(w, { width: c.totalWidth, className: f }));
 }
 function he(e, t) {
   const a = document.createElement(e);
@@ -29426,11 +29430,11 @@ function i9(e, t) {
   o.textContent = l(e), i.appendChild(o), i.setAttribute("aria-label", o.textContent), document.body.appendChild(i);
   const n = t.getBoundingClientRect(), s = i.offsetWidth || 260, d = Math.min(n.left, window.innerWidth - s - 8), c = Math.min(n.bottom + 6, window.innerHeight - (i.offsetHeight || 0) - 8);
   i.style.left = `${Math.max(8, d)}px`, i.style.top = `${Math.max(8, c)}px`, t.setAttribute("aria-expanded", "true");
-  const p = (u) => {
-    const b = u.target;
+  const p = (h) => {
+    const b = h.target;
     b && (i.contains(b) || t.contains(b)) || Ao();
-  }, f = (u) => {
-    u.key === "Escape" && (u.stopPropagation(), Ao());
+  }, f = (h) => {
+    h.key === "Escape" && (h.stopPropagation(), Ao());
   };
   document.addEventListener("mousedown", p, !0), document.addEventListener("keydown", f, !0), Pi = {
     popover: i,
@@ -29440,7 +29444,7 @@ function i9(e, t) {
     }
   };
 }
-function Fe(e, t) {
+function Ke(e, t) {
   const a = he("div", "perio-fullgrid-row-label"), i = he("span", "perio-fullgrid-row-label-text");
   if (i.textContent = e, a.appendChild(i), t) {
     const o = he("button", "perio-info-btn");
@@ -29450,11 +29454,11 @@ function Fe(e, t) {
   }
   return a;
 }
-function zr(e, t, a, i, o) {
+function Ir(e, t, a, i, o) {
   const n = G2(t);
-  for (const p of ta) {
-    const f = Object.prototype.hasOwnProperty.call(a.pd, p), u = e.pd[p];
-    u && (u.value = f ? String(a.pd[p]) : "", u.disabled = o || n);
+  for (const p of aa) {
+    const f = Object.prototype.hasOwnProperty.call(a.pd, p), h = e.pd[p];
+    h && (h.value = f ? String(a.pd[p]) : "", h.disabled = o || n);
     const b = e.gm[p];
     b && (b.value = f && Object.prototype.hasOwnProperty.call(a.gm, p) ? String(a.gm[p]) : "", b.disabled = o || n || !f);
     const w = e.bop[p];
@@ -29470,15 +29474,15 @@ function zr(e, t, a, i, o) {
   for (const p of Object.keys(e.furcation)) {
     const f = e.furcation[p];
     if (!f) continue;
-    const u = s[p] ?? 0;
-    f.textContent = Y7[u], f.dataset.grade = String(u), f.setAttribute("aria-pressed", u > 0 ? "true" : "false"), f.disabled = o || n;
+    const h = s[p] ?? 0;
+    f.textContent = Y7[h], f.dataset.grade = String(h), f.setAttribute("aria-pressed", h > 0 ? "true" : "false"), f.disabled = o || n;
   }
   const d = rn(t);
   for (const p of Object.keys(e.plaque)) {
     const f = e.plaque[p];
     if (!f) continue;
-    const u = d.includes(p);
-    f.dataset.present = u ? "1" : "0", f.setAttribute("aria-pressed", u ? "true" : "false"), f.disabled = o || n;
+    const h = d.includes(p);
+    f.dataset.present = h ? "1" : "0", f.setAttribute("aria-pressed", h ? "true" : "false"), f.disabled = o || n;
   }
   if (e.cejVisibility) {
     const p = $i(t), f = e.cejVisibility;
@@ -29491,27 +29495,27 @@ function zr(e, t, a, i, o) {
   for (const p of Object.keys(e.pi)) {
     const f = e.pi[p];
     if (!f) continue;
-    const u = Ji(t, p);
-    f.textContent = Mo[u] ?? "–", f.dataset.grade = String(u), f.setAttribute("aria-pressed", u > 0 ? "true" : "false"), f.disabled = o || n;
+    const h = Ji(t, p);
+    f.textContent = Mo[h] ?? "–", f.dataset.grade = String(h), f.setAttribute("aria-pressed", h > 0 ? "true" : "false"), f.disabled = o || n;
   }
   for (const p of Object.keys(e.gi)) {
     const f = e.gi[p];
     if (!f) continue;
-    const u = Xi(t, p);
-    f.textContent = Mo[u] ?? "–", f.dataset.grade = String(u), f.setAttribute("aria-pressed", u > 0 ? "true" : "false"), f.disabled = o || n;
+    const h = Xi(t, p);
+    f.textContent = Mo[h] ?? "–", f.dataset.grade = String(h), f.setAttribute("aria-pressed", h > 0 ? "true" : "false"), f.disabled = o || n;
   }
-  const c = He(t);
+  const c = Xe(t);
   for (const p of Object.keys(e.mpi)) {
     const f = e.mpi[p];
     if (!f) continue;
-    const u = Qi(t, p);
-    f.textContent = Mo[u] ?? "–", f.dataset.grade = String(u), f.setAttribute("aria-pressed", u > 0 ? "true" : "false"), f.disabled = o || !c;
+    const h = Qi(t, p);
+    f.textContent = Mo[h] ?? "–", f.dataset.grade = String(h), f.setAttribute("aria-pressed", h > 0 ? "true" : "false"), f.disabled = o || !c;
   }
   for (const p of Object.keys(e.mbi)) {
     const f = e.mbi[p];
     if (!f) continue;
-    const u = _i(t, p);
-    f.textContent = Mo[u] ?? "–", f.dataset.grade = String(u), f.setAttribute("aria-pressed", u > 0 ? "true" : "false"), f.disabled = o || !c;
+    const h = _i(t, p);
+    f.textContent = Mo[h] ?? "–", f.dataset.grade = String(h), f.setAttribute("aria-pressed", h > 0 ? "true" : "false"), f.disabled = o || !c;
   }
   if (e.kg) {
     const p = Qa(t);
@@ -29562,9 +29566,9 @@ function s9(e, t, a) {
   const i = he("div", "perio-fullgrid-cell perio-fullgrid-cell-plaque");
   i.dataset.perioField = "plaque";
   const o = he("div", "perio-fullgrid-plaque-quad");
-  for (const n of uc) {
+  for (const n of gc) {
     const s = he("button", `perio-fullgrid-plaque perio-fullgrid-plaque-${n}`);
-    s.type = "button", s.id = `perio-fg-plaque-${e}-${n}`, s.dataset.plaqueSurface = n, s.dataset.surfaceLetter = gc[n] ?? "", s.style.gridArea = vc(n, e), s.title = l(`surface.${n}`), s.setAttribute("aria-label", l(`surface.${n}`)), s.addEventListener("click", () => a.onPlaque(e, n)), o.appendChild(s), t.plaque[n] = s;
+    s.type = "button", s.id = `perio-fg-plaque-${e}-${n}`, s.dataset.plaqueSurface = n, s.dataset.surfaceLetter = vc[n] ?? "", s.style.gridArea = yc(n, e), s.title = l(`surface.${n}`), s.setAttribute("aria-label", l(`surface.${n}`)), s.addEventListener("click", () => a.onPlaque(e, n)), o.appendChild(s), t.plaque[n] = s;
   }
   return i.appendChild(o), i;
 }
@@ -29584,9 +29588,9 @@ function So(e, t, a, i) {
   const o = he("div", `perio-fullgrid-cell perio-fullgrid-cell-${t}`);
   o.dataset.perioField = t;
   const n = he("div", "perio-fullgrid-plaque-quad"), s = t === "pi" ? i.onPiSurface : t === "gi" ? i.onGiSurface : t === "mpi" ? i.onMpiSurface : i.onMbiSurface, d = t === "pi" ? a.pi : t === "gi" ? a.gi : t === "mpi" ? a.mpi : a.mbi;
-  for (const c of uc) {
+  for (const c of gc) {
     const p = he("button", `perio-fullgrid-${t} perio-fullgrid-${t}-${c}`);
-    p.type = "button", p.id = `perio-fg-${t}-${e}-${c}`, p.dataset.gradeSurface = c, p.dataset.surfaceLetter = gc[c] ?? "", p.style.gridArea = vc(c, e), p.title = l(`surface.${c}`), p.setAttribute("aria-label", l(`surface.${c}`)), p.addEventListener("click", () => s(e, c)), n.appendChild(p), d[c] = p;
+    p.type = "button", p.id = `perio-fg-${t}-${e}-${c}`, p.dataset.gradeSurface = c, p.dataset.surfaceLetter = vc[c] ?? "", p.style.gridArea = yc(c, e), p.title = l(`surface.${c}`), p.setAttribute("aria-label", l(`surface.${c}`)), p.addEventListener("click", () => s(e, c)), n.appendChild(p), d[c] = p;
   }
   return o.appendChild(n), o;
 }
@@ -29608,10 +29612,10 @@ function p9(e, t, a) {
   const o = he("button", "perio-fullgrid-miller");
   return o.type = "button", o.id = `perio-fg-miller-${e}`, o.title = l("perio.miller.row"), o.setAttribute("aria-label", l("perio.miller.row")), o.addEventListener("click", () => a.onMillerClass(e)), i.appendChild(o), t.millerClass = o, i;
 }
-function Ir(e, t, a) {
+function Cr(e, t, a) {
   const i = he("div", "perio-fullgrid-arch");
   i.style.gridTemplateColumns = `${d2}px repeat(${e.length}, ${H7}px)`;
-  const o = e.length > 0 && Wo(e[0]), n = Bi(), s = e.some((m) => He(m));
+  const o = e.length > 0 && Wo(e[0]), n = Bi(), s = e.some((m) => Xe(m));
   for (const m of e)
     t.set(m, {
       pd: {},
@@ -29631,93 +29635,93 @@ function Ir(e, t, a) {
       mpi: {},
       mbi: {}
     });
-  const d = l("perio.buccal"), c = l(o ? "perio.palatal" : "perio.lingual"), p = (m, D, Z, g) => {
-    i.appendChild(Fe(g, `perio.info.${m}`));
+  const d = l("perio.buccal"), c = l(o ? "perio.palatal" : "perio.lingual"), p = (m, P, S, g) => {
+    i.appendChild(Ke(g, `perio.info.${m}`));
     for (const x of e)
-      i.appendChild(o9(x, m, D, Z, t.get(x), a));
+      i.appendChild(o9(x, m, P, S, t.get(x), a));
   };
-  i.appendChild(Fe(""));
+  i.appendChild(Ke(""));
   for (const m of e) {
-    const D = he("div", "perio-fullgrid-header-cell");
-    D.setAttribute("data-perio-tooth-header", String(m)), D.textContent = u1(m), i.appendChild(D);
+    const P = he("div", "perio-fullgrid-header-cell");
+    P.setAttribute("data-perio-tooth-header", String(m)), P.textContent = g1(m), i.appendChild(P);
   }
   if (n.miller) {
-    i.appendChild(Fe(ne("miller"), "perio.info.miller"));
+    i.appendChild(Ke(ne("miller"), "perio.info.miller"));
     for (const m of e)
       i.appendChild(p9(m, t.get(m), a));
   }
-  if (n.bop && p("bop", W1, "buccal", `${d} ${ne("bop")}`), n.cal && p("cal", W1, "buccal", `${d} ${ne("cal")}`), n.gm && p("gm", W1, "buccal", `${d} ${ne("gm")}`), n.pd && p("pd", W1, "buccal", `${d} ${ne("pd")}`), n.furcation) {
-    i.appendChild(Fe(ne("furcation"), "perio.info.furcation"));
+  if (n.bop && p("bop", J1, "buccal", `${d} ${ne("bop")}`), n.cal && p("cal", J1, "buccal", `${d} ${ne("cal")}`), n.gm && p("gm", J1, "buccal", `${d} ${ne("gm")}`), n.pd && p("pd", J1, "buccal", `${d} ${ne("pd")}`), n.furcation) {
+    i.appendChild(Ke(ne("furcation"), "perio.info.furcation"));
     for (const m of e)
       i.appendChild(n9(m, t.get(m), a));
   }
-  i.appendChild(Fe(""));
+  i.appendChild(Ke(""));
   const f = he("div", "perio-fullgrid-graphic-cell");
-  f.dataset.perioArch = o ? "upper" : "lower", f.dataset.perioAspect = "buccal", f.style.gridColumn = "2 / -1", i.appendChild(f), i.appendChild(Fe(""));
-  const u = he("div", "perio-fullgrid-band-label");
-  u.style.gridColumn = "2 / -1", u.setAttribute("role", "note"), u.setAttribute("aria-label", l("perio.band.title"));
+  f.dataset.perioArch = o ? "upper" : "lower", f.dataset.perioAspect = "buccal", f.style.gridColumn = "2 / -1", i.appendChild(f), i.appendChild(Ke(""));
+  const h = he("div", "perio-fullgrid-band-label");
+  h.style.gridColumn = "2 / -1", h.setAttribute("role", "note"), h.setAttribute("aria-label", l("perio.band.title"));
   const b = he("span", "perio-fullgrid-band-label-buccal");
-  if (b.textContent = `▲ ${l("perio.band.buccal")} ▲`, u.appendChild(b), i.appendChild(u), n.plaque) {
-    i.appendChild(Fe(ne("plaque"), "perio.info.plaque"));
+  if (b.textContent = `▲ ${l("perio.band.buccal")} ▲`, h.appendChild(b), i.appendChild(h), n.plaque) {
+    i.appendChild(Ke(ne("plaque"), "perio.info.plaque"));
     for (const m of e)
       i.appendChild(s9(m, t.get(m), a));
   }
   if (n.pi) {
-    i.appendChild(Fe(ne("pi"), "perio.info.pi"));
+    i.appendChild(Ke(ne("pi"), "perio.info.pi"));
     for (const m of e)
       i.appendChild(So(m, "pi", t.get(m), a));
   }
   if (n.gi) {
-    i.appendChild(Fe(ne("gi"), "perio.info.gi"));
+    i.appendChild(Ke(ne("gi"), "perio.info.gi"));
     for (const m of e)
       i.appendChild(So(m, "gi", t.get(m), a));
   }
   if (n.mpi && s) {
-    i.appendChild(Fe(ne("mpi"), "perio.info.mpi"));
+    i.appendChild(Ke(ne("mpi"), "perio.info.mpi"));
     for (const m of e)
       i.appendChild(So(m, "mpi", t.get(m), a));
   }
   if (n.mbi && s) {
-    i.appendChild(Fe(ne("mbi"), "perio.info.mbi"));
+    i.appendChild(Ke(ne("mbi"), "perio.info.mbi"));
     for (const m of e)
       i.appendChild(So(m, "mbi", t.get(m), a));
   }
-  i.appendChild(Fe(""));
+  i.appendChild(Ke(""));
   const w = he("div", "perio-fullgrid-band-label");
   w.style.gridColumn = "2 / -1", w.setAttribute("role", "note"), w.setAttribute("aria-label", l("perio.band.title"));
   const y = he("span", "perio-fullgrid-band-label-lingual");
-  y.textContent = `▼ ${l("perio.band.lingual")} ▼`, w.appendChild(y), i.appendChild(w), i.appendChild(Fe(""));
+  y.textContent = `▼ ${l("perio.band.lingual")} ▼`, w.appendChild(y), i.appendChild(w), i.appendChild(Ke(""));
   const v = he("div", "perio-fullgrid-graphic-cell");
-  if (v.dataset.perioArch = o ? "upper" : "lower", v.dataset.perioAspect = "palatal", v.style.gridColumn = "2 / -1", i.appendChild(v), n.pd && p("pd", J1, "palatal", `${c} ${ne("pd")}`), n.gm && p("gm", J1, "palatal", `${c} ${ne("gm")}`), n.cal && p("cal", J1, "palatal", `${c} ${ne("cal")}`), n.bop && p("bop", J1, "palatal", `${c} ${ne("bop")}`), n.mobility) {
-    i.appendChild(Fe(ne("mobility"), "perio.info.mobility"));
-    const m = la("mobility").map((D) => ({ value: D.value, label: l(D.labelKey) }));
-    for (const D of e) {
-      const Z = he("div", "perio-fullgrid-cell perio-fullgrid-cell-mobility"), g = he("select", "perio-fullgrid-mobility-select");
-      g.id = `perio-fg-mobility-${D}`;
+  if (v.dataset.perioArch = o ? "upper" : "lower", v.dataset.perioAspect = "palatal", v.style.gridColumn = "2 / -1", i.appendChild(v), n.pd && p("pd", X1, "palatal", `${c} ${ne("pd")}`), n.gm && p("gm", X1, "palatal", `${c} ${ne("gm")}`), n.cal && p("cal", X1, "palatal", `${c} ${ne("cal")}`), n.bop && p("bop", X1, "palatal", `${c} ${ne("bop")}`), n.mobility) {
+    i.appendChild(Ke(ne("mobility"), "perio.info.mobility"));
+    const m = ca("mobility").map((P) => ({ value: P.value, label: l(P.labelKey) }));
+    for (const P of e) {
+      const S = he("div", "perio-fullgrid-cell perio-fullgrid-cell-mobility"), g = he("select", "perio-fullgrid-mobility-select");
+      g.id = `perio-fg-mobility-${P}`;
       for (const x of m) {
-        const C = he("option");
-        C.value = x.value, C.textContent = x.label, g.appendChild(C);
+        const I = he("option");
+        I.value = x.value, I.textContent = x.label, g.appendChild(I);
       }
-      g.addEventListener("change", () => a.onMobility(D, g.value)), Z.appendChild(g), i.appendChild(Z), t.get(D).mobility = g;
+      g.addEventListener("change", () => a.onMobility(P, g.value)), S.appendChild(g), i.appendChild(S), t.get(P).mobility = g;
     }
   }
   if (n.cej) {
-    i.appendChild(Fe(ne("cej"), "perio.info.cej"));
+    i.appendChild(Ke(ne("cej"), "perio.info.cej"));
     for (const m of e)
       i.appendChild(r9(m, t.get(m), a));
   }
   if (n.rootConcavity) {
-    i.appendChild(Fe(ne("rootConcavity"), "perio.info.rootConcavity"));
+    i.appendChild(Ke(ne("rootConcavity"), "perio.info.rootConcavity"));
     for (const m of e)
       i.appendChild(l9(m, t.get(m), a));
   }
   if (n.kg) {
-    i.appendChild(Fe(ne("kg"), "perio.info.kg"));
+    i.appendChild(Ke(ne("kg"), "perio.info.kg"));
     for (const m of e)
       i.appendChild(c9(m, t.get(m), a));
   }
   if (n.gt) {
-    i.appendChild(Fe(ne("gt"), "perio.info.gt"));
+    i.appendChild(Ke(ne("gt"), "perio.info.gt"));
     for (const m of e)
       i.appendChild(d9(m, t.get(m), a));
   }
@@ -29728,164 +29732,164 @@ function Zo(e, t, a, i) {
   if (!e) return;
   const o = Ha(a, t);
   if (o.teeth.length === 0) return;
-  const s = (i?.clientWidth ?? 0) - d2 - f9, d = W4(s, o.totalWidth), c = o.teeth.map((p) => `${((p.width + Hi) * d).toFixed(3)}px`).join(" ");
+  const s = (i?.clientWidth ?? 0) - d2 - f9, d = J4(s, o.totalWidth), c = o.teeth.map((p) => `${((p.width + Hi) * d).toFixed(3)}px`).join(" ");
   e.style.gridTemplateColumns = `${d2}px ${c}`;
 }
-function Cr({
+function Pr({
   open: e = !1,
   onClose: t,
   inline: a = !1
 }) {
-  const i = a || e, o = xe(null), n = xe(null), s = Va(), d = xe(null), c = xe(null), p = xe(null), f = xe(null), u = xe(null), b = xe(null), w = xe(null), y = xe(null), v = xe(null), m = xe(!1), [D, Z] = _($7), [g, x] = _("none"), C = Ot(() => {
-    const E = v.current;
-    if (!E) return;
-    const $ = j8(), le = _1();
-    for (const [W, te] of E) {
-      const ke = $[String(W)] ?? _7;
-      zr(te, W, ke, L1(W), le);
+  const i = a || e, o = xe(null), n = xe(null), s = Va(), d = xe(null), c = xe(null), p = xe(null), f = xe(null), h = xe(null), b = xe(null), w = xe(null), y = xe(null), v = xe(null), m = xe(!1), [P, S] = _($7), [g, x] = _("none"), I = Gt(() => {
+    const T = v.current;
+    if (!T) return;
+    const $ = j8(), le = $1();
+    for (const [J, ae] of T) {
+      const Me = $[String(J)] ?? _7;
+      Ir(ae, J, Me, G1(J), le);
     }
-    Z(h1());
-  }, []), z = Ot((E) => {
+    S(u1());
+  }, []), Z = Gt((T) => {
     const $ = v.current;
     if (!$) return;
-    const le = $.get(E);
-    le && (zr(le, E, bt(E), L1(E), _1()), Z(h1()));
-  }, []), F = Ot((E) => {
-    if (!E) return;
+    const le = $.get(T);
+    le && (Ir(le, T, kt(T), G1(T), $1()), S(u1()));
+  }, []), F = Gt((T) => {
+    if (!T) return;
     const $ = v.current;
     if (!$) return;
-    const le = $.get(E.toothNo);
+    const le = $.get(T.toothNo);
     if (!le) return;
-    const W = le[E.row][E.site];
-    W && !W.disabled && W.focus();
-  }, []), L = Ot(
-    (E) => {
-      if (_1()) return;
-      const $ = E.target, le = $?.dataset?.perio;
+    const J = le[T.row][T.site];
+    J && !J.disabled && J.focus();
+  }, []), L = Gt(
+    (T) => {
+      if ($1()) return;
+      const $ = T.target, le = $?.dataset?.perio;
       if (!le) return;
-      const [W, te, ke] = le.split(":"), P = Number(W), Y = te;
-      if (ke === "bop") {
-        if (E.key === " " || E.key === "Spacebar" || E.key === "Enter") {
-          E.preventDefault();
-          const Ie = !$.checked;
-          m.current = !0, Tt(P, Y, { bop: Ie }), m.current = !1, z(P);
+      const [J, ae, Me] = le.split(":"), C = Number(J), Y = ae;
+      if (Me === "bop") {
+        if (T.key === " " || T.key === "Spacebar" || T.key === "Enter") {
+          T.preventDefault();
+          const me = !$.checked;
+          m.current = !0, Ot(C, Y, { bop: me }), m.current = !1, Z(C);
         }
         return;
       }
-      const S = ke, j = { toothNo: P, site: Y, row: S }, ie = $, ue = /^[0-9]$/.test(E.key);
-      if (S === "gm" && ie.dataset.pendingSign && E.key !== "-" && !ue && delete ie.dataset.pendingSign, S === "pd" && ie.dataset.pendingTens === "1") {
-        if (/^[0-5]$/.test(E.key)) {
-          E.preventDefault(), delete ie.dataset.pendingTens, m.current = !0, Tt(P, Y, { pd: +`1${E.key}` }), m.current = !1, z(P), F(Gn(j));
+      const R = Me, E = { toothNo: C, site: Y, row: R }, ee = $, ue = /^[0-9]$/.test(T.key);
+      if (R === "gm" && ee.dataset.pendingSign && T.key !== "-" && !ue && delete ee.dataset.pendingSign, R === "pd" && ee.dataset.pendingTens === "1") {
+        if (/^[0-5]$/.test(T.key)) {
+          T.preventDefault(), delete ee.dataset.pendingTens, m.current = !0, Ot(C, Y, { pd: +`1${T.key}` }), m.current = !1, Z(C), F(Gn(E));
           return;
         }
-        delete ie.dataset.pendingTens;
+        delete ee.dataset.pendingTens;
       }
-      if (E.key === "ArrowRight") {
-        E.preventDefault(), F(Gn(j));
+      if (T.key === "ArrowRight") {
+        T.preventDefault(), F(Gn(E));
         return;
       }
-      if (E.key === "ArrowLeft") {
-        E.preventDefault(), F(H8(j));
+      if (T.key === "ArrowLeft") {
+        T.preventDefault(), F(H8(E));
         return;
       }
-      if (E.key === "ArrowUp") {
-        E.preventDefault(), F({ toothNo: P, site: Y, row: "pd" });
+      if (T.key === "ArrowUp") {
+        T.preventDefault(), F({ toothNo: C, site: Y, row: "pd" });
         return;
       }
-      if (E.key === "ArrowDown") {
-        E.preventDefault(), F({ toothNo: P, site: Y, row: "gm" });
+      if (T.key === "ArrowDown") {
+        T.preventDefault(), F({ toothNo: C, site: Y, row: "gm" });
         return;
       }
-      if (S === "gm" && E.key === "-") {
-        E.preventDefault(), ie.dataset.pendingSign = "-";
+      if (R === "gm" && T.key === "-") {
+        T.preventDefault(), ee.dataset.pendingSign = "-";
         return;
       }
       if (ue) {
-        if (E.preventDefault(), S === "pd" && E.key === "1") {
-          m.current = !0, Tt(P, Y, { pd: 1 }), m.current = !1, z(P), ie.dataset.pendingTens = "1";
+        if (T.preventDefault(), R === "pd" && T.key === "1") {
+          m.current = !0, Ot(C, Y, { pd: 1 }), m.current = !1, Z(C), ee.dataset.pendingTens = "1";
           return;
         }
-        if (m.current = !0, S === "pd")
-          Tt(P, Y, { pd: Number(E.key) });
+        if (m.current = !0, R === "pd")
+          Ot(C, Y, { pd: Number(T.key) });
         else {
-          const de = ie.dataset.pendingSign === "-" ? `-${E.key}` : E.key;
-          delete ie.dataset.pendingSign, Tt(P, Y, { gm: Number(de) });
+          const de = ee.dataset.pendingSign === "-" ? `-${T.key}` : T.key;
+          delete ee.dataset.pendingSign, Ot(C, Y, { gm: Number(de) });
         }
-        m.current = !1, z(P), F(Gn(j));
+        m.current = !1, Z(C), F(Gn(E));
       }
     },
-    [F, z]
-  ), R = Ot((E) => {
-    const $ = E.target;
+    [F, Z]
+  ), j = Gt((T) => {
+    const $ = T.target;
     $?.dataset?.pendingSign && delete $.dataset.pendingSign, $?.dataset?.pendingTens && delete $.dataset.pendingTens;
   }, []);
   se(() => {
     if (a || !e) return;
     n.current = document.activeElement ?? null;
-    const E = o.current;
-    return (E?.querySelector(wr) ?? E)?.focus(), () => {
+    const T = o.current;
+    return (T?.querySelector(Mr) ?? T)?.focus(), () => {
       n.current?.focus?.();
     };
   }, [a, e]), se(() => {
     if (!i) return;
-    const E = d.current;
-    if (!E) return;
+    const T = d.current;
+    if (!T) return;
     const $ = {
-      onPd: (P, Y, S) => {
-        const j = S.trim();
-        m.current = !0, Tt(P, Y, { pd: j === "" ? null : Number(j) }), m.current = !1, z(P);
+      onPd: (C, Y, R) => {
+        const E = R.trim();
+        m.current = !0, Ot(C, Y, { pd: E === "" ? null : Number(E) }), m.current = !1, Z(C);
       },
-      onGm: (P, Y, S) => {
-        const j = S.trim();
-        j !== "" && (m.current = !0, Tt(P, Y, { gm: Number(j) }), m.current = !1, z(P));
+      onGm: (C, Y, R) => {
+        const E = R.trim();
+        E !== "" && (m.current = !0, Ot(C, Y, { gm: Number(E) }), m.current = !1, Z(C));
       },
-      onBop: (P, Y, S) => {
-        m.current = !0, Tt(P, Y, { bop: S }), m.current = !1, z(P);
+      onBop: (C, Y, R) => {
+        m.current = !0, Ot(C, Y, { bop: R }), m.current = !1, Z(C);
       },
-      onMobility: (P, Y) => {
-        m.current = !0, q8(P, Y), m.current = !1, z(P);
+      onMobility: (C, Y) => {
+        m.current = !0, q8(C, Y), m.current = !1, Z(C);
       },
       // Cycle the Glickman grade none->I->II->III->IV->none for one entrance.
       // The current grade is read from the ACTIVE chart (getToothFurcation) so
       // a dual-state switch cycles the right
       // chart; the write always goes through setFurcation (no new mutation
       // path). grade 4 wraps to `null` (clears the entrance).
-      onFurcation: (P, Y) => {
-        const S = T2(P)[Y], j = S === void 0 ? 1 : S >= 4 ? null : S + 1;
-        m.current = !0, I8(P, Y, j), m.current = !1, z(P);
+      onFurcation: (C, Y) => {
+        const R = T2(C)[Y], E = R === void 0 ? 1 : R >= 4 ? null : R + 1;
+        m.current = !0, I8(C, Y, E), m.current = !1, Z(C);
       },
       // Toggle one O'Leary plaque surface via setPlaque.
-      onPlaque: (P, Y) => {
-        const S = rn(P).includes(Y);
-        m.current = !0, C8(P, Y, !S), m.current = !1, z(P);
+      onPlaque: (C, Y) => {
+        const R = rn(C).includes(Y);
+        m.current = !0, C8(C, Y, !R), m.current = !1, Z(C);
       },
       // Cycle none->detectable->not-detectable->none for one tooth's CEJ
       // visibility. The current value is read from the ACTIVE
       // chart (getCejVisibility) so a dual-state switch cycles the right
       // chart; the write always goes through setCejVisibility (no new
       // mutation path).
-      onCejVisibility: (P) => {
-        const Y = $i(P), S = Rn.indexOf(Y), j = Rn[(S + 1) % Rn.length];
-        m.current = !0, O8(P, j), m.current = !1, z(P);
+      onCejVisibility: (C) => {
+        const Y = $i(C), R = Rn.indexOf(Y), E = Rn[(R + 1) % Rn.length];
+        m.current = !0, O8(C, E), m.current = !1, Z(C);
       },
       // Cycle none->mild->deep->none for one tooth's root concavity. Mirrors
       // onCejVisibility above.
-      onRootConcavity: (P) => {
-        const Y = eo(P), S = jn.indexOf(Y), j = jn[(S + 1) % jn.length];
-        m.current = !0, L8(P, j), m.current = !1, z(P);
+      onRootConcavity: (C) => {
+        const Y = eo(C), R = jn.indexOf(Y), E = jn[(R + 1) % jn.length];
+        m.current = !0, L8(C, E), m.current = !1, Z(C);
       },
       // Cycle one surface's PI/GI grade 0->1->2->3->0 (0 clears —
       // setPlaqueIndex/setGingivalIndex's own no-op-free "grade 0 clears"
       // semantics). The current grade is read from the ACTIVE chart
       // (getPlaqueIndex/getGingivalIndex) so a dual-state switch cycles the
       // right chart.
-      onPiSurface: (P, Y) => {
-        const S = (Ji(P, Y) + 1) % 4;
-        m.current = !0, P8(P, Y, S), m.current = !1, z(P);
+      onPiSurface: (C, Y) => {
+        const R = (Ji(C, Y) + 1) % 4;
+        m.current = !0, P8(C, Y, R), m.current = !1, Z(C);
       },
-      onGiSurface: (P, Y) => {
-        const S = (Xi(P, Y) + 1) % 4;
-        m.current = !0, D8(P, Y, S), m.current = !1, z(P);
+      onGiSurface: (C, Y) => {
+        const R = (Xi(C, Y) + 1) % 4;
+        m.current = !0, D8(C, Y, R), m.current = !1, Z(C);
       },
       // Cycle one surface's mPI/mBI grade 0->1->2->3->0, mirroring
       // onPiSurface/onGiSurface exactly. On a non-implant tooth the
@@ -29893,147 +29897,147 @@ function Cr({
       // setPeriImplantPlaque/setPeriImplantBleeding are ALSO implant-gated at
       // the data layer (no-op on a non-implant tooth), so this stays a no-op
       // even if invoked directly.
-      onMpiSurface: (P, Y) => {
-        const S = (Qi(P, Y) + 1) % 4;
-        m.current = !0, A8(P, Y, S), m.current = !1, z(P);
+      onMpiSurface: (C, Y) => {
+        const R = (Qi(C, Y) + 1) % 4;
+        m.current = !0, A8(C, Y, R), m.current = !1, Z(C);
       },
-      onMbiSurface: (P, Y) => {
-        const S = (_i(P, Y) + 1) % 4;
-        m.current = !0, T8(P, Y, S), m.current = !1, z(P);
+      onMbiSurface: (C, Y) => {
+        const R = (_i(C, Y) + 1) % 4;
+        m.current = !0, T8(C, Y, R), m.current = !1, Z(C);
       },
       // KG mm — trimmed-empty clears (mirrors onPd's empty-un-charts
       // semantics), otherwise the raw string is parsed and
       // clamped by setKeratinizedWidth itself.
-      onKg: (P, Y) => {
-        const S = Y.trim();
-        m.current = !0, E8(P, S === "" ? null : Number(S)), m.current = !1, z(P);
+      onKg: (C, Y) => {
+        const R = Y.trim();
+        m.current = !0, E8(C, R === "" ? null : Number(R)), m.current = !1, Z(C);
       },
       // Cycle unknown->thin->medium->thick->unknown for one tooth's gingival
       // thickness. Mirrors onCejVisibility above.
-      onGingivalThickness: (P) => {
-        const Y = dn(P), S = Fn.indexOf(Y), j = Fn[(S + 1) % Fn.length];
-        m.current = !0, G8(P, j), m.current = !1, z(P);
+      onGingivalThickness: (C) => {
+        const Y = dn(C), R = Fn.indexOf(Y), E = Fn[(R + 1) % Fn.length];
+        m.current = !0, G8(C, E), m.current = !1, Z(C);
       },
       // Cycle none->i->ii->iii->iv->none for one tooth's Miller class. Mirrors
       // onRootConcavity above.
-      onMillerClass: (P) => {
-        const Y = pn(P), S = Un.indexOf(Y), j = Un[(S + 1) % Un.length];
-        m.current = !0, N8(P, j), m.current = !1, z(P);
+      onMillerClass: (C) => {
+        const Y = pn(C), R = Un.indexOf(Y), E = Un[(R + 1) % Un.length];
+        m.current = !0, N8(C, E), m.current = !1, Z(C);
       }
     }, le = () => JSON.stringify([
       Bi(),
-      na(),
+      sa(),
       // The mPI/mBI rows are gated per-arch on whether that arch contains an
       // implant (see `archHasImplant` in `buildArch`) — the
       // implant SET affects row presence, so a rebuild must also fire when it
       // changes (adding/removing an implant), not just on a visibility/name
       // flag flip.
-      [...rt, ...lt].filter((P) => He(P)).join(",")
+      [...dt, ...pt].filter((C) => Xe(C)).join(",")
     ]);
-    let W = null;
-    const te = () => {
-      const P = /* @__PURE__ */ new Map();
-      E.innerHTML = "";
-      const Y = Ir(rt, P, $), S = Ir(lt, P, $);
-      E.appendChild(Y.grid), E.appendChild(S.grid), v.current = P, b.current = Y.grid, w.current = S.grid, c.current = Y.buccalCell, p.current = Y.palatalCell, f.current = S.buccalCell, u.current = S.palatalCell, W = le();
-      const j = y.current;
-      if (j) {
-        Zo(b.current, rt, j, d.current), Zo(w.current, lt, j, d.current), c.current.appendChild(Aa(j, rt, He, void 0, wt)), p.current.appendChild(Ta(j, rt, He, void 0, wt)), f.current.appendChild(Aa(j, lt, He, void 0, wt)), u.current.appendChild(Ta(j, lt, He, void 0, wt)), za(j, b.current, rt), za(j, w.current, lt);
-        const ie = bi();
-        Ia(j, b.current, rt, ie), Ia(j, w.current, lt, ie);
+    let J = null;
+    const ae = () => {
+      const C = /* @__PURE__ */ new Map();
+      T.innerHTML = "";
+      const Y = Cr(dt, C, $), R = Cr(pt, C, $);
+      T.appendChild(Y.grid), T.appendChild(R.grid), v.current = C, b.current = Y.grid, w.current = R.grid, c.current = Y.buccalCell, p.current = Y.palatalCell, f.current = R.buccalCell, h.current = R.palatalCell, J = le();
+      const E = y.current;
+      if (E) {
+        Zo(b.current, dt, E, d.current), Zo(w.current, pt, E, d.current), c.current.appendChild(Aa(E, dt, Xe, void 0, St)), p.current.appendChild(Ta(E, dt, Xe, void 0, St)), f.current.appendChild(Aa(E, pt, Xe, void 0, St)), h.current.appendChild(Ta(E, pt, Xe, void 0, St)), za(E, b.current, dt), za(E, w.current, pt);
+        const ee = bi();
+        Ia(E, b.current, dt, ee), Ia(E, w.current, pt, ee);
       }
     };
-    te(), C(), E.addEventListener("keydown", L), E.addEventListener("focusout", R);
-    const ke = tt(() => {
-      m.current || (le() !== W && te(), C());
+    ae(), I(), T.addEventListener("keydown", L), T.addEventListener("focusout", j);
+    const Me = st(() => {
+      m.current || (le() !== J && ae(), I());
     });
     return () => {
-      E.removeEventListener("keydown", L), E.removeEventListener("focusout", R), ke(), Ao(), v.current = null, b.current = null, w.current = null, c.current = null, p.current = null, f.current = null, u.current = null;
+      T.removeEventListener("keydown", L), T.removeEventListener("focusout", j), Me(), Ao(), v.current = null, b.current = null, w.current = null, c.current = null, p.current = null, f.current = null, h.current = null;
     };
-  }, [i, C, z, L, R]), se(() => {
+  }, [i, I, Z, L, j]), se(() => {
     if (!i) return;
-    let E = !1;
-    const $ = () => [...rt, ...lt].filter((j) => He(j)).join(",");
+    let T = !1;
+    const $ = () => [...dt, ...pt].filter((E) => Xe(E)).join(",");
     let le = null;
-    const W = (j) => {
-      const ie = c.current, ue = p.current, de = f.current, Ie = u.current;
-      ie && (ie.innerHTML = "", ie.appendChild(Aa(j, rt, He, void 0, wt))), ue && (ue.innerHTML = "", ue.appendChild(Ta(j, rt, He, void 0, wt))), de && (de.innerHTML = "", de.appendChild(Aa(j, lt, He, void 0, wt))), Ie && (Ie.innerHTML = "", Ie.appendChild(Ta(j, lt, He, void 0, wt))), le = $();
-    }, te = () => {
-      const j = y.current;
-      if (!j) return;
-      $() !== le && W(j), za(j, b.current, rt), za(j, w.current, lt);
-      const ie = bi();
-      Ia(j, b.current, rt, ie), Ia(j, w.current, lt, ie);
-    }, ke = () => {
-      const j = y.current;
-      if (j)
+    const J = (E) => {
+      const ee = c.current, ue = p.current, de = f.current, me = h.current;
+      ee && (ee.innerHTML = "", ee.appendChild(Aa(E, dt, Xe, void 0, St))), ue && (ue.innerHTML = "", ue.appendChild(Ta(E, dt, Xe, void 0, St))), de && (de.innerHTML = "", de.appendChild(Aa(E, pt, Xe, void 0, St))), me && (me.innerHTML = "", me.appendChild(Ta(E, pt, Xe, void 0, St))), le = $();
+    }, ae = () => {
+      const E = y.current;
+      if (!E) return;
+      $() !== le && J(E), za(E, b.current, dt), za(E, w.current, pt);
+      const ee = bi();
+      Ia(E, b.current, dt, ee), Ia(E, w.current, pt, ee);
+    }, Me = () => {
+      const E = y.current;
+      if (E)
         try {
-          Zo(b.current, rt, j, d.current), Zo(w.current, lt, j, d.current);
-        } catch (ie) {
-          console.error("perio fitColumns failed", ie);
+          Zo(b.current, dt, E, d.current), Zo(w.current, pt, E, d.current);
+        } catch (ee) {
+          console.error("perio fitColumns failed", ee);
         }
     };
-    g2().then((j) => {
-      if (E) return;
-      y.current = j, ke(), W(j), za(j, b.current, rt), za(j, w.current, lt);
-      const ie = bi();
-      Ia(j, b.current, rt, ie), Ia(j, w.current, lt, ie);
-    }).catch((j) => {
-      console.error("perio tooth-row graphic: failed to load tooth templates", j);
+    g2().then((E) => {
+      if (T) return;
+      y.current = E, Me(), J(E), za(E, b.current, dt), za(E, w.current, pt);
+      const ee = bi();
+      Ia(E, b.current, dt, ee), Ia(E, w.current, pt, ee);
+    }).catch((E) => {
+      console.error("perio tooth-row graphic: failed to load tooth templates", E);
     });
-    const P = tt(() => {
-      E || te();
+    const C = st(() => {
+      T || ae();
     });
-    let Y = null, S = null;
+    let Y = null, R = null;
     return typeof ResizeObserver < "u" && d.current && (Y = new ResizeObserver(() => {
-      S && clearTimeout(S), S = setTimeout(() => {
-        S = null, E || ke();
+      R && clearTimeout(R), R = setTimeout(() => {
+        R = null, T || Me();
       }, 100);
     }), Y.observe(d.current)), () => {
-      E = !0, P(), S && clearTimeout(S), Y?.disconnect(), y.current = null;
+      T = !0, C(), R && clearTimeout(R), Y?.disconnect(), y.current = null;
     };
-  }, [i]), se(() => i ? (x(bi()), tt(() => x(bi()))) : void 0, [i]);
-  const J = Ot(
-    (E) => {
-      if (E.key === "Escape") {
-        E.stopPropagation(), t?.();
+  }, [i]), se(() => i ? (x(bi()), st(() => x(bi()))) : void 0, [i]);
+  const W = Gt(
+    (T) => {
+      if (T.key === "Escape") {
+        T.stopPropagation(), t?.();
         return;
       }
-      if (E.key !== "Tab") return;
+      if (T.key !== "Tab") return;
       const $ = o.current;
       if (!$) return;
-      const le = Array.from($.querySelectorAll(wr)).filter(
-        (P) => P.offsetParent !== null || P === document.activeElement
+      const le = Array.from($.querySelectorAll(Mr)).filter(
+        (C) => C.offsetParent !== null || C === document.activeElement
       );
       if (le.length === 0) return;
-      const W = le[0], te = le[le.length - 1], ke = document.activeElement;
-      E.shiftKey && ke === W ? (E.preventDefault(), te.focus()) : !E.shiftKey && ke === te && (E.preventDefault(), W.focus());
+      const J = le[0], ae = le[le.length - 1], Me = document.activeElement;
+      T.shiftKey && Me === J ? (T.preventDefault(), ae.focus()) : !T.shiftKey && Me === ae && (T.preventDefault(), J.focus());
     },
     [t]
   );
   if (!i) return null;
-  const T = g === "bop" ? `${l("perio.bopPercent")} ${D.bopPercent}%` : g === "plaque" ? `${l("plaque.percent")} ${D.plaquePercent}%` : g === "pi" ? `${l("perio.overlay.pi")} ${D.piScore ?? "—"}` : g === "gi" ? `${l("perio.overlay.gi")} ${D.giScore ?? "—"}` : g === "kg" ? `${l("perio.overlay.kg")} ${D.kgDeficientTeeth}` : g === "mpi" ? `${l("perio.overlay.mpi")} ${D.mpiScore ?? "—"}` : g === "mbi" ? `${l("perio.overlay.mbi")} ${D.mbiScore ?? "—"}` : null, M = /* @__PURE__ */ k("div", { id: "perioOverlaySwitch", className: "perio-overlay-switch", role: "radiogroup", "aria-label": l("perio.overlay.label"), children: [
-    e9.map((E) => /* @__PURE__ */ r(
+  const A = g === "bop" ? `${l("perio.bopPercent")} ${P.bopPercent}%` : g === "plaque" ? `${l("plaque.percent")} ${P.plaquePercent}%` : g === "pi" ? `${l("perio.overlay.pi")} ${P.piScore ?? "—"}` : g === "gi" ? `${l("perio.overlay.gi")} ${P.giScore ?? "—"}` : g === "kg" ? `${l("perio.overlay.kg")} ${P.kgDeficientTeeth}` : g === "mpi" ? `${l("perio.overlay.mpi")} ${P.mpiScore ?? "—"}` : g === "mbi" ? `${l("perio.overlay.mbi")} ${P.mbiScore ?? "—"}` : null, M = /* @__PURE__ */ k("div", { id: "perioOverlaySwitch", className: "perio-overlay-switch", role: "radiogroup", "aria-label": l("perio.overlay.label"), children: [
+    e9.map((T) => /* @__PURE__ */ r(
       "button",
       {
         type: "button",
         role: "radio",
-        "aria-checked": g === E,
-        className: "perio-overlay-switch-btn" + (g === E ? " is-active" : ""),
-        "data-overlay-layer": E,
-        onClick: () => e7(E),
-        children: a9(E)
+        "aria-checked": g === T,
+        className: "perio-overlay-switch-btn" + (g === T ? " is-active" : ""),
+        "data-overlay-layer": T,
+        onClick: () => e7(T),
+        children: a9(T)
       },
-      E
+      T
     )),
-    T && /* @__PURE__ */ r("span", { className: "perio-overlay-readout", id: "perioOverlayReadout", children: T })
-  ] }), I = /* @__PURE__ */ r("div", { id: a ? "perioInlineGrid" : "perioOverlayGrid", className: "perio-overlay-body", "aria-label": l("perio.chart.title"), children: /* @__PURE__ */ r("div", { className: "perio-fullgrid-scroll", ref: d }) });
+    A && /* @__PURE__ */ r("span", { className: "perio-overlay-readout", id: "perioOverlayReadout", children: A })
+  ] }), z = /* @__PURE__ */ r("div", { id: a ? "perioInlineGrid" : "perioOverlayGrid", className: "perio-overlay-body", "aria-label": l("perio.chart.title"), children: /* @__PURE__ */ r("div", { className: "perio-fullgrid-scroll", ref: d }) });
   return a ? /* @__PURE__ */ k("section", { id: "perioInlinePanel", className: "chart perio-inline-panel", "aria-label": l("perio.chart.title"), children: [
     /* @__PURE__ */ k("div", { className: "chart-header perio-chart-header", children: [
       /* @__PURE__ */ r("div", { className: "chart-title", children: l("perio.chart.title") }),
       M
     ] }),
-    I
+    z
   ] }) : /* @__PURE__ */ r(
     "div",
     {
@@ -30044,9 +30048,9 @@ function Cr({
       "aria-modal": "true",
       "aria-labelledby": s,
       tabIndex: -1,
-      onKeyDown: J,
-      onMouseDown: (E) => {
-        E.target === E.currentTarget && t?.();
+      onKeyDown: W,
+      onMouseDown: (T) => {
+        T.target === T.currentTarget && t?.();
       },
       children: /* @__PURE__ */ k("div", { className: "perio-overlay-panel", children: [
         /* @__PURE__ */ k("div", { className: "perio-overlay-header", children: [
@@ -30078,13 +30082,13 @@ function Cr({
             }
           )
         ] }),
-        /* @__PURE__ */ r(hc, {}),
-        I
+        /* @__PURE__ */ r(uc, {}),
+        z
       ] })
     }
   );
 }
-function Pr() {
+function Dr() {
   return !!document.getElementById("appViewToggle");
 }
 const Vi = [
@@ -30099,21 +30103,21 @@ const Vi = [
   { selector: "#controlsActions", titleKey: "intro.selection.title", textKey: "intro.selection.text", view: "odontogram" },
   { selector: "#languageMenu", titleKey: "intro.language.title", textKey: "intro.language.text", view: "odontogram" },
   { selector: "#btnSettingsMenu", titleKey: "intro.settings.title", textKey: "intro.settings.text", view: "odontogram" },
-  { selector: "#appViewToggle", titleKey: "intro.perioView.title", textKey: "intro.perioView.text", view: "perio", available: Pr },
-  { selector: "#perioInlinePanel", titleKey: "intro.perioChart.title", textKey: "intro.perioChart.text", view: "perio", available: Pr },
+  { selector: "#appViewToggle", titleKey: "intro.perioView.title", textKey: "intro.perioView.text", view: "perio", available: Dr },
+  { selector: "#perioInlinePanel", titleKey: "intro.perioChart.title", textKey: "intro.perioChart.text", view: "perio", available: Dr },
   { selector: "#btnExportMenu", titleKey: "intro.export.title", textKey: "intro.export.text", view: "odontogram" },
   { selector: "#btnImportMenu", titleKey: "intro.import.title", textKey: "intro.import.text", view: "odontogram" },
   { selector: "", titleKey: "intro.done.title", textKey: "intro.done.text", view: "odontogram" }
 ], m9 = typeof requestAnimationFrame == "function" ? (e) => requestAnimationFrame(e) : (e) => {
   setTimeout(e, 16);
 };
-let Ki = [], Mt = 0, X1 = null, K2 = 0;
-function yc() {
+let Ki = [], Zt = 0, Q1 = null, K2 = 0;
+function bc() {
   for (const e of Ki) e.remove();
   Ki = [];
 }
 function p2() {
-  K2++, yc(), X1 && (document.removeEventListener("keydown", X1), X1 = null);
+  K2++, bc(), Q1 && (document.removeEventListener("keydown", Q1), Q1 = null);
 }
 function H2(e) {
   const t = Vi[e];
@@ -30129,7 +30133,7 @@ function h9() {
   for (let t = 0; t < Vi.length; t++) H2(t) && e.push(t);
   return e;
 }
-function Qt(e, t, a) {
+function $t(e, t, a) {
   const i = document.createElement(e);
   return i.className = t, a !== void 0 && (i.textContent = a), i;
 }
@@ -30138,38 +30142,38 @@ function u9(e) {
   const a = e === "perio" ? "appViewDentalChart" : "appViewOdontogram", i = document.getElementById(a);
   i && !i.classList.contains("is-active") && i.click();
 }
-function bc(e, t, a, i) {
+function kc(e, t, a, i) {
   if (a !== K2) return;
   const o = e.selector ? document.querySelector(e.selector) : null;
   if (o) {
     o.scrollIntoView({ block: "center", inline: "center" });
-    const n = o.getBoundingClientRect(), s = Qt("div", "odon-tour-highlight");
+    const n = o.getBoundingClientRect(), s = $t("div", "odon-tour-highlight");
     s.style.left = `${n.left - 6}px`, s.style.top = `${n.top - 6}px`, s.style.width = `${n.width + 12}px`, s.style.height = `${n.height + 12}px`, document.body.appendChild(s), Ki.push(s);
     const d = Math.min(n.bottom + 12, window.innerHeight - 220), c = Math.min(Math.max(8, n.left), window.innerWidth - 320);
     t.style.top = `${Math.max(8, d)}px`, t.style.left = `${c}px`, t.classList.remove("odon-tour-card-center");
-  } else e.selector && i < 5 ? m9(() => bc(e, t, a, i + 1)) : t.classList.add("odon-tour-card-center");
+  } else e.selector && i < 5 ? m9(() => kc(e, t, a, i + 1)) : t.classList.add("odon-tour-card-center");
 }
 function Ai() {
-  yc();
-  const e = ++K2, t = Vi[Mt];
+  bc();
+  const e = ++K2, t = Vi[Zt];
   u9(t.view);
-  const a = Qt("div", "odon-tour-backdrop");
+  const a = $t("div", "odon-tour-backdrop");
   document.body.appendChild(a), Ki.push(a);
-  const i = h9(), o = Math.max(0, i.indexOf(Mt)) + 1, n = i.length > 0 && Mt === i[i.length - 1], s = i.length > 0 && Mt === i[0], d = Qt("div", "odon-tour-card"), c = Qt("div", "odon-tour-counter", `${o} / ${i.length}`), p = Qt("div", "odon-tour-title", l(t.titleKey)), f = Qt("div", "odon-tour-text", l(t.textKey)), u = Qt("div", "odon-tour-actions"), b = Qt("button", "odon-tour-btn odon-tour-skip", l("intro.skip")), w = Qt("button", "odon-tour-btn", l("intro.back")), y = Qt("button", "odon-tour-btn odon-tour-next", l(n ? "intro.finish" : "intro.next"));
+  const i = h9(), o = Math.max(0, i.indexOf(Zt)) + 1, n = i.length > 0 && Zt === i[i.length - 1], s = i.length > 0 && Zt === i[0], d = $t("div", "odon-tour-card"), c = $t("div", "odon-tour-counter", `${o} / ${i.length}`), p = $t("div", "odon-tour-title", l(t.titleKey)), f = $t("div", "odon-tour-text", l(t.textKey)), h = $t("div", "odon-tour-actions"), b = $t("button", "odon-tour-btn odon-tour-skip", l("intro.skip")), w = $t("button", "odon-tour-btn", l("intro.back")), y = $t("button", "odon-tour-btn odon-tour-next", l(n ? "intro.finish" : "intro.next"));
   b.onclick = p2, w.onclick = () => {
-    Mt = Di(Mt, -1), Ai();
+    Zt = Di(Zt, -1), Ai();
   }, y.onclick = () => {
-    n ? p2() : (Mt = Di(Mt, 1), Ai());
-  }, w.disabled = s, u.append(b, w, y), d.append(c, p, f, u), document.body.appendChild(d), Ki.push(d), d.classList.add("odon-tour-card-center"), bc(t, d, e, 0);
+    n ? p2() : (Zt = Di(Zt, 1), Ai());
+  }, w.disabled = s, h.append(b, w, y), d.append(c, p, f, h), document.body.appendChild(d), Ki.push(d), d.classList.add("odon-tour-card-center"), kc(t, d, e, 0);
 }
 function g9() {
-  Mt = H2(0) ? 0 : Di(0, 1), X1 && document.removeEventListener("keydown", X1), X1 = (e) => {
-    e.key === "Escape" ? p2() : e.key === "ArrowRight" ? (e.preventDefault(), Mt = Di(Mt, 1), Ai()) : e.key === "ArrowLeft" && (e.preventDefault(), Mt = Di(Mt, -1), Ai());
-  }, document.addEventListener("keydown", X1), Ai();
+  Zt = H2(0) ? 0 : Di(0, 1), Q1 && document.removeEventListener("keydown", Q1), Q1 = (e) => {
+    e.key === "Escape" ? p2() : e.key === "ArrowRight" ? (e.preventDefault(), Zt = Di(Zt, 1), Ai()) : e.key === "ArrowLeft" && (e.preventDefault(), Zt = Di(Zt, -1), Ai());
+  }, document.addEventListener("keydown", Q1), Ai();
 }
-const kc = "react-advanced-odontogram", Dr = 4 * 1024 * 1024, xc = 1, v9 = 400;
-let Ti = null, fn = kc, q2 = {}, Q1 = null;
-function $1(e) {
+const xc = "react-advanced-odontogram", Ar = 4 * 1024 * 1024, wc = 1, v9 = 400;
+let Ti = null, fn = xc, q2 = {}, _1 = null;
+function ea(e) {
   const t = e instanceof Error ? e : new Error(String(e)), a = q2.onError;
   if (a)
     try {
@@ -30187,30 +30191,30 @@ function Y2() {
   }
 }
 function y9() {
-  Q1 !== null && clearTimeout(Q1), Q1 = setTimeout(() => {
-    Q1 = null, wc();
+  _1 !== null && clearTimeout(_1), _1 = setTimeout(() => {
+    _1 = null, Mc();
   }, v9);
 }
 function b9(e) {
-  Q1 !== null && (clearTimeout(Q1), Q1 = null, wc());
+  _1 !== null && (clearTimeout(_1), _1 = null, Mc());
 }
-function wc() {
+function Mc() {
   const e = Y2();
   if (!e) {
-    $1(new Error("localStorage is not available"));
+    ea(new Error("localStorage is not available"));
     return;
   }
   try {
     const t = k8();
     !q2.includePlan && t && typeof t == "object" && delete t.plan;
-    const a = JSON.stringify({ version: xc, savedAt: (/* @__PURE__ */ new Date()).toISOString(), payload: t });
-    if (a.length > Dr) {
-      $1(new Error(`persisted payload exceeds ${Dr} bytes — save skipped`));
+    const a = JSON.stringify({ version: wc, savedAt: (/* @__PURE__ */ new Date()).toISOString(), payload: t });
+    if (a.length > Ar) {
+      ea(new Error(`persisted payload exceeds ${Ar} bytes — save skipped`));
       return;
     }
     e.setItem(fn, a);
   } catch (t) {
-    $1(t);
+    ea(t);
   }
 }
 function k9() {
@@ -30220,23 +30224,23 @@ function k9() {
   try {
     t = e.getItem(fn);
   } catch (a) {
-    $1(a);
+    ea(a);
     return;
   }
   if (t !== null)
     try {
       const a = JSON.parse(t);
-      if (!a || typeof a != "object" || a.version !== xc || !a.payload) {
-        $1(new Error("persisted state has an unrecognized wrapper format — ignored"));
+      if (!a || typeof a != "object" || a.version !== wc || !a.payload) {
+        ea(new Error("persisted state has an unrecognized wrapper format — ignored"));
         return;
       }
       B2(a.payload);
     } catch (a) {
-      $1(a);
+      ea(a);
     }
 }
 function _f(e = {}) {
-  x9(), q2 = e, fn = e.key ?? kc, k9(), Ti = tt(y9);
+  x9(), q2 = e, fn = e.key ?? xc, k9(), Ti = st(y9);
 }
 function x9() {
   Ti && (Ti(), Ti = null), b9();
@@ -30247,7 +30251,7 @@ function $f() {
     try {
       e.removeItem(fn);
     } catch (t) {
-      $1(t);
+      ea(t);
     }
 }
 function em() {
@@ -30285,7 +30289,7 @@ const w9 = ["amalgam", "composite", "gic", "temporary"], M9 = [
   { value: "simple", labelKey: "pulp.level.simple" },
   { value: "aae", labelKey: "pulp.level.aae" },
   { value: "latin", labelKey: "pulp.level.latin" }
-], Ar = [
+], Tr = [
   { value: "complex", labelKey: "settings.toothDetail.complex" },
   { value: "simple", labelKey: "settings.toothDetail.simple" }
 ], P9 = [
@@ -30363,7 +30367,7 @@ function Oe({
     }
   ) });
 }
-function Me({
+function Ze({
   t: e,
   label: t,
   descKey: a,
@@ -30437,7 +30441,7 @@ const F9 = [
   { value: "teal", labelKey: "settings.pdf.theme.teal" },
   { value: "amber", labelKey: "settings.pdf.theme.amber" },
   { value: "slate", labelKey: "settings.pdf.theme.slate" }
-], Tr = [
+], Er = [
   { value: "wide", labelKey: "settings.pdf.spacing.wide" },
   { value: "medium", labelKey: "settings.pdf.spacing.medium" },
   { value: "close", labelKey: "settings.pdf.spacing.close" }
@@ -30461,11 +30465,11 @@ const F9 = [
   { value: "small", labelKey: "settings.pdf.perioFont.small" },
   { value: "normal", labelKey: "settings.pdf.perioFont.normal" },
   { value: "xlarge", labelKey: "settings.pdf.perioFont.xlarge" }
-], Z1 = [
+], z1 = [
   {
     id: "general",
     titleKey: "settings.tab.general",
-    render: ({ t: e, s: t }) => /* @__PURE__ */ k(dt, { children: [
+    render: ({ t: e, s: t }) => /* @__PURE__ */ k(mt, { children: [
       /* @__PURE__ */ r(
         Oe,
         {
@@ -30489,7 +30493,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.theme.label"),
@@ -30500,7 +30504,7 @@ const F9 = [
       ),
       /* @__PURE__ */ r("div", { className: "odon-settings-group-title", children: e("settings.export.section") }),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.export.png"),
@@ -30510,7 +30514,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.export.jpg"),
@@ -30520,7 +30524,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.export.svg"),
@@ -30530,7 +30534,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.export.pdf"),
@@ -30541,7 +30545,7 @@ const F9 = [
       ),
       /* @__PURE__ */ r("div", { className: "odon-settings-group-title", children: e("settings.import.section") }),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.import.status"),
@@ -30551,7 +30555,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.import.fhir"),
@@ -30565,9 +30569,9 @@ const F9 = [
   {
     id: "odontogram",
     titleKey: "settings.tab.odontogram",
-    render: ({ t: e, s: t }) => /* @__PURE__ */ k(dt, { children: [
+    render: ({ t: e, s: t }) => /* @__PURE__ */ k(mt, { children: [
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.planMode"),
@@ -30610,7 +30614,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.toothInfo"),
@@ -30620,7 +30624,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.panels.statuses"),
@@ -30630,7 +30634,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.panels.orthodontics"),
@@ -30644,10 +30648,10 @@ const F9 = [
   {
     id: "periodontalChart",
     titleKey: "settings.tab.periodontalChart",
-    render: ({ t: e, s: t }) => /* @__PURE__ */ k(dt, { children: [
+    render: ({ t: e, s: t }) => /* @__PURE__ */ k(mt, { children: [
       /* @__PURE__ */ r("div", { className: "odon-settings-group-title", children: e("settings.perio.group.general") }),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.perioChart.available"),
@@ -30671,7 +30675,7 @@ const F9 = [
       R9.map((a) => /* @__PURE__ */ k("div", { children: [
         /* @__PURE__ */ r("div", { className: "odon-settings-group-title", children: e(a.titleKey) }),
         a.ids.map((i) => /* @__PURE__ */ r(
-          Me,
+          Ze,
           {
             t: e,
             label: e(`settings.perio.row.${i}`),
@@ -30700,7 +30704,7 @@ const F9 = [
   {
     id: "toothDetails",
     titleKey: "settings.tab.toothDetails",
-    render: ({ t: e, s: t }) => /* @__PURE__ */ k(dt, { children: [
+    render: ({ t: e, s: t }) => /* @__PURE__ */ k(mt, { children: [
       /* @__PURE__ */ r(
         Bn,
         {
@@ -30741,7 +30745,7 @@ const F9 = [
           label: e("settings.wearDetail.label"),
           descKey: "settings.wearDetail.desc",
           value: t.wearDetailLevel,
-          options: Ar,
+          options: Tr,
           onChange: t.onWearDetailLevel
         }
       ),
@@ -30752,7 +30756,7 @@ const F9 = [
           label: e("settings.discolorationDetail.label"),
           descKey: "settings.discolorationDetail.desc",
           value: t.discolorationDetailLevel,
-          options: Ar,
+          options: Tr,
           onChange: t.onDiscolorationDetailLevel
         }
       ),
@@ -30768,7 +30772,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.notes"),
@@ -30782,9 +30786,9 @@ const F9 = [
   {
     id: "caries",
     titleKey: "settings.tab.caries",
-    render: ({ t: e, s: t }) => /* @__PURE__ */ k(dt, { children: [
+    render: ({ t: e, s: t }) => /* @__PURE__ */ k(mt, { children: [
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("icdas.enable"),
@@ -30794,7 +30798,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.cariesDepth.label"),
@@ -30841,9 +30845,9 @@ const F9 = [
   {
     id: "fillings",
     titleKey: "settings.tab.fillings",
-    render: ({ t: e, s: t }) => /* @__PURE__ */ k(dt, { children: [
+    render: ({ t: e, s: t }) => /* @__PURE__ */ k(mt, { children: [
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.filling.defect"),
@@ -30865,7 +30869,7 @@ const F9 = [
       ),
       /* @__PURE__ */ r("div", { className: "odon-settings-group-title", children: e("settings.filling.materials") }),
       w9.map((a) => /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e(G9[a]),
@@ -30876,7 +30880,7 @@ const F9 = [
         a
       )),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.filling.fissure"),
@@ -30890,7 +30894,7 @@ const F9 = [
   {
     id: "export",
     titleKey: "settings.tab.export",
-    render: ({ t: e, s: t }) => /* @__PURE__ */ k(dt, { children: [
+    render: ({ t: e, s: t }) => /* @__PURE__ */ k(mt, { children: [
       /* @__PURE__ */ r("div", { className: "odon-settings-note", children: e("settings.export.appliesNote") }),
       /* @__PURE__ */ r(
         Bn,
@@ -30914,7 +30918,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.showAge"),
@@ -30947,7 +30951,7 @@ const F9 = [
       ),
       /* @__PURE__ */ r("div", { className: "odon-settings-group-title", children: e("settings.pdf.section.odontogram") }),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.showBone"),
@@ -30957,7 +30961,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.showHealthyPulp"),
@@ -30973,12 +30977,12 @@ const F9 = [
           label: e("settings.pdf.spacing"),
           descKey: "settings.pdf.spacing.desc",
           value: t.pdfSettings.toothSpacing,
-          options: Tr,
+          options: Er,
           onChange: (a) => t.onPdfSettings({ toothSpacing: a })
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.border"),
@@ -31011,7 +31015,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.includeText"),
@@ -31021,7 +31025,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.includeTable"),
@@ -31049,12 +31053,12 @@ const F9 = [
           label: e("settings.pdf.perioSpacing"),
           descKey: "settings.pdf.perioSpacing.desc",
           value: t.pdfSettings.perioToothSpacing,
-          options: Tr,
+          options: Er,
           onChange: (a) => t.onPdfSettings({ perioToothSpacing: a })
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.perioEmptyRows"),
@@ -31086,7 +31090,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.includePerioTable"),
@@ -31096,7 +31100,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.includePerioAbbrev"),
@@ -31107,7 +31111,7 @@ const F9 = [
       ),
       /* @__PURE__ */ r("div", { className: "odon-settings-group-title", children: e("settings.pdf.section.footer") }),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.showDisclaimer"),
@@ -31129,7 +31133,7 @@ const F9 = [
         }
       ),
       /* @__PURE__ */ r(
-        Me,
+        Ze,
         {
           t: e,
           label: e("settings.pdf.showGenerator"),
@@ -31140,23 +31144,23 @@ const F9 = [
       )
     ] })
   }
-], Er = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+], Or = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 function Y9({
   open: e,
   onClose: t,
   t: a,
   settings: i
 }) {
-  const [o, n] = _(Z1[0].id), s = xe(null), d = xe(null), c = xe(null), p = Va();
+  const [o, n] = _(z1[0].id), s = xe(null), d = xe(null), c = xe(null), p = Va();
   se(() => {
     if (!e) return;
     c.current = document.activeElement ?? null;
     const y = s.current;
-    return (y?.querySelector(Er) ?? y)?.focus(), () => {
+    return (y?.querySelector(Or) ?? y)?.focus(), () => {
       c.current?.focus?.();
     };
   }, [e]);
-  const f = Ot(
+  const f = Gt(
     (y) => {
       if (y.key === "Escape") {
         y.stopPropagation(), t();
@@ -31165,30 +31169,30 @@ function Y9({
       if (y.key !== "Tab") return;
       const v = s.current;
       if (!v) return;
-      const m = Array.from(v.querySelectorAll(Er)).filter(
+      const m = Array.from(v.querySelectorAll(Or)).filter(
         (x) => x.offsetParent !== null || x === document.activeElement
       );
       if (m.length === 0) return;
-      const D = m[0], Z = m[m.length - 1], g = document.activeElement;
-      y.shiftKey && g === D ? (y.preventDefault(), Z.focus()) : !y.shiftKey && g === Z && (y.preventDefault(), D.focus());
+      const P = m[0], S = m[m.length - 1], g = document.activeElement;
+      y.shiftKey && g === P ? (y.preventDefault(), S.focus()) : !y.shiftKey && g === S && (y.preventDefault(), P.focus());
     },
     [t]
-  ), u = Ot(
+  ), h = Gt(
     (y) => {
       if (!["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown", "Home", "End"].includes(y.key)) return;
       y.preventDefault();
-      const m = Z1.length;
+      const m = z1.length;
       if (m === 0) return;
-      const D = Z1.findIndex((C) => C.id === o), Z = D < 0 ? 0 : D;
-      let g = Z;
-      y.key === "Home" ? g = 0 : y.key === "End" ? g = m - 1 : y.key === "ArrowRight" || y.key === "ArrowDown" ? g = (Z + 1) % m : (y.key === "ArrowLeft" || y.key === "ArrowUp") && (g = (Z - 1 + m) % m);
-      const x = Z1[g];
+      const P = z1.findIndex((I) => I.id === o), S = P < 0 ? 0 : P;
+      let g = S;
+      y.key === "Home" ? g = 0 : y.key === "End" ? g = m - 1 : y.key === "ArrowRight" || y.key === "ArrowDown" ? g = (S + 1) % m : (y.key === "ArrowLeft" || y.key === "ArrowUp") && (g = (S - 1 + m) % m);
+      const x = z1[g];
       x && (x.id !== o && n(x.id), d.current?.querySelector(`#odon-settings-tab-${x.id}`)?.focus());
     },
     [o]
   );
   if (!e) return null;
-  const b = Z1.find((y) => y.id === o) ?? Z1[0], w = b.id === "export" && i.exportPdf === !1 ? Z1[0] : b;
+  const b = z1.find((y) => y.id === o) ?? z1[0], w = b.id === "export" && i.exportPdf === !1 ? z1[0] : b;
   return /* @__PURE__ */ r(
     "div",
     {
@@ -31243,8 +31247,8 @@ function Y9({
                   className: "odon-settings-tabs",
                   role: "tablist",
                   "aria-label": a("settings.title"),
-                  onKeyDown: u,
-                  children: Z1.map((y) => {
+                  onKeyDown: h,
+                  children: z1.map((y) => {
                     const v = y.id === "export" && i.exportPdf === !1;
                     return /* @__PURE__ */ r(
                       "button",
@@ -31284,7 +31288,7 @@ function Y9({
     }
   );
 }
-const Or = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const Lr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 function W9({
   open: e,
   t,
@@ -31296,11 +31300,11 @@ function W9({
     if (!e) return;
     n.current = document.activeElement ?? null;
     const c = o.current;
-    return (c?.querySelector(Or) ?? c)?.focus(), () => {
+    return (c?.querySelector(Lr) ?? c)?.focus(), () => {
       n.current?.focus?.();
     };
   }, [e]);
-  const d = Ot(
+  const d = Gt(
     (c) => {
       if (c.key === "Escape") {
         c.stopPropagation(), i();
@@ -31309,12 +31313,12 @@ function W9({
       if (c.key !== "Tab") return;
       const p = o.current;
       if (!p) return;
-      const f = Array.from(p.querySelectorAll(Or)).filter(
+      const f = Array.from(p.querySelectorAll(Lr)).filter(
         (y) => y.offsetParent !== null || y === document.activeElement
       );
       if (f.length === 0) return;
-      const u = f[0], b = f[f.length - 1], w = document.activeElement;
-      c.shiftKey && w === u ? (c.preventDefault(), b.focus()) : !c.shiftKey && w === b && (c.preventDefault(), u.focus());
+      const h = f[0], b = f[f.length - 1], w = document.activeElement;
+      c.shiftKey && w === h ? (c.preventDefault(), b.focus()) : !c.shiftKey && w === b && (c.preventDefault(), h.focus());
     },
     [i]
   );
@@ -31364,54 +31368,54 @@ function W9({
     }
   ) : null;
 }
-const Lr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const Gr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 function J9({
   open: e,
   t,
   onClose: a
 }) {
-  const i = xe(null), o = xe(null), n = Va(), [s, d] = _(!0), [c, p] = _(!0), [f, u] = _(!0), [b, w] = _(!0), [y, v] = _(!0), [m, D] = _(!0), [Z, g] = _(!1), [x, C] = _(!1), [z, F] = _(e1()), [L, R] = _(e1().patientName ?? "");
+  const i = xe(null), o = xe(null), n = Va(), [s, d] = _(!0), [c, p] = _(!0), [f, h] = _(!0), [b, w] = _(!0), [y, v] = _(!0), [m, P] = _(!0), [S, g] = _(!1), [x, I] = _(!1), [Z, F] = _(a1()), [L, j] = _(a1().patientName ?? "");
   se(() => {
     if (!e) return;
-    o.current = document.activeElement ?? null, g(Vo()), C(cr()), e1().examDate === null && Qn((/* @__PURE__ */ new Date()).toISOString().slice(0, 10)), F(e1()), R(e1().patientName ?? "");
+    o.current = document.activeElement ?? null, g(Vo()), I(dr()), a1().examDate === null && Qn((/* @__PURE__ */ new Date()).toISOString().slice(0, 10)), F(a1()), j(a1().patientName ?? "");
     const M = i.current;
-    return (M?.querySelector(Lr) ?? M)?.focus(), () => {
+    return (M?.querySelector(Gr) ?? M)?.focus(), () => {
       o.current?.focus?.();
     };
   }, [e]), se(() => {
     if (e)
-      return tt(() => {
-        F(e1()), g(Vo()), C(cr());
+      return st(() => {
+        F(a1()), g(Vo()), I(dr());
       });
   }, [e]);
-  const J = Ot(
+  const W = Gt(
     (M) => {
       if (M.key === "Escape") {
         M.stopPropagation(), a();
         return;
       }
       if (M.key !== "Tab") return;
-      const I = i.current;
-      if (!I) return;
-      const E = Array.from(I.querySelectorAll(Lr)).filter(
-        (te) => te.offsetParent !== null || te === document.activeElement
+      const z = i.current;
+      if (!z) return;
+      const T = Array.from(z.querySelectorAll(Gr)).filter(
+        (ae) => ae.offsetParent !== null || ae === document.activeElement
       );
-      if (E.length === 0) return;
-      const $ = E[0], le = E[E.length - 1], W = document.activeElement;
-      M.shiftKey && W === $ ? (M.preventDefault(), le.focus()) : !M.shiftKey && W === le && (M.preventDefault(), $.focus());
+      if (T.length === 0) return;
+      const $ = T[0], le = T[T.length - 1], J = document.activeElement;
+      M.shiftKey && J === $ ? (M.preventDefault(), le.focus()) : !M.shiftKey && J === le && (M.preventDefault(), $.focus());
     },
     [a]
   );
   if (!e) return null;
-  const T = () => {
-    Xn(L.trim() === "" ? null : L), lc({
+  const A = () => {
+    Xn(L.trim() === "" ? null : L), cc({
       patientData: s,
       odontogramChart: c,
       odontogramDescription: f,
       individualNotes: b && x,
-      perioStatus: y && Z,
-      perioDescription: m && Z
-    }).catch((I) => console.error("exportPdf failed", I)), a();
+      perioStatus: y && S,
+      perioDescription: m && S
+    }).catch((z) => console.error("exportPdf failed", z)), a();
   };
   return /* @__PURE__ */ r(
     "div",
@@ -31430,7 +31434,7 @@ function J9({
           "aria-modal": "true",
           "aria-labelledby": n,
           tabIndex: -1,
-          onKeyDown: J,
+          onKeyDown: W,
           children: [
             /* @__PURE__ */ r("p", { className: "odon-confirm-message", id: n, children: t("export.options.title") }),
             /* @__PURE__ */ k("div", { className: "case-meta-row", children: [
@@ -31442,7 +31446,7 @@ function J9({
                   className: "case-meta-input",
                   type: "text",
                   value: L,
-                  onChange: (M) => R(M.target.value),
+                  onChange: (M) => j(M.target.value),
                   onBlur: () => Xn(L.trim() === "" ? null : L)
                 }
               )
@@ -31455,7 +31459,7 @@ function J9({
                   id: "exportOptionsPatientDob",
                   className: "case-meta-input",
                   type: "date",
-                  value: z.patientDob ?? "",
+                  value: Z.patientDob ?? "",
                   onChange: (M) => S5(M.target.value === "" ? null : M.target.value)
                 }
               )
@@ -31468,7 +31472,7 @@ function J9({
                   id: "exportOptionsExamDate",
                   className: "case-meta-input",
                   type: "date",
-                  value: z.examDate ?? "",
+                  value: Z.examDate ?? "",
                   onChange: (M) => Qn(M.target.value === "" ? null : M.target.value)
                 }
               )
@@ -31501,7 +31505,7 @@ function J9({
                 {
                   type: "checkbox",
                   checked: f,
-                  onChange: (M) => u(M.target.checked)
+                  onChange: (M) => h(M.target.checked)
                 }
               ),
               /* @__PURE__ */ r("span", { children: t("export.options.odontogramDescription") })
@@ -31524,7 +31528,7 @@ function J9({
                 {
                   type: "checkbox",
                   checked: y,
-                  disabled: !Z,
+                  disabled: !S,
                   onChange: (M) => v(M.target.checked)
                 }
               ),
@@ -31536,13 +31540,13 @@ function J9({
                 {
                   type: "checkbox",
                   checked: m,
-                  disabled: !Z,
-                  onChange: (M) => D(M.target.checked)
+                  disabled: !S,
+                  onChange: (M) => P(M.target.checked)
                 }
               ),
               /* @__PURE__ */ r("span", { children: t("export.options.perioDescription") })
             ] }),
-            !Z && /* @__PURE__ */ r("p", { className: "hint", children: t("export.options.noPerio") }),
+            !S && /* @__PURE__ */ r("p", { className: "hint", children: t("export.options.noPerio") }),
             /* @__PURE__ */ k("div", { className: "odon-confirm-actions", children: [
               /* @__PURE__ */ r(
                 "button",
@@ -31558,7 +31562,7 @@ function J9({
                 {
                   type: "button",
                   className: "odon-confirm-btn odon-confirm-accept",
-                  onClick: T,
+                  onClick: A,
                   children: t("export.options.export")
                 }
               )
@@ -31569,7 +31573,7 @@ function J9({
     }
   );
 }
-const Gr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', X9 = "https://github.com/ZoliQua/React-Odontogram-Modul", Vn = { handle: "ZoliQua", descKey: "credits.contrib.zoliqua" }, Q9 = [
+const Nr = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', X9 = "https://github.com/ZoliQua/React-Odontogram-Modul", Vn = { handle: "ZoliQua", descKey: "credits.contrib.zoliqua" }, Q9 = [
   { handle: "odontodev", descKey: "credits.contrib.odontodev" },
   { handle: "JulianoBazzi", descKey: "credits.contrib.julianobazzi" },
   { handle: "yassine-bhn", descKey: "credits.contrib.yassine" },
@@ -31592,11 +31596,11 @@ function $9({
     if (!e) return;
     o.current = document.activeElement ?? null;
     const d = i.current;
-    return (d?.querySelector(Gr) ?? d)?.focus(), () => {
+    return (d?.querySelector(Nr) ?? d)?.focus(), () => {
       o.current?.focus?.();
     };
   }, [e]);
-  const s = Ot(
+  const s = Gt(
     (d) => {
       if (d.key === "Escape") {
         d.stopPropagation(), a();
@@ -31605,12 +31609,12 @@ function $9({
       if (d.key !== "Tab") return;
       const c = i.current;
       if (!c) return;
-      const p = Array.from(c.querySelectorAll(Gr)).filter(
+      const p = Array.from(c.querySelectorAll(Nr)).filter(
         (w) => w.offsetParent !== null || w === document.activeElement
       );
       if (p.length === 0) return;
-      const f = p[0], u = p[p.length - 1], b = document.activeElement;
-      d.shiftKey && b === f ? (d.preventDefault(), u.focus()) : !d.shiftKey && b === u && (d.preventDefault(), f.focus());
+      const f = p[0], h = p[p.length - 1], b = document.activeElement;
+      d.shiftKey && b === f ? (d.preventDefault(), h.focus()) : !d.shiftKey && b === h && (d.preventDefault(), f.focus());
     },
     [a]
   );
@@ -31691,7 +31695,7 @@ function $9({
     }
   ) : null;
 }
-const Nr = {
+const Rr = {
   background: "--odon-bg",
   panel: "--odon-panel",
   card: "--odon-card",
@@ -31703,10 +31707,10 @@ const Nr = {
 };
 function ef(e, t) {
   if (e) {
-    for (const a of Object.values(Nr))
+    for (const a of Object.values(Rr))
       e.style.removeProperty(a);
     if (t?.colors)
-      for (const [a, i] of Object.entries(Nr)) {
+      for (const [a, i] of Object.entries(Rr)) {
         const o = t.colors[a];
         o && e.style.setProperty(i, o);
       }
@@ -31716,9 +31720,9 @@ const tf = /* @__PURE__ */ new Set(["ar"]);
 function af(e) {
   return tf.has(e);
 }
-const Mc = Ic(null);
+const Sc = Cc(null);
 function _a() {
-  const e = zc(Mc);
+  const e = Ic(Sc);
   if (e === null)
     throw new Error("useOdontogramUi must be used within an <OdontogramProvider>.");
   return e;
@@ -31735,222 +31739,222 @@ function of({
   plugins: c,
   readOnly: p,
   enableNotes: f,
-  enableIcdas: u,
+  enableIcdas: h,
   pulpDetailLevel: b,
   secondaryCariesMode: w,
   rootCariesMode: y,
   radiographicDepthMode: v,
   cariesDepthEnabled: m,
-  wearDetailLevel: D,
-  discolorationDetailLevel: Z,
+  wearDetailLevel: P,
+  discolorationDetailLevel: S,
   surfaceNotation: g,
   showStatusCard: x,
-  showOrthoCard: C,
-  fillingComplexity: z,
+  showOrthoCard: I,
+  fillingComplexity: Z,
   onFillingComplexityChange: F,
   fillingDefectEnabled: L,
-  onFillingDefectEnabledChange: R,
-  fillingMaterialAvailability: J,
-  onFillingMaterialAvailabilityChange: T,
+  onFillingDefectEnabledChange: j,
+  fillingMaterialAvailability: W,
+  onFillingMaterialAvailabilityChange: A,
   fissureSealingEnabled: M,
-  onFissureSealingEnabledChange: I
+  onFissureSealingEnabledChange: z
 }) {
-  const { lang: E, setLang: $, t: le } = Dc({ language: t, onLanguageChange: a }), [W, te] = _(i ?? "FDI"), ke = xe(null), P = i ?? W, [Y, S] = _(!1), [j, ie] = _(f ?? !1), [ue, de] = _(u ?? !1), [Ie, Ae] = _(b ?? "aae"), [ot, Wt] = _(w ?? "standard"), [g1, be] = _(y ?? "simple"), [zt, me] = _(v ?? "off"), [ft, ge] = _(m ?? !0), [mt, nt] = _(D ?? "complex"), [Ce, Ge] = _(Z ?? "complex"), [ht, s1] = _(g ?? "full"), [Ft, It] = _(!0), [ut, Ut] = _(!0), [Bt, ca] = _(!0), [G1, ei] = _(!0), [r1, da] = _(!0), [N1, io] = _(!0), [ti, oo] = _(!0), [pa, fa] = _(!0), [l1, Ct] = _(!0), [ma, no] = _("normal"), [ai, ii] = _("normal"), [oi, ha] = _("#3b7bff"), [R1, Pt] = _("dashed"), [v1, ua] = _(() => L ?? _l()), [ni, so] = _(() => z ?? K5()), [ro, ga] = _(() => M ?? H5()), [lo, va] = _(() => J ?? q5()), [co, y1] = _(x ?? !0), [po, fo] = _(C ?? !0), [Te, b1] = _(null), [hn, mo] = _(!1), [si, ho] = _(!1), [uo, un] = _(!1), [gn, vn] = _(!1), [ri, Jt] = _(() => dr()), [j1, Xt] = _("odontogram"), [go, k1] = _(() => Ts()), [yn, vo] = _(
+  const { lang: T, setLang: $, t: le } = Ac({ language: t, onLanguageChange: a }), [J, ae] = _(i ?? "FDI"), Me = xe(null), C = i ?? J, [Y, R] = _(!1), [E, ee] = _(f ?? !1), [ue, de] = _(h ?? !1), [me, Se] = _(b ?? "aae"), [Ie, We] = _(w ?? "standard"), [Xt, ke] = _(y ?? "simple"), [Bt, ve] = _(v ?? "off"), [Ve, ye] = _(m ?? !0), [je, Ct] = _(P ?? "complex"), [Fe, Re] = _(S ?? "complex"), [Ge, ut] = _(g ?? "full"), [Vt, gt] = _(!0), [wt, Pt] = _(!0), [v1, Kt] = _(!0), [N1, ei] = _(!0), [l1, da] = _(!0), [R1, io] = _(!0), [ti, oo] = _(!0), [pa, fa] = _(!0), [c1, Dt] = _(!0), [ma, no] = _("normal"), [ai, ii] = _("normal"), [oi, ha] = _("#3b7bff"), [j1, At] = _("dashed"), [y1, ua] = _(() => L ?? $l()), [ni, so] = _(() => Z ?? K5()), [ro, ga] = _(() => M ?? H5()), [lo, va] = _(() => W ?? q5()), [co, b1] = _(x ?? !0), [po, fo] = _(I ?? !0), [Te, k1] = _(null), [hn, mo] = _(!1), [si, ho] = _(!1), [uo, un] = _(!1), [gn, vn] = _(!1), [ri, Qt] = _(() => pr()), [F1, _t] = _("odontogram"), [go, x1] = _(() => Es()), [yn, vo] = _(
     () => Bi()
   ), [yo, ya] = _(
-    () => na()
-  ), [li, ba] = _(() => sa()), x1 = ri === "toggle" && j1 === "dentalChart", [F1, Dt] = _(!1), [bn, kn] = _(() => n !== void 0 ? n : typeof document < "u" ? document.documentElement.classList.contains("dark") : !1), w1 = n !== void 0 ? n : bn;
+    () => sa()
+  ), [li, ba] = _(() => ra()), w1 = ri === "toggle" && F1 === "dentalChart", [U1, Tt] = _(!1), [bn, kn] = _(() => n !== void 0 ? n : typeof document < "u" ? document.documentElement.classList.contains("dark") : !1), M1 = n !== void 0 ? n : bn;
   se(() => {
-    n === void 0 && document.documentElement.classList.toggle("dark", w1);
-  }, [w1, n]);
+    n === void 0 && document.documentElement.classList.toggle("dark", M1);
+  }, [M1, n]);
   const ci = () => {
-    const O = !w1;
+    const O = !M1;
     n !== void 0 || kn(O), s?.(O);
   }, di = (O) => {
     if (i) {
       o?.(O);
       return;
     }
-    te(O), o?.(O);
+    ae(O), o?.(O);
   };
   se(() => (C7(), () => {
     P7();
   }), []), se(() => {
-    I7(P);
-  }, [P]), se(() => {
-    ef(ke.current, d);
+    I7(C);
+  }, [C]), se(() => {
+    ef(Me.current, d);
   }, [d]), se(() => {
     A7(c ?? []);
   }, [c]), se(() => {
     F7(p ?? !1);
   }, [p]), se(() => {
-    vr(f ?? !1), ie(f ?? !1);
+    yr(f ?? !1), ee(f ?? !1);
   }, [f]), se(() => {
-    Os(u ?? !1), de(u ?? !1);
-  }, [u]), se(() => {
-    Ls(b ?? "aae"), Ae(b ?? "aae");
+    Ls(h ?? !1), de(h ?? !1);
+  }, [h]), se(() => {
+    Gs(b ?? "aae"), Se(b ?? "aae");
   }, [b]), se(() => {
     const O = w ?? "standard";
-    js(O), Wt(O);
+    Fs(O), We(O);
   }, [w]), se(() => {
     const O = y ?? "simple";
-    Fs(O), be(O);
+    Us(O), ke(O);
   }, [y]), se(() => {
     const O = v ?? "off";
-    Us(O), me(O);
+    Bs(O), ve(O);
   }, [v]), se(() => {
     const O = m ?? !0;
-    Bs(O), ge(O);
+    Vs(O), ye(O);
   }, [m]), se(() => {
-    const O = D ?? "complex";
-    Gs(O), nt(O);
-  }, [D]), se(() => {
-    const O = Z ?? "complex";
-    Ns(O), Ge(O);
-  }, [Z]), se(() => {
+    const O = P ?? "complex";
+    Ns(O), Ct(O);
+  }, [P]), se(() => {
+    const O = S ?? "complex";
+    Rs(O), Re(O);
+  }, [S]), se(() => {
     const O = g ?? "full";
-    Rs(O), s1(O);
+    js(O), ut(O);
   }, [g]), se(() => {
-    y1(x ?? !0);
+    b1(x ?? !0);
   }, [x]), se(() => {
-    fo(C ?? !0);
-  }, [C]), se(() => {
-    z !== void 0 && (_s(z), so(z));
-  }, [z]), se(() => {
-    L !== void 0 && (Qs(L), ua(L));
+    fo(I ?? !0);
+  }, [I]), se(() => {
+    Z !== void 0 && ($s(Z), so(Z));
+  }, [Z]), se(() => {
+    L !== void 0 && (_s(L), ua(L));
   }, [L]), se(() => {
-    M !== void 0 && ($s(M), ga(M));
+    M !== void 0 && (er(M), ga(M));
   }, [M]);
-  const pi = qr(() => {
-    if (J === void 0) return null;
-    const O = Object.keys(J).sort().map((_e) => [_e, !!J[_e]]);
+  const pi = Yr(() => {
+    if (W === void 0) return null;
+    const O = Object.keys(W).sort().map((it) => [it, !!W[it]]);
     return JSON.stringify(O);
-  }, [J]), ka = xe(null);
+  }, [W]), ka = xe(null);
   se(() => {
     if (pi === null) {
       ka.current = null;
       return;
     }
-    const O = JSON.parse(pi), _e = Object.fromEntries(O), U1 = ka.current ?? {};
-    for (const [V, h] of O)
-      U1[V] !== h && er(V, h);
-    ka.current = _e, va({ ..._e });
+    const O = JSON.parse(pi), it = Object.fromEntries(O), B1 = ka.current ?? {};
+    for (const [V, u] of O)
+      B1[V] !== u && tr(V, u);
+    ka.current = it, va({ ...it });
   }, [pi]), se(() => {
-    if (!Ft) return;
+    if (!Vt) return;
     const O = () => {
-      b1(mc());
+      k1(hc());
     };
-    return O(), tt(O);
-  }, [Ft, E, P]), se(() => {
+    return O(), st(O);
+  }, [Vt, T, C]), se(() => {
     const O = () => mo(Vo());
-    return O(), tt(O);
+    return O(), st(O);
   }, []), se(() => {
     const O = () => vn(W8());
-    return O(), tt(O);
+    return O(), st(O);
   }, []), se(() => {
-    const O = () => Jt(dr());
-    return O(), tt(O);
+    const O = () => Qt(pr());
+    return O(), st(O);
   }, []), se(() => {
-    const O = () => k1(Ts());
-    return O(), tt(O);
+    const O = () => x1(Es());
+    return O(), st(O);
   }, []), se(() => {
     const O = () => {
-      vo(Bi()), ya(na());
+      vo(Bi()), ya(sa());
     };
-    return O(), tt(O);
-  }, []), se(() => tt(() => Dt(C5())), []);
+    return O(), st(O);
+  }, []), se(() => st(() => Tt(C5())), []);
   const xn = {
     t: le,
-    lang: E,
+    lang: T,
     setLang: $,
-    isDark: w1,
+    isDark: M1,
     toggleDark: ci,
-    currentNumbering: P,
+    currentNumbering: C,
     setNumbering: di,
     viewMode: ri,
-    activeView: j1,
-    setActiveView: Xt,
-    isPerioView: x1,
-    perioChartAvailable: l1,
+    activeView: F1,
+    setActiveView: _t,
+    isPerioView: w1,
+    perioChartAvailable: c1,
     perioOpen: gn,
-    confirmOpen: F1,
+    confirmOpen: U1,
     hasPerio: hn,
-    exportPngOn: ut,
-    exportJpgOn: Bt,
-    exportSvgOn: G1,
-    exportPdfOn: r1,
-    importStatusOn: N1,
+    exportPngOn: wt,
+    exportJpgOn: v1,
+    exportSvgOn: N1,
+    exportPdfOn: l1,
+    importStatusOn: R1,
     importFhirOn: ti,
     summary: Te,
-    toothInfoOn: Ft,
+    toothInfoOn: Vt,
     screenSpacing: ma,
     screenNumberSize: ai,
     selectionColor: oi,
-    selectionBorderStyle: R1,
+    selectionBorderStyle: j1,
     toothAnatomy: go,
     planModeAvailable: pa,
     showStatusCard: co,
     showOrthoCard: po,
     settingsState: {
-      numbering: P,
+      numbering: C,
       onNumbering: di,
-      language: E,
+      language: T,
       onLanguage: $,
-      isDark: w1,
+      isDark: M1,
       onToggleDark: ci,
-      toothInfo: Ft,
-      onToothInfo: (O) => It(O),
-      exportPng: ut,
-      onExportPng: (O) => Ut(O),
-      exportJpg: Bt,
-      onExportJpg: (O) => ca(O),
-      exportSvg: G1,
+      toothInfo: Vt,
+      onToothInfo: (O) => gt(O),
+      exportPng: wt,
+      onExportPng: (O) => Pt(O),
+      exportJpg: v1,
+      onExportJpg: (O) => Kt(O),
+      exportSvg: N1,
       onExportSvg: (O) => ei(O),
-      exportPdf: r1,
+      exportPdf: l1,
       onExportPdf: (O) => da(O),
-      importStatus: N1,
+      importStatus: R1,
       onImportStatus: (O) => io(O),
       importFhir: ti,
       onImportFhir: (O) => oo(O),
-      secondaryCariesMode: ot,
+      secondaryCariesMode: Ie,
       onSecondaryCariesMode: (O) => {
-        Wt(O), js(O);
+        We(O), Fs(O);
       },
       icdas: ue,
       onIcdas: (O) => {
-        de(O), Os(O);
+        de(O), Ls(O);
       },
-      cariesDepth: ft,
+      cariesDepth: Ve,
       onCariesDepth: (O) => {
-        ge(O), Bs(O);
+        ye(O), Vs(O);
       },
-      rootCariesMode: g1,
+      rootCariesMode: Xt,
       onRootCariesMode: (O) => {
-        be(O), Fs(O);
+        ke(O), Us(O);
       },
-      radiographicDepthMode: zt,
+      radiographicDepthMode: Bt,
       onRadiographicDepthMode: (O) => {
-        me(O), Us(O);
+        ve(O), Bs(O);
       },
-      pulpLevel: Ie,
+      pulpLevel: me,
       onPulpLevel: (O) => {
-        Ae(O), Ls(O);
+        Se(O), Gs(O);
       },
-      wearDetailLevel: mt,
+      wearDetailLevel: je,
       onWearDetailLevel: (O) => {
-        nt(O), Gs(O);
+        Ct(O), Ns(O);
       },
-      discolorationDetailLevel: Ce,
+      discolorationDetailLevel: Fe,
       onDiscolorationDetailLevel: (O) => {
-        Ge(O), Ns(O);
+        Re(O), Rs(O);
       },
-      surfaceNotation: ht,
+      surfaceNotation: Ge,
       onSurfaceNotation: (O) => {
-        s1(O), Rs(O);
+        ut(O), js(O);
       },
-      notes: j,
+      notes: E,
       onNotes: (O) => {
-        ie(O), vr(O);
+        ee(O), yr(O);
       },
       planModeAvailable: pa,
       onPlanModeAvailable: (O) => {
@@ -31962,55 +31966,55 @@ function of({
       onScreenToothNumberSize: (O) => ii(O),
       toothAnatomy: go,
       onToothAnatomy: (O) => {
-        k1(O), t5(O), V2();
+        x1(O), t5(O), V2();
       },
       selectionColor: oi,
       onSelectionColor: (O) => ha(O),
-      selectionBorderStyle: R1,
-      onSelectionBorderStyle: (O) => Pt(O),
-      perioChartAvailable: l1,
+      selectionBorderStyle: j1,
+      onSelectionBorderStyle: (O) => At(O),
+      perioChartAvailable: c1,
       onPerioChartAvailable: (O) => {
-        Ct(O), O || (Xt("odontogram"), nc());
+        Dt(O), O || (_t("odontogram"), sc());
       },
       showStatusCard: co,
-      onShowStatusCard: (O) => y1(O),
+      onShowStatusCard: (O) => b1(O),
       showOrthoCard: po,
       onShowOrthoCard: (O) => fo(O),
       perioViewMode: ri,
       onPerioViewMode: (O) => J8(O),
       perioRowVisibility: yn,
-      onPerioRowVisibility: (O, _e) => _8(O, _e),
+      onPerioRowVisibility: (O, it) => _8(O, it),
       perioIndexNameMode: yo,
       onPerioIndexNameMode: (O) => $8(O),
-      fillingDefectEnabled: v1,
+      fillingDefectEnabled: y1,
       onFillingDefectEnabled: (O) => {
-        ua(O), Qs(O), R?.(O);
+        ua(O), _s(O), j?.(O);
       },
       fillingComplexity: ni,
       onFillingComplexity: (O) => {
-        so(O), _s(O), F?.(O);
+        so(O), $s(O), F?.(O);
       },
       fillingMaterials: lo,
-      onFillingMaterial: (O, _e) => {
-        va((U1) => ({ ...U1, [O]: _e })), er(O, _e), T?.(O, _e);
+      onFillingMaterial: (O, it) => {
+        va((B1) => ({ ...B1, [O]: it })), tr(O, it), A?.(O, it);
       },
       fissureSealingEnabled: ro,
       onFissureSealingEnabled: (O) => {
-        ga(O), $s(O), I?.(O);
+        ga(O), er(O), z?.(O);
       },
       pdfSettings: li,
       onPdfSettings: (O) => {
-        r2(O), ba(sa());
+        r2(O), ba(ra());
       }
     },
     settingsOpen: Y,
-    setSettingsOpen: S,
+    setSettingsOpen: R,
     pdfOpen: si,
     setPdfOpen: ho,
     creditsOpen: uo,
     setCreditsOpen: un
   };
-  return /* @__PURE__ */ r(Mc.Provider, { value: xn, children: /* @__PURE__ */ r("div", { ref: ke, className: "odontogram-root", dir: af(E) ? "rtl" : "ltr", lang: E, children: e }) });
+  return /* @__PURE__ */ r(Sc.Provider, { value: xn, children: /* @__PURE__ */ r("div", { ref: Me, className: "odontogram-root", dir: af(T) ? "rtl" : "ltr", lang: T, children: e }) });
 }
 const nf = "data:image/png;base64,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", sf = [
   { value: "hu", labelKey: "language.hu" },
@@ -32039,19 +32043,19 @@ function rf() {
     exportPngOn: c,
     exportJpgOn: p,
     exportSvgOn: f,
-    exportPdfOn: u,
+    exportPdfOn: h,
     hasPerio: b,
     importStatusOn: w,
     importFhirOn: y,
     setPdfOpen: v,
     setCreditsOpen: m
-  } = _a(), [D, Z] = _(!1), g = xe(null), [x, C] = _(!1), z = xe(null), [F, L] = _(!1), R = xe(null);
+  } = _a(), [P, S] = _(!1), g = xe(null), [x, I] = _(!1), Z = xe(null), [F, L] = _(!1), j = xe(null);
   return se(() => {
-    const J = (T) => {
-      const M = T.target;
-      g.current?.contains(M) || Z(!1), z.current?.contains(M) || C(!1), R.current?.contains(M) || L(!1);
+    const W = (A) => {
+      const M = A.target;
+      g.current?.contains(M) || S(!1), Z.current?.contains(M) || I(!1), j.current?.contains(M) || L(!1);
     };
-    return document.addEventListener("click", J), () => document.removeEventListener("click", J);
+    return document.addEventListener("click", W), () => document.removeEventListener("click", W);
   }, []), /* @__PURE__ */ k("header", { className: "topbar", children: [
     /* @__PURE__ */ k("div", { className: "brand", children: [
       /* @__PURE__ */ r("img", { className: "brand-logo", src: nf, alt: "", "aria-hidden": "true" }),
@@ -32066,22 +32070,22 @@ function rf() {
         /* @__PURE__ */ r("path", { d: "M10 8.5v7l6-3.5-6-3.5z" })
       ] }) }),
       /* @__PURE__ */ k("div", { id: "languageMenu", className: "topbar-group dropdown", ref: g, children: [
-        /* @__PURE__ */ r("button", { className: "btn-theme", onClick: () => Z((J) => !J), "aria-haspopup": "menu", "aria-expanded": D, title: e("language.label"), "aria-label": e("language.label"), children: /* @__PURE__ */ k("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
+        /* @__PURE__ */ r("button", { className: "btn-theme", onClick: () => S((W) => !W), "aria-haspopup": "menu", "aria-expanded": P, title: e("language.label"), "aria-label": e("language.label"), children: /* @__PURE__ */ k("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
           /* @__PURE__ */ r("circle", { cx: "12", cy: "12", r: "10" }),
           /* @__PURE__ */ r("path", { d: "M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" })
         ] }) }),
-        D && /* @__PURE__ */ r("div", { className: "dropdown-menu", role: "menu", "aria-label": e("language.label"), children: sf.map((J) => /* @__PURE__ */ r(
+        P && /* @__PURE__ */ r("div", { className: "dropdown-menu", role: "menu", "aria-label": e("language.label"), children: sf.map((W) => /* @__PURE__ */ r(
           "button",
           {
             className: "dropdown-item",
             role: "menuitemradio",
-            "aria-checked": t === J.value,
+            "aria-checked": t === W.value,
             onClick: () => {
-              a(J.value), Z(!1);
+              a(W.value), S(!1);
             },
-            children: e(J.labelKey)
+            children: e(W.labelKey)
           },
-          J.value
+          W.value
         )) })
       ] }),
       /* @__PURE__ */ r(
@@ -32109,23 +32113,23 @@ function rf() {
       /* @__PURE__ */ r("button", { id: "btnPerioSvgExport", hidden: !0, "aria-hidden": "true", tabIndex: -1, children: e("export.menu.perioSvg") }),
       /* @__PURE__ */ r("button", { id: "btnPerioPngExport", hidden: !0, "aria-hidden": "true", tabIndex: -1, children: e("export.menu.perioPng") }),
       /* @__PURE__ */ r("button", { id: "btnPerioJpgExport", hidden: !0, "aria-hidden": "true", tabIndex: -1, children: e("export.menu.perioJpg") }),
-      /* @__PURE__ */ k("div", { className: "topbar-group dropdown", ref: z, children: [
-        /* @__PURE__ */ r("button", { id: "btnExportMenu", className: "btn-theme", onClick: () => C((J) => !J), "aria-haspopup": "menu", "aria-expanded": x, title: e("topbar.export"), "aria-label": e("topbar.export"), children: /* @__PURE__ */ r("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ r("path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" }) }) }),
+      /* @__PURE__ */ k("div", { className: "topbar-group dropdown", ref: Z, children: [
+        /* @__PURE__ */ r("button", { id: "btnExportMenu", className: "btn-theme", onClick: () => I((W) => !W), "aria-haspopup": "menu", "aria-expanded": x, title: e("topbar.export"), "aria-label": e("topbar.export"), children: /* @__PURE__ */ r("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ r("path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" }) }) }),
         x && /* @__PURE__ */ k("div", { className: "dropdown-menu", role: "menu", "aria-label": e("topbar.export"), children: [
           /* @__PURE__ */ r("button", { className: "dropdown-item", role: "menuitem", onClick: () => {
-            document.getElementById("btnStatusExport")?.click(), C(!1);
+            document.getElementById("btnStatusExport")?.click(), I(!1);
           }, children: e("export.menu.statusJson") }),
           /* @__PURE__ */ r("button", { className: "dropdown-item", role: "menuitem", onClick: () => {
-            document.getElementById("btnStatusFhirExport")?.click(), C(!1);
+            document.getElementById("btnStatusFhirExport")?.click(), I(!1);
           }, children: e("export.menu.fhir") }),
           c && /* @__PURE__ */ r("button", { className: "dropdown-item", role: "menuitem", onClick: () => {
-            document.getElementById("btnStatusPngExport")?.click(), C(!1);
+            document.getElementById("btnStatusPngExport")?.click(), I(!1);
           }, children: e("export.menu.png") }),
           p && /* @__PURE__ */ r("button", { className: "dropdown-item", role: "menuitem", onClick: () => {
-            document.getElementById("btnStatusJpgExport")?.click(), C(!1);
+            document.getElementById("btnStatusJpgExport")?.click(), I(!1);
           }, children: e("export.menu.jpg") }),
           f && /* @__PURE__ */ r("button", { className: "dropdown-item", role: "menuitem", onClick: () => {
-            document.getElementById("btnStatusSvgExport")?.click(), C(!1);
+            document.getElementById("btnStatusSvgExport")?.click(), I(!1);
           }, children: e("export.menu.svg") }),
           f && /* @__PURE__ */ r(
             "button",
@@ -32134,7 +32138,7 @@ function rf() {
               role: "menuitem",
               disabled: !b,
               onClick: () => {
-                document.getElementById("btnPerioSvgExport")?.click(), C(!1);
+                document.getElementById("btnPerioSvgExport")?.click(), I(!1);
               },
               children: e("export.menu.perioSvg")
             }
@@ -32146,7 +32150,7 @@ function rf() {
               role: "menuitem",
               disabled: !b,
               onClick: () => {
-                document.getElementById("btnPerioPngExport")?.click(), C(!1);
+                document.getElementById("btnPerioPngExport")?.click(), I(!1);
               },
               children: e("export.menu.perioPng")
             }
@@ -32158,18 +32162,18 @@ function rf() {
               role: "menuitem",
               disabled: !b,
               onClick: () => {
-                document.getElementById("btnPerioJpgExport")?.click(), C(!1);
+                document.getElementById("btnPerioJpgExport")?.click(), I(!1);
               },
               children: e("export.menu.perioJpg")
             }
           ),
-          u && /* @__PURE__ */ r(
+          h && /* @__PURE__ */ r(
             "button",
             {
               className: "dropdown-item",
               role: "menuitem",
               onClick: () => {
-                C(!1), v(!0);
+                I(!1), v(!0);
               },
               children: e("export.menu.pdf")
             }
@@ -32177,14 +32181,14 @@ function rf() {
         ] })
       ] }),
       /* @__PURE__ */ r("button", { id: "btnStatusImport", hidden: !0, "aria-hidden": "true", tabIndex: -1, children: e("topbar.importStatus") }),
-      /* @__PURE__ */ k("div", { className: "topbar-group dropdown", ref: R, children: [
-        /* @__PURE__ */ r("button", { id: "btnImportMenu", className: "btn-theme", onClick: () => L((J) => !J), "aria-haspopup": "menu", "aria-expanded": F, title: e("topbar.import"), "aria-label": e("topbar.import"), children: /* @__PURE__ */ r("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ r("path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 8l5-5 5 5M12 3v12" }) }) }),
+      /* @__PURE__ */ k("div", { className: "topbar-group dropdown", ref: j, children: [
+        /* @__PURE__ */ r("button", { id: "btnImportMenu", className: "btn-theme", onClick: () => L((W) => !W), "aria-haspopup": "menu", "aria-expanded": F, title: e("topbar.import"), "aria-label": e("topbar.import"), children: /* @__PURE__ */ r("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ r("path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 8l5-5 5 5M12 3v12" }) }) }),
         F && /* @__PURE__ */ k("div", { className: "dropdown-menu", role: "menu", "aria-label": e("topbar.import"), children: [
           w && /* @__PURE__ */ r("button", { className: "dropdown-item", role: "menuitem", onClick: () => {
-            gr("status"), document.getElementById("btnStatusImport")?.click(), L(!1);
+            vr("status"), document.getElementById("btnStatusImport")?.click(), L(!1);
           }, children: e("import.menu.statusJson") }),
           y && /* @__PURE__ */ r("button", { className: "dropdown-item", role: "menuitem", onClick: () => {
-            gr("fhir"), document.getElementById("btnStatusImport")?.click(), L(!1);
+            vr("fhir"), document.getElementById("btnStatusImport")?.click(), L(!1);
           }, children: e("import.menu.fhir") })
         ] })
       ] }),
@@ -32265,7 +32269,7 @@ function hf() {
     toothAnatomy: s
   } = _a();
   return se(() => {
-    pc();
+    fc();
   }, [t]), se(() => {
     V2();
   }, []), /* @__PURE__ */ k("section", { className: "chart", children: [
@@ -32309,7 +32313,7 @@ function hf() {
     )
   ] });
 }
-function Sc() {
+function Zc() {
   const { t: e, toothInfoOn: t, summary: a } = _a();
   return t && a ? /* @__PURE__ */ k("section", { className: "tooth-info card", "aria-label": e("toothInfo.title"), children: [
     /* @__PURE__ */ r("div", { className: "card-title", children: e("toothInfo.title") }),
@@ -32351,7 +32355,7 @@ function Sc() {
     a.plannedChanges && a.plannedChanges.length > 0 && /* @__PURE__ */ k("div", { id: "plannedChangesBox", className: "planned-changes", children: [
       /* @__PURE__ */ r("div", { className: "tooth-info-heading", children: e("toothInfo.plannedChanges") }),
       a.plannedChanges.map((i, o) => /* @__PURE__ */ k("p", { className: "planned-changes-item", children: [
-        u1(i.toothNo),
+        g1(i.toothNo),
         ": ",
         e(`planChange.axis.${i.axis}`),
         " ",
@@ -32380,7 +32384,7 @@ function Sc() {
 }
 function $a(e) {
   const [t, a] = _(e);
-  return se(() => (a(e()), tt(() => a(e()))), []), t;
+  return se(() => (a(e()), st(() => a(e()))), []), t;
 }
 function uf() {
   const e = $a(P6), t = e ? !e.visible : !1, a = e?.appliance ?? "none", i = e?.drift ?? "none", o = e?.vertical ?? "none", n = e?.rotation ?? !1;
@@ -32394,7 +32398,7 @@ function uf() {
           id: "orthoApplianceSelect",
           value: a,
           onChange: (s) => D6(s.target.value),
-          children: k3().map((s) => /* @__PURE__ */ r("option", { value: s.value, children: s.label }, s.value))
+          children: x3().map((s) => /* @__PURE__ */ r("option", { value: s.value, children: s.label }, s.value))
         }
       )
     ] }),
@@ -32406,7 +32410,7 @@ function uf() {
           id: "orthoDriftSelect",
           value: i,
           onChange: (s) => A6(s.target.value),
-          children: x3().map((s) => /* @__PURE__ */ r("option", { value: s.value, children: s.label }, s.value))
+          children: w3().map((s) => /* @__PURE__ */ r("option", { value: s.value, children: s.label }, s.value))
         }
       )
     ] }),
@@ -32418,7 +32422,7 @@ function uf() {
           id: "orthoVerticalSelect",
           value: o,
           onChange: (s) => T6(s.target.value),
-          children: w3().map((s) => /* @__PURE__ */ r("option", { value: s.value, children: s.label }, s.value))
+          children: M3().map((s) => /* @__PURE__ */ r("option", { value: s.value, children: s.label }, s.value))
         }
       )
     ] }),
@@ -32437,11 +32441,11 @@ function uf() {
   ] });
 }
 function gf() {
-  const e = $a(n8), t = m3(), a = t.map((s) => ({ value: s.id, label: s.label })), [i, o] = _(a[0]?.value ?? ""), n = () => {
+  const e = $a(n8), t = h3(), a = t.map((s) => ({ value: s.id, label: s.label })), [i, o] = _(a[0]?.value ?? ""), n = () => {
     const s = t.find((d) => d.id === i);
     z7(s);
   };
-  return /* @__PURE__ */ k(dt, { children: [
+  return /* @__PURE__ */ k(mt, { children: [
     /* @__PURE__ */ k("div", { className: "row status-actions", id: "statusCardBody", children: [
       /* @__PURE__ */ r("button", { id: "btnResetAll", className: "btn btn-ghost btn-sm", onClick: () => Vp(), children: l("status.resetAll") }),
       /* @__PURE__ */ r("button", { id: "btnPrimaryDentition", className: "btn btn-ghost btn-sm", onClick: () => Kp(), children: l("status.primaryDentition") }),
@@ -32477,7 +32481,7 @@ function vf() {
     ),
     /* @__PURE__ */ r("span", { children: l("tooth.extractionPlan") })
   ] });
-  return /* @__PURE__ */ k(dt, { children: [
+  return /* @__PURE__ */ k(mt, { children: [
     /* @__PURE__ */ k("div", { className: "row", children: [
       /* @__PURE__ */ r("span", { children: l("tooth.baseLabel") }),
       /* @__PURE__ */ r(
@@ -32737,7 +32741,7 @@ function vf() {
     ] })
   ] });
 }
-function Rr({ ind: e }) {
+function jr({ ind: e }) {
   return /* @__PURE__ */ r(
     "span",
     {
@@ -32751,7 +32755,7 @@ function Rr({ ind: e }) {
     }
   );
 }
-function Zc({ cells: e }) {
+function zc({ cells: e }) {
   return /* @__PURE__ */ r("div", { className: "surface-cross", children: e.map((t) => {
     const a = (t.indicators ?? []).filter((o) => o.side === "left"), i = (t.indicators ?? []).filter((o) => o.side === "right");
     return /* @__PURE__ */ k(
@@ -32761,7 +32765,7 @@ function Zc({ cells: e }) {
         style: t.disabled ? { display: "none" } : void 0,
         ...t.attrs ?? {},
         children: [
-          a.map((o) => /* @__PURE__ */ r(Rr, { ind: o }, o.key)),
+          a.map((o) => /* @__PURE__ */ r(jr, { ind: o }, o.key)),
           /* @__PURE__ */ r(
             "input",
             {
@@ -32775,7 +32779,7 @@ function Zc({ cells: e }) {
           ),
           /* @__PURE__ */ r("span", { className: "surf-letter", children: t.letter }),
           /* @__PURE__ */ r("span", { id: t.labelId, className: "surf-name", children: t.label }),
-          i.map((o) => /* @__PURE__ */ r(Rr, { ind: o }, o.key))
+          i.map((o) => /* @__PURE__ */ r(jr, { ind: o }, o.key))
         ]
       },
       t.value
@@ -32795,7 +32799,7 @@ function yf() {
     labelId: `lbl-${i.value}`,
     checked: i.checked,
     disabled: i.disabled,
-    onToggle: (o) => or(i.value, o),
+    onToggle: (o) => nr(i.value, o),
     indicators: [
       {
         key: "surf-depth",
@@ -32807,18 +32811,18 @@ function yf() {
           "data-icdas": String(i.icdas),
           ...i.radio ? { "data-radio": i.radio } : {}
         },
-        children: i.isIcdas ? String(i.icdas) : /* @__PURE__ */ k(dt, { children: [
+        children: i.isIcdas ? String(i.icdas) : /* @__PURE__ */ k(mt, { children: [
           /* @__PURE__ */ r("i", {}),
           /* @__PURE__ */ r("i", {}),
           /* @__PURE__ */ r("i", {})
         ] }),
         onClick: (o) => {
-          !i.checked || _1() || D3(i.surface, o);
+          !i.checked || $1() || A3(i.surface, o);
         }
       }
     ]
   }));
-  return /* @__PURE__ */ k(dt, { children: [
+  return /* @__PURE__ */ k(mt, { children: [
     /* @__PURE__ */ r("div", { className: "hint", ref: t, children: l("caries.hint") }),
     /* @__PURE__ */ k("div", { id: "cariesDepthRow", className: e.cariesDepthVisible ? "row" : "row hidden", children: [
       /* @__PURE__ */ r("span", { children: l("caries.depthLabel") }),
@@ -32828,11 +32832,11 @@ function yf() {
           id: "cariesDepthSelect",
           value: String(e.cariesActiveDepth),
           onChange: (i) => N6(Number(i.target.value)),
-          children: g3().map((i) => /* @__PURE__ */ r("option", { value: i.value, title: i.title, children: i.label }, i.value))
+          children: v3().map((i) => /* @__PURE__ */ r("option", { value: i.value, title: i.title, children: i.label }, i.value))
         }
       )
     ] }),
-    /* @__PURE__ */ r("div", { id: "cariesChecks", children: /* @__PURE__ */ r(Zc, { cells: a }) }),
+    /* @__PURE__ */ r("div", { id: "cariesChecks", children: /* @__PURE__ */ r(zc, { cells: a }) }),
     /* @__PURE__ */ r("div", { id: "cariesSubcrownRow", className: "check-grid subcrown-row", children: /* @__PURE__ */ k("label", { style: e.subcrownDisabled ? { display: "none" } : void 0, children: [
       /* @__PURE__ */ r(
         "input",
@@ -32842,7 +32846,7 @@ function yf() {
           value: "caries-subcrown",
           checked: e.subcrownChecked,
           disabled: e.subcrownDisabled,
-          onChange: (i) => or("caries-subcrown", i.target.checked)
+          onChange: (i) => nr("caries-subcrown", i.target.checked)
         }
       ),
       /* @__PURE__ */ r("span", { id: "lbl-caries-subcrown", children: e.subcrownLabel })
@@ -32886,7 +32890,7 @@ function bf() {
         attrs: i.hasDefect && i.defectValue ? { "data-defect": i.defectValue } : {},
         children: /* @__PURE__ */ r("i", {}),
         onClick: (o) => {
-          !i.checked || _1() || !_l() || _p(i.surface, o);
+          !i.checked || $1() || !$l() || _p(i.surface, o);
         }
       },
       // RIGHT-side recurrent-caries indicator (CARS badge/bars when the filled
@@ -32897,18 +32901,18 @@ function bf() {
         title: l("caries.recurrentHint"),
         side: "right",
         attrs: i.hasSubcaries ? { "data-depth": i.subDepth, "data-icdas": String(i.subIcdas) } : {},
-        children: i.hasSubcaries && i.isIcdas ? String(i.subIcdas) : /* @__PURE__ */ k(dt, { children: [
+        children: i.hasSubcaries && i.isIcdas ? String(i.subIcdas) : /* @__PURE__ */ k(mt, { children: [
           /* @__PURE__ */ r("i", {}),
           /* @__PURE__ */ r("i", {}),
           /* @__PURE__ */ r("i", {})
         ] }),
         onClick: (o) => {
-          !i.checked || _1() || D3(i.surface, o);
+          !i.checked || $1() || A3(i.surface, o);
         }
       }
     ]
   }));
-  return /* @__PURE__ */ k(dt, { children: [
+  return /* @__PURE__ */ k(mt, { children: [
     /* @__PURE__ */ k("div", { className: "row", ref: t, children: [
       /* @__PURE__ */ r("span", { children: l("filling.typeLabel") }),
       /* @__PURE__ */ r(
@@ -32926,7 +32930,7 @@ function bf() {
       {
         id: "fillingSurfaceChecks",
         className: [e.surfaceGridVisible ? null : "hidden", e.defectDisabled ? "defect-disabled" : null].filter(Boolean).join(" "),
-        children: /* @__PURE__ */ r(Zc, { cells: a })
+        children: /* @__PURE__ */ r(zc, { cells: a })
       }
     ),
     /* @__PURE__ */ k("label", { id: "fillingSimpleRow", className: e.simpleRowVisible ? "row fissure-row" : "row fissure-row hidden", children: [
@@ -32973,7 +32977,7 @@ function kf() {
   const e = $a(W6), t = xe(null);
   return f2(() => {
     t.current?.closest("#rootPeriodontiumSection")?.classList.toggle("hidden", !e.sectionVisible);
-  }), /* @__PURE__ */ k(dt, { children: [
+  }), /* @__PURE__ */ k(mt, { children: [
     /* @__PURE__ */ k("div", { id: "rpRootBlock", ref: t, className: e.rootBlockVisible ? void 0 : "hidden", children: [
       /* @__PURE__ */ r("div", { className: "hint", children: l("endo.hint") }),
       /* @__PURE__ */ k("div", { id: "pulpEndoRow", className: "row", children: [
@@ -33130,7 +33134,7 @@ function kf() {
 function xf() {
   const { t: e, showStatusCard: t, showOrthoCard: a } = _a();
   return se(() => {
-    pc();
+    fc();
   }, []), /* @__PURE__ */ k("div", { className: "panel-odontogram-controls", children: [
     /* @__PURE__ */ k("div", { className: "panel-header", children: [
       /* @__PURE__ */ k("div", { children: [
@@ -33223,12 +33227,12 @@ function wf() {
     settingsState: c,
     settingsOpen: p,
     setSettingsOpen: f,
-    pdfOpen: u,
+    pdfOpen: h,
     setPdfOpen: b,
     creditsOpen: w,
     setCreditsOpen: y
   } = _a();
-  return /* @__PURE__ */ k(dt, { children: [
+  return /* @__PURE__ */ k(mt, { children: [
     /* @__PURE__ */ r(rf, {}),
     /* @__PURE__ */ k("main", { className: "layout", children: [
       /* @__PURE__ */ r("div", { className: "perio-launch-bar" + (n ? "" : " hidden"), children: t === "toggle" ? /* @__PURE__ */ k("div", { id: "appViewToggle", className: "chart-mode-toggle", role: "tablist", children: [
@@ -33270,12 +33274,12 @@ function wf() {
       ) }),
       !o && /* @__PURE__ */ k("div", { className: "chart-column", children: [
         /* @__PURE__ */ r(hf, {}),
-        /* @__PURE__ */ r(Sc, {})
+        /* @__PURE__ */ r(Zc, {})
       ] }),
-      o && /* @__PURE__ */ r("div", { className: "dental-chart-column", dir: "ltr", children: /* @__PURE__ */ r(Cr, { inline: !0 }) }),
-      /* @__PURE__ */ r("aside", { className: "panel", children: o ? /* @__PURE__ */ r(hc, {}) : /* @__PURE__ */ r(xf, {}) })
+      o && /* @__PURE__ */ r("div", { className: "dental-chart-column", dir: "ltr", children: /* @__PURE__ */ r(Pr, { inline: !0 }) }),
+      /* @__PURE__ */ r("aside", { className: "panel", children: o ? /* @__PURE__ */ r(uc, {}) : /* @__PURE__ */ r(xf, {}) })
     ] }),
-    t === "popup" && /* @__PURE__ */ r(Cr, { open: s, onClose: nc }),
+    t === "popup" && /* @__PURE__ */ r(Pr, { open: s, onClose: sc }),
     /* @__PURE__ */ r(
       Y9,
       {
@@ -33297,7 +33301,7 @@ function wf() {
     /* @__PURE__ */ r(
       J9,
       {
-        open: u,
+        open: h,
         t: e,
         onClose: () => b(!1)
       }
@@ -33347,25 +33351,25 @@ function am() {
         "aria-label": e("chart.aria.toothGrid")
       }
     ) }),
-    /* @__PURE__ */ r(Sc, {})
+    /* @__PURE__ */ r(Zc, {})
   ] });
 }
-const Sf = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], Zf = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], jr = ["MB", "B", "DB"], Fr = ["ML", "L", "DL"];
-function Ur(e, t) {
+const Sf = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28], Zf = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38], Fr = ["MB", "B", "DB"], Ur = ["ML", "L", "DL"];
+function Br(e, t) {
   const a = [], i = [];
   for (const o of e.teeth) {
-    const n = bt(o.toothNo), s = t.some((d) => Object.prototype.hasOwnProperty.call(n.pd, d));
+    const n = kt(o.toothNo), s = t.some((d) => Object.prototype.hasOwnProperty.call(n.pd, d));
     t.forEach((d, c) => {
-      const f = Object.prototype.hasOwnProperty.call(n.pd, d) ? n.pd[d] : s ? 0 : void 0, u = f === void 0 ? void 0 : Object.prototype.hasOwnProperty.call(n.gm, d) ? n.gm[d] : 0;
-      a.push({ site: d, pd: f, gm: u }), i.push(o.x + o.width * (c + 0.5) / 3);
+      const f = Object.prototype.hasOwnProperty.call(n.pd, d) ? n.pd[d] : s ? 0 : void 0, h = f === void 0 ? void 0 : Object.prototype.hasOwnProperty.call(n.gm, d) ? n.gm[d] : 0;
+      a.push({ site: d, pd: f, gm: h }), i.push(o.x + o.width * (c + 0.5) / 3);
     });
   }
   return { sites: a, xs: i };
 }
-function Br(e, t) {
+function Vr(e, t) {
   const a = [];
   for (const i of e.teeth) {
-    const o = bt(i.toothNo);
+    const o = kt(i.toothNo);
     t.forEach((n, s) => {
       const d = Object.prototype.hasOwnProperty.call(o.pd, n);
       a.push({
@@ -33378,21 +33382,21 @@ function Br(e, t) {
   }
   return a;
 }
-function Vr(e) {
+function Kr(e) {
   return e.style.width = "100%", e.style.height = "auto", e.style.display = "block", e.style.overflow = "visible", e;
 }
 function zf(e, t, a) {
   e.querySelectorAll(".perio-curve, .perio-report-bop-layer").forEach((d) => d.remove());
   const i = Ha(t, a), o = { cejY: i.cejY, mmPx: Ka }, n = e.querySelector("svg.perio-tooth-arch-buccal");
   if (n) {
-    const d = n.querySelector(".perio-tooth-row-buccal") ?? n, c = Ur(i, jr), p = Ei(c.sites, { ...o, siteX: (f) => c.xs[f] });
+    const d = n.querySelector(".perio-tooth-row-buccal") ?? n, c = Br(i, Fr), p = Ei(c.sites, { ...o, siteX: (f) => c.xs[f] });
     d.appendChild(
       Oi(p, {
         width: i.totalWidth,
         className: "perio-curve perio-curve-buccal"
       })
     ), d.appendChild(
-      At(Lo("bop", Br(i, jr), o), {
+      Et(Lo("bop", Vr(i, Fr), o), {
         width: i.totalWidth,
         className: "perio-report-bop-layer"
       })
@@ -33400,25 +33404,25 @@ function zf(e, t, a) {
   }
   const s = e.querySelector("svg.perio-tooth-arch-palatal");
   if (s) {
-    const d = s.querySelector(".perio-tooth-row-palatal-inner") ?? s, c = Ur(i, Fr), p = Ei(c.sites, { ...o, siteX: (f) => c.xs[f] });
+    const d = s.querySelector(".perio-tooth-row-palatal-inner") ?? s, c = Br(i, Ur), p = Ei(c.sites, { ...o, siteX: (f) => c.xs[f] });
     d.appendChild(
       Oi(p, {
         width: i.totalWidth,
         className: "perio-curve perio-curve-palatal"
       })
     ), d.appendChild(
-      At(Lo("bop", Br(i, Fr), o), {
+      Et(Lo("bop", Vr(i, Ur), o), {
         width: i.totalWidth,
         className: "perio-report-bop-layer"
       })
     );
   }
 }
-function Kr(e, t, a) {
+function Hr(e, t, a) {
   const i = e.querySelector("[data-perio-report-aspect='buccal']"), o = e.querySelector("[data-perio-report-aspect='palatal']");
-  !i || !o || (i.innerHTML = "", o.innerHTML = "", i.appendChild(Vr(Aa(t, a, He, void 0, wt))), o.appendChild(Vr(Ta(t, a, He, void 0, wt))), zf(e, t, a));
+  !i || !o || (i.innerHTML = "", o.innerHTML = "", i.appendChild(Kr(Aa(t, a, Xe, void 0, St))), o.appendChild(Kr(Ta(t, a, Xe, void 0, St))), zf(e, t, a));
 }
-function Hr({
+function qr({
   title: e,
   buccalLabel: t,
   palatalLabel: a,
@@ -33524,20 +33528,20 @@ function Cf() {
   return se(() => {
     let a = !1, i = null;
     const o = () => {
-      a || !i || (e.current && Kr(e.current, i, Sf), t.current && Kr(t.current, i, Zf));
+      a || !i || (e.current && Hr(e.current, i, Sf), t.current && Hr(t.current, i, Zf));
     };
     g2().then((s) => {
       a || (i = s, o());
     }).catch((s) => {
       console.error("periodontal report diagram: failed to load tooth templates", s);
     });
-    const n = tt(o);
+    const n = st(o);
     return () => {
       a = !0, n();
     };
   }, []), /* @__PURE__ */ k("div", { className: "periodontal-report-diagram", style: { display: "grid", gap: 14 }, children: [
     /* @__PURE__ */ r(
-      Hr,
+      qr,
       {
         title: "Upper arch",
         buccalLabel: "Buccal",
@@ -33546,7 +33550,7 @@ function Cf() {
       }
     ),
     /* @__PURE__ */ r(
-      Hr,
+      qr,
       {
         title: "Lower arch",
         buccalLabel: "Buccal",
@@ -33605,11 +33609,11 @@ function im() {
   const [e, t] = _(Pf), [a, i] = _(Df);
   se(() => {
     const v = () => {
-      t(h1()), i(Ui());
+      t(u1()), i(Ui());
     };
-    return v(), tt(v);
+    return v(), st(v);
   }, []);
-  const o = na() === "canonical", n = o ? `Avg ${ne("pd")}` : l("perio.summary.avgPd"), s = o ? `Avg ${ne("cal")}` : l("perio.summary.avgCal"), d = o ? `${ne("bop")}%` : l("perio.bopPercent"), c = o ? `Worst ${ne("cal")}` : l("perio.summary.worstCal"), p = o ? `Max ${ne("pd")}` : l("perio.summary.maxPd"), f = o ? `Max ${ne("furcation")}` : l("perio.summary.maxFurcation"), u = o ? `${ne("plaque")}%` : l("plaque.percent"), b = e.worstCal === null ? "–" : `${e.worstCal}${e.worstCalTooth !== null ? ` (${u1(e.worstCalTooth)})` : ""}`, w = [
+  const o = sa() === "canonical", n = o ? `Avg ${ne("pd")}` : l("perio.summary.avgPd"), s = o ? `Avg ${ne("cal")}` : l("perio.summary.avgCal"), d = o ? `${ne("bop")}%` : l("perio.bopPercent"), c = o ? `Worst ${ne("cal")}` : l("perio.summary.worstCal"), p = o ? `Max ${ne("pd")}` : l("perio.summary.maxPd"), f = o ? `Max ${ne("furcation")}` : l("perio.summary.maxFurcation"), h = o ? `${ne("plaque")}%` : l("plaque.percent"), b = e.worstCal === null ? "–" : `${e.worstCal}${e.worstCalTooth !== null ? ` (${g1(e.worstCalTooth)})` : ""}`, w = [
     [n, e.avgPd === null ? "–" : String(e.avgPd)],
     [s, e.avgCal === null ? "–" : String(e.avgCal)],
     [d, `${e.bopPercent}%`],
@@ -33617,7 +33621,7 @@ function im() {
     [c, b],
     [p, e.maxPd === null ? "–" : String(e.maxPd)],
     [f, e.maxFurcation === null ? "–" : Af[e.maxFurcation]],
-    [u, `${e.plaquePercent}%`]
+    [h, `${e.plaquePercent}%`]
   ], y = [
     [l("perio.class.diagnosis"), Tf(a.diagnosis)],
     [l("perio.class.stage"), Ef(a.stage)],
@@ -33666,7 +33670,7 @@ let Kn = !1;
 async function om(e, t) {
   if (Kn) return;
   Kn = !0;
-  const a = t?.reportTitle?.trim() === Gf, i = a ? sa() : null;
+  const a = t?.reportTitle?.trim() === Gf, i = a ? ra() : null;
   try {
     let o = t;
     if (a && t) {
@@ -33692,7 +33696,7 @@ async function om(e, t) {
         }
       };
     }
-    As(o ?? null), await lc(e);
+    As(o ?? null), await cc(e);
   } finally {
     As(null), i && r2(i), Kn = !1;
   }
@@ -33706,14 +33710,14 @@ export {
   tm as OdontogramShell,
   rf as OdontogramTopbar,
   uf as OrthodonticsCard,
-  Cr as PerioChart,
+  Pr as PerioChart,
   im as PeriodontalReportSurface,
   kf as RootPeriodontiumCard,
   gf as StatusesCard,
-  Zc as SurfaceCross,
+  zc as SurfaceCross,
   xf as ToothControlsSurface,
   vf as ToothDetailsCard,
-  Sc as ToothInfoSurface,
+  Zc as ToothInfoSurface,
   P5 as acceptDualStateConfirm,
   Hp as applyMixedDentition,
   Kp as applyPrimaryDentition,
@@ -33721,52 +33725,52 @@ export {
   D5 as cancelDualStateConfirm,
   $f as clearPersistedState,
   D7 as clearSelection,
-  nc as closePerioOverlay,
+  sc as closePerioOverlay,
   tm as default,
   P7 as destroyOdontogram,
   x9 as disablePersistence,
   _f as enablePersistence,
   w7 as exportFhir,
-  fr as exportImage,
+  mr as exportImage,
   om as exportPdf,
-  mr as exportPerioImage,
+  hr as exportPerioImage,
   s7 as exportPerioSvg,
   x7 as exportStatus,
   n7 as exportSvg,
-  u1 as formatToothLabel,
+  g1 as formatToothLabel,
   L6 as getActiveCaries,
   F6 as getActiveFillings,
   P6 as getActiveOrtho,
   W6 as getActiveRootPerio,
   sp as getActiveToothDetails,
   Hf as getCariesDepthEnabled,
-  g3 as getCariesDepthOptions,
+  v3 as getCariesDepthOptions,
   Wa as getChartMode,
   E5 as getDiscolorationDetailLevel,
   n8 as getEdentulous,
   K5 as getFillingComplexity,
-  _l as getFillingDefectEnabled,
+  $l as getFillingDefectEnabled,
   q5 as getFillingMaterialAvailability,
   H5 as getFissureSealingEnabled,
   Ff as getIcdasEnabled,
   Qf as getNotesEnabled,
-  mc as getOdontogramSummary,
-  sa as getPdfSettings,
-  na as getPerioIndexNameMode,
+  hc as getOdontogramSummary,
+  ra as getPdfSettings,
+  sa as getPerioIndexNameMode,
   Bi as getPerioRowVisibility,
-  dr as getPerioViewMode,
+  pr as getPerioViewMode,
   z8 as getPlanChanges,
   qf as getPlanChart,
   Jf as getPluginState,
   A5 as getPulpDetailLevel,
   Kf as getRadiographicDepthMode,
-  _1 as getReadOnly,
+  $1 as getReadOnly,
   Vf as getRootCariesMode,
   Bf as getSecondaryCariesMode,
   k8 as getStatusChart,
-  m3 as getStatusExtras,
+  h3 as getStatusExtras,
   Uf as getSurfaceNotation,
-  Ts as getToothAnatomy,
+  Es as getToothAnatomy,
   Xf as getToothStateSummary,
   T5 as getWearDetailLevel,
   Vo as hasAnyPerioData,
@@ -33775,15 +33779,15 @@ export {
   C5 as isDualStateConfirmPending,
   W8 as isPerioOverlayOpen,
   em as isPersistenceEnabled,
-  tt as onStateChange,
-  D3 as openCariesDepthPopup,
+  st as onStateChange,
+  A3 as openCariesDepthPopup,
   _p as openFillingDefectPopup,
   Y8 as openPerioOverlay,
   V2 as rebuildGrid,
   A7 as registerPlugins,
   Vp as resetMouth,
   Cp as resetTooth,
-  pc as rewireControls,
+  fc as rewireControls,
   d6 as rootCariesOptions,
   X6 as setApicalDxForSelection,
   yp as setBridgePillarForSelection,
@@ -33792,37 +33796,37 @@ export {
   bp as setBrokenMesialForSelection,
   ip as setCalculusForSelection,
   N6 as setCariesActiveDepthForSelection,
-  Bs as setCariesDepthEnabled,
-  or as setCariesSurfaceForSelection,
+  Vs as setCariesDepthEnabled,
+  nr as setCariesSurfaceForSelection,
   _n as setChartMode,
   vp as setContactDistalForSelection,
   gp as setContactMesialForSelection,
   hp as setCrownLeakageForSelection,
   mp as setCrownNeededForSelection,
   fp as setCrownReplaceForSelection,
-  Ns as setDiscolorationDetailLevel,
+  Rs as setDiscolorationDetailLevel,
   Sp as setDiscolorationForSelection,
   Ip as setDiscolorationToggleForSelection,
   Xa as setEdentulous,
   $6 as setEndoResectionForSelection,
   pp as setExtractionPlanForSelection,
   dp as setExtractionWoundForSelection,
-  _s as setFillingComplexity,
-  Qs as setFillingDefectEnabled,
-  er as setFillingMaterialAvailability,
+  $s as setFillingComplexity,
+  _s as setFillingDefectEnabled,
+  tr as setFillingMaterialAvailability,
   U6 as setFillingMaterialForSelection,
   K6 as setFillingSimpleDefectForSelection,
   V6 as setFillingSimpleToggleForSelection,
   B6 as setFillingSurfaceForSelection,
-  $s as setFissureSealingEnabled,
+  er as setFissureSealingEnabled,
   H6 as setFissureSealingForSelection,
   Fi as setHealthyPulpVisible,
-  Os as setIcdasEnabled,
-  gr as setImportFormat,
+  Ls as setIcdasEnabled,
+  vr as setImportFormat,
   up as setMissingClosedForSelection,
   tp as setMobilityForSelection,
   ap as setModForSelection,
-  vr as setNotesEnabled,
+  yr as setNotesEnabled,
   I7 as setNumberingSystem,
   D2 as setOcclusalVisible,
   D6 as setOrthoApplianceForSelection,
@@ -33838,26 +33842,26 @@ export {
   J8 as setPerioViewMode,
   Yf as setPlanChart,
   Wf as setPluginState,
-  Ls as setPulpDetailLevel,
+  Gs as setPulpDetailLevel,
   J6 as setPulpEndoForSelection,
-  Us as setRadiographicDepthMode,
+  Bs as setRadiographicDepthMode,
   F7 as setReadOnly,
   _6 as setResorptionForSelection,
   cp as setRestorationForSelection,
   R6 as setRootCariesForSelection,
-  Fs as setRootCariesMode,
-  js as setSecondaryCariesMode,
+  Us as setRootCariesMode,
+  Fs as setSecondaryCariesMode,
   Uo as setShowBase,
   lp as setSubstrateForSelection,
-  Rs as setSurfaceNotation,
+  js as setSurfaceNotation,
   t5 as setToothAnatomy,
   rp as setToothSelectionForSelection,
   Mp as setWearCervicalForSelection,
   zp as setWearCervicalToggleForSelection,
-  Gs as setWearDetailLevel,
+  Ns as setWearDetailLevel,
   wp as setWearEdgeForSelection,
   Zp as setWearEdgeToggleForSelection,
-  L3 as setWisdomVisible,
+  G3 as setWisdomVisible,
   g9 as startIntroTour,
   $a as useEngineState,
   _a as useOdontogramUi

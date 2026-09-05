@@ -373,14 +373,17 @@ export function assemblePdf(
     drawText(stationery.documentLabel || "CLINICAL REPORT", MARGIN_MM, 19.2);
 
     const rightX = pageWidth - MARGIN_MM;
-    ink(CYAN);
-    doc.setFont(FONT, "normal");
-    doc.setFontSize(6.5);
-    drawText(stationery.recordLabel || "Record number", rightX, 8.2, { align: "right" });
+    const recordLabel = stationery.recordLabel?.trim();
+    if(recordLabel){
+      ink(CYAN);
+      doc.setFont(FONT, "normal");
+      doc.setFontSize(6.5);
+      drawText(recordLabel, rightX, 8.2, { align: "right" });
+    }
     ink([255, 255, 255]);
     doc.setFont(FONT, "bold");
     doc.setFontSize(9.5);
-    drawText(stationery.recordValue || "", rightX, 13.4, { align: "right" });
+    drawText(stationery.recordValue || "", rightX, recordLabel ? 13.4 : 10.8, { align: "right" });
 
     fill(NAVY);
     doc.rect(0, pageHeight - stationeryFooterH, pageWidth, stationeryFooterH, "F");
@@ -388,14 +391,10 @@ export function assemblePdf(
     doc.setFont(FONT, "normal");
     doc.setFontSize(6.5);
     drawText(stationery.footerLabel || "ORALLIX Clinical Report", MARGIN_MM, pageHeight - 5.2);
-    if(stationery.recordValue){
-      doc.setFont(FONT, "bold");
-      drawText(stationery.recordValue, rightX, pageHeight - 6.4, { align: "right" });
-    }
     ink([255, 255, 255]);
     doc.setFont(FONT, "bold");
     doc.setFontSize(7.5);
-    drawText(stationery.footerRight || "orallix.com", rightX, pageHeight - 3.0, { align: "right" });
+    drawText(stationery.footerRight || "orallix.com", rightX, pageHeight - 5.2, { align: "right" });
 
     ink(C_TEXT);
     doc.setFont(FONT, "normal");
@@ -602,6 +601,21 @@ export function assemblePdf(
     y += imgHeight + LINE_HEIGHT_MM;
   };
 
+  // Draw a chart into the remaining content area of the current page without
+  // triggering an internal page break. Used for periodontal status so the
+  // section title and chart stay together as one atomic report block.
+  const imageFitRemaining = (png: string, size?: PdfImageSize) => {
+    if(!png) return;
+    const aspect = size && size.width > 0 ? size.height / size.width : DEFAULT_IMAGE_ASPECT;
+    const availableHeight = Math.max(1, contentBottom - y);
+    const naturalHeight = contentWidth * aspect;
+    const imgHeight = Math.min(availableHeight, naturalHeight);
+    const imgWidth = Math.min(contentWidth, imgHeight / aspect);
+    const x = MARGIN_MM + (contentWidth - imgWidth) / 2;
+    doc.addImage(png, "PNG", x, y, imgWidth, imgHeight);
+    y += imgHeight;
+  };
+
   // Document title at the very top (once), with an accent rule under it.
   const documentTitle = (title: string) => {
     if(!title || stationery) return;
@@ -704,16 +718,17 @@ export function assemblePdf(
   }
 
   if(data.hasPerio && opts.perioStatus){
-    // The periodontal-status chart always starts on its own page — it is a
-    // full-width diagram and reads far better without the odontogram section
-    // crowding above it. Only break when the current page already has content
-    // (so a perio-only report doesn't open with a blank first page).
+    // Keep the periodontal heading + chart atomic on one dedicated page.
+    // The chart scales proportionally only when needed to fit between the
+    // ORALLIX header and footer; it is never split across pages.
     if(y > contentTop){ newPage(); }
     sectionBar(t("pdf.section.perioStatus"));
-    image(data.perioPng, data.perioImageSize);
+    imageFitRemaining(data.perioPng, data.perioImageSize);
   }
 
   if(data.hasPerio && opts.perioDescription){
+    // Description starts on a fresh page after the full periodontal chart.
+    if(opts.perioStatus && y > contentTop){ newPage(); }
     // The metrics table and the abbreviation glossary are each independently
     // toggleable — an empty array skips that whole sub-section.
     if(data.perioMetrics.length){
