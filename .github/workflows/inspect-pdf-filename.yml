@@ -16,4 +16,5 @@ jobs:
       - name: Find PDF filename code
         shell: bash
         run: |
-          grep -nEi "odontogram.*report|report.*pdf|\.save\(" src/odontogram.ts | tail -n 40
+          wc -l src/perioPdf.ts
+          grep -nEi "odontogram.*report|report.*pdf|\.save\(|pdfStamp" src/perioPdf.ts | tail -n 60
