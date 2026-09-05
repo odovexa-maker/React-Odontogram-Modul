@@ -8962,7 +8962,7 @@ function computeAge(dobIso: string, refIso: string): number | null {
 // Odontogram tooth-spacing → horizontal pack factor (1 = as laid out; <1 packs
 // teeth closer / overlapping so the chart scales up bigger).
 const ODONTO_PACK: Record<PdfToothSpacing, number> = { wide: 0.85, medium: 0.72, close: 0.6 };
-const TOOTH_NUMBER_SCALE: Record<PdfToothNumberSize, number> = { small: 1.5, normal: 2, xlarge: 2.6 };
+const TOOTH_NUMBER_SCALE: Record<PdfToothNumberSize, number> = { small: 1.275, normal: 2, xlarge: 2.6 };
 const PDF_BORDER_WIDTH_MM: Record<PdfBorderThickness, number> = { thin: 0.3, medium: 0.7, thick: 1.2 };
 // Perio-chart font size → {row font, row height} + tooth spacing → gap.
 const PERIO_FONT_SIZE: Record<PdfPerioFontSize, { fontSize: number; rowHeight: number }> = {
