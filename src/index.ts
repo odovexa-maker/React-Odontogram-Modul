@@ -49,7 +49,13 @@ export async function exportPdf(
   }
 }
 
-export type { PdfExportOptions, PdfHostReportData, PdfHostReportSection, PdfRow } from "./perioPdf";
+export type {
+  PdfExportOptions,
+  PdfHostReportData,
+  PdfHostReportSection,
+  PdfHostReportStationery,
+  PdfRow,
+} from "./perioPdf";
 
 // Host/report-only composable surfaces. They read the same live engine state as
 // the editor but do not mount editor controls or create another source of truth.
