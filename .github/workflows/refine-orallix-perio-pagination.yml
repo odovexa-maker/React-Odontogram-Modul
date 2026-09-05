@@ -1,0 +1,68 @@
+name: Refine ORALLIX periodontal PDF
+
+on:
+  push:
+    branches:
+      - orallix/clinical-report-stationery-v1
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: orallix/clinical-report-stationery-v1
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Refine stationery and periodontal pagination
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          path = Path('src/perioPdf.ts')
+          text = path.read_text()
+
+          old_header = '''    const rightX = pageWidth - MARGIN_MM;\n    ink(CYAN);\n    doc.setFont(FONT, "normal");\n    doc.setFontSize(6.5);\n    drawText(stationery.recordLabel || "Record number", rightX, 8.2, { align: "right" });\n    ink([255, 255, 255]);\n    doc.setFont(FONT, "bold");\n    doc.setFontSize(9.5);\n    drawText(stationery.recordValue || "", rightX, 13.4, { align: "right" });\n'''
+          new_header = '''    const rightX = pageWidth - MARGIN_MM;\n    const recordLabel = stationery.recordLabel?.trim();\n    if(recordLabel){\n      ink(CYAN);\n      doc.setFont(FONT, "normal");\n      doc.setFontSize(6.5);\n      drawText(recordLabel, rightX, 8.2, { align: "right" });\n    }\n    ink([255, 255, 255]);\n    doc.setFont(FONT, "bold");\n    doc.setFontSize(9.5);\n    drawText(stationery.recordValue || "", rightX, recordLabel ? 13.4 : 10.8, { align: "right" });\n'''
+          if old_header not in text:
+            raise SystemExit('Header record block not found')
+          text = text.replace(old_header, new_header, 1)
+
+          old_footer = '''    drawText(stationery.footerLabel || "ORALLIX Clinical Report", MARGIN_MM, pageHeight - 5.2);\n    if(stationery.recordValue){\n      doc.setFont(FONT, "bold");\n      drawText(stationery.recordValue, rightX, pageHeight - 6.4, { align: "right" });\n    }\n    ink([255, 255, 255]);\n    doc.setFont(FONT, "bold");\n    doc.setFontSize(7.5);\n    drawText(stationery.footerRight || "orallix.com", rightX, pageHeight - 3.0, { align: "right" });\n'''
+          new_footer = '''    drawText(stationery.footerLabel || "ORALLIX Clinical Report", MARGIN_MM, pageHeight - 5.2);\n    ink([255, 255, 255]);\n    doc.setFont(FONT, "bold");\n    doc.setFontSize(7.5);\n    drawText(stationery.footerRight || "orallix.com", rightX, pageHeight - 5.2, { align: "right" });\n'''
+          if old_footer not in text:
+            raise SystemExit('Footer record block not found')
+          text = text.replace(old_footer, new_footer, 1)
+
+          old_image = '''  const image = (png: string, size?: PdfImageSize, border?: { widthMm: number; color: RGB } | null) => {\n    if(!png) return;\n    const aspect = size && size.width > 0 ? size.height / size.width : DEFAULT_IMAGE_ASPECT;\n    const imgWidth = contentWidth;\n    const maxImgHeight = contentBottom - contentTop;\n    const imgHeight = Math.min(maxImgHeight, imgWidth * aspect);\n    ensureSpace(imgHeight);\n    doc.addImage(png, "PNG", MARGIN_MM, y, imgWidth, imgHeight);\n    // Optional frame around the chart.\n    if(border){\n      doc.setDrawColor(border.color[0], border.color[1], border.color[2]);\n      doc.setLineWidth(border.widthMm);\n      doc.rect(MARGIN_MM, y, imgWidth, imgHeight, "S");\n    }\n    y += imgHeight + LINE_HEIGHT_MM;\n  };\n'''
+          new_image = old_image + '''\n  // Draw a chart into the remaining content area of the current page without\n  // triggering an internal page break. Used for periodontal status so the\n  // section title and chart stay together as one atomic report block.\n  const imageFitRemaining = (png: string, size?: PdfImageSize) => {\n    if(!png) return;\n    const aspect = size && size.width > 0 ? size.height / size.width : DEFAULT_IMAGE_ASPECT;\n    const availableHeight = Math.max(1, contentBottom - y);\n    const naturalHeight = contentWidth * aspect;\n    const imgHeight = Math.min(availableHeight, naturalHeight);\n    const imgWidth = Math.min(contentWidth, imgHeight / aspect);\n    const x = MARGIN_MM + (contentWidth - imgWidth) / 2;\n    doc.addImage(png, "PNG", x, y, imgWidth, imgHeight);\n    y += imgHeight;\n  };\n'''
+          if old_image not in text:
+            raise SystemExit('Image helper block not found')
+          text = text.replace(old_image, new_image, 1)
+
+          old_perio = '''  if(data.hasPerio && opts.perioStatus){\n    // The periodontal-status chart always starts on its own page — it is a\n    // full-width diagram and reads far better without the odontogram section\n    // crowding above it. Only break when the current page already has content\n    // (so a perio-only report doesn't open with a blank first page).\n    if(y > contentTop){ newPage(); }\n    sectionBar(t("pdf.section.perioStatus"));\n    image(data.perioPng, data.perioImageSize);\n  }\n\n  if(data.hasPerio && opts.perioDescription){\n'''
+          new_perio = '''  if(data.hasPerio && opts.perioStatus){\n    // Keep the periodontal heading + chart atomic on one dedicated page.\n    // The chart scales proportionally only when needed to fit between the\n    // ORALLIX header and footer; it is never split across pages.\n    if(y > contentTop){ newPage(); }\n    sectionBar(t("pdf.section.perioStatus"));\n    imageFitRemaining(data.perioPng, data.perioImageSize);\n  }\n\n  if(data.hasPerio && opts.perioDescription){\n    // Description starts on a fresh page after the full periodontal chart.\n    if(opts.perioStatus && y > contentTop){ newPage(); }\n'''
+          if old_perio not in text:
+            raise SystemExit('Periodontal pagination block not found')
+          text = text.replace(old_perio, new_perio, 1)
+
+          path.write_text(text)
+          PY
+      - run: npm ci
+      - run: npm run build:lib
+      - name: Commit source and dist
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/perioPdf.ts
+          git add -f dist
+          git commit -m "Refine ORALLIX periodontal PDF pagination"
+          git push origin HEAD:orallix/clinical-report-stationery-v1
