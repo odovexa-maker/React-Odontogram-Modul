@@ -71,17 +71,30 @@ export interface PdfHostReportSection {
   rows: PdfRow[];
 }
 
+/** Optional host stationery. The embedding app supplies a pre-rendered logo
+ * data URL and the report identity strings; the odontogram remains responsible
+ * only for laying them onto every PDF page. */
+export interface PdfHostReportStationery {
+  logoPng?: string;
+  documentLabel?: string;
+  recordLabel?: string;
+  recordValue?: string;
+  footerLabel?: string;
+  footerRight?: string;
+}
+
 /**
  * Optional report data supplied by an embedding clinical application. It can
- * brand the document title, replace the PDF's patient-identity rows, and insert
- * additional tabular clinical sections before the odontogram section. The
- * odontogram remains the report/render engine; this object is never serialized
- * into odontogram JSON/FHIR state.
+ * brand the document title, replace the PDF's patient-identity rows, insert
+ * additional tabular clinical sections before the odontogram section, and
+ * optionally provide page stationery. The odontogram remains the report/render
+ * engine; this object is never serialized into odontogram JSON/FHIR state.
  */
 export interface PdfHostReportData {
   reportTitle?: string;
   patient?: PdfRow[];
   sections?: PdfHostReportSection[];
+  stationery?: PdfHostReportStationery;
 }
 
 // `odontogram.ts` owns the existing browser PDF export flow and calls
@@ -100,6 +113,7 @@ export function setPdfHostReportData(data: PdfHostReportData | null): void {
           title: section.title,
           rows: section.rows.map((row) => ({ ...row })),
         })),
+        stationery: data.stationery ? { ...data.stationery } : undefined,
       }
     : null;
 }
@@ -204,6 +218,7 @@ export interface PdfDocLike {
   setDrawColor: (r: number, g?: number, b?: number) => PdfDocLike;
   setLineWidth: (w: number) => PdfDocLike;
   rect: (x: number, y: number, w: number, h: number, style?: string) => PdfDocLike;
+  circle?: (x: number, y: number, r: number, style?: string) => PdfDocLike;
   line: (x1: number, y1: number, x2: number, y2: number) => PdfDocLike;
   save: (filename?: string) => void;
   internal: { pageSize: { getWidth: () => number; getHeight: () => number } };
@@ -295,6 +310,7 @@ export function assemblePdf(
 ): PdfDocLike {
   const doc = docFactory();
   const hostReport = activeHostReportData;
+  const stationery = hostReport?.stationery;
   // The bundled Unicode font is registered by the caller's docFactory (see
   // exportPdf → loadPdfFont) so Hungarian ő/ű, Cyrillic, Arabic and CJK render.
   // `data.fontFamily` names it; `shape` applies Arabic joining/bidi to every
@@ -308,7 +324,6 @@ export function assemblePdf(
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
   const contentWidth = pageWidth - MARGIN_MM * 2;
-  let y = MARGIN_MM;
 
   // All colours come from the chosen theme palette.
   const { header: C_HEADER, headerText: C_HEADER_TEXT, labelBg: C_LABEL_BG,
@@ -318,14 +333,92 @@ export function assemblePdf(
   const stroke = (c: RGB) => doc.setDrawColor(c[0], c[1], c[2]);
   const ink = (c: RGB) => doc.setTextColor(c[0], c[1], c[2]);
 
-  const ensureSpace = (neededMm: number) => {
-    if(y + neededMm > pageHeight - MARGIN_MM){ doc.addPage(); y = MARGIN_MM; }
+  // Match the established ORALLIX A4 laboratory prescription stationery:
+  // dark navy header/footer, cyan accent, ORALLIX wordmark, and right-aligned
+  // record identity. The clinical report supplies its own wording but reuses
+  // the same visual paper system.
+  const stationeryHeaderH = stationery ? 27 : 0;
+  const stationeryFooterH = stationery ? 11 : 0;
+  const contentTop = stationery ? stationeryHeaderH + 7 : MARGIN_MM;
+  const contentBottom = stationery ? pageHeight - stationeryFooterH - 5 : pageHeight - MARGIN_MM;
+  let y = contentTop;
+
+  const drawStationery = () => {
+    if(!stationery) return;
+    const NAVY: RGB = [0, 29, 60];
+    const CYAN: RGB = [168, 200, 247];
+    const RING: RGB = [1, 55, 113];
+    const SOFT: RGB = [190, 205, 221];
+
+    fill(NAVY);
+    doc.rect(0, 0, pageWidth, stationeryHeaderH, "F");
+    if(doc.circle){
+      stroke(RING);
+      doc.setLineWidth(5.5);
+      doc.circle(pageWidth - 8, -7, 24, "S");
+    }
+
+    if(stationery.logoPng){
+      doc.addImage(stationery.logoPng, "PNG", MARGIN_MM, 5.2, 42, 6.8);
+    }else{
+      ink([255, 255, 255]);
+      doc.setFont(FONT, "bold");
+      doc.setFontSize(16);
+      drawText("ORALLIX", MARGIN_MM, 10.5);
+    }
+
+    ink(CYAN);
+    doc.setFont(FONT, "bold");
+    doc.setFontSize(7.5);
+    drawText(stationery.documentLabel || "CLINICAL REPORT", MARGIN_MM, 19.2);
+
+    const rightX = pageWidth - MARGIN_MM;
+    ink(CYAN);
+    doc.setFont(FONT, "normal");
+    doc.setFontSize(6.5);
+    drawText(stationery.recordLabel || "Record number", rightX, 8.2, { align: "right" });
+    ink([255, 255, 255]);
+    doc.setFont(FONT, "bold");
+    doc.setFontSize(9.5);
+    drawText(stationery.recordValue || "", rightX, 13.4, { align: "right" });
+
+    fill(NAVY);
+    doc.rect(0, pageHeight - stationeryFooterH, pageWidth, stationeryFooterH, "F");
+    ink(SOFT);
+    doc.setFont(FONT, "normal");
+    doc.setFontSize(6.5);
+    drawText(stationery.footerLabel || "ORALLIX Clinical Report", MARGIN_MM, pageHeight - 5.2);
+    if(stationery.recordValue){
+      doc.setFont(FONT, "bold");
+      drawText(stationery.recordValue, rightX, pageHeight - 6.4, { align: "right" });
+    }
+    ink([255, 255, 255]);
+    doc.setFont(FONT, "bold");
+    doc.setFontSize(7.5);
+    drawText(stationery.footerRight || "orallix.com", rightX, pageHeight - 3.0, { align: "right" });
+
+    ink(C_TEXT);
+    doc.setFont(FONT, "normal");
+    doc.setFontSize(10);
   };
 
-  // Colored section-heading bar.
+  const newPage = () => {
+    doc.addPage();
+    drawStationery();
+    y = contentTop;
+  };
+
+  const ensureSpace = (neededMm: number) => {
+    if(y + neededMm > contentBottom){ newPage(); }
+  };
+
+  drawStationery();
+
+  // Colored section-heading bar. Reserve enough room for at least one normal
+  // row so a heading never becomes orphaned at the bottom of a page.
   const sectionBar = (title: string) => {
     const barH = 7.5;
-    ensureSpace(barH + 3);
+    ensureSpace(barH + 3 + 10);
     fill(C_HEADER);
     doc.rect(MARGIN_MM, y, contentWidth, barH, "F");
     ink(C_HEADER_TEXT);
@@ -374,7 +467,7 @@ export function assemblePdf(
       const valueLines = row.value ? wrapPlainText(row.value, valBudget) : [""];
       const n = Math.max(labelLines.length, valueLines.length, 1);
       const rowH = n * lineH + pad * 2;
-      if(y + rowH > pageHeight - MARGIN_MM){ doc.addPage(); y = MARGIN_MM; }
+      if(y + rowH > contentBottom){ newPage(); }
 
       fill(C_LABEL_BG);
       doc.rect(MARGIN_MM, y, labelW, rowH, "F");
@@ -449,7 +542,7 @@ export function assemblePdf(
       const labelLines = wrapPlainText(row.label, labelBudget);
       const nLines = Math.max(1, labelLines.length, ...cellLines.map((l) => l.length));
       const rowH = nLines * lineH + pad * 2;
-      if(y + rowH > pageHeight - MARGIN_MM){ doc.addPage(); y = MARGIN_MM; }
+      if(y + rowH > contentBottom){ newPage(); }
       fill(C_LABEL_BG);
       doc.rect(MARGIN_MM, y, labelW, rowH, "F");
       fill(ri % 2 ? C_ROW_ALT : C_ROW_BG);
@@ -496,7 +589,7 @@ export function assemblePdf(
     if(!png) return;
     const aspect = size && size.width > 0 ? size.height / size.width : DEFAULT_IMAGE_ASPECT;
     const imgWidth = contentWidth;
-    const maxImgHeight = pageHeight - MARGIN_MM * 2;
+    const maxImgHeight = contentBottom - contentTop;
     const imgHeight = Math.min(maxImgHeight, imgWidth * aspect);
     ensureSpace(imgHeight);
     doc.addImage(png, "PNG", MARGIN_MM, y, imgWidth, imgHeight);
@@ -511,7 +604,7 @@ export function assemblePdf(
 
   // Document title at the very top (once), with an accent rule under it.
   const documentTitle = (title: string) => {
-    if(!title) return;
+    if(!title || stationery) return;
     ink(C_HEADER);
     doc.setFontSize(20);
     doc.setFont(FONT, "bold");
@@ -527,8 +620,11 @@ export function assemblePdf(
   };
 
   // End-of-document footer — disclaimer + generation/version stamp with GitHub
-  // + DOI attribution links. Anchored to the bottom of the last page.
+  // + DOI attribution links. Anchored to the bottom of the last page. Hosted
+  // stationery reports deliberately suppress this engine attribution block;
+  // the host owns its clinical document footer.
   const footerBlock = (f: PdfFooter) => {
+    if(stationery) return;
     const lineH = 3.6;
     const discBudget = Math.max(20, Math.floor(contentWidth / 1.35));
     const discLines = f.disclaimer ? wrapPlainText(f.disclaimer, discBudget) : [];
@@ -538,8 +634,8 @@ export function assemblePdf(
     if(discLines.length === 0 && genLines === 0) return;
     const gap = discLines.length && genLines ? 2 : 0;
     const blockH = 3 + discLines.length * lineH + gap + genLines * lineH + 2;
-    if(y + 8 + blockH > pageHeight - MARGIN_MM){ doc.addPage(); y = MARGIN_MM; }
-    y = Math.max(y + 8, pageHeight - MARGIN_MM - blockH);
+    if(y + 8 + blockH > contentBottom){ newPage(); }
+    y = Math.max(y + 8, contentBottom - blockH);
     stroke(C_BORDER);
     doc.setLineWidth(0.3);
     doc.line(MARGIN_MM, y, MARGIN_MM + contentWidth, y);
@@ -612,7 +708,7 @@ export function assemblePdf(
     // full-width diagram and reads far better without the odontogram section
     // crowding above it. Only break when the current page already has content
     // (so a perio-only report doesn't open with a blank first page).
-    if(y > MARGIN_MM){ doc.addPage(); y = MARGIN_MM; }
+    if(y > contentTop){ newPage(); }
     sectionBar(t("pdf.section.perioStatus"));
     image(data.perioPng, data.perioImageSize);
   }
