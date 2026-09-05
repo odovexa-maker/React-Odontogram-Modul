@@ -92,24 +92,31 @@ export async function exportPdf(
       // Report-only override. Restore the caller's session settings in finally.
       setPdfSettings({
         toothNumberSize: "small",
+        colorTheme: "slate",
         showDisclaimer: false,
         showGenerator: false,
       });
 
       const logoPng = await loadOrallixLogoDataUrl();
+      const recordValue =
+        hostReportData.stationery?.recordValue?.trim() ||
+        hostReportData.patient?.find((row) => {
+          const label = row.label.trim().toLowerCase();
+          return label === "record number" || label === "record no." || label === "record no";
+        })?.value?.trim() ||
+        "";
+
       scopedHostReportData = {
         ...hostReportData,
-        stationery: hostReportData.stationery ?? {
-          logoPng,
-          documentLabel: "Clinical Record Report",
-          recordLabel: "Record number",
-          recordValue:
-            hostReportData.patient?.find(
-              (row) => row.label.trim().toLowerCase() === "record number",
-            )?.value ?? "",
+        stationery: {
+          logoPng: hostReportData.stationery?.logoPng ?? logoPng,
+          documentLabel:
+            hostReportData.stationery?.documentLabel ?? "Clinical Record Report",
+          recordLabel: hostReportData.stationery?.recordLabel ?? "Record number",
+          recordValue,
           footerLabel:
-            "Confidential clinical record · Authorized clinical use only",
-          footerRight: "orallix.com",
+            hostReportData.stationery?.footerLabel ?? "ORALLIX Clinical Record Report",
+          footerRight: hostReportData.stationery?.footerRight ?? "orallix.com",
         },
       };
     }
