@@ -1,0 +1,19 @@
+name: Inspect PDF filename
+
+on:
+  push:
+    branches:
+      - orallix/clinical-report-stationery-v1
+
+jobs:
+  inspect:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: orallix/clinical-report-stationery-v1
+      - name: Find PDF filename code
+        shell: bash
+        run: |
+          grep -nEi "odontogram.*report|report.*pdf|\.save\(" src/odontogram.ts | tail -n 40
